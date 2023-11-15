@@ -1,0 +1,45 @@
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+    text-transform: capitalize !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+}
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+    color: rgb(236, 109, 12) !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+}
+
+.css-1aquho2-MuiTabs-indicator {
+    background-color: transparent !important;
+}
+
+.css-heg063-MuiTabs-flexContainer {
+    justify-content: space-between;
+    flex-wrap: wrap !important;
+}
+
+.tab_div_main {
+    padding: 20px 16px;
+}
+
+.report-details {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+.report-details>span {
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+.css-ke5b6m-MuiButtonBase-root-MuiButton-root {
+    padding: 15px !important;
+}
+.search-input{
+    display: flex;
+    gap: 5px;
+}
