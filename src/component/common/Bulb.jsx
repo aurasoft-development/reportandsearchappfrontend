@@ -1,7 +1,11 @@
+import { Button } from '@mui/material';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const Bulb = () => {
+ 
+  const navigate = useNavigate(); 
 
   const [isLightOn, setLightOn] = useState(false);
 
@@ -12,6 +16,10 @@ const Bulb = () => {
   const turnOffLight = () => {
     setLightOn(false);
   };
+
+  const payMent = () =>{
+    navigate('/payment')
+  }
 
   return (
     <>
@@ -55,7 +63,8 @@ const Bulb = () => {
 
               </tbody>
             </table>
-            <button>view More to click here </button>
+            <Button className='m-2' variant="contained" onClick={payMent}>Pay here to view more </Button>
+
           </div>
         </div>
 
