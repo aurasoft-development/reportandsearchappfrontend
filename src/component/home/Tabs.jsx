@@ -8,6 +8,7 @@ import '../../assets/css/Tab.css'
 import { Button, TextField } from '@mui/material';
 import { FindState } from '../../context/FindContext';
 import axios from 'axios'
+import CategoryModel from '../model/CategoryModel';
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -113,7 +114,7 @@ export default function BasicTabs() {
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
-                            <span>Add Category</span>
+                            <span><CategoryModel data={1} /></span>
                             <div className="search-input">
                                 <TextField
                                     type="search"
@@ -128,9 +129,6 @@ export default function BasicTabs() {
                                 <Button variant="contained" color="success">Search</Button>
                             </div>
                         </div>
-                        {/* <div>
-                            <ViewReport data={category1.data} />
-                        </div> */}
                     </div>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={1}>
@@ -144,7 +142,7 @@ export default function BasicTabs() {
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
-                            <span>Add Category</span>
+                            <span><CategoryModel data={2} /></span>
                             <div className="search-input">
                                 <TextField
                                     type="search"
@@ -159,9 +157,6 @@ export default function BasicTabs() {
                                 <Button variant="contained" color="success">Search</Button>
                             </div>
                         </div>
-                        {/* <div>
-                            <ViewReport data={category2.data} />
-                        </div> */}
                     </div>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={2}>
@@ -175,7 +170,7 @@ export default function BasicTabs() {
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
-                            <span>Add Category</span>
+                            <span><CategoryModel data={3} /></span>
                             <div className="search-input">
                                 <TextField
                                     type="search"
@@ -190,9 +185,7 @@ export default function BasicTabs() {
                                 <Button variant="contained" color="success">Search</Button>
                             </div>
                         </div>
-                        {/* <div>
-                            <ViewReport data={category3.data} />
-                        </div> */}
+
                     </div>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={3}>
@@ -206,7 +199,7 @@ export default function BasicTabs() {
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
-                            <span>Add Category</span>
+                            <span><CategoryModel data={4} /></span>
                             <div className="search-input">
                                 <TextField
                                     type="search"

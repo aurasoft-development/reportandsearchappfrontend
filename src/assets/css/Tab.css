@@ -39,7 +39,13 @@
 .css-ke5b6m-MuiButtonBase-root-MuiButton-root {
     padding: 15px !important;
 }
-.search-input{
+
+.search-input {
     display: flex;
     gap: 5px;
+}
+
+.search-input
+.css-ke5b6m-MuiButtonBase-root-MuiButton-root {
+    width: 100px !important;
 }
