@@ -1,6 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Payment = () => {
+    const navigate = useNavigate(); 
+
+    const FutherForward = () =>{
+        navigate("/alldetails")
+    }
+
     return (
         <>
             <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>
@@ -113,6 +120,7 @@ const Payment = () => {
                                                 <button
                                                     type="button"
                                                     className="btn btn-info btn-block btn-lg"
+                                                    onClick={FutherForward}
                                                 >
                                                     <div className="d-flex justify-content-between">
                                                         {/* <span>$4818.00</span> */}

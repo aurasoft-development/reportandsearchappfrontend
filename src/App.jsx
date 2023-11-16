@@ -8,7 +8,7 @@ function App() {
   return (
     <div className='App'>
       <AllRoutes />
-      <Bulb />
+      {/* <Bulb /> */}
       {/* <Payment /> */}
     </div>
   )
