@@ -9,6 +9,7 @@ import { Button, TextField } from '@mui/material';
 import { FindState } from '../../context/FindContext';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import CategoryModel from '../model/CategoryModel';
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -135,7 +136,7 @@ console.log('vikas data', searchResult);
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
-                            <span>Add Category</span>
+                            <span><CategoryModel data={1} /></span>
                             <div className="search-input">
                                 <TextField
                                     type="search"
@@ -203,7 +204,7 @@ console.log('vikas data', searchResult);
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
-                            <span>Add Category</span>
+                            <span><CategoryModel data={2} /></span>
                             <div className="search-input">
                                 <TextField
                                     type="search"
@@ -219,9 +220,6 @@ console.log('vikas data', searchResult);
                                 <Button variant="contained" color="success" onClick={() => handleSearch2(searchData2)}>Search</Button>
                             </div>
                         </div>
-                        {/* <div>
-                            <ViewReport data={category2.data} />
-                        </div> */}
                     </div>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={2}>
@@ -236,7 +234,7 @@ console.log('vikas data', searchResult);
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
-                            <span>Add Category</span>
+                            <span><CategoryModel data={3} /></span>
                             <div className="search-input">
                                 <TextField
                                     type="search"
@@ -252,9 +250,7 @@ console.log('vikas data', searchResult);
                                 <Button variant="contained" color="success" onClick={() => handleSearch3(searchData3)}>Search</Button>
                             </div>
                         </div>
-                        {/* <div>
-                            <ViewReport data={category3.data} />
-                        </div> */}
+
                     </div>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={3}>
@@ -269,7 +265,7 @@ console.log('vikas data', searchResult);
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
-                            <span>Add Category</span>
+                            <span><CategoryModel data={4} /></span>
                             <div className="search-input">
                                 <TextField
                                     type="search"

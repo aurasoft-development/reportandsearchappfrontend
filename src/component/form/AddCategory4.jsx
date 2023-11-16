@@ -5,13 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Webcam from 'react-webcam';
 import CloseIcon from '@mui/icons-material/Close';
 import { FindState } from '../../context/FindContext';
-import { useNavigate } from 'react-router-dom'
-
-const AddCategory1 = () => {
+// import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
+// import 'react-html5-camera-photo/build/css/index.css';
+const AddCategory4 = () => {
     const webcamRef = useRef(null);
     const [showWebcam, setShowWebcam] = useState(false);
-    const { open, setOpen } = FindState()
-    const navigate = useNavigate();
+    const { open4, setOpen4 } = FindState()
     const [formData, setFormData] = useState({
         uid: '',
         name: '',
@@ -39,9 +38,8 @@ const AddCategory1 = () => {
     };
     const onSubmit = (event) => {
         event.preventDefault();
-        localStorage.setItem("category1", JSON.stringify(formData));
-        setOpen(false)
-        navigate('/otpverification')
+        localStorage.setItem("category4", JSON.stringify(formData));
+
     };
     const captureSelfie = () => {
         if (webcamRef.current) {
@@ -76,7 +74,7 @@ const AddCategory1 = () => {
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" >
                         <h2 className="headerStyle">Add Category Report</h2>
-                        <span className='addcategory_icon' onClick={() => setOpen(false)}><CloseIcon /></span>
+                        <span className='addcategory_icon' onClick={() => setOpen4(false)}><CloseIcon /></span>
                     </Grid>
                     <div className="container">
                         <form className="row mb-3" onSubmit={onSubmit}>
@@ -311,7 +309,7 @@ const AddCategory1 = () => {
                                 </Grid>
                             </Grid>
                             <div className="text-center my-2 mt-4">
-                                <Button variant="contained" type="submit" className="m-2" >
+                                <Button variant="contained" type="submit" className="m-2" onClick={() => setOpen(false)} >
                                     AddCategory
                                 </Button>
                             </div>
@@ -323,4 +321,4 @@ const AddCategory1 = () => {
     );
 };
 
-export default AddCategory1;
+export default AddCategory4;

@@ -5,6 +5,9 @@ import AddCategory1 from '../component/form/AddCategory1'
 import Bulb from '../component/common/Bulb'
 import Payment from '../component/common/Payment'
 import AllDetails from '../component/common/AllDetails'
+import OtpVarifacation from '../component/home/OtpVarifacation'
+import CategoryDetails from '../component/view_details/CategoryDetails'
+// import AddCategory1 from '../component/form/AddCategory1'
 
 const AllRoutes = () => {
     return (
@@ -15,6 +18,8 @@ const AllRoutes = () => {
                 <Route path="/bulb" element={< Bulb />} /> 
                 <Route path="/payment" element={< Payment />} />
                 <Route path="/alldetails" element={< AllDetails />} />
+                <Route path="/otpverification" element={<OtpVarifacation />} />
+                <Route path="/category_details" element={<CategoryDetails />} />
 
 
             </Routes> 
