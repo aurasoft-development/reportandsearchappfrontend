@@ -2,6 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    background-color: rgb(230, 225, 225);
 }
 
 .otp_wrapper {
@@ -9,10 +11,11 @@
     width: 100%;
     padding: 20px;
     border: 1px solid rgb(52, 50, 50);
+    border-radius: 8px;
 }
 
 .PhoneInputInput {
-    padding: 10px;
+    padding: 15px;
     border-radius: 8px;
 }
 
@@ -25,5 +28,34 @@
 .send_otp {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 15px;
+}
+
+.css-ke5b6m-MuiButtonBase-root-MuiButton-root {
+    max-width: 150px !important;
+    width: 100% !important;
+}
+
+.otp-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.otp-btn>input {
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.css-zcbmsk-MuiButtonBase-root-MuiButton-root {
+    padding: 15px !important;
+    max-width: 150px !important;
+    width: 100% !important;
+}
+
+.verify-otp-btn {
+    text-align: end;
+}
+#recaptcha-container{
+    margin: 0 0 10px 40px !important;
 }
