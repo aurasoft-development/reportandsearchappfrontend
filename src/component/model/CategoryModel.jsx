@@ -33,16 +33,16 @@ export default function CategoryModel({ data }) {
     return (
         <div>
             {
-                data == 1 ? <Button variant="contained" color="success" onClick={handleOpen}>Add Category</Button> : ""
+                data == 1 ? <Button variant="contained" color="success" onClick={handleOpen}>Add Report</Button> : ""
             }
             {
-                data == 2 ? <Button variant="contained" color="success" onClick={handleOpen2}>Add Category</Button> : ""
+                data == 2 ? <Button variant="contained" color="success" onClick={handleOpen2}>Add Report</Button> : ""
             }
             {
-                data == 3 ? <Button variant="contained" color="success" onClick={handleOpen3}>Add Category</Button> : ""
+                data == 3 ? <Button variant="contained" color="success" onClick={handleOpen3}>Add Report</Button> : ""
             }
             {
-                data == 4 ? <Button variant="contained" color="success" onClick={handleOpen4}>Add Category</Button> : ""
+                data == 4 ? <Button variant="contained" color="success" onClick={handleOpen4}>Add Report</Button> : ""
             }
 
             {/* <Button onClick={handleOpen2}>Add Category</Button>

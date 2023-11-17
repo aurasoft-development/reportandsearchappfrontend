@@ -24,6 +24,7 @@ const FindProvider = ({ children }) => {
     const [open3, setOpen3] = useState(false);
     const [open4, setOpen4] = useState(false);
     const [search, setSearch] = useState("")
+    const [cat, setCat] = useState("")
     const [searchResult, setSearchResult] = useState([])
 
     const getCategory1 = async () => {
@@ -68,19 +69,17 @@ const FindProvider = ({ children }) => {
     }, [])
 
     function setUpRecaptcha(number) {
-        console.log("----number---->", number);
         const recaptchaVerifier = new RecaptchaVerifier(
             auth,
             "recaptcha-container",
             {}
         );
-        console.log("recaptchVerifier------>", recaptchaVerifier);
         recaptchaVerifier.render()
         return signInWithPhoneNumber(auth, number, recaptchaVerifier)
     }
 
     return (
-        <FindContext.Provider value={{ category1, category2, category3, category4, search, setSearch, searchResult, setSearchResult, open, setOpen, open2, setOpen2, open3, setOpen3, open4, setOpen4, setUpRecaptcha }}>
+        <FindContext.Provider value={{ category1, category2, category3, category4, search, setSearch, searchResult, setSearchResult, open, setOpen, open2, setOpen2, open3, setOpen3, open4, setOpen4, setUpRecaptcha, cat, setCat }}>
             {children}
         </FindContext.Provider>
     )

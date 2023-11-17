@@ -10,6 +10,7 @@ import { FindState } from '../../context/FindContext';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import CategoryModel from '../model/CategoryModel';
+import commonApiRequest from '../../api/commonApi';
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -67,7 +68,8 @@ export default function BasicTabs() {
             return;
         }
         try {
-            const { data } = await axios.get(`http://localhost:5000/api/search/all/categories?search=${search}`)
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/search/all/categories?search=${search}`)
+            // await commonApiRequest('get', `/api/search/all/categories?search=${search}`);
             setSearchResult(data)
         } catch (error) {
             console.log(error);
@@ -81,7 +83,7 @@ export default function BasicTabs() {
             return;
         }
         try {
-            const { data } = await axios.get(`http://localhost:5000/api/cat2/search/all/categories?search=${search}`)
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat2/search/all/categories?search=${search}`)
             setSearchResult(data)
         } catch (error) {
             console.log(error);
@@ -95,7 +97,7 @@ export default function BasicTabs() {
             return;
         }
         try {
-            const { data } = await axios.get(`http://localhost:5000/api/cat3/search/all/categories?search=${search}`)
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat3/search/all/categories?search=${search}`)
             setSearchResult(data)
         } catch (error) {
             console.log(error);
@@ -109,7 +111,7 @@ export default function BasicTabs() {
             return;
         }
         try {
-            const { data } = await axios.get(`http://localhost:5000/api/cat4/search/all/categories?search=${search}`)
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat4/search/all/categories?search=${search}`)
             setSearchResult(data)
         } catch (error) {
             console.log(error);
@@ -275,8 +277,7 @@ console.log('vikas data', searchResult);
                                     placeholder="Enter UID"
                                     label="Search"
                                     // value={"search"}
-                                    // onChange={(e) => handleSearch4(e.target.value)}
-                                    onChange={(e) => setSearhData4(e.target.value)}
+                                    onChange={(e) => handleSearch4(e.target.value)}
                                 />
                                 <Button variant="contained" color="success" onClick={() => handleSearch4(searchData4)}>Search</Button>
                             </div>
