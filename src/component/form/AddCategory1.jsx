@@ -44,14 +44,7 @@ const AddCategory1 = () => {
         setOpen(false)
         navigate('/otpverification')
     };
-    // const captureSelfie = () => {
-    //     if (webcamRef.current) {
-    //         const imageSrc = webcamRef.current.getScreenshot();
-
-    //         console.log('imgage we have capture', imageSrc);
-    //     }
-    //     setShowWebcam(false)
-    // };
+   
 
     const captureSelfie = () => {
         if (webcamRef.current) {
@@ -319,19 +312,7 @@ const AddCategory1 = () => {
                                             onChange={handleInputChange}
                                         />
                                     </Grid>
-                                    <Grid>
-                                        <TextField
-                                            label="field12"
-                                            variant="standard"
-                                            // value={formData.address}
-                                            fullWidth
-                                            type="text"
-                                            name="field12"
-                                            autoComplete="off"
-                                            className="my-2"
-                                            onChange={handleInputChange}
-                                        />
-                                    </Grid>
+
                                     <Grid className="my-2"  >
                                         <button className="my-2" onClick={() => setShowWebcam(true)}>Open Webcam</button>
                                         {showWebcam && (
