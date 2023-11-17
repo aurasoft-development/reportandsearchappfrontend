@@ -8,6 +8,7 @@ import '../../assets/css/Tab.css'
 import { Button, TextField } from '@mui/material';
 import { FindState } from '../../context/FindContext';
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 import CategoryModel from '../model/CategoryModel';
 import commonApiRequest from '../../api/commonApi';
 
@@ -45,12 +46,23 @@ function a11yProps(index) {
 }
 
 export default function BasicTabs() {
+    const navigate = useNavigate(); 
+
     const [value, setValue] = React.useState(0);
+    const [searchData, setSearhData] = React.useState("");
+    const [searchData2, setSearhData2] = React.useState("");
+    const [searchData3, setSearhDat3] = React.useState("");
+    const [searchData4, setSearhData4] = React.useState("");
+
+    const [userDetails , setUserDetails] = React.useState("")
+
     const { category1, category2, category3, category4, search, setSearch, searchResult, setSearchResult } = FindState();
+    console.log("data get here", searchResult);
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
     const handleSearch = async (query) => {
+        console.log("data get at first category", query);
         setSearch(query);
         if (!query) {
             return;
@@ -65,6 +77,7 @@ export default function BasicTabs() {
     }
 
     const handleSearch2 = async (query) => {
+        console.log("data get at second category", query);
         setSearch(query);
         if (!query) {
             return;
@@ -78,6 +91,7 @@ export default function BasicTabs() {
     }
 
     const handleSearch3 = async (query) => {
+        console.log("data get at third category", query);
         setSearch(query);
         if (!query) {
             return;
@@ -91,6 +105,7 @@ export default function BasicTabs() {
     }
 
     const handleSearch4 = async (query) => {
+        console.log("data get at forth category", query);
         setSearch(query);
         if (!query) {
             return;
@@ -102,6 +117,12 @@ export default function BasicTabs() {
             console.log(error);
         }
     }
+
+    const payMent = () =>{
+        navigate('/payment')
+      }
+
+console.log('vikas data', searchResult);
     return (
         <Box sx={{ width: '100%' }}>
             <div className='tab_sec_container '>
@@ -113,6 +134,7 @@ export default function BasicTabs() {
                             <Tab label='Category3' {...a11yProps(2)} />
                             <Tab label='Category4' {...a11yProps(3)} />
                         </Tabs>
+                        <h3>hello  i am first category here </h3>
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
@@ -125,11 +147,51 @@ export default function BasicTabs() {
                                     id="search"
                                     placeholder="Enter UID"
                                     label="Search"
-                                    onChange={(e) => handleSearch(e.target.value)}
+                                    // value={"search"}
+                                    // onChange={(e) => handleSearch(e.target.value)}
+                                    onChange={(e) => setSearhData(e.target.value)}
                                 />
-                                <Button variant="contained" color="success">Search</Button>
+                                <Button variant="contained" color="success" onClick={() => handleSearch(searchData)}>Search</Button>
                             </div>
                         </div>
+                        <div className="user-details">
+                            {searchResult.length > 0 ? (
+                                <>
+                                    <div className="card mt-3  m-3 p-1">
+                                        <hr className="border-light m-0" />
+                                        <div className="card-body">
+                                            <table className="table user-view-table m-0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>UID:</td> 
+                                                        <td>{searchResult[0].uid}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Name:</td>
+                                                        <td>{searchResult[0].name}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Number:</td> 
+                                                        <td>{searchResult[0].number}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Address:</td>  
+                                                        <td>{searchResult[0].address}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <Button className='m-2' variant="contained" onClick={payMent}>Pay here to view more </Button>
+
+                                        </div>
+                                    </div>
+                                </>
+                            ) : (
+                                <p>User details not available.</p>
+                            )}
+                        </div>
+                        {/* <div>
+                            <ViewReport data={category1.data} />
+                        </div> */}
                     </div>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={1}>
@@ -140,6 +202,7 @@ export default function BasicTabs() {
                             <Tab label='Category3' {...a11yProps(2)} />
                             <Tab label='Category4' {...a11yProps(3)} />
                         </Tabs>
+                        <h3>hello  i am second category </h3>
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
@@ -152,9 +215,11 @@ export default function BasicTabs() {
                                     id="search"
                                     placeholder="Enter UID"
                                     label="Search"
-                                    onChange={(e) => handleSearch2(e.target.value)}
+                                    // value={"search"}
+                                    // onChange={(e) => handleSearch2(e.target.value)}
+                                    onChange={(e) => setSearhData2(e.target.value)}
                                 />
-                                <Button variant="contained" color="success">Search</Button>
+                                <Button variant="contained" color="success" onClick={() => handleSearch2(searchData2)}>Search</Button>
                             </div>
                         </div>
                     </div>
@@ -167,6 +232,7 @@ export default function BasicTabs() {
                             <Tab label='Category3' {...a11yProps(2)} />
                             <Tab label='Category4' {...a11yProps(3)} />
                         </Tabs>
+                        <h3>hello  i am third  category </h3>
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
@@ -179,9 +245,11 @@ export default function BasicTabs() {
                                     id="search"
                                     placeholder="Enter UID"
                                     label="Search"
-                                    onChange={(e) => handleSearch3(e.target.value)}
+                                    // value={"search"}
+                                    // onChange={(e) => handleSearch3(e.target.value)}
+                                    onChange={(e) => setSearhDat3(e.target.value)}
                                 />
-                                <Button variant="contained" color="success">Search</Button>
+                                <Button variant="contained" color="success" onClick={() => handleSearch3(searchData3)}>Search</Button>
                             </div>
                         </div>
 
@@ -195,6 +263,7 @@ export default function BasicTabs() {
                             <Tab label='Category3' {...a11yProps(2)} />
                             <Tab label='Category4' {...a11yProps(3)} />
                         </Tabs>
+                        <h3>hello  i am forth category </h3>
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
@@ -207,9 +276,10 @@ export default function BasicTabs() {
                                     id="search"
                                     placeholder="Enter UID"
                                     label="Search"
+                                    // value={"search"}
                                     onChange={(e) => handleSearch4(e.target.value)}
                                 />
-                                <Button variant="contained" color="success">Search</Button>
+                                <Button variant="contained" color="success" onClick={() => handleSearch4(searchData4)}>Search</Button>
                             </div>
                         </div>
                     </div>
