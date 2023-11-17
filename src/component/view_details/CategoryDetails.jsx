@@ -87,7 +87,7 @@ const CategoryDetails = () => {
             <div><h2>Submited Successfully</h2></div>
             <div className='view_detail_thanks'>
                 <span className='view_details_message'>Thanks for using</span>
-                <span className='view_other_category' onClick={() => { navigate('/'); localStorage.removeItem("category1") }}>Go To Other Category</span>
+                <span className='view_other_category' onClick={() => { navigate('/'); localStorage.removeItem("category1") }}>Go To Home</span>
             </div>
         </div>
     )

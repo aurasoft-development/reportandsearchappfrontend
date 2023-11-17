@@ -7,7 +7,6 @@ import Payment from '../component/common/Payment'
 import AllDetails from '../component/common/AllDetails'
 import OtpVarifacation from '../component/home/OtpVarifacation'
 import CategoryDetails from '../component/view_details/CategoryDetails'
-// import AddCategory1 from '../component/form/AddCategory1'
 
 const AllRoutes = () => {
     return (
