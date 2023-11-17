@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { FindState } from '../../context/FindContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import commonApiRequest from '../../api/commonApi'
 
 const OtpVarifacation = () => {
     const [number, setNumber] = useState()
@@ -15,7 +16,7 @@ const OtpVarifacation = () => {
     const [error, setError] = useState("");
     const [confirmObj, setConfirmObj] = useState("");
     const [data, setData] = useState()
-    const { setUpRecaptcha } = FindState();
+    const { setUpRecaptcha, cat } = FindState();
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -42,7 +43,92 @@ const OtpVarifacation = () => {
                 field11: data?.field11,
                 field12: data?.field12
             }
-            await axios.post("http://localhost:5000/api/add_categories", info);
+
+            await commonApiRequest('post', '/api/add_categories', info);
+            toast.success('Add Category Successfully')
+
+        } catch (error) {
+            toast.error("Error fetching the chat")
+        }
+    }
+    const postCategory2 = async () => {
+        try {
+            const info = {
+                uid: data?.uid,
+                name: data?.name,
+                number: data?.number,
+                address: data?.address,
+                field1: data?.field1,
+                field2: data?.field2,
+                field3: data?.field3,
+                field4: data?.field4,
+                field5: data?.field5,
+                field6: data?.field6,
+                field7: data?.field7,
+                field8: data?.field8,
+                field9: data?.field9,
+                field10: data?.field10,
+                field11: data?.field11,
+                field12: data?.field12
+            }
+            // await axios.post(`${import.meta.env.VITE_API_URL}/api/cat2/add_categories`, info);
+            await commonApiRequest('post', '/api/cat2/add_categories', info);
+            toast.success('Add Category Successfully')
+
+        } catch (error) {
+            toast.error("Error fetching the chat")
+        }
+    }
+    const postCategory3 = async () => {
+        try {
+            const info = {
+                uid: data?.uid,
+                name: data?.name,
+                number: data?.number,
+                address: data?.address,
+                field1: data?.field1,
+                field2: data?.field2,
+                field3: data?.field3,
+                field4: data?.field4,
+                field5: data?.field5,
+                field6: data?.field6,
+                field7: data?.field7,
+                field8: data?.field8,
+                field9: data?.field9,
+                field10: data?.field10,
+                field11: data?.field11,
+                field12: data?.field12
+            }
+            // await axios.post(`${import.meta.env.VITE_API_URL}/api/cat3/add_categories`, info);
+            await commonApiRequest('post', '/api/cat3/add_categories', info);
+            toast.success('Add Category Successfully')
+
+        } catch (error) {
+            toast.error("Error fetching the chat")
+        }
+    }
+    const postCategory4 = async () => {
+        try {
+            const info = {
+                uid: data?.uid,
+                name: data?.name,
+                number: data?.number,
+                address: data?.address,
+                field1: data?.field1,
+                field2: data?.field2,
+                field3: data?.field3,
+                field4: data?.field4,
+                field5: data?.field5,
+                field6: data?.field6,
+                field7: data?.field7,
+                field8: data?.field8,
+                field9: data?.field9,
+                field10: data?.field10,
+                field11: data?.field11,
+                field12: data?.field12
+            }
+            // await axios.post(`${import.meta.env.VITE_API_URL}/api/cat4/add_categories`, info);
+            await commonApiRequest('post', '/api/cat4/add_categories', info);
             toast.success('Add Category Successfully')
 
         } catch (error) {
@@ -61,15 +147,26 @@ const OtpVarifacation = () => {
         } catch (err) {
             setError(err.message)
         }
-        // console.log(number)
     }
     const verifyOtp = async () => {
         if (otp === "" || otp === null) return;
         try {
             setError("")
             await confirmObj.confirm(otp)
-            postCategory()
-            navigate('/category_details')
+            if (cat == 1) {
+                postCategory()
+                navigate('/category_details')
+            } else if (cat == 2) {
+                postCategory2()
+                navigate('/category_details')
+            } else if (cat == 3) {
+                postCategory3()
+                navigate('/category_details')
+            }
+            else if (cat == 4) {
+                postCategory4()
+                navigate('/category_details')
+            }
         } catch (err) {
             setError(err.message)
         }

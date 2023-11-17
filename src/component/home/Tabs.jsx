@@ -9,6 +9,7 @@ import { Button, TextField } from '@mui/material';
 import { FindState } from '../../context/FindContext';
 import axios from 'axios'
 import CategoryModel from '../model/CategoryModel';
+import commonApiRequest from '../../api/commonApi';
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -55,7 +56,8 @@ export default function BasicTabs() {
             return;
         }
         try {
-            const { data } = await axios.get(`http://localhost:5000/api/search/all/categories?search=${search}`)
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/search/all/categories?search=${search}`)
+            // await commonApiRequest('get', `/api/search/all/categories?search=${search}`);
             setSearchResult(data)
         } catch (error) {
             console.log(error);
@@ -68,7 +70,7 @@ export default function BasicTabs() {
             return;
         }
         try {
-            const { data } = await axios.get(`http://localhost:5000/api/cat2/search/all/categories?search=${search}`)
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat2/search/all/categories?search=${search}`)
             setSearchResult(data)
         } catch (error) {
             console.log(error);
@@ -81,7 +83,7 @@ export default function BasicTabs() {
             return;
         }
         try {
-            const { data } = await axios.get(`http://localhost:5000/api/cat3/search/all/categories?search=${search}`)
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat3/search/all/categories?search=${search}`)
             setSearchResult(data)
         } catch (error) {
             console.log(error);
@@ -94,7 +96,7 @@ export default function BasicTabs() {
             return;
         }
         try {
-            const { data } = await axios.get(`http://localhost:5000/api/cat4/search/all/categories?search=${search}`)
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat4/search/all/categories?search=${search}`)
             setSearchResult(data)
         } catch (error) {
             console.log(error);
@@ -123,7 +125,6 @@ export default function BasicTabs() {
                                     id="search"
                                     placeholder="Enter UID"
                                     label="Search"
-                                    // value={"search"}
                                     onChange={(e) => handleSearch(e.target.value)}
                                 />
                                 <Button variant="contained" color="success">Search</Button>
@@ -151,7 +152,6 @@ export default function BasicTabs() {
                                     id="search"
                                     placeholder="Enter UID"
                                     label="Search"
-                                    // value={"search"}
                                     onChange={(e) => handleSearch2(e.target.value)}
                                 />
                                 <Button variant="contained" color="success">Search</Button>
@@ -179,7 +179,6 @@ export default function BasicTabs() {
                                     id="search"
                                     placeholder="Enter UID"
                                     label="Search"
-                                    // value={"search"}
                                     onChange={(e) => handleSearch3(e.target.value)}
                                 />
                                 <Button variant="contained" color="success">Search</Button>
@@ -208,7 +207,6 @@ export default function BasicTabs() {
                                     id="search"
                                     placeholder="Enter UID"
                                     label="Search"
-                                    // value={"search"}
                                     onChange={(e) => handleSearch4(e.target.value)}
                                 />
                                 <Button variant="contained" color="success">Search</Button>

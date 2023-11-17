@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom'
 import Home from '../pages/Home'
 import OtpVarifacation from '../component/home/OtpVarifacation'
 import CategoryDetails from '../component/view_details/CategoryDetails'
-// import AddCategory1 from '../component/form/AddCategory1'
 
 const AllRoutes = () => {
     return (

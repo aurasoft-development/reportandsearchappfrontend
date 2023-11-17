@@ -10,7 +10,7 @@ import { FindState } from '../../context/FindContext';
 const AddCategory3 = () => {
     const webcamRef = useRef(null);
     const [showWebcam, setShowWebcam] = useState(false);
-    const { open3, setOpen3 } = FindState()
+    const { open3, setOpen3, setCat } = FindState()
     const [formData, setFormData] = useState({
         uid: '',
         name: '',
@@ -38,8 +38,10 @@ const AddCategory3 = () => {
     };
     const onSubmit = (event) => {
         event.preventDefault();
-        localStorage.setItem("category3", JSON.stringify(formData));
-
+        localStorage.setItem("category1", JSON.stringify(formData));
+        setOpen3(false)
+        setCat(3)
+        navigate('/otpverification')
     };
     const captureSelfie = () => {
         if (webcamRef.current) {
@@ -73,7 +75,7 @@ const AddCategory3 = () => {
             <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" >
-                        <h2 className="headerStyle">Add Category Report</h2>
+                        <h2 className="headerStyle">Add Category3 Report</h2>
                         <span className='addcategory_icon' onClick={() => setOpen3(false)}><CloseIcon /></span>
                     </Grid>
                     <div className="container">
@@ -309,8 +311,8 @@ const AddCategory3 = () => {
                                 </Grid>
                             </Grid>
                             <div className="text-center my-2 mt-4">
-                                <Button variant="contained" type="submit" className="m-2" onClick={() => setOpen(false)}>
-                                    AddCategory
+                                <Button variant="contained" type="submit" className="m-2">
+                                    Save
                                 </Button>
                             </div>
                         </form>
