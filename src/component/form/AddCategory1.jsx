@@ -6,6 +6,7 @@ import Webcam from 'react-webcam';
 import CloseIcon from '@mui/icons-material/Close';
 import { FindState } from '../../context/FindContext';
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
 const AddCategory1 = () => {
     const webcamRef = useRef(null);
@@ -43,13 +44,49 @@ const AddCategory1 = () => {
         setOpen(false)
         navigate('/otpverification')
     };
+    // const captureSelfie = () => {
+    //     if (webcamRef.current) {
+    //         const imageSrc = webcamRef.current.getScreenshot();
+
+    //         console.log('imgage we have capture', imageSrc);
+    //     }
+    //     setShowWebcam(false)
+    // };
+
     const captureSelfie = () => {
         if (webcamRef.current) {
             const imageSrc = webcamRef.current.getScreenshot();
-            console.log('imgage we have capture', imageSrc);
+            console.log("capture img path", imageSrc);
+
+            const apiUrl = 'http://localhost:5000/api/user/upload_image';
+
+            const formData = new FormData();
+            formData.append('files', dataURItoBlob(imageSrc));
+
+            axios.post(apiUrl, formData)
+                .then(response => {
+                    console.log('Image uploaded successfully:', response.data);
+                })
+                .catch(error => {
+                    console.error('Error uploading image:', error);
+                });
         }
-        setShowWebcam(false)
+        setShowWebcam(false);
     };
+
+    // Function to convert data URI to Blob
+    const dataURItoBlob = (dataURI) => {
+        const byteString = atob(dataURI.split(',')[1]);
+        const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+        const arrayBuffer = new ArrayBuffer(byteString.length);
+        const uint8Array = new Uint8Array(arrayBuffer);
+
+        for (let i = 0; i < byteString.length; i++) {
+            uint8Array[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([arrayBuffer], { type: mimeString });
+    };
+
     function handleTakePhotoAnimationDone(dataUri) {
         // Do stuff with the photo...
         console.log('takePhoto');
