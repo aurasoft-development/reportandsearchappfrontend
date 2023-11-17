@@ -11,7 +11,7 @@ import axios from 'axios';
 const AddCategory1 = () => {
     const webcamRef = useRef(null);
     const [showWebcam, setShowWebcam] = useState(false);
-    const { open, setOpen } = FindState()
+    const { open, setOpen, setCat } = FindState()
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         uid: '',
@@ -42,6 +42,7 @@ const AddCategory1 = () => {
         event.preventDefault();
         localStorage.setItem("category1", JSON.stringify(formData));
         setOpen(false)
+        setCat(1)
         navigate('/otpverification')
     };
     // const captureSelfie = () => {
@@ -112,7 +113,7 @@ const AddCategory1 = () => {
             <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" >
-                        <h2 className="headerStyle">Add Category Report</h2>
+                        <h2 className="headerStyle">Add Category1 Report</h2>
                         <span className='addcategory_icon' onClick={() => setOpen(false)}><CloseIcon /></span>
                     </Grid>
                     <div className="container">
@@ -349,7 +350,7 @@ const AddCategory1 = () => {
                             </Grid>
                             <div className="text-center my-2 mt-4">
                                 <Button variant="contained" type="submit" className="m-2" >
-                                    AddCategory
+                                    Save
                                 </Button>
                             </div>
                         </form>

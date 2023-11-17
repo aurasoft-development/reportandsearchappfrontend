@@ -10,7 +10,7 @@ import { FindState } from '../../context/FindContext';
 const AddCategory4 = () => {
     const webcamRef = useRef(null);
     const [showWebcam, setShowWebcam] = useState(false);
-    const { open4, setOpen4 } = FindState()
+    const { open4, setOpen4, setCat } = FindState()
     const [formData, setFormData] = useState({
         uid: '',
         name: '',
@@ -38,7 +38,10 @@ const AddCategory4 = () => {
     };
     const onSubmit = (event) => {
         event.preventDefault();
-        localStorage.setItem("category4", JSON.stringify(formData));
+        localStorage.setItem("category1", JSON.stringify(formData));
+        setOpen4(false)
+        setCat(4)
+        navigate('/otpverification')
 
     };
     const captureSelfie = () => {
@@ -73,7 +76,7 @@ const AddCategory4 = () => {
             <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" >
-                        <h2 className="headerStyle">Add Category Report</h2>
+                        <h2 className="headerStyle">Add Category4 Report</h2>
                         <span className='addcategory_icon' onClick={() => setOpen4(false)}><CloseIcon /></span>
                     </Grid>
                     <div className="container">
@@ -309,8 +312,8 @@ const AddCategory4 = () => {
                                 </Grid>
                             </Grid>
                             <div className="text-center my-2 mt-4">
-                                <Button variant="contained" type="submit" className="m-2" onClick={() => setOpen(false)} >
-                                    AddCategory
+                                <Button variant="contained" type="submit" className="m-2" >
+                                    Save
                                 </Button>
                             </div>
                         </form>

@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 const AddCategory2 = () => {
     const webcamRef = useRef(null);
     const [showWebcam, setShowWebcam] = useState(false);
-    const { open2, setOpen2 } = FindState()
+    const { open2, setOpen2 ,setCat} = FindState()
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         uid: '',
@@ -42,6 +42,7 @@ const AddCategory2 = () => {
         event.preventDefault();
         localStorage.setItem("category1", JSON.stringify(formData));
         setOpen2(false)
+        setCat(2)
         navigate('/otpverification')
     };
     const captureSelfie = () => {
@@ -76,7 +77,7 @@ const AddCategory2 = () => {
             <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" >
-                        <h2 className="headerStyle">Add Category Report</h2>
+                        <h2 className="headerStyle">Add Category2 Report</h2>
                         <span className='addcategory_icon' onClick={() => setOpen2(false)}><CloseIcon /></span>
                     </Grid>
                     <div className="container">
@@ -313,7 +314,7 @@ const AddCategory2 = () => {
                             </Grid>
                             <div className="text-center my-2 mt-4">
                                 <Button variant="contained" type="submit" className="m-2" >
-                                    AddCategory
+                                    Save
                                 </Button>
                             </div>
                         </form>
