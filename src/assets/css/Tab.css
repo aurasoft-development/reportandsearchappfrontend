@@ -1,13 +1,13 @@
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
     text-transform: capitalize !important;
     font-size: 20px !important;
-    font-weight: 600 !important;
+    /* font-weight: 600 !important; */
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
     color: white !important;
-    font-size: 25px !important;
-    font-weight: 600 !important;
+    /* font-size: 25px !important; */
+    font-weight: 500 !important;
     border-radius: 8px;
     background-color: green;
 }
@@ -19,10 +19,11 @@
 .css-heg063-MuiTabs-flexContainer {
     justify-content: space-between;
     flex-wrap: wrap !important;
+    background-color: rgb(225, 230, 234);
 }
 
 .tab_div_main {
-    padding: 20px 16px;
+    padding: 20px 0%;
 }
 
 .report-details {
