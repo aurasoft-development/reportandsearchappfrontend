@@ -19,8 +19,6 @@ const AllRoutes = () => {
                 <Route path="/alldetails" element={< AllDetails />} />
                 <Route path="/otpverification" element={<OtpVarifacation />} />
                 <Route path="/category_details" element={<CategoryDetails />} />
-
-
             </Routes> 
         </div>
     )

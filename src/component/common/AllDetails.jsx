@@ -5,12 +5,11 @@ import { useNavigate } from 'react-router-dom'
 
 const AllDetails = () => {
     const { searchResult } = FindState();
+    console.log('data', {searchResult});
     const navigate = useNavigate()
     return (
         <>
-            <h2>hello here you can get complete user details</h2>
-
-            <div style={{ cursor: 'pointer', marginLeft: '15px' }}><Button variant="contained" color="success" onClick={() => navigate('/')}>Go to Home</Button></div>
+            <h2 className='text-center mt-2'>Here is {searchResult?.categories1?.uid} detailed report.</h2>
             <div className='row'>
                 <div className='col-6'>
                     <div className="card mt-3  m-3 p-1">
@@ -20,7 +19,7 @@ const AllDetails = () => {
                                 <tbody>
                                     <tr>
                                         <td>UID:</td>
-                                        <td>{searchResult?.categories1?.uid} </td>
+                                        <td>{searchResult?.categories1?.uid}</td>
                                     </tr>
                                     <tr>
                                         <td>Name:</td>
@@ -47,6 +46,12 @@ const AllDetails = () => {
                                         <td>filed </td>
                                         <td>{searchResult?.categories1?.field9}</td>
                                     </tr>
+
+                                    <tr>
+                                        <td>user img </td>
+                                        <td><img src={searchResult?.categories1?.field11?.url} alt="" /></td>
+                                    </tr>
+
 
                                 </tbody>
                             </table>
@@ -90,6 +95,11 @@ const AllDetails = () => {
                                         <td>{searchResult?.categories1?.field10}</td>
                                     </tr>
 
+                                    <tr>
+                                        <td>user selfie </td>
+                                        <td><img src={searchResult?.categories1?.field12?.url} alt="" /></td>
+                                    </tr>
+
                                 </tbody>
                             </table>
 
@@ -97,6 +107,7 @@ const AllDetails = () => {
                     </div>
                 </div>
             </div>
+            <div style={{ cursor: 'pointer', marginLeft: '15px' }} className='text-center mt-2'><Button variant="contained" color="success" onClick={() => navigate('/')}>Go to Home</Button></div>
 
 
         </>)
