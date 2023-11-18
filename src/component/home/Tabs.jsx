@@ -11,6 +11,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import CategoryModel from '../model/CategoryModel';
 import commonApiRequest from '../../api/commonApi';
+import { toast } from 'react-toastify';
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -46,83 +47,77 @@ function a11yProps(index) {
 }
 
 export default function BasicTabs() {
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const [value, setValue] = React.useState(0);
     const [searchData, setSearhData] = React.useState("");
     const [searchData2, setSearhData2] = React.useState("");
     const [searchData3, setSearhDat3] = React.useState("");
     const [searchData4, setSearhData4] = React.useState("");
-
-    const [userDetails , setUserDetails] = React.useState("")
-
-    const { category1, category2, category3, category4, search, setSearch, searchResult, setSearchResult } = FindState();
-    console.log("data get here", searchResult);
+    const { search, setSearch, searchResult, setSearchResult } = FindState();
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    const handleSearch = async (query) => {
-        console.log("data get at first category", query);
-        setSearch(query);
-        if (!query) {
-            return;
-        }
-        try {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/search/all/categories?search=${search}`)
-            // await commonApiRequest('get', `/api/search/all/categories?search=${search}`);
-            setSearchResult(data)
-        } catch (error) {
-            console.log(error);
+    const handleSearch = async (uid) => {
+        if (!uid) {
+            toast.warn('Please Enter UID')
+        } else {
+            try {
+                const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/get_categories/by_uid?uid=${uid}`)
+                setSearchResult(data)
+
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
-    const handleSearch2 = async (query) => {
-        console.log("data get at second category", query);
-        setSearch(query);
-        if (!query) {
-            return;
-        }
-        try {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat2/search/all/categories?search=${search}`)
-            setSearchResult(data)
-        } catch (error) {
-            console.log(error);
+    const handleSearch2 = async (uid) => {
+        if (!uid) {
+            toast.warn('Please Enter UID')
+        } else {
+            try {
+                const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat2/get_categories/by_uid?uid=${uid}`)
+                setSearchResult(data)
+
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
-    const handleSearch3 = async (query) => {
-        console.log("data get at third category", query);
-        setSearch(query);
-        if (!query) {
-            return;
-        }
-        try {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat3/search/all/categories?search=${search}`)
-            setSearchResult(data)
-        } catch (error) {
-            console.log(error);
+    const handleSearch3 = async (uid) => {
+        if (!uid) {
+            toast.warn('Please Enter UID')
+        } else {
+            try {
+                const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat3/get_categories/by_uid?uid=${uid}`)
+                setSearchResult(data)
+
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
-    const handleSearch4 = async (query) => {
-        console.log("data get at forth category", query);
-        setSearch(query);
-        if (!query) {
-            return;
-        }
-        try {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat4/search/all/categories?search=${search}`)
-            setSearchResult(data)
-        } catch (error) {
-            console.log(error);
+    const handleSearch4 = async (uid) => {
+        if (!uid) {
+            toast.warn('Please Enter UID')
+        } else {
+            try {
+                const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat4/get_categories/by_uid?uid=${uid}`)
+                setSearchResult(data)
+
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
-    const payMent = () =>{
+    const payMent = () => {
         navigate('/payment')
-      }
+    }
 
-console.log('vikas data', searchResult);
     return (
         <Box sx={{ width: '100%' }}>
             <div className='tab_sec_container '>
@@ -146,50 +141,47 @@ console.log('vikas data', searchResult);
                                     id="search"
                                     placeholder="Enter UID"
                                     label="Search"
-                                    // value={"search"}
-                                    // onChange={(e) => handleSearch(e.target.value)}
                                     onChange={(e) => setSearhData(e.target.value)}
                                 />
                                 <Button variant="contained" color="success" onClick={() => handleSearch(searchData)}>Search</Button>
                             </div>
                         </div>
                         <div className="user-details">
-                            {searchResult.length > 0 ? (
-                                <>
-                                    <div className="card mt-3  m-3 p-1">
-                                        <hr className="border-light m-0" />
-                                        <div className="card-body">
-                                            <table className="table user-view-table m-0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>UID:</td> 
-                                                        <td>{searchResult[0].uid}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Name:</td>
-                                                        <td>{searchResult[0].name}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Number:</td> 
-                                                        <td>{searchResult[0].number}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Address:</td>  
-                                                        <td>{searchResult[0].address}</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <Button className='m-2' variant="contained" onClick={payMent}>Pay here to view more </Button>
-                                        </div>
+                            {searchResult === "screen" ? (
+                                <div></div>
+                            ) : (searchResult?.categories1 == null) ? (
+                                <p>User details not available. Please Check Other Category</p>
+                            ) : <>
+                                <div className="card mt-3  m-3 p-1">
+                                    <hr className="border-light m-0" />
+                                    <div className="card-body">
+                                        <table className="table user-view-table m-0">
+                                            <tbody>
+                                                <tr>
+                                                    <td>UID:</td>
+                                                    <td>{searchResult?.categories1?.uid}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Name:</td>
+                                                    <td>{searchResult?.categories1?.name}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number:</td>
+                                                    <td>{searchResult?.categories1?.number}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Address:</td>
+                                                    <td>{searchResult?.categories1?.address}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <Button className='m-2' variant="contained" onClick={payMent}>Pay here to view more </Button>
+
                                     </div>
-                                </>
-                            ) : (
-                                <p>User details not available.</p>
-                            )}
+                                </div>
+                            </>
+                            }
                         </div>
-                        {/* <div>
-                            <ViewReport data={category1.data} />
-                        </div> */}
                     </div>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={1}>
@@ -212,12 +204,46 @@ console.log('vikas data', searchResult);
                                     id="search"
                                     placeholder="Enter UID"
                                     label="Search"
-                                    // value={"search"}
-                                    // onChange={(e) => handleSearch2(e.target.value)}
                                     onChange={(e) => setSearhData2(e.target.value)}
                                 />
                                 <Button variant="contained" color="success" onClick={() => handleSearch2(searchData2)}>Search</Button>
                             </div>
+                        </div>
+                        <div className="user-details">
+                            {searchResult === "screen" ? (
+                                <div></div>
+                            ) : (searchResult?.categories1 == null) ? (
+                                <p>User details not available. Please Check Other Category</p>
+                            ) : <>
+                                <div className="card mt-3  m-3 p-1">
+                                    <hr className="border-light m-0" />
+                                    <div className="card-body">
+                                        <table className="table user-view-table m-0">
+                                            <tbody>
+                                                <tr>
+                                                    <td>UID:</td>
+                                                    <td>{searchResult?.categories1?.uid}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Name:</td>
+                                                    <td>{searchResult?.categories1?.name}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number:</td>
+                                                    <td>{searchResult?.categories1?.number}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Address:</td>
+                                                    <td>{searchResult?.categories1?.address}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <Button className='m-2' variant="contained" onClick={payMent}>Pay here to view more </Button>
+
+                                    </div>
+                                </div>
+                            </>
+                            }
                         </div>
                     </div>
                 </CustomTabPanel>
@@ -241,14 +267,47 @@ console.log('vikas data', searchResult);
                                     id="search"
                                     placeholder="Enter UID"
                                     label="Search"
-                                    // value={"search"}
-                                    // onChange={(e) => handleSearch3(e.target.value)}
                                     onChange={(e) => setSearhDat3(e.target.value)}
                                 />
                                 <Button variant="contained" color="success" onClick={() => handleSearch3(searchData3)}>Search</Button>
                             </div>
                         </div>
+                        <div className="user-details">
+                            {searchResult === "screen" ? (
+                                <div></div>
+                            ) : (searchResult?.categories1 == null) ? (
+                                <p>User details not available. Please Check Other Category</p>
+                            ) : <>
+                                <div className="card mt-3  m-3 p-1">
+                                    <hr className="border-light m-0" />
+                                    <div className="card-body">
+                                        <table className="table user-view-table m-0">
+                                            <tbody>
+                                                <tr>
+                                                    <td>UID:</td>
+                                                    <td>{searchResult?.categories1?.uid}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Name:</td>
+                                                    <td>{searchResult?.categories1?.name}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number:</td>
+                                                    <td>{searchResult?.categories1?.number}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Address:</td>
+                                                    <td>{searchResult?.categories1?.address}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <Button className='m-2' variant="contained" onClick={payMent}>Pay here to view more </Button>
 
+                                    </div>
+                                </div>
+                            </>
+                            }
+                        </div>
                     </div>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={3}>
@@ -271,11 +330,46 @@ console.log('vikas data', searchResult);
                                     id="search"
                                     placeholder="Enter UID"
                                     label="Search"
-                                    // value={"search"}
-                                    onChange={(e) => handleSearch4(e.target.value)}
+                                    onChange={(e) => setSearhData4(e.target.value)}
                                 />
                                 <Button variant="contained" color="success" onClick={() => handleSearch4(searchData4)}>Search</Button>
                             </div>
+                        </div>
+                        <div className="user-details">
+                            {searchResult === "screen" ? (
+                                <div></div>
+                            ) : (searchResult?.categories1 == null) ? (
+                                <p>User details not available. Please Check Other Category</p>
+                            ) : <>
+                                <div className="card mt-3  m-3 p-1">
+                                    <hr className="border-light m-0" />
+                                    <div className="card-body">
+                                        <table className="table user-view-table m-0">
+                                            <tbody>
+                                                <tr>
+                                                    <td>UID:</td>
+                                                    <td>{searchResult?.categories1?.uid}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Name:</td>
+                                                    <td>{searchResult?.categories1?.name}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number:</td>
+                                                    <td>{searchResult?.categories1?.number}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Address:</td>
+                                                    <td>{searchResult?.categories1?.address}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <Button className='m-2' variant="contained" onClick={payMent}>Pay here to view more </Button>
+
+                                    </div>
+                                </div>
+                            </>
+                            }
                         </div>
                     </div>
                 </CustomTabPanel>

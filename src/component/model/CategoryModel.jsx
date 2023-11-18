@@ -17,6 +17,8 @@ const style = {
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
+    height: "80%",
+    overflowY: "scroll"
 };
 
 export default function CategoryModel({ data }) {

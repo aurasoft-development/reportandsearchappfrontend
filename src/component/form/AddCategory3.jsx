@@ -26,8 +26,8 @@ const AddCategory3 = () => {
         field8: '',
         field9: '',
         field10: '',
-        field11: '',
-        field12: ''
+        field11: {},
+        field12: {}
     });
     const handleInputChange = (event) => {
         const { name, value } = event.target;

@@ -4,9 +4,15 @@ const api = axios.create({
   baseURL: `${import.meta.env.VITE_API_URL}`
 })
 // Common function to make api request
-const commonApiRequest = async (method, url, data = null) => {
+const commonApiRequest = async (method, url, data = null, headers = {}) => {
 
   try {
+
+    api.interceptors.request.use((config) => {
+      config.headers = { ...config.headers, ...headers };
+      return config;
+    });
+
     if (!navigator.onLine) {
       throw new Error('Internet connection issue. Please check your connection.');
     }
