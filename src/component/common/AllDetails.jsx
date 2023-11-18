@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 
 const AllDetails = () => {
     const { searchResult } = FindState();
-    console.log('data', {searchResult});
     const navigate = useNavigate()
     return (
         <>
@@ -108,9 +107,8 @@ const AllDetails = () => {
                 </div>
             </div>
             <div style={{ cursor: 'pointer', marginLeft: '15px' }} className='text-center mt-2'><Button variant="contained" color="success" onClick={() => navigate('/')}>Go to Home</Button></div>
-
-
-        </>)
+        </>
+        )
 }
 
 export default AllDetails
