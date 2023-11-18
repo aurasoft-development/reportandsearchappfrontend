@@ -29,8 +29,8 @@ const AddCategory1 = () => {
         field8: '',
         field9: '',
         field10: '',
-        field11: '',
-        field12: ''
+        field11: {},
+        field12: {}
     });
 
     // Function to convert data URI to Blob
