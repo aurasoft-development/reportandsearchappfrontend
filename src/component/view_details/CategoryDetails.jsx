@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 const CategoryDetails = () => {
     const [data, setData] = useState()
+    console.log("data---->", data?.field11?.url);
     const navigate = useNavigate()
     useEffect(() => {
         const Info = JSON.parse(localStorage.getItem('category1'))
@@ -77,11 +78,13 @@ const CategoryDetails = () => {
                 </div>
                 <div className='view_details_div_main'>
                     <div>FIELD11</div>
-                    <div>{data?.field11}</div>
+                    {/* <div>{data?.url}</div> */}
+                    <img src={data?.field11?.url} height={100} width={100} />
                 </div>
                 <div className='view_details_div_main'>
                     <div>FIELD12</div>
-                    <div>{data?.field12}</div>
+                    <img src={data?.field12?.url} height={100} width={100} />
+                    {/* <div>{data?.url}</div> */}
                 </div>
             </div>
             <div><h2>Submited Successfully</h2></div>
