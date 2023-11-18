@@ -1,4 +1,4 @@
-import { Button, Grid, Paper, TextField } from '@mui/material';
+import { Button, FormControl, Grid, IconButton, Input, InputAdornment, Paper, TextField } from '@mui/material';
 import React, { useState, useRef } from 'react';
 import '../../assets/css/form/AddCategory1.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,12 +6,14 @@ import Webcam from 'react-webcam';
 import CloseIcon from '@mui/icons-material/Close';
 import { FindState } from '../../context/FindContext';
 import { useNavigate } from 'react-router-dom';
-// import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
-// import 'react-html5-camera-photo/build/css/index.css';
+import { toast } from 'react-toastify';
+import axios from 'axios';
+
 const AddCategory2 = () => {
     const webcamRef = useRef(null);
     const [showWebcam, setShowWebcam] = useState(false);
-    const { open2, setOpen2 ,setCat} = FindState()
+    const [captureImage, setCaptureImage] = useState("")
+    const { open2, setOpen2, setCat } = FindState()
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         uid: '',
@@ -31,6 +33,68 @@ const AddCategory2 = () => {
         field11: {},
         field12: {}
     });
+
+    // Function to convert data URI to Blob
+    const dataURItoBlob = (dataURI) => {
+        const byteString = atob(dataURI.split(',')[1]);
+        const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+        const arrayBuffer = new ArrayBuffer(byteString.length);
+        const uint8Array = new Uint8Array(arrayBuffer);
+
+        for (let i = 0; i < byteString.length; i++) {
+            uint8Array[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([arrayBuffer], { type: mimeString });
+    };
+
+    console.log('captureImage', captureImage);
+    const captureSelfie = () => {
+        if (webcamRef.current) {
+            const imageSrc = webcamRef.current.getScreenshot();
+
+            const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
+
+            const formData = new FormData();
+            formData.append('files', dataURItoBlob(imageSrc));
+
+            axios.post(apiUrl, formData)
+                .then(response => {
+                    setFormData((oldValue) => {
+                        return {
+                            ...oldValue,
+                            field12: response.data
+                        }
+                    })
+                    toast.success("File uploaded successfully.")
+                })
+                .catch(error => {
+                    console.error('Error uploading image:', error);
+                });
+        }
+        setShowWebcam(false);
+    };
+
+    const uploadImages = () => {
+        const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
+
+        const formData = new FormData();
+        formData.append('files', captureImage);
+
+        axios.post(apiUrl, formData)
+            .then(response => {
+                setFormData((oldValue) => {
+                    return {
+                        ...oldValue,
+                        field11: response.data
+                    }
+                })
+                toast.success("File uploaded successfully")
+            })
+            .catch(error => {
+                console.error('Error uploading image:', error);
+            });
+    }
+
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({
@@ -45,13 +109,7 @@ const AddCategory2 = () => {
         setCat(2)
         navigate('/otpverification')
     };
-    const captureSelfie = () => {
-        if (webcamRef.current) {
-            const imageSrc = webcamRef.current.getScreenshot();
-            console.log('imgage we have capture', imageSrc);
-        }
-        setShowWebcam(false)
-    };
+
     function handleTakePhotoAnimationDone(dataUri) {
         // Do stuff with the photo...
         console.log('takePhoto');
@@ -176,26 +234,28 @@ const AddCategory2 = () => {
                                             onChange={handleInputChange}
                                         />
                                     </Grid>
-                                    <Grid>
-                                        <TextField
-                                            label="field11"
-                                            variant="standard"
-                                            // value={formData.uid}
-                                            fullWidth
-                                            type="file"
-                                            name="field11"
-                                            autoComplete="off"
-                                            className="my-2"
-                                            onChange={handleInputChange}
+                                    <FormControl variant="standard" className="my-2">
+                                        <Input
+                                            className='form_input'
+                                            type={'file'}
+                                            name='password'
+                                            onChange={(e) => setCaptureImage(e.target.files[0])}
+                                            endAdornment={
+                                                <InputAdornment position="end">
+                                                    <IconButton onClick={() => uploadImages()} style={{ fontSize: '15px', padding: '2px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white' }}>
+                                                        upload
+                                                    </IconButton>
+                                                </InputAdornment>
+                                            }
                                         />
-                                    </Grid>
+                                    </FormControl>
+
                                 </Grid>
                                 <Grid item xs={6}>
                                     <Grid>
                                         <TextField
                                             label="Name"
                                             variant="standard"
-                                            // value={formData.name}
                                             fullWidth
                                             type="text"
                                             name="name"
@@ -209,7 +269,6 @@ const AddCategory2 = () => {
                                         <TextField
                                             label="Address"
                                             variant="standard"
-                                            // value={formData.address}
                                             fullWidth
                                             type="text"
                                             name="address"
@@ -223,7 +282,6 @@ const AddCategory2 = () => {
                                         <TextField
                                             label="field2"
                                             variant="standard"
-                                            // value={formData.address}
                                             fullWidth
                                             type="text"
                                             name="field2"
@@ -236,7 +294,6 @@ const AddCategory2 = () => {
                                         <TextField
                                             label="field4"
                                             variant="standard"
-                                            // value={formData.address}
                                             fullWidth
                                             type="text"
                                             name="field4"
@@ -249,7 +306,6 @@ const AddCategory2 = () => {
                                         <TextField
                                             label="field6"
                                             variant="standard"
-                                            // value={formData.address}
                                             fullWidth
                                             type="text"
                                             name="field6"
@@ -262,7 +318,6 @@ const AddCategory2 = () => {
                                         <TextField
                                             label="field8"
                                             variant="standard"
-                                            // value={formData.address}
                                             fullWidth
                                             type="text"
                                             name="field8"
@@ -275,7 +330,6 @@ const AddCategory2 = () => {
                                         <TextField
                                             label="field10"
                                             variant="standard"
-                                            // value={formData.address}
                                             fullWidth
                                             type="text"
                                             name="field10"
@@ -284,21 +338,11 @@ const AddCategory2 = () => {
                                             onChange={handleInputChange}
                                         />
                                     </Grid>
-                                    <Grid>
-                                        <TextField
-                                            label="field12"
-                                            variant="standard"
-                                            // value={formData.address}
-                                            fullWidth
-                                            type="text"
-                                            name="field12"
-                                            autoComplete="off"
-                                            className="my-2"
-                                            onChange={handleInputChange}
-                                        />
-                                    </Grid>
-                                    <Grid className="my-2"  >
-                                        <button className="my-2" onClick={() => setShowWebcam(true)}>Open Webcam</button>
+                                    <Grid className="my-2">
+                                        <button type='button' onClick={() => setShowWebcam(true)}
+                                            style={{ fontSize: '14px', padding: '5px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white', border: '1px solid' }}
+                                        >Capture your selfie
+                                        </button>
                                         {showWebcam && (
                                             <div>
                                                 <Webcam
@@ -306,7 +350,10 @@ const AddCategory2 = () => {
                                                     audio={false}
                                                     ref={webcamRef}
                                                 />
-                                                <button onClick={captureSelfie}>Capture Selfie</button>
+                                                <button type='button' onClick={captureSelfie}
+                                                    style={{ fontSize: '14px', padding: '5px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white', border: '1px solid' }}>
+                                                    Capture Selfie
+                                                </button>
                                             </div>
                                         )}
                                     </Grid>
