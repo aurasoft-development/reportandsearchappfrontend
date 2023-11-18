@@ -2,7 +2,7 @@
     color: black;
     font-size: 12px;
     font-weight: 600;
-    font-family: system-ui;
+    font-family: var(--font_family)
 }
 
 .home_logo {
