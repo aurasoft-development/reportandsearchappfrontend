@@ -7,6 +7,9 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu'; 
 import { Link } from "react-router-dom";
+import QueryStatsIcon from '@mui/icons-material/QueryStats';
+
+
 
 const Header = () => {
     return (
@@ -14,21 +17,22 @@ const Header = () => {
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static">
                     <Toolbar>
-                        <IconButton
+                    <IconButton
                             size="large"
                             edge="start"
                             color="inherit"
                             aria-label="menu"
                             sx={{ mr: 2 }}
                         >
-                            <MenuIcon />
+                            <QueryStatsIcon style={{ fontSize: '1em' }} />
                         </IconButton>
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             <Link className="nav-link" to="/">
                                 Home
                             </Link>
                         </Typography>
-                        <Button color="inherit">Login</Button>
+
+                        <Typography color="inherit">Search And Report Engine</Typography>
                     </Toolbar>
                 </AppBar>
             </Box>
