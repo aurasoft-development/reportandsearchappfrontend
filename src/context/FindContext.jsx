@@ -25,7 +25,8 @@ const FindProvider = ({ children }) => {
     const [open4, setOpen4] = useState(false);
     const [search, setSearch] = useState("")
     const [cat, setCat] = useState("")
-    const [searchResult, setSearchResult] = useState([])
+    const [searchResult, setSearchResult] = useState("screen")
+
 
     const getCategory1 = async () => {
         try {

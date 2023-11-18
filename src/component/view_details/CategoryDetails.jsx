@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 const CategoryDetails = () => {
     const [data, setData] = useState()
+    console.log("data---->", data?.field11?.url);
     const navigate = useNavigate()
     useEffect(() => {
         const Info = JSON.parse(localStorage.getItem('category1'))
