@@ -134,7 +134,6 @@ console.log('vikas data', searchResult);
                             <Tab label='Category3' {...a11yProps(2)} />
                             <Tab label='Category4' {...a11yProps(3)} />
                         </Tabs>
-                        <h3>hello  i am first category here </h3>
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
@@ -181,7 +180,6 @@ console.log('vikas data', searchResult);
                                                 </tbody>
                                             </table>
                                             <Button className='m-2' variant="contained" onClick={payMent}>Pay here to view more </Button>
-
                                         </div>
                                     </div>
                                 </>
@@ -202,7 +200,6 @@ console.log('vikas data', searchResult);
                             <Tab label='Category3' {...a11yProps(2)} />
                             <Tab label='Category4' {...a11yProps(3)} />
                         </Tabs>
-                        <h3>hello  i am second category </h3>
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
@@ -232,7 +229,6 @@ console.log('vikas data', searchResult);
                             <Tab label='Category3' {...a11yProps(2)} />
                             <Tab label='Category4' {...a11yProps(3)} />
                         </Tabs>
-                        <h3>hello  i am third  category </h3>
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
@@ -263,7 +259,6 @@ console.log('vikas data', searchResult);
                             <Tab label='Category3' {...a11yProps(2)} />
                             <Tab label='Category4' {...a11yProps(3)} />
                         </Tabs>
-                        <h3>hello  i am forth category </h3>
                     </Box>
                     <div className='tab_div_main'>
                         <div className='report-details'>
