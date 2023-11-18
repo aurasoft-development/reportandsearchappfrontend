@@ -150,7 +150,7 @@ export default function BasicTabs() {
                             {searchResult === "screen" ? (
                                 <div></div>
                             ) : (searchResult?.categories1 == null) ? (
-                                <p>User details not available. Please Check Other Category</p>
+                                <p>The details are not found. Please check into other categories.</p>
                             ) : <>
                                 <div className="card mt-3  m-3 p-1">
                                     <hr className="border-light m-0" />
@@ -174,8 +174,8 @@ export default function BasicTabs() {
                                                     <td>{searchResult?.categories1?.address}</td>
                                                 </tr>
                                             </tbody>
-                                        </table>
-                                        <Button className='m-2' variant="contained" onClick={payMent}>Pay here to view more </Button>
+                                        </table>  
+                                        <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
 
                                     </div>
                                 </div>
@@ -213,7 +213,7 @@ export default function BasicTabs() {
                             {searchResult === "screen" ? (
                                 <div></div>
                             ) : (searchResult?.categories1 == null) ? (
-                                <p>User details not available. Please Check Other Category</p>
+                                <p>The details are not found. Please check into other categories.</p>
                             ) : <>
                                 <div className="card mt-3  m-3 p-1">
                                     <hr className="border-light m-0" />
@@ -238,7 +238,7 @@ export default function BasicTabs() {
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <Button className='m-2' variant="contained" onClick={payMent}>Pay here to view more </Button>
+                                        <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
 
                                     </div>
                                 </div>
@@ -276,7 +276,7 @@ export default function BasicTabs() {
                             {searchResult === "screen" ? (
                                 <div></div>
                             ) : (searchResult?.categories1 == null) ? (
-                                <p>User details not available. Please Check Other Category</p>
+                                <p>The details are not found. Please check into other categories.</p>
                             ) : <>
                                 <div className="card mt-3  m-3 p-1">
                                     <hr className="border-light m-0" />
@@ -301,7 +301,7 @@ export default function BasicTabs() {
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <Button className='m-2' variant="contained" onClick={payMent}>Pay here to view more </Button>
+                                        <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
 
                                     </div>
                                 </div>
@@ -339,7 +339,7 @@ export default function BasicTabs() {
                             {searchResult === "screen" ? (
                                 <div></div>
                             ) : (searchResult?.categories1 == null) ? (
-                                <p>User details not available. Please Check Other Category</p>
+                                <p>The details are not found. Please check into other categories.</p>
                             ) : <>
                                 <div className="card mt-3  m-3 p-1">
                                     <hr className="border-light m-0" />
@@ -364,7 +364,7 @@ export default function BasicTabs() {
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <Button className='m-2' variant="contained" onClick={payMent}>Pay here to view more </Button>
+                                        <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
 
                                     </div>
                                 </div>

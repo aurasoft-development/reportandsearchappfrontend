@@ -2,15 +2,16 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Payment = () => {
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
-    const FutherForward = () =>{
+    const FutherForward = () => {
         navigate("/alldetails")
     }
 
     return (
         <>
             <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>
+                <h2 className='text-center mt-2'>Please pay ₹ ₹ ₹  for detailed report.</h2>
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col">
