@@ -363,7 +363,7 @@ const AddCategory1 = () => {
 
                                     <label className="my-2">Capture your selfie
                                         <Grid className="my-2">
-                                            <button  onClick={() => setShowWebcam(true)}>Open Webcam</button>
+                                            <button type='button'  onClick={() => setShowWebcam(true)}>Open Webcam</button>
                                             {showWebcam && (
                                                 <div>
                                                     <Webcam
@@ -371,7 +371,7 @@ const AddCategory1 = () => {
                                                         audio={false}
                                                         ref={webcamRef}
                                                     />
-                                                    <button onClick={captureSelfie}>Capture Selfie</button>
+                                                    <button type='button' onClick={captureSelfie}>Capture Selfie</button>
                                                 </div>
                                             )}
                                         </Grid>
