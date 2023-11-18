@@ -12,10 +12,10 @@ import { useNavigate } from 'react-router-dom';
 import CategoryModel from '../model/CategoryModel';
 import commonApiRequest from '../../api/commonApi';
 import { toast } from 'react-toastify';
+import { useEffect } from 'react';
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
-
     return (
         <div
             role="tabpanel"
@@ -117,7 +117,9 @@ export default function BasicTabs() {
     const payMent = () => {
         navigate('/payment')
     }
-
+    useEffect(() => {
+        setSearchResult("screen")
+    }, [value])
     return (
         <Box sx={{ width: '100%' }}>
             <div className='tab_sec_container '>
@@ -155,6 +157,7 @@ export default function BasicTabs() {
                                 <div className="card mt-3  m-3 p-1">
                                     <hr className="border-light m-0" />
                                     <div className="card-body">
+                                        {/* <div>red</div> */}
                                         <table className="table user-view-table m-0">
                                             <tbody>
                                                 <tr>

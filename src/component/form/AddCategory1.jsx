@@ -7,6 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { FindState } from '../../context/FindContext';
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const AddCategory1 = () => {
     const webcamRef = useRef(null);
@@ -50,22 +51,21 @@ const AddCategory1 = () => {
     const captureSelfie = () => {
         if (webcamRef.current) {
             const imageSrc = webcamRef.current.getScreenshot();
-            console.log("capture img path", imageSrc);
 
-            const apiUrl = 'http://localhost:5000/api/user/upload_image';
+            const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
 
             const formData = new FormData();
             formData.append('files', dataURItoBlob(imageSrc));
 
             axios.post(apiUrl, formData)
                 .then(response => {
-                    console.log('Image uploaded successfully:', response.data);
                     setFormData((oldValue) => {
                         return {
                             ...oldValue,
                             field12: response.data
                         }
                     })
+                    toast.success("File uploaded successfully.")
                 })
                 .catch(error => {
                     console.error('Error uploading image:', error);
@@ -75,20 +75,20 @@ const AddCategory1 = () => {
     };
 
     const uploadImages = () => {
-        const apiUrl = 'http://localhost:5000/api/user/upload_image';
+        const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
 
         const formData = new FormData();
         formData.append('files', captureImage);
 
         axios.post(apiUrl, formData)
             .then(response => {
-                console.log('Image uploaded successfully:', response.data);
                 setFormData((oldValue) => {
                     return {
                         ...oldValue,
                         field11: response.data
                     }
                 })
+                toast.success("File uploaded successfully")
             })
             .catch(error => {
                 console.error('Error uploading image:', error);
@@ -251,7 +251,7 @@ const AddCategory1 = () => {
                                             onChange={(e) => setCaptureImage(e.target.files[0])}
                                             endAdornment={
                                                 <InputAdornment position="end">
-                                                    <IconButton onClick={() => uploadImages()} style={{fontSize: '20px'}}>
+                                                    <IconButton onClick={() => uploadImages()} style={{ fontSize: '15px', padding: '2px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white' }}>
                                                         upload
                                                     </IconButton>
                                                 </InputAdornment>
@@ -360,22 +360,26 @@ const AddCategory1 = () => {
                                             onChange={handleInputChange}
                                         />
                                     </Grid>
-
-                                    <label className="my-2">Capture your selfie
-                                        <Grid className="my-2">
-                                            <button type='button'  onClick={() => setShowWebcam(true)}>Open Webcam</button>
-                                            {showWebcam && (
-                                                <div>
-                                                    <Webcam
-                                                        height={100}
-                                                        audio={false}
-                                                        ref={webcamRef}
-                                                    />
-                                                    <button type='button' onClick={captureSelfie}>Capture Selfie</button>
-                                                </div>
-                                            )}
-                                        </Grid>
-                                    </label>
+                                    <Grid className="my-2">
+                                        <button type='button' onClick={() => setShowWebcam(true)}
+                                            style={{ fontSize: '14px', padding: '5px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white', border: '1px solid' }}
+                                        >Capture your selfie
+                                        </button>
+                                        {showWebcam && (
+                                            <div>
+                                                <Webcam
+                                                    height={100}
+                                                    audio={false}
+                                                    ref={webcamRef}
+                                                />
+                                                <button type='button' onClick={captureSelfie}
+                                                    style={{ fontSize: '14px', padding: '5px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white', border: '1px solid' }}>
+                                                    Capture Selfie
+                                                </button>
+                                            </div>
+                                        )}
+                                    </Grid>
+                
                                 </Grid>
                             </Grid>
                             <div className="text-center my-2 mt-4">

@@ -5,9 +5,11 @@
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
-    color: rgb(236, 109, 12) !important;
-    font-size: 20px !important;
+    color: white !important;
+    font-size: 25px !important;
     font-weight: 600 !important;
+    border-radius: 8px;
+    background-color: green;
 }
 
 .css-1aquho2-MuiTabs-indicator {
@@ -45,7 +47,12 @@
     gap: 5px;
 }
 
-.search-input
-.css-ke5b6m-MuiButtonBase-root-MuiButton-root {
+.search-input .css-ke5b6m-MuiButtonBase-root-MuiButton-root {
     width: 100px !important;
 }
+/* .table{
+    display: flex;
+} */
+/* .card-body{
+    display: flex;
+} */

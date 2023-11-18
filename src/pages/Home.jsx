@@ -1,7 +1,6 @@
 import React from 'react'
 import '../assets/css/Home.css'
 import BasicTabs from '../component/home/Tabs'
-// import OtpVarifacation from '../component/home/OtpVarifacation'
 
 const Home = () => {
     return (
@@ -12,9 +11,8 @@ const Home = () => {
                 </span>
                 <h1>Search And Find Engine</h1>
             </div>
-            <div className='report-heading'>Report</div>
+            {/* <div className='report-heading'>Report</div> */}
             <BasicTabs />
-            {/* <OtpVarifacation /> */}
         </div>
     )
 }
