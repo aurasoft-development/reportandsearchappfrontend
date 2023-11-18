@@ -40,7 +40,7 @@
 .view_details_message {
     font-size: 20px;
     font-weight: 600;
-    color: green;
+    color: #2e7d32;
 }
 
 .view_other_category {
@@ -48,7 +48,7 @@
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
-    background-color: #1976d2;
+    background-color: #2e7d32;
     ;
     color: white;
     font-weight: 600;

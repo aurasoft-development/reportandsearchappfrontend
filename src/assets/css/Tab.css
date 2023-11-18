@@ -20,6 +20,7 @@
     justify-content: space-between;
     flex-wrap: wrap !important;
     background-color: rgb(225, 230, 234);
+    border-radius: 8px;
 }
 
 .tab_div_main {
@@ -51,6 +52,7 @@
 .search-input .css-ke5b6m-MuiButtonBase-root-MuiButton-root {
     width: 100px !important;
 }
+
 /* .table{
     display: flex;
 } */
