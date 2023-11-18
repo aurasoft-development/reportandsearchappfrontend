@@ -31,28 +31,28 @@ const CategoryDetails = () => {
                                     </tr>
 
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 1 </td>
                                         <td>{data?.field1}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 3 </td>
                                         <td>{data?.field3}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 5 </td>
                                         <td>{data?.field5}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
-                                        <td>{data?.field5}</td>
+                                        <td>Field 7</td>
+                                        <td>{data?.field7}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 9</td>
                                         <td>{data?.field9}</td>
                                     </tr>
 
                                     <tr>
-                                        <td>user img </td>
+                                        <td>User Image</td>
                                         <td><img width={"100px"} height={"100px"} src={data?.field11?.url} alt="" /></td>
                                     </tr>
 
@@ -79,28 +79,28 @@ const CategoryDetails = () => {
                                         <td>{data?.address}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 2</td>
                                         <td>{data?.field2}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 4</td>
                                         <td>{data?.field4}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 6</td>
                                         <td>{data?.field6}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 8</td>
                                         <td>{data?.field8}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 10</td>
                                         <td>{data?.field10}</td>
                                     </tr>
 
                                     <tr>
-                                        <td>user selfie </td>
+                                        <td>User Selfie</td>
                                         <td><img width={"100px"} height={"100px"} src={data?.field12?.url} alt="" /></td>
                                     </tr>
 
