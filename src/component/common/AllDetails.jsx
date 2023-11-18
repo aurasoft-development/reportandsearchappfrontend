@@ -11,7 +11,7 @@ const AllDetails = () => {
         <>
             <h2 className='text-center mt-2'>Here is {searchResult?.categories1?.uid} detailed report.</h2>
             <div className='row'>
-                <div className='col-6'>
+                <div className='col-lg-6 col-12'>
                     <div className="card mt-3  m-3 p-1">
                         <hr className="border-light m-0" />
                         <div className="card-body">
@@ -59,7 +59,7 @@ const AllDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className='col-6'>
+                <div className='col-lg-6 col-12'>
                     <div className="card mt-3  m-3 p-1">
                         <hr className="border-light m-0" />
                         <div className="card-body">
