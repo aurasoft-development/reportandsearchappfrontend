@@ -76,12 +76,16 @@ const CategoryDetails = () => {
                     <div>{data?.field10}</div>
                 </div>
                 <div className='view_details_div_main'>
-                    <div>FIELD11</div>
-                    <div>{data?.field11}</div>
+                    <div>Image</div>
+                    <div>
+                        <img width={"100px"} height={"100px"} src={data?.field11?.url} alt="selfie" />
+                    </div>
                 </div>
                 <div className='view_details_div_main'>
-                    <div>FIELD12</div>
-                    <div>{data?.field12}</div>
+                    <div>Selfie</div>
+                    <div>
+                        <img width={"100px"} height={"100px"} src={data?.field12?.url} alt="selfie" />
+                    </div>
                 </div>
             </div>
             <div><h2>Submited Successfully</h2></div>
