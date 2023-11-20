@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 
 const AllDetails = () => {
     const { searchResult } = FindState();
-    console.log('data', {searchResult});
     const navigate = useNavigate()
     return (
         <>
@@ -27,29 +26,29 @@ const AllDetails = () => {
                                     </tr>
 
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 1</td>
                                         <td>{searchResult?.categories1?.field1}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 3</td>
                                         <td>{searchResult?.categories1?.field3}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 5</td>
                                         <td>{searchResult?.categories1?.field5}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field </td>
                                         <td>{searchResult?.categories1?.field5}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 9</td>
                                         <td>{searchResult?.categories1?.field9}</td>
                                     </tr>
 
                                     <tr>
-                                        <td>user img </td>
-                                        <td><img src={searchResult?.categories1?.field11?.url} alt="" /></td>
+                                        <td>User Image</td>
+                                        <td><img src={searchResult?.categories1?.field11?.url} alt="user" /></td>
                                     </tr>
 
 
@@ -75,29 +74,29 @@ const AllDetails = () => {
                                         <td>{searchResult?.categories1?.address}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 2</td>
                                         <td>{searchResult?.categories1?.field2}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 4</td>
                                         <td>{searchResult?.categories1?.field4}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 6</td>
                                         <td>{searchResult?.categories1?.field6}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 8</td>
                                         <td>{searchResult?.categories1?.field8}</td>
                                     </tr>
                                     <tr>
-                                        <td>filed </td>
+                                        <td>Field 10</td>
                                         <td>{searchResult?.categories1?.field10}</td>
                                     </tr>
 
                                     <tr>
-                                        <td>user selfie </td>
-                                        <td><img src={searchResult?.categories1?.field12?.url} alt="" /></td>
+                                        <td>User Selfie </td>
+                                        <td><img src={searchResult?.categories1?.field12?.url} alt="selfie" /></td>
                                     </tr>
 
                                 </tbody>
@@ -107,10 +106,9 @@ const AllDetails = () => {
                     </div>
                 </div>
             </div>
-            <div style={{ cursor: 'pointer', marginLeft: '15px' }} className='text-center mt-2'><Button variant="contained" color="success" onClick={() => navigate('/')}>Go to Home</Button></div>
-
-
-        </>)
+            <div style={{ cursor: 'pointer', marginLeft: '15px' }} className='text-center mt-2'><Button variant="contained" color="success" onClick={() => navigate('/')}>Back To Home</Button></div>
+        </>
+        )
 }
 
 export default AllDetails

@@ -45,7 +45,7 @@ const OtpVarifacation = () => {
             }
 
             await commonApiRequest('post', '/api/add_categories', info);
-            toast.success('Add Category Successfully')
+            toast.success('Report added Successfully.')
 
         } catch (error) {
             toast.error("Error fetching the chat")
@@ -73,7 +73,7 @@ const OtpVarifacation = () => {
             }
             // await axios.post(`${import.meta.env.VITE_API_URL}/api/cat2/add_categories`, info);
             await commonApiRequest('post', '/api/cat2/add_categories', info);
-            toast.success('Add Category Successfully')
+            toast.success('Report added Successfully.')
 
         } catch (error) {
             toast.error("Error fetching the chat")
@@ -101,7 +101,7 @@ const OtpVarifacation = () => {
             }
             // await axios.post(`${import.meta.env.VITE_API_URL}/api/cat3/add_categories`, info);
             await commonApiRequest('post', '/api/cat3/add_categories', info);
-            toast.success('Add Category Successfully')
+            toast.success('Report added Successfully.')
 
         } catch (error) {
             toast.error("Error fetching the chat")
@@ -129,7 +129,7 @@ const OtpVarifacation = () => {
             }
             // await axios.post(`${import.meta.env.VITE_API_URL}/api/cat4/add_categories`, info);
             await commonApiRequest('post', '/api/cat4/add_categories', info);
-            toast.success('Add Category Successfully')
+            toast.success('Report added Successfully.')
 
         } catch (error) {
             toast.error("Error fetching the chat")

@@ -13,85 +13,106 @@ const CategoryDetails = () => {
     }, [])
     return (
         <div className='view_details_main'>
-            <div className='view_detail_heading'>View Details</div>
-            <div className='view_details_container'>
-                <div className='view_details_div_main'>
-                    <div>UID</div>
-                    <div>{data?.uid}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>NAME</div>
-                    <div>{data?.name}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>NUMBER</div>
-                    <div>{data?.number}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>ADDRESS</div>
-                    <div>{data?.address}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>UID</div>
-                    <div>{data?.uid}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>FIELD1</div>
-                    <div>{data?.field1}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>FIELD2</div>
-                    <div>{data?.field2}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>FIELD3</div>
-                    <div>{data?.field3}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>FIELD4</div>
-                    <div>{data?.field4}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>FIELD5</div>
-                    <div>{data?.field5}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>FIELD6</div>
-                    <div>{data?.field6}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>FIELD7</div>
-                    <div>{data?.field7}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>FIELD8</div>
-                    <div>{data?.field8}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>FIELD9</div>
-                    <div>{data?.field9}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>FIELD10</div>
-                    <div>{data?.field10}</div>
-                </div>
-                <div className='view_details_div_main'>
-                    <div>Image</div>
-                    <div>
-                        <img width={"100px"} height={"100px"} src={data?.field11?.url} alt="selfie" />
+            <div className='row'>
+            <div className='view_detail_heading'>Thanks for submitting details</div>
+                <div className='col-6'>
+                    <div className="card mt-3  m-3 p-1">
+                        <hr className="border-light m-0" />
+                        <div className="card-body">
+                            <table className="table user-view-table m-0">
+                                <tbody>
+                                    <tr>
+                                        <td>UID:</td>
+                                        <td>{data?.uid}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name:</td>
+                                        <td>{data?.name}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Field 1 </td>
+                                        <td>{data?.field1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Field 3 </td>
+                                        <td>{data?.field3}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Field 5 </td>
+                                        <td>{data?.field5}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Field 7</td>
+                                        <td>{data?.field7}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Field 9</td>
+                                        <td>{data?.field9}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>User Image</td>
+                                        <td><img width={"100px"} height={"100px"} src={data?.field11?.url} alt="" /></td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
                     </div>
                 </div>
-                <div className='view_details_div_main'>
-                    <div>Selfie</div>
-                    <div>
-                        <img width={"100px"} height={"100px"} src={data?.field12?.url} alt="selfie" />
+                <div className='col-6'>
+                    <div className="card mt-3  m-3 p-1">
+                        <hr className="border-light m-0" />
+                        <div className="card-body">
+                            <table className="table user-view-table m-0">
+                                <tbody>
+
+                                    <tr>
+                                        <td>Number:</td>
+                                        <td>{data?.number}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address:</td>
+                                        <td>{data?.address}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Field 2</td>
+                                        <td>{data?.field2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Field 4</td>
+                                        <td>{data?.field4}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Field 6</td>
+                                        <td>{data?.field6}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Field 8</td>
+                                        <td>{data?.field8}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Field 10</td>
+                                        <td>{data?.field10}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>User Selfie</td>
+                                        <td><img width={"100px"} height={"100px"} src={data?.field12?.url} alt="" /></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
                     </div>
                 </div>
             </div>
-            <div><h2>Submited Successfully</h2></div>
             <div className='view_detail_thanks'>
-                <span className='view_details_message'>Thanks for using</span>
-                <span className='view_other_category' onClick={() => { navigate('/'); localStorage.removeItem("category1") }}>Go To Home</span>
+                <span className='view_other_category' onClick={() => { navigate('/'); localStorage.removeItem("category1") }}>Back to search</span>
             </div>
         </div>
     )
