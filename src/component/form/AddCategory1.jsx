@@ -8,6 +8,7 @@ import { FindState } from '../../context/FindContext';
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Loader from '../common/Loader';
 
 const AddCategory1 = () => {
     const webcamRef = useRef(null);
@@ -15,6 +16,8 @@ const AddCategory1 = () => {
     const [captureImage, setCaptureImage] = useState("")
     const { open, setOpen, setCat } = FindState()
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading2, setIsLoading2] = useState(false);
     const [formData, setFormData] = useState({
         uid: '',
         name: '',
@@ -50,6 +53,7 @@ const AddCategory1 = () => {
     console.log('captureImage', captureImage);
     const captureSelfie = () => {
         if (webcamRef.current) {
+            setIsLoading2(true);
             const imageSrc = webcamRef.current.getScreenshot();
 
             const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
@@ -66,15 +70,19 @@ const AddCategory1 = () => {
                         }
                     })
                     toast.success("File uploaded successfully.")
+                    setIsLoading2(false);
                 })
                 .catch(error => {
                     console.error('Error uploading image:', error);
+                    setIsLoading2(false);
                 });
         }
         setShowWebcam(false);
     };
 
     const uploadImages = () => {
+        setIsLoading(true);
+
         const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
 
         const formData = new FormData();
@@ -89,10 +97,13 @@ const AddCategory1 = () => {
                     }
                 })
                 toast.success("File uploaded successfully")
+                setIsLoading(false);
+
             })
             .catch(error => {
                 console.error('Error uploading image:', error);
-            });
+                setIsLoading(false);
+            })
     }
 
 
@@ -250,11 +261,20 @@ const AddCategory1 = () => {
                                             name='password'
                                             onChange={(e) => setCaptureImage(e.target.files[0])}
                                             endAdornment={
-                                                <InputAdornment position="end">
-                                                    <IconButton onClick={() => uploadImages()} style={{ fontSize: '15px', padding: '2px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white' }}>
-                                                        upload
-                                                    </IconButton>
-                                                </InputAdornment>
+                                                <div className="text-center my-2 ">
+                                                    {isLoading ? (
+                                                        <div className=" d-flex justify-content-center align-items-center ">
+                                                            <Loader />
+                                                        </div>
+                                                    ) : (
+                                                        <InputAdornment position="end">
+                                                            <IconButton onClick={() => uploadImages()} style={{ fontSize: '15px', padding: '2px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white' }}>
+                                                                upload
+                                                            </IconButton>
+                                                        </InputAdornment>
+                                                    )}
+                                                </div>
+
                                             }
                                         />
                                     </FormControl>
@@ -360,6 +380,7 @@ const AddCategory1 = () => {
                                             onChange={handleInputChange}
                                         />
                                     </Grid>
+
                                     <Grid className="my-2">
                                         <button type='button' onClick={() => setShowWebcam(true)}
                                             style={{ fontSize: '14px', padding: '5px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white', border: '1px solid' }}
@@ -372,14 +393,23 @@ const AddCategory1 = () => {
                                                     audio={false}
                                                     ref={webcamRef}
                                                 />
-                                                <button type='button' onClick={captureSelfie}
-                                                    style={{ fontSize: '14px', padding: '5px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white', border: '1px solid' }}>
-                                                    Capture Selfie
-                                                </button>
+
+                                                <div className="text-center my-2">
+                                                    {isLoading2 ? (
+                                                        <div className=" d-flex justify-content-center align-items-center ">
+                                                            <Loader />
+                                                        </div>
+                                                    ) : (
+                                                        <button type='button' onClick={captureSelfie}
+                                                            style={{ fontSize: '14px', padding: '5px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white', border: '1px solid' }}>
+                                                            Capture Selfie
+                                                        </button>
+                                                    )}
+                                                </div>
                                             </div>
                                         )}
                                     </Grid>
-                
+
                                 </Grid>
                             </Grid>
                             <div className="text-center my-2 mt-4">

@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from "react-router-dom";
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import { Tab, Tabs } from '@mui/material';
+import '../../assets/css/form/Header.css'
 
 const PAGES = ["Home", "About", "Products", "Contact"]
 
@@ -17,6 +18,7 @@ const PAGES = ["Home", "About", "Products", "Contact"]
 const Header = () => {
     return (
         <>
+        <div className='hedaerParent'>
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static">
                     <Toolbar>
@@ -37,6 +39,7 @@ const Header = () => {
                     </Toolbar>
                 </AppBar>
             </Box>
+            </div>
         </>
     )
 }
