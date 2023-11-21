@@ -37,6 +37,21 @@ const AddCategory1 = () => {
         field12: {}
     });
 
+    const validUID = (uid) =>{
+        return uid.trim() !== ''
+    }
+
+    const validName = (name) =>{
+         return name.trim() !== ''
+    }
+
+    const validNumber = (number) =>{
+    return number.trim !== ''
+    }
+    const validAddress = (address)=>{
+        return address.trim() !== ''
+    }
+
     // Function to convert data URI to Blob
     const dataURItoBlob = (dataURI) => {
         const byteString = atob(dataURI.split(',')[1]);
@@ -82,9 +97,7 @@ const AddCategory1 = () => {
 
     const uploadImages = () => {
         setIsLoading(true);
-
         const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
-
         const formData = new FormData();
         formData.append('files', captureImage);
 
@@ -98,14 +111,12 @@ const AddCategory1 = () => {
                 })
                 toast.success("File uploaded successfully")
                 setIsLoading(false);
-
             })
             .catch(error => {
                 console.error('Error uploading image:', error);
                 setIsLoading(false);
             })
     }
-
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -114,12 +125,34 @@ const AddCategory1 = () => {
             [name]: value,
         });
     };
+
     const onSubmit = (event) => {
         event.preventDefault();
-        localStorage.setItem("category1", JSON.stringify(formData));
-        setOpen(false)
-        setCat(1)
-        navigate('/otpverification')
+        try {
+            if(!validUID(formData.uid)){
+                toast.error("enter a valid uid");
+            }
+            if(!validName(formData.name)){
+                toast.error("enter a valid name");
+            }
+            if(!validNumber(formData.number)){
+                toast.error('enter a valid number')
+            }
+            if(!validAddress(formData.address)){
+                toast.error("enter a valid address")
+            }
+
+           else{
+            localStorage.setItem("category1", JSON.stringify(formData));
+            setOpen(false)
+            setCat(1)
+            navigate('/otpverification')
+           }
+            
+        } catch (error) {
+            console.log('error');
+            
+        }
     };
 
     function handleTakePhotoAnimationDone(dataUri) {
@@ -274,7 +307,6 @@ const AddCategory1 = () => {
                                                         </InputAdornment>
                                                     )}
                                                 </div>
-
                                             }
                                         />
                                     </FormControl>
@@ -382,10 +414,21 @@ const AddCategory1 = () => {
                                     </Grid>
 
                                     <Grid className="my-2">
-                                        <button type='button' onClick={() => setShowWebcam(true)}
-                                            style={{ fontSize: '14px', padding: '5px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white', border: '1px solid' }}
-                                        >Capture your selfie
-                                        </button>
+
+                                        <div className="text-center my-2">
+                                            {isLoading2 ? (
+                                                <div className=" d-flex justify-content-center align-items-center ">
+                                                    <Loader />
+                                                </div>
+                                            ) : (
+                                                <button type='button' onClick={() => setShowWebcam(true)}
+                                                    style={{ fontSize: '14px', padding: '5px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white', border: '1px solid' }}
+                                                >Capture your selfie
+                                                </button>
+                                            )}
+                                        </div>
+
+
                                         {showWebcam && (
                                             <div>
                                                 <Webcam
@@ -394,18 +437,10 @@ const AddCategory1 = () => {
                                                     ref={webcamRef}
                                                 />
 
-                                                <div className="text-center my-2">
-                                                    {isLoading2 ? (
-                                                        <div className=" d-flex justify-content-center align-items-center ">
-                                                            <Loader />
-                                                        </div>
-                                                    ) : (
-                                                        <button type='button' onClick={captureSelfie}
-                                                            style={{ fontSize: '14px', padding: '5px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white', border: '1px solid' }}>
-                                                            Capture Selfie
-                                                        </button>
-                                                    )}
-                                                </div>
+                                                <button type='button' onClick={captureSelfie}
+                                                    style={{ fontSize: '14px', padding: '5px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white', border: '1px solid' }}>
+                                                    Capture Selfie
+                                                </button>
                                             </div>
                                         )}
                                     </Grid>
