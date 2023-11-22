@@ -2,12 +2,6 @@ import React from "react";
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import {
-    // createUserWithEmailAndPassword,
-    // signInWithEmailAndPassword,
-    // onAuthStateChanged,
-    // signOut,
-    // GoogleAuthProvider,
-    // signInWithPopup,
     RecaptchaVerifier,
     signInWithPhoneNumber
 } from "firebase/auth";
@@ -19,6 +13,7 @@ const FindProvider = ({ children }) => {
     const [category2, setCategory2] = useState("")
     const [category3, setCategory3] = useState("")
     const [category4, setCategory4] = useState("")
+    // const [number, setNumber] = useState()
     const [open, setOpen] = useState(false);
     const [open2, setOpen2] = useState(false);
     const [open3, setOpen3] = useState(false);
@@ -80,7 +75,7 @@ const FindProvider = ({ children }) => {
     }
 
     return (
-        <FindContext.Provider value={{ category1, category2, category3, category4, search, setSearch, searchResult, setSearchResult, open, setOpen, open2, setOpen2, open3, setOpen3, open4, setOpen4, setUpRecaptcha, cat, setCat }}>
+        <FindContext.Provider value={{ category1, category2, category3, category4, search, setSearch, searchResult, setSearchResult, open, setOpen, open2, setOpen2, open3, setOpen3, open4, setOpen4, setUpRecaptcha, cat, setCat}}>
             {children}
         </FindContext.Provider>
     )
