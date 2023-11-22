@@ -25,7 +25,8 @@ const FindProvider = ({ children }) => {
 
     const getCategory1 = async () => {
         try {
-            const category1Data = await axios.get(`http://localhost:5000/api/get_all_categories`)
+            const category1Data = await axios.get(`${import.meta.env.VITE_API_URL}/api/get_all_categories`)
+            // const category1Data = await axios.get(`http://localhost:5000/api/get_all_categories`)
             setCategory1(category1Data.data)
         } catch (error) {
             console.log(error)
@@ -33,7 +34,8 @@ const FindProvider = ({ children }) => {
     }
     const getCategory2 = async () => {
         try {
-            const category1Data = await axios.get(`http://localhost:5000/api/cat2/get_all_categories`)
+            const category1Data = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat2/get_all_categories`)
+            // const category1Data = await axios.get(`http://localhost:5000/api/cat2/get_all_categories`)
             setCategory2(category1Data.data)
         } catch (error) {
             console.log(error)
@@ -42,7 +44,8 @@ const FindProvider = ({ children }) => {
 
     const getCategory3 = async () => {
         try {
-            const category1Data = await axios.get(`http://localhost:5000/api/cat3/get_all_categories`)
+            const category1Data = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat3/get_all_categories`)
+            // const category1Data = await axios.get(`http://localhost:5000/api/cat3/get_all_categories`)
             setCategory3(category1Data.data)
         } catch (error) {
             console.log(error)
@@ -50,7 +53,8 @@ const FindProvider = ({ children }) => {
     }
     const getCategory4 = async () => {
         try {
-            const category1Data = await axios.get(`http://localhost:5000/api/cat4/get_all_categories`)
+            const category1Data = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat4/get_all_categories`)
+            // const category1Data = await axios.get(`http://localhost:5000/api/cat4/get_all_categories`)
             setCategory4(category1Data.data)
         } catch (error) {
             console.log(error)
