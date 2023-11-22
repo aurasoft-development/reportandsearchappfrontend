@@ -65,7 +65,6 @@ const AddCategory1 = () => {
         return new Blob([arrayBuffer], { type: mimeString });
     };
 
-    console.log('captureImage', captureImage);
     const captureSelfie = () => {
         if (webcamRef.current) {
             setIsLoading2(true);

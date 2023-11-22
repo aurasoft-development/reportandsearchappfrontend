@@ -8,6 +8,7 @@ import { FindState } from '../../context/FindContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import commonApiRequest from '../../api/commonApi'
+import CircularProgress from '@mui/material/CircularProgress';
 
 const OtpVarifacation = () => {
     const [number, setNumber] = useState()
@@ -17,7 +18,9 @@ const OtpVarifacation = () => {
     const [confirmObj, setConfirmObj] = useState("");
     const [data, setData] = useState()
     const { setUpRecaptcha, cat } = FindState();
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
+
 
     useEffect(() => {
         const Info = JSON.parse(localStorage.getItem('category1'))
@@ -141,9 +144,12 @@ const OtpVarifacation = () => {
         if (number === "" || number === undefined)
             return setError("please enter a valid Phone Number")
         try {
+            setLoading(true)
             const response = await setUpRecaptcha(number);
+            setLoading(false)
             setConfirmObj(response)
             setFlag(true)
+
         } catch (err) {
             setError(err.message)
         }
@@ -184,11 +190,11 @@ const OtpVarifacation = () => {
                             defaultCountry='IN'
                             onChange={setNumber}
                         />
+                        <div className='btn-div'>
+                            {loading == true ? <CircularProgress /> : ""}
+                            <Button variant="contained" color="success" onClick={() => getOtp(number)}>Send Otp</Button>
+                        </div>
                         <div id='recaptcha-container'></div>
-                    </div>
-                    <div className='btn-div'>
-                        {/* <Button variant="outlined" color="error">Cancel</Button> */}
-                        <Button variant="contained" color="success" onClick={() => getOtp(number)}>Send Otp</Button>
                     </div>
                 </div>
                 <div className='verify_otp'
