@@ -153,9 +153,10 @@ const AddCategory1 = () => {
             
         }
     };
+
+    
     return (
         <>
-
             <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" >
