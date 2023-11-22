@@ -155,28 +155,9 @@ const AddCategory1 = () => {
         }
     };
 
-    function handleTakePhotoAnimationDone(dataUri) {
-        // Do stuff with the photo...
-        console.log('takePhoto');
-    }
-    function handleCameraError(error) {
-        console.log('handleCameraError', error);
-    }
-    function handleCameraStart(stream) {
-        console.log('handleCameraStart');
-    }
-    function handleCameraStop() {
-        console.log('handleCameraStop');
-    }
-    function handleTakePhoto(dataUri) {
-        console.log('takePhoto', dataUri);
-        setShowWebcam(false)
-        handleCameraStop()
-    }
-
+    
     return (
         <>
-
             <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" >
