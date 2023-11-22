@@ -155,6 +155,7 @@ const AddCategory1 = () => {
         }
     };
 
+    
     return (
         <>
             <Grid className="p-3">
