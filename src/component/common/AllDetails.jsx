@@ -48,7 +48,7 @@ const AllDetails = () => {
 
                                     <tr>
                                         <td>User Image</td>
-                                        <td><img src={searchResult?.categories1?.field11?.url} alt="user" /></td>
+                                        <td><img width={"100px"} height={"100px"} src={searchResult?.categories1?.field11?.url} alt="user" /></td>
                                     </tr>
 
 
@@ -96,7 +96,7 @@ const AllDetails = () => {
 
                                     <tr>
                                         <td>User Selfie </td>
-                                        <td><img src={searchResult?.categories1?.field12?.url} alt="selfie" /></td>
+                                        <td><img width={"100px"} height={"100px"} src={searchResult?.categories1?.field12?.url} alt="selfie" /></td>
                                     </tr>
 
                                 </tbody>
