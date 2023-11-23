@@ -7,6 +7,7 @@ import Payment from '../component/common/Payment'
 import AllDetails from '../component/common/AllDetails'
 import OtpVarifacation from '../component/home/OtpVarifacation'
 import CategoryDetails from '../component/view_details/CategoryDetails'
+import Footer from '../component/common/FooterDetails'
 
 const AllRoutes = () => {
     return (
@@ -19,6 +20,7 @@ const AllRoutes = () => {
                 <Route path="/alldetails" element={< AllDetails />} />
                 <Route path="/otpverification" element={<OtpVarifacation />} />
                 <Route path="/category_details" element={<CategoryDetails />} />
+                <Route path='/footer' element={<Footer />} />
             </Routes> 
         </div>
     )

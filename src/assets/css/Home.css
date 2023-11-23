@@ -1,10 +1,11 @@
 .home_container {
     background-color: rgb(255 255 255);
-    height: 100vh;
+    height: 84.8vh;
     color: black;
     font-size: 15px;
     font-weight: 600;
-    font-family: var(--font_family)
+    font-family: var(--font_family);
+    /* background-image: url('https://cdn.wallpapersafari.com/82/17/maoFMA.jpg'); */
     
 }
 
