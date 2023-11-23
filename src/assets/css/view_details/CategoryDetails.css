@@ -27,6 +27,7 @@
 .view_detail_heading {
     font-size: 25px;
     font-weight: 600;
+    color: green;
     /* border-bottom: 1px solid black; */
     text-align: center;
 }

@@ -54,13 +54,14 @@ export default function BasicTabs() {
     const [searchData2, setSearhData2] = React.useState("");
     const [searchData3, setSearhDat3] = React.useState("");
     const [searchData4, setSearhData4] = React.useState("");
-    const { search, setSearch, searchResult, setSearchResult } = FindState();
+    const { search, setSearch, searchResult, setSearchResult, setStep } = FindState();
     const handleChange = (event, newValue) => {
         setValue(newValue);
+        setStep(1)
     };
     const handleSearch = async (uid) => {
         if (!uid) {
-            toast.warn('Please Enter UID')
+            toast.warn('Please Enter UID.')
         } else {
             try {
                 const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/get_categories/by_uid?uid=${uid}`)
@@ -74,7 +75,7 @@ export default function BasicTabs() {
 
     const handleSearch2 = async (uid) => {
         if (!uid) {
-            toast.warn('Please Enter UID')
+            toast.warn('Please Enter UID.')
         } else {
             try {
                 const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat2/get_categories/by_uid?uid=${uid}`)
@@ -88,7 +89,7 @@ export default function BasicTabs() {
 
     const handleSearch3 = async (uid) => {
         if (!uid) {
-            toast.warn('Please Enter UID')
+            toast.warn('Please Enter UID.')
         } else {
             try {
                 const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat3/get_categories/by_uid?uid=${uid}`)
@@ -102,7 +103,7 @@ export default function BasicTabs() {
 
     const handleSearch4 = async (uid) => {
         if (!uid) {
-            toast.warn('Please Enter UID')
+            toast.warn('Please Enter UID.')
         } else {
             try {
                 const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat4/get_categories/by_uid?uid=${uid}`)
@@ -142,7 +143,7 @@ export default function BasicTabs() {
                                     style={{ width: '250px' }}
                                     id="search"
                                     placeholder="Enter UID"
-                                    label="Search"
+                                    label="Select category and search."
                                     onChange={(e) => setSearhData(e.target.value)}
                                 />
                                 <Button variant="contained" color="success" onClick={() => handleSearch(searchData)}>Search</Button>
@@ -177,8 +178,8 @@ export default function BasicTabs() {
                                                     <td>{searchResult?.categories1?.address}</td>
                                                 </tr>
                                             </tbody>
-                                        </table>  
-                                        <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
+                                        </table>
+                                        <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report. </Button>
 
                                     </div>
                                 </div>
@@ -206,7 +207,7 @@ export default function BasicTabs() {
                                     style={{ width: '250px' }}
                                     id="search"
                                     placeholder="Enter UID"
-                                    label="Search"
+                                    label="Select category and search."
                                     onChange={(e) => setSearhData2(e.target.value)}
                                 />
                                 <Button variant="contained" color="success" onClick={() => handleSearch2(searchData2)}>Search</Button>
@@ -269,7 +270,7 @@ export default function BasicTabs() {
                                     style={{ width: '250px' }}
                                     id="search"
                                     placeholder="Enter UID"
-                                    label="Search"
+                                    label="Select category and search."
                                     onChange={(e) => setSearhDat3(e.target.value)}
                                 />
                                 <Button variant="contained" color="success" onClick={() => handleSearch3(searchData3)}>Search</Button>
@@ -332,7 +333,7 @@ export default function BasicTabs() {
                                     style={{ width: '250px' }}
                                     id="search"
                                     placeholder="Enter UID"
-                                    label="Search"
+                                    label="Select category and search."
                                     onChange={(e) => setSearhData4(e.target.value)}
                                 />
                                 <Button variant="contained" color="success" onClick={() => handleSearch4(searchData4)}>Search</Button>

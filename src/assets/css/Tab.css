@@ -9,7 +9,7 @@
     /* font-size: 25px !important; */
     font-weight: 500 !important;
     border-radius: 8px;
-    background-color: green;
+    background-color: #2e7d32;
 }
 
 .css-1aquho2-MuiTabs-indicator {
@@ -32,6 +32,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 20px 0;
+    gap: 10px;
 }
 
 .report-details>span {
@@ -40,22 +41,12 @@
 
 }
 
-.css-ke5b6m-MuiButtonBase-root-MuiButton-root {
-    padding: 15px !important;
-}
-
 .search-input {
     display: flex;
+    flex-wrap: wrap;
     gap: 5px;
 }
 
 .search-input .css-ke5b6m-MuiButtonBase-root-MuiButton-root {
     width: 100px !important;
 }
-
-/* .table{
-    display: flex;
-} */
-/* .card-body{
-    display: flex;
-} */

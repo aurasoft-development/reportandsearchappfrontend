@@ -14,7 +14,7 @@ const CategoryDetails = () => {
     return (
         <div className='view_details_main'>
             <div className='row'>
-            <div className='view_detail_heading'>Thanks for submitting details</div>
+                <div className='view_detail_heading'>Thanks for submitting details</div>
                 <div className='col-6'>
                     <div className="card mt-3  m-3 p-1">
                         <hr className="border-light m-0" />
@@ -29,33 +29,43 @@ const CategoryDetails = () => {
                                         <td>Name:</td>
                                         <td>{data?.name}</td>
                                     </tr>
+                                    {
+                                        data?.field1 ? <tr>
+                                            <td>Field1 </td>
+                                            <td>{data?.field1}</td>
+                                        </tr> : ""
+                                    }
+                                    {
+                                        data?.field3 ? <tr>
+                                            <td>Field3 </td>
+                                            <td>{data?.field3}</td>
+                                        </tr> : ""
+                                    }
 
-                                    <tr>
-                                        <td>Field 1 </td>
-                                        <td>{data?.field1}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Field 3 </td>
-                                        <td>{data?.field3}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Field 5 </td>
-                                        <td>{data?.field5}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Field 7</td>
-                                        <td>{data?.field7}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Field 9</td>
-                                        <td>{data?.field9}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>User Image</td>
-                                        <td><img width={"100px"} height={"100px"} src={data?.field11?.url} alt="" /></td>
-                                    </tr>
-
+                                    {
+                                        data?.field5 ? <tr>
+                                            <td>Field5 </td>
+                                            <td>{data?.field5}</td>
+                                        </tr> : ""
+                                    }
+                                    {
+                                        data?.field7 ? <tr>
+                                            <td>Field7 </td>
+                                            <td>{data?.field7}</td>
+                                        </tr> : ""
+                                    }
+                                    {
+                                        data?.field9 ? <tr>
+                                            <td>Field9 </td>
+                                            <td>{data?.field9}</td>
+                                        </tr> : ""
+                                    }
+                                    {
+                                        data?.field11?.url ? <tr>
+                                            <td>User Image</td>
+                                            <td><img width={"100px"} height={"100px"} src={data?.field11?.url} alt="" /></td>
+                                        </tr> : ""
+                                    }
 
                                 </tbody>
                             </table>
@@ -78,32 +88,43 @@ const CategoryDetails = () => {
                                         <td>Address:</td>
                                         <td>{data?.address}</td>
                                     </tr>
-                                    <tr>
-                                        <td>Field 2</td>
-                                        <td>{data?.field2}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Field 4</td>
-                                        <td>{data?.field4}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Field 6</td>
-                                        <td>{data?.field6}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Field 8</td>
-                                        <td>{data?.field8}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Field 10</td>
-                                        <td>{data?.field10}</td>
-                                    </tr>
 
-                                    <tr>
-                                        <td>User Selfie</td>
-                                        <td><img width={"100px"} height={"100px"} src={data?.field12?.url} alt="" /></td>
-                                    </tr>
-
+                                    {
+                                        data?.field2 ? <tr>
+                                            <td>Field2 </td>
+                                            <td>{data?.field2}</td>
+                                        </tr> : ""
+                                    }
+                                    {
+                                        data?.field4 ? <tr>
+                                            <td>Field4 </td>
+                                            <td>{data?.field4}</td>
+                                        </tr> : ""
+                                    }
+                                    {
+                                        data?.field6 ? <tr>
+                                            <td>Field6 </td>
+                                            <td>{data?.field6}</td>
+                                        </tr> : ""
+                                    }
+                                    {
+                                        data?.field8 ? <tr>
+                                            <td>Field8 </td>
+                                            <td>{data?.field8}</td>
+                                        </tr> : ""
+                                    }
+                                    {
+                                        data?.field10 ? <tr>
+                                            <td>Field10 </td>
+                                            <td>{data?.field10}</td>
+                                        </tr> : ""
+                                    }
+                                    {
+                                        data?.field12?.url ? <tr>
+                                            <td>User Selfie</td>
+                                            <td><img width={"100px"} height={"100px"} src={data?.field12?.url} alt="" /></td>
+                                        </tr> : ""
+                                    }
                                 </tbody>
                             </table>
 
@@ -112,7 +133,7 @@ const CategoryDetails = () => {
                 </div>
             </div>
             <div className='view_detail_thanks'>
-                <span className='view_other_category' onClick={() => { navigate('/'); localStorage.removeItem("category1") }}>Back to search</span>
+                <span className='view_other_category' onClick={() => { navigate('/'); localStorage.removeItem("category1") }}>Back To Search</span>
             </div>
         </div>
     )
