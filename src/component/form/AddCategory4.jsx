@@ -46,7 +46,6 @@ const AddCategory4 = () => {
         return new Blob([arrayBuffer], { type: mimeString });
     };
 
-    console.log('captureImage', captureImage);
     const captureSelfie = () => {
         if (webcamRef.current) {
             const imageSrc = webcamRef.current.getScreenshot();
@@ -109,26 +108,6 @@ const AddCategory4 = () => {
         navigate('/otpverification')
 
     };
-
-    function handleTakePhotoAnimationDone(dataUri) {
-        // Do stuff with the photo...
-        console.log('takePhoto');
-    }
-    function handleCameraError(error) {
-        console.log('handleCameraError', error);
-    }
-    function handleCameraStart(stream) {
-        console.log('handleCameraStart');
-    }
-    function handleCameraStop() {
-        console.log('handleCameraStop');
-    }
-    function handleTakePhoto(dataUri) {
-        console.log('takePhoto', dataUri);
-        setShowWebcam(false)
-        handleCameraStop()
-    }
-
     return (
         <>
 
