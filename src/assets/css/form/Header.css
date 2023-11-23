@@ -1,20 +1,17 @@
 .hedaerParent .css-heg063-MuiTabs-flexContainer{
     background-color: #1976d2;
+    /* background-color: pink; */
 }
 
 .css-hip9hq-MuiPaper-root-MuiAppBar-root{
-    color: #5A100B !important;
+    
 }
 
 .headerText{
-    font-family: "Roboto","Helvetica","Arial",sans-serif !important;
-    font-weight: 400 !important;
-    /* font-size: 1rem !important; */
-    line-height: 1.5 !important;
-    letter-spacing: 0.00938em !important;
-    color: inherit !important;
-}
-
-.css-cjctlb-MuiButtonBase-root-MuiTab-root{
-    color: #5A100B !important;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    color: inherit;
 }

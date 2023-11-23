@@ -11,7 +11,6 @@ import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import { Tab, Tabs } from '@mui/material';
 import '../../assets/css/form/Header.css'
 
-const PAGES = ["Home", "About", "Products", "Contact"]
 
 
 
@@ -25,7 +24,7 @@ const Header = () => {
                             <IconButton
                                 size="large"
                                 edge="start"
-                                color="inherit"
+                                // color="black"
                                 aria-label="menu"
                                 sx={{ mr: 2 }}
                             >
