@@ -27,7 +27,7 @@
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
     color: white !important;
-    border-radius: 18px;
+    border-radius: 8px;
     background-color: green;
 
     font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
@@ -70,7 +70,7 @@
 }
 
 .css-ke5b6m-MuiButtonBase-root-MuiButton-root {
-    border-radius: 25px !important;
+    border-radius: 8px !important;
 }
 
 .css-ke5b6m-MuiButtonBase-root-MuiButton-root {

@@ -28,7 +28,7 @@ const Header = () => {
                                 aria-label="menu"
                                 sx={{ mr: 2 }}
                             >
-                                <QueryStatsIcon style={{ fontSize: '1em' }} />
+                                <QueryStatsIcon style={{ fontSize: '1em' , color:'white' }} />
                             </IconButton>
 
                             <Tabs textColor='inherit' indicatorColor='secondary' value={false} >

@@ -1,10 +1,10 @@
 .hedaerParent .css-heg063-MuiTabs-flexContainer{
-    background-color: #1976d2;
-    /* background-color: pink; */
+    /* background-color: #1976d2; */
+    background-color: #5A100B;
 }
 
 .css-hip9hq-MuiPaper-root-MuiAppBar-root{
-    
+    background-color: #5A100B !important;
 }
 
 .headerText{
