@@ -8,7 +8,7 @@ const AllDetails = () => {
     const navigate = useNavigate()
     return (
         <>
-            <h2 className='text-center mt-2 text-success'>Here is {searchResult?.categories1?.uid} detailed report.</h2>
+            <h2 className='text-center mt-2 headerStyle'>Here is {searchResult?.categories1?.uid} detailed report.</h2>
             <div className='row'>
                 <div className='col-lg-6 col-12'>
                     <div className="card mt-3  m-3 p-1">
