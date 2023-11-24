@@ -42,7 +42,70 @@ const AddCategory1 = () => {
         return address.trim() !== ''
     }
 
+    // Function to convert data URI to Blob
+    const dataURItoBlob = (dataURI) => {
+        const byteString = atob(dataURI.split(',')[1]);
+        const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+        const arrayBuffer = new ArrayBuffer(byteString.length);
+        const uint8Array = new Uint8Array(arrayBuffer);
 
+        for (let i = 0; i < byteString.length; i++) {
+            uint8Array[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([arrayBuffer], { type: mimeString });
+    };
+
+    const captureSelfie = () => {
+        if (webcamRef.current) {
+            setIsLoading2(true);
+            const imageSrc = webcamRef.current.getScreenshot();
+
+            const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
+
+            const formData = new FormData();
+            formData.append('files', dataURItoBlob(imageSrc));
+
+            axios.post(apiUrl, formData)
+                .then(response => {
+                    setFormData((oldValue) => {
+                        return {
+                            ...oldValue,
+                            field12: response.data
+                        }
+                    })
+                    toast.success("File uploaded successfully.")
+                    setIsLoading2(false);
+                })
+                .catch(error => {
+                    console.error('Error uploading image:', error);
+                    setIsLoading2(false);
+                });
+        }
+        setShowWebcam(false);
+    };
+
+    const uploadImages = () => {
+        setIsLoading(true);
+        const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
+        const formData = new FormData();
+        formData.append('files', captureImage);
+
+        axios.post(apiUrl, formData)
+            .then(response => {
+                setFormData((oldValue) => {
+                    return {
+                        ...oldValue,
+                        field11: response.data
+                    }
+                })
+                toast.success("File uploaded successfully")
+                setIsLoading(false);
+            })
+            .catch(error => {
+                console.error('Error uploading image:', error);
+                setIsLoading(false);
+            })
+    }
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -89,7 +152,7 @@ const AddCategory1 = () => {
             navigate('/category_details')
 
         } catch (error) {
-            toast.error("Error fetching the chat")
+            toast.error(error?.response?.data?.message)
         }
     };
     const onSubmit1 = async () => {
@@ -119,7 +182,7 @@ const AddCategory1 = () => {
             navigate('/category_details')
 
         } catch (error) {
-            toast.error("Error fetching the chat.")
+            toast.error(error?.response?.data?.message)
         }
     };
 
