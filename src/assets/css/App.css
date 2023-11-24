@@ -12,3 +12,12 @@
     margin: 0%;
     font-family: sans-serif;
 }
+
+.css-ke5b6m-MuiButtonBase-root-MuiButton-root {
+    text-transform: capitalize !important;
+    padding: 7px 10px !important;
+}
+
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+    color: green !important;
+}

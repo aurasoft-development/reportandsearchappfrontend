@@ -61,6 +61,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 20px 0;
+    gap: 10px;
 }
 
 .report-details>span {
@@ -79,6 +80,7 @@
 
 .search-input {
     display: flex;
+    flex-wrap: wrap;
     gap: 5px;
 }
 

@@ -17,8 +17,8 @@ const style = {
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    height: "80%",
-    overflowY: "scroll"
+    // height: "80%",
+    // overflowY: "scroll"
 };
 
 export default function CategoryModel({ data }) {
@@ -33,7 +33,7 @@ export default function CategoryModel({ data }) {
     const { open, setOpen, open2, setOpen2, open3, setOpen3, open4, setOpen4 } = FindState()
 
     return (
-        <div>
+        <div className='category-model-container'>
             {
                 data == 1 ? <Button variant="contained" color="success" onClick={handleOpen}>Add Report</Button> : ""
             }
@@ -46,10 +46,6 @@ export default function CategoryModel({ data }) {
             {
                 data == 4 ? <Button variant="contained" color="success" onClick={handleOpen4}>Add Report</Button> : ""
             }
-
-            {/* <Button onClick={handleOpen2}>Add Category</Button>
-            <Button onClick={handleOpen3}>Add Category</Button>
-            <Button onClick={handleOpen4}>Add Category</Button> */}
             <Modal
                 open={open}
                 onClose={handleClose}
