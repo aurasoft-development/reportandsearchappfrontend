@@ -207,10 +207,10 @@ const AddCategory1 = () => {
                             }
                             {
                                 step == 2 &&
-                                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <div >
                                     <div className='otp-verification'> <OtpVarifacation /></div>
 
-                                    <div style={{ display: 'flex', justifyContent: 'space-between' }} >
+                                    <div style={{ display: 'flex', justifyContent: 'center' }} >
                                         <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => setStep(step - 1)} >
                                             Back
                                         </Button>
