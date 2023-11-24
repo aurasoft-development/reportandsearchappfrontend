@@ -2,7 +2,6 @@
     color: black;
     font-size: 12px;
     font-weight: 600;
-    font-family: var(--font_family)
 }
 
 .home_logo {
@@ -12,15 +11,10 @@
 }
 
 .paperStyle {
-    /* padding: 30px 20px;
-    width: 500px; */
     margin: 0 auto;
     position: relative;
 }
 
-/* .headerStyle {
-    margin: 8px;
-} */
 .addcategory_icon {
     position: absolute;
     right: 2%;
