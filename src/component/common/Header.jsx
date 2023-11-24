@@ -11,34 +11,40 @@ import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import { Tab, Tabs } from '@mui/material';
 import '../../assets/css/form/Header.css'
 
-const PAGES = ["Home", "About", "Products", "Contact"]
 
 
 
 const Header = () => {
     return (
         <>
-        <div className='hedaerParent'>
-            <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                            sx={{ mr: 2 }}
-                        >
-                            <QueryStatsIcon style={{ fontSize: '1em' }} />
-                        </IconButton>
+            <div className='hedaerParent'>
+                <Box sx={{ flexGrow: 1 }}>
+                    <AppBar position="static">
+                        <Toolbar>
+                            <IconButton
+                                size="large"
+                                edge="start"
+                                // color="black"
+                                aria-label="menu"
+                                sx={{ mr: 2 }}
+                            >
+                                <QueryStatsIcon style={{ fontSize: '1em' }} />
+                            </IconButton>
 
-                        <Tabs sx={{ flexGrow: 1 }} textColor='inherit' indicatorColor='secondary' value={false} >
-                            <Tab label="Home" component={Link} to="/" style={{ color: 'white', fontSize: '20px' }} />
-                        </Tabs>
-                        <Typography color="inherit">Search And Report Engine</Typography>
-                    </Toolbar>
-                </AppBar>
-            </Box>
+                            <Tabs textColor='inherit' indicatorColor='secondary' value={false} >
+                                <Tab label="Home" component={Link} to="/"  className='headerText'/>
+                                <Tab label="Categories" component={Link} to="/" className='headerText'/>
+                                <Tab label="Register" component={Link} to="/" className='headerText' />
+                                <Tab label="Help" component={Link} to="/" className='headerText' />
+                            </Tabs>
+
+                            <Box sx={{ flexGrow: 1 }} />
+
+                            <Tab label="Search And Report Engine"  className='headerText' />
+
+                        </Toolbar>
+                    </AppBar>
+                </Box>
             </div>
         </>
     )

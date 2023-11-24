@@ -1,15 +1,40 @@
+.MainParent {
+    background-color: #0d0d0d;
+}
+
+.TabParent {
+    background-image: url('/final.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    opacity: 0.8;
+    width: 100%;
+    height: 670px;
+    /* height:79Vh; */
+}
+
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
     text-transform: capitalize !important;
-    font-size: 20px !important;
-    /* font-weight: 600 !important; */
+    font-size: 18px !important;
+}
+
+
+.completeBox {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
     color: white !important;
-    /* font-size: 25px !important; */
-    font-weight: 500 !important;
-    border-radius: 8px;
-    background-color: #2e7d32;
+    border-radius: 18px;
+    background-color: green;
+
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 1rem !important;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
 }
 
 .css-1aquho2-MuiTabs-indicator {
@@ -19,8 +44,12 @@
 .css-heg063-MuiTabs-flexContainer {
     justify-content: space-between;
     flex-wrap: wrap !important;
-    background-color: rgb(225, 230, 234);
+    /* background-color: rgba(0,0,0,0.3); */
     border-radius: 8px;
+}
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+    border-radius: 18px !important;
 }
 
 .tab_div_main {
@@ -39,6 +68,14 @@
     font-size: 20px;
     font-weight: 600;
 
+}
+
+.css-ke5b6m-MuiButtonBase-root-MuiButton-root {
+    border-radius: 25px !important;
+}
+
+.css-ke5b6m-MuiButtonBase-root-MuiButton-root {
+    padding: 15px !important;
 }
 
 .search-input {

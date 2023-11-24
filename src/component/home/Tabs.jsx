@@ -122,9 +122,11 @@ export default function BasicTabs() {
         setSearchResult("screen")
     }, [value])
     return (
-        <Box sx={{ width: '100%' }}>
-            <div className='tab_sec_container '>
-                <CustomTabPanel value={value} index={0} >
+        <div className='MainParent'>
+        <div className='TabParent'>
+        <Box sx={{ width: '80%' ,margin:'auto'}}>
+            <div className='tab_sec_container'>
+                <CustomTabPanel value={value} index={0}  className="completeBox">
                     <Box >
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                             <Tab label='Category1' {...a11yProps(0)} />
@@ -379,5 +381,7 @@ export default function BasicTabs() {
                 </CustomTabPanel>
             </div>
         </Box>
+        </div>
+        </div>
     );
 }
