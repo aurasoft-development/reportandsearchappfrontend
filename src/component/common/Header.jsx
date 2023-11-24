@@ -17,9 +17,9 @@ import '../../assets/css/form/Header.css'
 const Header = () => {
     return (
         <>
-            <div className='hedaerParent'>
-                <Box sx={{ flexGrow: 1 }}>
-                    <AppBar position="static">
+            <div className='hedaerParent' >
+                <Box sx={{ flexGrow: 1 }} >
+                    <AppBar position="static" style={{ backgroundColor:'rgba(90, 16, 11, 0.8)'}}>
                         <Toolbar>
                             <IconButton
                                 size="large"
@@ -28,7 +28,7 @@ const Header = () => {
                                 aria-label="menu"
                                 sx={{ mr: 2 }}
                             >
-                                <QueryStatsIcon style={{ fontSize: '1em' }} />
+                                <QueryStatsIcon style={{ fontSize: '1em', color:'white' }} />
                             </IconButton>
 
                             <Tabs textColor='inherit' indicatorColor='secondary' value={false} >
