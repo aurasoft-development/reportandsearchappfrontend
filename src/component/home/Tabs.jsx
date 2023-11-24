@@ -142,14 +142,14 @@ export default function BasicTabs() {
                                         <TextField
                                             type="search"
                                             autoComplete="off"
-                                            style={{ width: '250px', color: 'white !important' }}
+                                            style={{ width: '250px'}}
                                             id="search"
                                             placeholder="Enter UID"
                                             color="success"
                                             label="Select category and search"
                                             onChange={(e) => setSearhData(e.target.value)}
                                         />
-                                        <Button variant="contained" color="success" className='mx-2' onClick={() => handleSearch(searchData)}>Search</Button>
+                                        <Button variant="contained" className='mx-2 mainButton' onClick={() => handleSearch(searchData)}>Search</Button>
                                     </div>
                                 </div>
                                 <div className="user-details">
@@ -182,7 +182,7 @@ export default function BasicTabs() {
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
+                                                <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
 
                                             </div>
                                         </div>
@@ -209,11 +209,12 @@ export default function BasicTabs() {
                                             autoComplete="off"
                                             style={{ width: '250px' }}
                                             id="search"
+                                            color="success"
                                             placeholder="Enter UID"
                                             label="Select category and search"
                                             onChange={(e) => setSearhData2(e.target.value)}
                                         />
-                                        <Button variant="contained" color="success" className='mx-2' onClick={() => handleSearch2(searchData2)}>Search</Button>
+                                        <Button variant="contained" className='mx-2 mainButton' onClick={() => handleSearch2(searchData2)}>Search</Button>
                                     </div>
                                 </div>
                                 <div className="user-details">
@@ -245,7 +246,7 @@ export default function BasicTabs() {
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
+                                                <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
 
                                             </div>
                                         </div>
@@ -273,10 +274,11 @@ export default function BasicTabs() {
                                             style={{ width: '250px' }}
                                             id="search"
                                             placeholder="Enter UID"
+                                            color="success"
                                             label="Select category and search"
                                             onChange={(e) => setSearhDat3(e.target.value)}
                                         />
-                                        <Button variant="contained" color="success" className='mx-2' onClick={() => handleSearch3(searchData3)}>Search</Button>
+                                        <Button variant="contained"  className='mx-2 mainButton' onClick={() => handleSearch3(searchData3)}>Search</Button>
                                     </div>
                                 </div>
                                 <div className="user-details">
@@ -308,7 +310,7 @@ export default function BasicTabs() {
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
+                                                <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
 
                                             </div>
                                         </div>
@@ -333,13 +335,14 @@ export default function BasicTabs() {
                                         <TextField
                                             type="search"
                                             autoComplete="off"
-                                            style={{ width: '250px' }}
+                                            style={{ width: '250px'}}
                                             id="search"
+                                            color="success"
                                             placeholder="Enter UID"
                                             label="Select category and search"
                                             onChange={(e) => setSearhData4(e.target.value)}
                                         />
-                                        <Button variant="contained" color="success" className='mx-2' onClick={() => handleSearch4(searchData4)}>Search</Button>
+                                        <Button variant="contained" className='mx-2 mainButton' onClick={() => handleSearch4(searchData4)}>Search</Button>
                                     </div>
                                 </div>
                                 <div className="user-details">
@@ -371,7 +374,7 @@ export default function BasicTabs() {
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <Button className='m-2' variant="contained" color='success' onClick={payMent}>Click here for full report </Button>
+                                                <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
 
                                             </div>
                                         </div>

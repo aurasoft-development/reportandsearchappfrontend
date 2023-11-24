@@ -106,7 +106,7 @@ const AllDetails = () => {
                     </div>
                 </div>
             </div>
-            <div style={{ cursor: 'pointer', marginLeft: '15px' }} className='text-center mt-2'><Button variant="contained" color="success" onClick={() => navigate('/')}>Back To Home</Button></div>
+            <div style={{ cursor: 'pointer', marginLeft: '15px' }} className='text-center mt-2 '><Button variant="contained" className='mainButton' onClick={() => navigate('/')}>Back To Home</Button></div>
         </>
     )
 }
