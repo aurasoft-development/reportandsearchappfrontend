@@ -87,3 +87,15 @@
 .search-input .css-ke5b6m-MuiButtonBase-root-MuiButton-root {
     width: 100px !important;
 }
+
+
+
+/* Responsiveness start here  */
+
+@media screen and (min-width: 1024px) {
+    .TabParent {
+        height: 668px;
+    }
+  }
+
+/* Responsiveness start here  */

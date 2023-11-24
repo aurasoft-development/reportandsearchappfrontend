@@ -127,7 +127,7 @@ export default function BasicTabs() {
         <Box sx={{ width: '80%' ,margin:'auto'}}>
             <div className='tab_sec_container'>
                 <CustomTabPanel value={value} index={0}  className="completeBox">
-                    <Box >
+                    <Box>
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                             <Tab style={{color:'white'}} label='Category1' {...a11yProps(0)} />
                             <Tab style={{color:'white'}} label='Category2' {...a11yProps(1)} />
@@ -190,7 +190,7 @@ export default function BasicTabs() {
                         </div>
                     </div>
                 </CustomTabPanel>
-                <CustomTabPanel value={value} index={1}>
+                <CustomTabPanel value={value} index={1} className="completeBox">
                     <Box >
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                             <Tab style={{color:'white'}} label='Category1' {...a11yProps(0)} />
@@ -253,7 +253,7 @@ export default function BasicTabs() {
                         </div>
                     </div>
                 </CustomTabPanel>
-                <CustomTabPanel value={value} index={2}>
+                <CustomTabPanel value={value} index={2} className="completeBox">
                     <Box >
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                             <Tab style={{color:'white'}} label='Category1' {...a11yProps(0)} />
@@ -316,7 +316,7 @@ export default function BasicTabs() {
                         </div>
                     </div>
                 </CustomTabPanel>
-                <CustomTabPanel value={value} index={3}>
+                <CustomTabPanel value={value} index={3} className="completeBox">
                     <Box >
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                             <Tab style={{color:'white'}} label='Category1' {...a11yProps(0)} />

@@ -1,9 +1,9 @@
-.home_container {
+/* .home_container {
     color: black;
     font-size: 12px;
     font-weight: 600;
-    font-family: var(--font_family)
-}
+    font-family: var(--font-family) !important;
+} */
 
 .home_logo {
     display: flex;

@@ -1,0 +1,14 @@
+@import './Variable.css';
+
+.headerText{
+    font-family: var(--font-family) !important;
+    color: var( --navbar-text-color) !important;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+}
+
+.headerChild{
+    background-color: var(--navbar-background-color) !important;
+}
