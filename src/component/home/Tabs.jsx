@@ -129,10 +129,10 @@ export default function BasicTabs() {
                 <CustomTabPanel value={value} index={0}  className="completeBox">
                     <Box >
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab label='Category1' {...a11yProps(0)} />
-                            <Tab label='Category2' {...a11yProps(1)} />
-                            <Tab label='Category3' {...a11yProps(2)} />
-                            <Tab label='Category4' {...a11yProps(3)} />
+                            <Tab style={{color:'white'}} label='Category1' {...a11yProps(0)} />
+                            <Tab style={{color:'white'}} label='Category2' {...a11yProps(1)} />
+                            <Tab style={{color:'white'}} label='Category3' {...a11yProps(2)} />
+                            <Tab style={{color:'white'}} label='Category4' {...a11yProps(3)} />
                         </Tabs>
                     </Box>
                     <div className='tab_div_main'>
@@ -155,7 +155,7 @@ export default function BasicTabs() {
                             {searchResult === "screen" ? (
                                 <div></div>
                             ) : (searchResult?.categories1 == null) ? (
-                                <p>The details are not found. Please check into other categories.</p>
+                                <p style={{color:'white'}}>The details are not found. Please check into other categories.</p>
                             ) : <>
                                 <div className="card mt-3  m-3 p-1">
                                     <hr className="border-light m-0" />
@@ -193,10 +193,10 @@ export default function BasicTabs() {
                 <CustomTabPanel value={value} index={1}>
                     <Box >
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab label='Category1' {...a11yProps(0)} />
-                            <Tab label='Category2' {...a11yProps(1)} />
-                            <Tab label='Category3' {...a11yProps(2)} />
-                            <Tab label='Category4' {...a11yProps(3)} />
+                            <Tab style={{color:'white'}} label='Category1' {...a11yProps(0)} />
+                            <Tab style={{color:'white'}} label='Category2' {...a11yProps(1)} />
+                            <Tab style={{color:'white'}} label='Category3' {...a11yProps(2)} />
+                            <Tab style={{color:'white'}} label='Category4' {...a11yProps(3)} />
                         </Tabs>
                     </Box>
                     <div className='tab_div_main'>
@@ -219,7 +219,7 @@ export default function BasicTabs() {
                             {searchResult === "screen" ? (
                                 <div></div>
                             ) : (searchResult?.categories1 == null) ? (
-                                <p>The details are not found. Please check into other categories.</p>
+                                <p style={{color:'white'}}>The details are not found. Please check into other categories.</p>
                             ) : <>
                                 <div className="card mt-3  m-3 p-1">
                                     <hr className="border-light m-0" />
@@ -256,10 +256,10 @@ export default function BasicTabs() {
                 <CustomTabPanel value={value} index={2}>
                     <Box >
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab label='Category1' {...a11yProps(0)} />
-                            <Tab label='Category2' {...a11yProps(1)} />
-                            <Tab label='Category3' {...a11yProps(2)} />
-                            <Tab label='Category4' {...a11yProps(3)} />
+                            <Tab style={{color:'white'}} label='Category1' {...a11yProps(0)} />
+                            <Tab style={{color:'white'}} label='Category2' {...a11yProps(1)} />
+                            <Tab style={{color:'white'}} label='Category3' {...a11yProps(2)} />
+                            <Tab style={{color:'white'}} label='Category4' {...a11yProps(3)} />
                         </Tabs>
                     </Box>
                     <div className='tab_div_main'>
@@ -282,7 +282,7 @@ export default function BasicTabs() {
                             {searchResult === "screen" ? (
                                 <div></div>
                             ) : (searchResult?.categories1 == null) ? (
-                                <p>The details are not found. Please check into other categories.</p>
+                                <p style={{color:'white'}}>The details are not found. Please check into other categories.</p>
                             ) : <>
                                 <div className="card mt-3  m-3 p-1">
                                     <hr className="border-light m-0" />
@@ -319,10 +319,10 @@ export default function BasicTabs() {
                 <CustomTabPanel value={value} index={3}>
                     <Box >
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab label='Category1' {...a11yProps(0)} />
-                            <Tab label='Category2' {...a11yProps(1)} />
-                            <Tab label='Category3' {...a11yProps(2)} />
-                            <Tab label='Category4' {...a11yProps(3)} />
+                            <Tab style={{color:'white'}} label='Category1' {...a11yProps(0)} />
+                            <Tab style={{color:'white'}} label='Category2' {...a11yProps(1)} />
+                            <Tab style={{color:'white'}} label='Category3' {...a11yProps(2)} />
+                            <Tab style={{color:'white'}} label='Category4' {...a11yProps(3)} />
                         </Tabs>
                     </Box>
                     <div className='tab_div_main'>
@@ -345,7 +345,7 @@ export default function BasicTabs() {
                             {searchResult === "screen" ? (
                                 <div></div>
                             ) : (searchResult?.categories1 == null) ? (
-                                <p>The details are not found. Please check into other categories.</p>
+                                <p style={{color:'white'}}>The details are not found. Please check into other categories.</p>
                             ) : <>
                                 <div className="card mt-3  m-3 p-1">
                                     <hr className="border-light m-0" />

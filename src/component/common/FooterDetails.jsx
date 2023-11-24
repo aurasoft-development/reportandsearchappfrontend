@@ -8,7 +8,7 @@ import '../../assets/css/Common.css'
 const FooterDetails = () => {
   return (
     <>
-      <Box className='Footerparent text-center text-white' style={{ backgroundColor: '#0a4275' }}>
+      <Box className='Footerparent text-center text-white' style={{ backgroundColor: 'rgba(90, 16, 11, 0.8)' }}>
 
         <Tabs textColor='inherit' indicatorColor='secondary' value={false}  style={{display: 'block'}}>
           <Tab label="Privacy" component={Link} to="/" className='headerText' />
