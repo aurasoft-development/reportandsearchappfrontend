@@ -24,9 +24,24 @@
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
-    color: white !important;
+    color:  var(--textColor) !important;
     border-radius: 15px;
-    background-color: green;
+    /* border: 2px solid rgba(211, 117, 6, 1); */
+    background-color: var(--bgButton)
+
+
+    /* font-family: "Roboto", "Helvetica", "Arial", sans-serif !important; */
+    /* font-weight: 400 !important; */
+    /* font-size: 1rem !important; */
+    /* line-height: 1.5; */
+    /* letter-spacing: 0.00938em; */
+}
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected:hover {
+    color:  white !important;
+    border-radius: 15px;
+    /* border: 2px solid transparent; */
+    background-color: var(--bgButton)
+
 
     /* font-family: "Roboto", "Helvetica", "Arial", sans-serif !important; */
     /* font-weight: 400 !important; */
@@ -73,6 +88,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.search-input fieldset{
+    border-radius: 15px;
+    height: auto;
+    border-color: white;
+}
+.search-input fieldset:hover{
+    border-color: white;
+    outline: none;
 }
 
 .SearchTextfield {

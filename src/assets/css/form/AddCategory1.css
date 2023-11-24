@@ -31,7 +31,7 @@
 }
 
 .headerStyle {
-    color: green;
+    color: var(--headingColor);
 }
 
 .otp-verification {

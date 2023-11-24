@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import '../../assets/css/view_details/CategoryDetails.css'
 import { useNavigate } from 'react-router-dom'
+import { Button } from '@mui/material'
 
 const CategoryDetails = () => {
     const [data, setData] = useState()
@@ -13,8 +14,8 @@ const CategoryDetails = () => {
     }, [])
     return (
         <div className='view_details_main'>
+                <h3 className="text-center headerStyle">Thanks for submitting details!</h3> 
             <div className='row'>
-                <div className='view_detail_heading'>Thanks for submitting details</div>
                 <div className='col-6'>
                     <div className="card mt-3  m-3 p-1">
                         <hr className="border-light m-0" />
@@ -133,7 +134,7 @@ const CategoryDetails = () => {
                 </div>
             </div>
             <div className='view_detail_thanks'>
-                <span className='view_other_category' onClick={() => { navigate('/'); localStorage.removeItem("category1") }}>Back To Search</span>
+                <Button className='mainButton' onClick={() => { navigate('/'); localStorage.removeItem("category1") }}>Back To Search</Button>
             </div>
         </div>
     )

@@ -59,7 +59,7 @@ const OtpVarifacation = () => {
                             onChange={setNumber}
                         />
                         <div className='btn-div'>
-                            <Button variant="contained" color="success" onClick={() => getOtp(number)}>Send Otp</Button>
+                            <Button variant="contained" className='mainButton' onClick={() => getOtp(number)}>Send Otp</Button>
                         </div>
                         <div id='recaptcha-container'></div>
                     </div>
@@ -72,7 +72,7 @@ const OtpVarifacation = () => {
                             placeholder="Enter otp"
                             onChange={(e) => setOtp(e.target.value)}
                         />
-                        <div className='verify-otp-btn'> <Button variant="contained" color="success" onClick={() => verifyOtp()}>verify otp</Button></div>
+                        <div className='verify-otp-btn'> <Button className='mainButton' variant="contained" onClick={() => verifyOtp()}>verify otp</Button></div>
                     </div>
                 </div>
             </div>

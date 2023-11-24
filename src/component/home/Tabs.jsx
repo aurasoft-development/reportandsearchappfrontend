@@ -182,7 +182,7 @@ export default function BasicTabs() {
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
+                                                <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
 
                                             </div>
                                         </div>
@@ -209,6 +209,7 @@ export default function BasicTabs() {
                                             autoComplete="off"
                                             className='SearchTextfield'
                                             id="search"
+                                            color="success"
                                             placeholder="Enter UID"
                                             label="Select category and search"
                                             onChange={(e) => setSearhData2(e.target.value)}
@@ -245,7 +246,7 @@ export default function BasicTabs() {
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
+                                                <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
 
                                             </div>
                                         </div>
@@ -308,7 +309,7 @@ export default function BasicTabs() {
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
+                                                <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
 
                                             </div>
                                         </div>
@@ -334,12 +335,13 @@ export default function BasicTabs() {
                                             type="search"
                                             autoComplete="off"
                                             id="search"
+                                            color="success"
                                             placeholder="Enter UID"
                                             className='SearchTextfield'
                                             label="Select category and search"
                                             onChange={(e) => setSearhData4(e.target.value)}
                                         />
-                                        <Button variant="contained" color="success" className='searchButton mx-2' onClick={() => handleSearch4(searchData4)}>Search</Button>
+                                        <Button variant="contained" color="success" className='searchButton mainButton mx-2' onClick={() => handleSearch4(searchData4)}>Search</Button>
                                     </div>
                                 </div>
                                 <div className="user-details">
@@ -371,7 +373,7 @@ export default function BasicTabs() {
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <Button className='m-2' variant="contained" color='success' onClick={payMent}>Click here for full report </Button>
+                                                <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
 
                                             </div>
                                         </div>

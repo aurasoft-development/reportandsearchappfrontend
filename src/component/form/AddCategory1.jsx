@@ -42,7 +42,70 @@ const AddCategory1 = () => {
         return address.trim() !== ''
     }
 
+    // Function to convert data URI to Blob
+    const dataURItoBlob = (dataURI) => {
+        const byteString = atob(dataURI.split(',')[1]);
+        const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+        const arrayBuffer = new ArrayBuffer(byteString.length);
+        const uint8Array = new Uint8Array(arrayBuffer);
 
+        for (let i = 0; i < byteString.length; i++) {
+            uint8Array[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([arrayBuffer], { type: mimeString });
+    };
+
+    const captureSelfie = () => {
+        if (webcamRef.current) {
+            setIsLoading2(true);
+            const imageSrc = webcamRef.current.getScreenshot();
+
+            const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
+
+            const formData = new FormData();
+            formData.append('files', dataURItoBlob(imageSrc));
+
+            axios.post(apiUrl, formData)
+                .then(response => {
+                    setFormData((oldValue) => {
+                        return {
+                            ...oldValue,
+                            field12: response.data
+                        }
+                    })
+                    toast.success("File uploaded successfully.")
+                    setIsLoading2(false);
+                })
+                .catch(error => {
+                    console.error('Error uploading image:', error);
+                    setIsLoading2(false);
+                });
+        }
+        setShowWebcam(false);
+    };
+
+    const uploadImages = () => {
+        setIsLoading(true);
+        const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
+        const formData = new FormData();
+        formData.append('files', captureImage);
+
+        axios.post(apiUrl, formData)
+            .then(response => {
+                setFormData((oldValue) => {
+                    return {
+                        ...oldValue,
+                        field11: response.data
+                    }
+                })
+                toast.success("File uploaded successfully")
+                setIsLoading(false);
+            })
+            .catch(error => {
+                console.error('Error uploading image:', error);
+                setIsLoading(false);
+            })
+    }
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -89,7 +152,7 @@ const AddCategory1 = () => {
             navigate('/category_details')
 
         } catch (error) {
-            toast.error("Error fetching the chat")
+            toast.error(error?.response?.data?.message)
         }
     };
     const onSubmit1 = async () => {
@@ -119,7 +182,7 @@ const AddCategory1 = () => {
             navigate('/category_details')
 
         } catch (error) {
-            toast.error("Error fetching the chat.")
+            toast.error(error?.response?.data?.message)
         }
     };
 
@@ -129,7 +192,7 @@ const AddCategory1 = () => {
             <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" >
-                        {step == 2 ? <h4 className="headerStyle">Please verify your mobile number.</h4> : <h2 className="headerStyle">Add Category1 Report</h2>}
+                        {step == 2 ? <h4 className="headerStyle">Please verify your mobile number</h4> : <h2 className="headerStyle">Add Category 1 Report</h2>}
                         <span className='addcategory_icon' onClick={() => setOpen(false)}><CloseIcon /></span>
                     </Grid>
                     <div className="container">
@@ -140,6 +203,7 @@ const AddCategory1 = () => {
                                         <TextField
                                             label="UID"
                                             variant="standard"
+                                            color='success'
                                             value={formData.uid}
                                             fullWidth
                                             type="text"
@@ -161,6 +225,7 @@ const AddCategory1 = () => {
                                             autoComplete="off"
                                             className="my-2"
                                             onChange={handleInputChange}
+                                            color='success'
                                             required
                                         />
                                     </Grid>
@@ -176,6 +241,7 @@ const AddCategory1 = () => {
                                             autoComplete="off"
                                             className="my-2"
                                             onChange={handleInputChange}
+                                            color='success'
                                             required
                                         />
                                     </Grid>
@@ -191,11 +257,12 @@ const AddCategory1 = () => {
                                             autoComplete="off"
                                             className="my-2"
                                             onChange={handleInputChange}
+                                            color='success'
                                             required
                                         />
                                     </Grid>
                                     <div className="text-center my-2 mt-4">
-                                        <Button variant="contained" color="success" type="submit" className="m-2" onClick={() => validationFunction()} >
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => validationFunction()} >
                                             Save
                                         </Button>
                                     </div>
@@ -203,11 +270,11 @@ const AddCategory1 = () => {
                             }
                             {
                                 step == 2 &&
-                                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <div >
                                     <div className='otp-verification'> <OtpVarifacation /></div>
 
-                                    <div style={{ display: 'flex', justifyContent: 'space-between' }} >
-                                        <Button variant="contained" color="success" type="submit" className="m-2" onClick={() => setStep(step - 1)} >
+                                    <div style={{ display: 'flex', justifyContent: 'center' }} >
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => setStep(step - 1)} >
                                             Back
                                         </Button>
                                     </div>
@@ -230,6 +297,7 @@ const AddCategory1 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -244,6 +312,7 @@ const AddCategory1 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -258,6 +327,7 @@ const AddCategory1 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -272,6 +342,7 @@ const AddCategory1 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -286,6 +357,7 @@ const AddCategory1 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -303,7 +375,7 @@ const AddCategory1 = () => {
                                                                 </div>
                                                             ) : (
                                                                 <InputAdornment position="end">
-                                                                    <IconButton onClick={() => uploadImages()}
+                                                                    <IconButton className='mainButton' onClick={() => uploadImages()}
                                                                         style={{ fontSize: '15px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white' }}
                                                                     >
                                                                         Upload
@@ -327,6 +399,7 @@ const AddCategory1 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -341,6 +414,7 @@ const AddCategory1 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -355,6 +429,7 @@ const AddCategory1 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -369,6 +444,7 @@ const AddCategory1 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -383,6 +459,7 @@ const AddCategory1 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -394,7 +471,7 @@ const AddCategory1 = () => {
                                                             <Loader />
                                                         </div>
                                                     ) : (
-                                                        <span type='button' onClick={() => setShowWebcam(true)}
+                                                        <span type='button mainButton' onClick={() => setShowWebcam(true)}
                                                             style={{ fontSize: '14px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white', border: '1px solid', marginTop: '6px' }}
                                                         >Capture Your Selfie
                                                         </span>
@@ -409,7 +486,7 @@ const AddCategory1 = () => {
                                                             ref={webcamRef}
                                                         />
 
-                                                        <span type='button' onClick={captureSelfie}
+                                                        <span type='button mainButton' onClick={captureSelfie}
                                                             style={{ fontSize: '14px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white', border: '1px solid' }}>
                                                             Capture Selfie
                                                         </span>
@@ -419,10 +496,10 @@ const AddCategory1 = () => {
                                         </Grid>
                                     </Grid>
                                     <div className="d-flex justify-content-around w-100 mt">
-                                        <Button variant="contained" color="success" onClick={() => { onSubmit(); setOpen(false); setStep(1) }} className="m-2" >
+                                        <Button variant="contained" onClick={() => { onSubmit(); setOpen(false); setStep(1) }} className="m-2 mainButton" >
                                             Skip
                                         </Button>
-                                        <Button variant="contained" color="success" type="submit" className="m-2" onClick={() => { onSubmit1(); setOpen(false); setStep(1) }} >
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => { onSubmit1(); setOpen(false); setStep(1) }} >
                                             Submit
                                         </Button>
                                     </div>

@@ -163,7 +163,7 @@ const AddCategory2 = () => {
             navigate('/category_details')
 
         } catch (error) {
-            toast.error("Error fetching the chat")
+            toast.error(error?.response?.data?.message)
         }
     };
     const onSubmit1 = async () => {
@@ -193,7 +193,7 @@ const AddCategory2 = () => {
             navigate('/category_details')
 
         } catch (error) {
-            toast.error("Error fetching the chat")
+            toast.error(error?.response?.data?.message)
         }
     };
 
@@ -203,7 +203,7 @@ const AddCategory2 = () => {
             <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" >
-                        {step == 2 ? <h4 className="headerStyle">Please verify your mobile number.</h4> : <h2 className="headerStyle">Add Category2 Report</h2>}
+                        {step == 2 ? <h4 className="headerStyle">Please verify your mobile number.</h4> : <h2 className="headerStyle">Add Category 2 Report</h2>}
                         <span className='addcategory_icon' onClick={() => setOpen2(false)}><CloseIcon /></span>
                     </Grid>
                     <div className="container">
@@ -221,6 +221,7 @@ const AddCategory2 = () => {
                                             autoComplete="off"
                                             className="my-2"
                                             onChange={handleInputChange}
+                                            color='success'
                                             required
                                         />
                                     </Grid>
@@ -235,6 +236,7 @@ const AddCategory2 = () => {
                                             autoComplete="off"
                                             className="my-2"
                                             onChange={handleInputChange}
+                                            color='success'
                                             required
                                         />
                                     </Grid>
@@ -250,6 +252,7 @@ const AddCategory2 = () => {
                                             autoComplete="off"
                                             className="my-2"
                                             onChange={handleInputChange}
+                                            color='success'
                                             required
                                         />
                                     </Grid>
@@ -265,11 +268,12 @@ const AddCategory2 = () => {
                                             autoComplete="off"
                                             className="my-2"
                                             onChange={handleInputChange}
+                                            color='success'
                                             required
                                         />
                                     </Grid>
                                     <div className="text-center my-2 mt-4">
-                                        <Button variant="contained" color="success" type="submit" className="m-2" onClick={() => validationFunction()} >
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => validationFunction()} >
                                             Save
                                         </Button>
                                     </div>
@@ -280,8 +284,8 @@ const AddCategory2 = () => {
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                                     <div className='otp-verification'> <OtpVarifacation /></div>
 
-                                    <div style={{ display: 'flex', justifyContent: 'space-between' }} >
-                                        <Button variant="contained" color="success" type="submit" className="m-2" onClick={() => setStep(step - 1)} >
+                                    <div style={{ display: 'flex', justifyContent: 'center' }} >
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => setStep(step - 1)} >
                                             Back
                                         </Button>
                                     </div>
@@ -304,6 +308,7 @@ const AddCategory2 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -318,6 +323,7 @@ const AddCategory2 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -332,6 +338,7 @@ const AddCategory2 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -346,6 +353,7 @@ const AddCategory2 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -360,6 +368,7 @@ const AddCategory2 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -377,7 +386,7 @@ const AddCategory2 = () => {
                                                                 </div>
                                                             ) : (
                                                                 <InputAdornment position="end">
-                                                                    <IconButton onClick={() => uploadImages()} style={{ fontSize: '15px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white' }}>
+                                                                    <IconButton className='mainButton' onClick={() => uploadImages()} style={{ fontSize: '15px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white' }}>
                                                                         upload
                                                                     </IconButton>
                                                                 </InputAdornment>
@@ -399,6 +408,7 @@ const AddCategory2 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -413,6 +423,7 @@ const AddCategory2 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -427,6 +438,7 @@ const AddCategory2 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -441,6 +453,7 @@ const AddCategory2 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -455,6 +468,7 @@ const AddCategory2 = () => {
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
+                                                    color='success'
                                                 />
                                             </Grid>
 
@@ -466,7 +480,7 @@ const AddCategory2 = () => {
                                                             <Loader />
                                                         </div>
                                                     ) : (
-                                                        <button type='button' onClick={() => setShowWebcam(true)}
+                                                        <button type='button' className='mainButton' onClick={() => setShowWebcam(true)}
                                                             style={{ fontSize: '14px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white', border: '1px solid', marginTop: '6px' }}
                                                         >Capture your selfie
                                                         </button>
@@ -481,7 +495,7 @@ const AddCategory2 = () => {
                                                             ref={webcamRef}
                                                         />
 
-                                                        <button type='button' onClick={captureSelfie}
+                                                        <button type='button' className='mainButton' onClick={captureSelfie}
                                                             style={{ fontSize: '14px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white', border: '1px solid' }}>
                                                             Capture Selfie
                                                         </button>
@@ -491,10 +505,10 @@ const AddCategory2 = () => {
                                         </Grid>
                                     </Grid>
                                     <div className="d-flex justify-content-around w-100 mt">
-                                        <Button variant="contained" color="success" onClick={() => { onSubmit(); setOpen2(false); setStep(1) }} className="m-2" >
+                                        <Button variant="contained" onClick={() => { onSubmit(); setOpen2(false); setStep(1) }} className="m-2 mainButton" >
                                             Skip
                                         </Button>
-                                        <Button variant="contained" color="success" type="submit" className="m-2" onClick={() => { onSubmit1(); setOpen2(false); setStep(1) }} >
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => { onSubmit1(); setOpen2(false); setStep(1) }} >
                                             Submit
                                         </Button>
                                     </div>
