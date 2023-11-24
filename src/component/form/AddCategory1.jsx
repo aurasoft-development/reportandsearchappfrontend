@@ -17,6 +17,8 @@ const AddCategory1 = () => {
     const [showWebcam, setShowWebcam] = useState(false);
     const [captureImage, setCaptureImage] = useState("")
     const { open, setOpen, step, setStep } = FindState()
+    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading2, setIsLoading2] = useState(false);
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         uid: '',
