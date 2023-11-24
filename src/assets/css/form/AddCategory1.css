@@ -12,18 +12,36 @@
 }
 
 .paperStyle {
-    /* padding: 30px 20px;
-    width: 500px; */
     margin: 0 auto;
     position: relative;
+    padding: 30px;
 }
 
-/* .headerStyle {
-    margin: 8px;
-} */
 .addcategory_icon {
     position: absolute;
-    right: 2%;
-    top: 2%;
+    right: 5%;
+    top: 7%;
     cursor: pointer;
+}
+
+.css-7klmyb {
+    /* height: auto !important;
+    overflow-y:unset !important; */
+    min-width: 320px !important;
+}
+
+.headerStyle {
+    color: green;
+}
+
+.otp-verification {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+.css-mhc70k-MuiGrid-root{
+    margin-left: -12px !important;
+}
+.mt{
+    margin-top: 20px !important;
 }

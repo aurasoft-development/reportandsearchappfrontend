@@ -5,10 +5,6 @@ import 'react-phone-number-input/style.css'
 import { Alert, Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { FindState } from '../../context/FindContext'
-import axios from 'axios'
-import { toast } from 'react-toastify'
-import commonApiRequest from '../../api/commonApi'
-import CircularProgress from '@mui/material/CircularProgress';
 
 const OtpVarifacation = () => {
     const [number, setNumber] = useState()
@@ -17,8 +13,7 @@ const OtpVarifacation = () => {
     const [error, setError] = useState("");
     const [confirmObj, setConfirmObj] = useState("");
     const [data, setData] = useState()
-    const { setUpRecaptcha, cat } = FindState();
-    const [loading, setLoading] = useState(false);
+    const { setUpRecaptcha, step, setStep } = FindState();
     const navigate = useNavigate()
 
 
@@ -26,127 +21,13 @@ const OtpVarifacation = () => {
         const Info = JSON.parse(localStorage.getItem('category1'))
         setData(Info)
     }, [])
-    const postCategory = async () => {
-        try {
-            const info = {
-                uid: data?.uid,
-                name: data?.name,
-                number: data?.number,
-                address: data?.address,
-                field1: data?.field1,
-                field2: data?.field2,
-                field3: data?.field3,
-                field4: data?.field4,
-                field5: data?.field5,
-                field6: data?.field6,
-                field7: data?.field7,
-                field8: data?.field8,
-                field9: data?.field9,
-                field10: data?.field10,
-                field11: data?.field11,
-                field12: data?.field12
-            }
-
-            await commonApiRequest('post', '/api/add_categories', info);
-            toast.success('Report added Successfully.')
-
-        } catch (error) {
-            toast.error("Error fetching the chat")
-        }
-    }
-    const postCategory2 = async () => {
-        try {
-            const info = {
-                uid: data?.uid,
-                name: data?.name,
-                number: data?.number,
-                address: data?.address,
-                field1: data?.field1,
-                field2: data?.field2,
-                field3: data?.field3,
-                field4: data?.field4,
-                field5: data?.field5,
-                field6: data?.field6,
-                field7: data?.field7,
-                field8: data?.field8,
-                field9: data?.field9,
-                field10: data?.field10,
-                field11: data?.field11,
-                field12: data?.field12
-            }
-            // await axios.post(`${import.meta.env.VITE_API_URL}/api/cat2/add_categories`, info);
-            await commonApiRequest('post', '/api/cat2/add_categories', info);
-            toast.success('Report added Successfully.')
-
-        } catch (error) {
-            toast.error("Error fetching the chat")
-        }
-    }
-    const postCategory3 = async () => {
-        try {
-            const info = {
-                uid: data?.uid,
-                name: data?.name,
-                number: data?.number,
-                address: data?.address,
-                field1: data?.field1,
-                field2: data?.field2,
-                field3: data?.field3,
-                field4: data?.field4,
-                field5: data?.field5,
-                field6: data?.field6,
-                field7: data?.field7,
-                field8: data?.field8,
-                field9: data?.field9,
-                field10: data?.field10,
-                field11: data?.field11,
-                field12: data?.field12
-            }
-            // await axios.post(`${import.meta.env.VITE_API_URL}/api/cat3/add_categories`, info);
-            await commonApiRequest('post', '/api/cat3/add_categories', info);
-            toast.success('Report added Successfully.')
-
-        } catch (error) {
-            toast.error("Error fetching the chat")
-        }
-    }
-    const postCategory4 = async () => {
-        try {
-            const info = {
-                uid: data?.uid,
-                name: data?.name,
-                number: data?.number,
-                address: data?.address,
-                field1: data?.field1,
-                field2: data?.field2,
-                field3: data?.field3,
-                field4: data?.field4,
-                field5: data?.field5,
-                field6: data?.field6,
-                field7: data?.field7,
-                field8: data?.field8,
-                field9: data?.field9,
-                field10: data?.field10,
-                field11: data?.field11,
-                field12: data?.field12
-            }
-            // await axios.post(`${import.meta.env.VITE_API_URL}/api/cat4/add_categories`, info);
-            await commonApiRequest('post', '/api/cat4/add_categories', info);
-            toast.success('Report added Successfully.')
-
-        } catch (error) {
-            toast.error("Error fetching the chat")
-        }
-    }
 
     const getOtp = async (number) => {
         setError("");
         if (number === "" || number === undefined)
-            return setError("please enter a valid Phone Number")
+            return setError("Please enter a valid phone number.")
         try {
-            setLoading(true)
             const response = await setUpRecaptcha(number);
-            setLoading(false)
             setConfirmObj(response)
             setFlag(true)
 
@@ -159,20 +40,7 @@ const OtpVarifacation = () => {
         try {
             setError("")
             await confirmObj.confirm(otp)
-            if (cat == 1) {
-                postCategory()
-                navigate('/category_details')
-            } else if (cat == 2) {
-                postCategory2()
-                navigate('/category_details')
-            } else if (cat == 3) {
-                postCategory3()
-                navigate('/category_details')
-            }
-            else if (cat == 4) {
-                postCategory4()
-                navigate('/category_details')
-            }
+            setStep(step + 1)
         } catch (err) {
             setError(err.message)
         }
@@ -191,7 +59,6 @@ const OtpVarifacation = () => {
                             onChange={setNumber}
                         />
                         <div className='btn-div'>
-                            {loading == true ? <CircularProgress /> : ""}
                             <Button variant="contained" color="success" onClick={() => getOtp(number)}>Send Otp</Button>
                         </div>
                         <div id='recaptcha-container'></div>
@@ -205,7 +72,7 @@ const OtpVarifacation = () => {
                             placeholder="Enter otp"
                             onChange={(e) => setOtp(e.target.value)}
                         />
-                        <div className='verify-otp-btn'> <Button variant="contained" color="secondary" onClick={() => verifyOtp()}>verify otp</Button></div>
+                        <div className='verify-otp-btn'> <Button variant="contained" color="success" onClick={() => verifyOtp()}>verify otp</Button></div>
                     </div>
                 </div>
             </div>

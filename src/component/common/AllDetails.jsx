@@ -8,7 +8,7 @@ const AllDetails = () => {
     const navigate = useNavigate()
     return (
         <>
-            <h2 className='text-center mt-2'>Here is {searchResult?.categories1?.uid} detailed report.</h2>
+            <h2 className='text-center mt-2 text-success'>Here is {searchResult?.categories1?.uid} detailed report.</h2>
             <div className='row'>
                 <div className='col-lg-6 col-12'>
                     <div className="card mt-3  m-3 p-1">
@@ -26,29 +26,29 @@ const AllDetails = () => {
                                     </tr>
 
                                     <tr>
-                                        <td>Field 1</td>
+                                        <td>Field1</td>
                                         <td>{searchResult?.categories1?.field1}</td>
                                     </tr>
                                     <tr>
-                                        <td>Field 3</td>
+                                        <td>Field3</td>
                                         <td>{searchResult?.categories1?.field3}</td>
                                     </tr>
                                     <tr>
-                                        <td>Field 5</td>
+                                        <td>Field5</td>
                                         <td>{searchResult?.categories1?.field5}</td>
                                     </tr>
                                     <tr>
-                                        <td>Field </td>
-                                        <td>{searchResult?.categories1?.field5}</td>
+                                        <td>Field7</td>
+                                        <td>{searchResult?.categories1?.field7}</td>
                                     </tr>
                                     <tr>
-                                        <td>Field 9</td>
+                                        <td>Field9</td>
                                         <td>{searchResult?.categories1?.field9}</td>
                                     </tr>
 
                                     <tr>
                                         <td>User Image</td>
-                                        <td><img src={searchResult?.categories1?.field11?.url} alt="user" /></td>
+                                        <td><img width={"100px"} height={"100px"} src={searchResult?.categories1?.field11?.url} alt="user" /></td>
                                     </tr>
 
 
@@ -74,29 +74,29 @@ const AllDetails = () => {
                                         <td>{searchResult?.categories1?.address}</td>
                                     </tr>
                                     <tr>
-                                        <td>Field 2</td>
+                                        <td>Field2</td>
                                         <td>{searchResult?.categories1?.field2}</td>
                                     </tr>
                                     <tr>
-                                        <td>Field 4</td>
+                                        <td>Field4</td>
                                         <td>{searchResult?.categories1?.field4}</td>
                                     </tr>
                                     <tr>
-                                        <td>Field 6</td>
+                                        <td>Field6</td>
                                         <td>{searchResult?.categories1?.field6}</td>
                                     </tr>
                                     <tr>
-                                        <td>Field 8</td>
+                                        <td>Field8</td>
                                         <td>{searchResult?.categories1?.field8}</td>
                                     </tr>
                                     <tr>
-                                        <td>Field 10</td>
+                                        <td>Field10</td>
                                         <td>{searchResult?.categories1?.field10}</td>
                                     </tr>
 
                                     <tr>
                                         <td>User Selfie </td>
-                                        <td><img src={searchResult?.categories1?.field12?.url} alt="selfie" /></td>
+                                        <td><img width={"100px"} height={"100px"} src={searchResult?.categories1?.field12?.url} alt="selfie" /></td>
                                     </tr>
 
                                 </tbody>
@@ -108,7 +108,7 @@ const AllDetails = () => {
             </div>
             <div style={{ cursor: 'pointer', marginLeft: '15px' }} className='text-center mt-2'><Button variant="contained" color="success" onClick={() => navigate('/')}>Back To Home</Button></div>
         </>
-        )
+    )
 }
 
 export default AllDetails
