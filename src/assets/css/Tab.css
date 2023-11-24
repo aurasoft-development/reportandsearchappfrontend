@@ -16,25 +16,24 @@
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
     text-transform: capitalize !important;
-    font-size: 18px !important;
 }
 
 
 .completeBox {
     background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
     color: white !important;
-    border-radius: 18px;
+    border-radius: 5px;
     background-color: green;
 
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
-    font-weight: 400 !important;
-    font-size: 1rem !important;
-    line-height: 1.5;
-    letter-spacing: 0.00938em;
+    /* font-family: "Roboto", "Helvetica", "Arial", sans-serif !important; */
+    /* font-weight: 400 !important; */
+    /* font-size: 1rem !important; */
+    /* line-height: 1.5; */
+    /* letter-spacing: 0.00938em; */
 }
 
 .css-1aquho2-MuiTabs-indicator {
@@ -70,20 +69,17 @@
 
 }
 
-.css-ke5b6m-MuiButtonBase-root-MuiButton-root {
-    border-radius: 25px !important;
-}
-
-.css-ke5b6m-MuiButtonBase-root-MuiButton-root {
-    padding: 15px !important;
-}
-
 .search-input {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
 }
 
+.search-input label {
+  color: white !important;
+}
+
 .search-input .css-ke5b6m-MuiButtonBase-root-MuiButton-root {
     width: 100px !important;
+    color: white !important;
 }

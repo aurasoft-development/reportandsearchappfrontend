@@ -124,15 +124,15 @@ export default function BasicTabs() {
     return (
         <div className='MainParent'>
         <div className='TabParent'>
-        <Box sx={{ width: '80%' ,margin:'auto'}}>
+        <Box sx={{ width: '80%' ,margin:'auto', paddingTop:"60px"}}>
             <div className='tab_sec_container'>
                 <CustomTabPanel value={value} index={0}  className="completeBox">
                     <Box >
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab style={{color:'white'}} label='Category1' {...a11yProps(0)} />
-                            <Tab style={{color:'white'}} label='Category2' {...a11yProps(1)} />
-                            <Tab style={{color:'white'}} label='Category3' {...a11yProps(2)} />
-                            <Tab style={{color:'white'}} label='Category4' {...a11yProps(3)} />
+                            <Tab style={{color:'white'}} label='Category 1' {...a11yProps(0)} />
+                            <Tab style={{color:'white'}} label='Category 2' {...a11yProps(1)} />
+                            <Tab style={{color:'white'}} label='Category 3' {...a11yProps(2)} />
+                            <Tab style={{color:'white'}} label='Category 4' {...a11yProps(3)} />
                         </Tabs>
                     </Box>
                     <div className='tab_div_main'>
@@ -142,10 +142,11 @@ export default function BasicTabs() {
                                 <TextField
                                     type="search"
                                     autoComplete="off"
-                                    style={{ width: '250px' }}
+                                    style={{ width: '250px', color:'white'}}
                                     id="search"
                                     placeholder="Enter UID"
-                                    label="Select category and search."
+                                    color="success"
+                                    label="Select category and search"
                                     onChange={(e) => setSearhData(e.target.value)}
                                 />
                                 <Button variant="contained" color="success" onClick={() => handleSearch(searchData)}>Search</Button>
@@ -190,13 +191,13 @@ export default function BasicTabs() {
                         </div>
                     </div>
                 </CustomTabPanel>
-                <CustomTabPanel value={value} index={1}>
+                <CustomTabPanel value={value} index={1} className="completeBox">
                     <Box >
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab style={{color:'white'}} label='Category1' {...a11yProps(0)} />
-                            <Tab style={{color:'white'}} label='Category2' {...a11yProps(1)} />
-                            <Tab style={{color:'white'}} label='Category3' {...a11yProps(2)} />
-                            <Tab style={{color:'white'}} label='Category4' {...a11yProps(3)} />
+                            <Tab style={{color:'white'}} label='Category 1' {...a11yProps(0)} />
+                            <Tab style={{color:'white'}} label='Category 2' {...a11yProps(1)} />
+                            <Tab style={{color:'white'}} label='Category 3' {...a11yProps(2)} />
+                            <Tab style={{color:'white'}} label='Category 4' {...a11yProps(3)} />
                         </Tabs>
                     </Box>
                     <div className='tab_div_main'>
@@ -209,7 +210,7 @@ export default function BasicTabs() {
                                     style={{ width: '250px' }}
                                     id="search"
                                     placeholder="Enter UID"
-                                    label="Select category and search."
+                                    label="Select category and search"
                                     onChange={(e) => setSearhData2(e.target.value)}
                                 />
                                 <Button variant="contained" color="success" onClick={() => handleSearch2(searchData2)}>Search</Button>
@@ -253,13 +254,13 @@ export default function BasicTabs() {
                         </div>
                     </div>
                 </CustomTabPanel>
-                <CustomTabPanel value={value} index={2}>
+                <CustomTabPanel value={value} index={2} className="completeBox">
                     <Box >
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab style={{color:'white'}} label='Category1' {...a11yProps(0)} />
-                            <Tab style={{color:'white'}} label='Category2' {...a11yProps(1)} />
-                            <Tab style={{color:'white'}} label='Category3' {...a11yProps(2)} />
-                            <Tab style={{color:'white'}} label='Category4' {...a11yProps(3)} />
+                            <Tab style={{color:'white'}} label='Category 1' {...a11yProps(0)} />
+                            <Tab style={{color:'white'}} label='Category 2' {...a11yProps(1)} />
+                            <Tab style={{color:'white'}} label='Category 3' {...a11yProps(2)} />
+                            <Tab style={{color:'white'}} label='Category 4' {...a11yProps(3)} />
                         </Tabs>
                     </Box>
                     <div className='tab_div_main'>
@@ -272,7 +273,7 @@ export default function BasicTabs() {
                                     style={{ width: '250px' }}
                                     id="search"
                                     placeholder="Enter UID"
-                                    label="Select category and search."
+                                    label="Select category and search"
                                     onChange={(e) => setSearhDat3(e.target.value)}
                                 />
                                 <Button variant="contained" color="success" onClick={() => handleSearch3(searchData3)}>Search</Button>
@@ -316,13 +317,13 @@ export default function BasicTabs() {
                         </div>
                     </div>
                 </CustomTabPanel>
-                <CustomTabPanel value={value} index={3}>
+                <CustomTabPanel value={value} index={3} className="completeBox">
                     <Box >
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab style={{color:'white'}} label='Category1' {...a11yProps(0)} />
-                            <Tab style={{color:'white'}} label='Category2' {...a11yProps(1)} />
-                            <Tab style={{color:'white'}} label='Category3' {...a11yProps(2)} />
-                            <Tab style={{color:'white'}} label='Category4' {...a11yProps(3)} />
+                            <Tab style={{color:'white'}} label='Category 1' {...a11yProps(0)} />
+                            <Tab style={{color:'white'}} label='Category 2' {...a11yProps(1)} />
+                            <Tab style={{color:'white'}} label='Category 3' {...a11yProps(2)} />
+                            <Tab style={{color:'white'}} label='Category 4' {...a11yProps(3)} />
                         </Tabs>
                     </Box>
                     <div className='tab_div_main'>
@@ -335,7 +336,7 @@ export default function BasicTabs() {
                                     style={{ width: '250px' }}
                                     id="search"
                                     placeholder="Enter UID"
-                                    label="Select category and search."
+                                    label="Select category and search"
                                     onChange={(e) => setSearhData4(e.target.value)}
                                 />
                                 <Button variant="contained" color="success" onClick={() => handleSearch4(searchData4)}>Search</Button>
