@@ -120,7 +120,7 @@ const Payment = () => {
                                                 </div> */}
                                                 <button
                                                     type="button"
-                                                    className="btn btn-info btn-block btn-lg"
+                                                    className="btn btn-info btn-block btn-lg mainButton"
                                                     onClick={FutherForward}
                                                 >
                                                     <div className="d-flex justify-content-between">

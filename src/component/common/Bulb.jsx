@@ -63,7 +63,7 @@ const Bulb = () => {
 
               </tbody>
             </table>
-            <Button className='m-2' variant="contained" onClick={payMent}>Pay here to view more </Button>
+            <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Pay here to view more </Button>
 
           </div>
         </div>
