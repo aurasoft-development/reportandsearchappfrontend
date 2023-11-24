@@ -12,3 +12,13 @@
 .headerChild{
     background-color: var(--navbar-background-color) !important;
 }
+
+
+/* Media query start here  */
+
+@media screen and (max-width: 768px) {
+    .css-cjctlb-MuiButtonBase-root-MuiTab-root{
+        padding: 6px 10px !important;
+    }
+  }
+

@@ -8,33 +8,32 @@
     background-size: cover;
     background-position: center;
     object-fit: cover;
-    opacity: 0.8;
+    opacity: 1;
     width: 100%;
-    height: 500px;
+    height: 650px;
     /* height:79Vh; */
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
     text-transform: capitalize !important;
-    font-size: 18px !important;
 }
 
 
 .completeBox {
     background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
     color: white !important;
-    border-radius: 18px;
+    border-radius: 15px;
     background-color: green;
 
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
-    font-weight: 400 !important;
-    font-size: 1rem !important;
-    line-height: 1.5;
-    letter-spacing: 0.00938em;
+    /* font-family: "Roboto", "Helvetica", "Arial", sans-serif !important; */
+    /* font-weight: 400 !important; */
+    /* font-size: 1rem !important; */
+    /* line-height: 1.5; */
+    /* letter-spacing: 0.00938em; */
 }
 
 .css-1aquho2-MuiTabs-indicator {
@@ -45,11 +44,11 @@
     justify-content: space-between;
     flex-wrap: wrap !important;
     /* background-color: rgba(0,0,0,0.3); */
-    border-radius: 8px;
+    border-radius: 15px;
 }
 
 .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
-    border-radius: 18px !important;
+    border-radius: 15px !important;
 }
 
 .tab_div_main {
@@ -59,6 +58,7 @@
 .report-details {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     padding: 20px 0;
     gap: 10px;
@@ -70,32 +70,22 @@
 
 }
 
-.css-ke5b6m-MuiButtonBase-root-MuiButton-root {
-    border-radius: 25px !important;
-}
-
-.css-ke5b6m-MuiButtonBase-root-MuiButton-root {
-    padding: 15px !important;
-}
-
 .search-input {
     display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input label {
+    color: white !important;
+    text-align: center;
+}
+
+.search-input input {
+    color: white !important;
 }
 
 .search-input .css-ke5b6m-MuiButtonBase-root-MuiButton-root {
     width: 100px !important;
+    color: white !important;
 }
-
-
-
-/* Responsiveness start here  */
-
-@media screen and (min-width: 1024px) {
-    .TabParent {
-        height: 668px;
-    }
-  }
-
-/* Responsiveness start here  */

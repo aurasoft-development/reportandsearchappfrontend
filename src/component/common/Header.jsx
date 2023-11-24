@@ -23,21 +23,14 @@ const Header = () => {
                             >
                                 <QueryStatsIcon style={{ fontSize: '1em', color: 'white' }} />
                             </IconButton>
-
                             <Tab label="Search And Report Engine" className='headerText' />
-
                             <Box sx={{ flexGrow: 1 }} />
-
-
                             <Tabs textColor='inherit' indicatorColor='secondary' value={false} >
                                 <Tab label="Home" component={Link} to="/" className='headerText' style={{ fontSize: '1em', color: 'white' }}/>
                                 <Tab label="Categories" component={Link} to="/" className='headerText' />
                                 <Tab label="Register" component={Link} to="/" className='headerText' />
                                 <Tab label="Help" component={Link} to="/" className='headerText' />
                             </Tabs>
-
-                           
-                            
                         </Toolbar>
                     </AppBar>
                 </Box>

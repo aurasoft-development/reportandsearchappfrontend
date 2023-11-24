@@ -35,16 +35,16 @@ export default function CategoryModel({ data }) {
     return (
         <div className='category-model-container'>
             {
-                data == 1 ? <Button variant="contained" color="success" onClick={handleOpen}>Add Report</Button> : ""
+                data == 1 ? <Button variant="contained" color="success" style={{ borderRadius:'15px'}} onClick={handleOpen}>Add Report</Button> : ""
             }
             {
-                data == 2 ? <Button variant="contained" color="success" onClick={handleOpen2}>Add Report</Button> : ""
+                data == 2 ? <Button variant="contained" color="success" style={{ borderRadius:'15px'}} onClick={handleOpen2}>Add Report</Button> : ""
             }
             {
-                data == 3 ? <Button variant="contained" color="success" onClick={handleOpen3}>Add Report</Button> : ""
+                data == 3 ? <Button variant="contained" color="success" style={{ borderRadius:'15px'}} onClick={handleOpen3}>Add Report</Button> : ""
             }
             {
-                data == 4 ? <Button variant="contained" color="success" onClick={handleOpen4}>Add Report</Button> : ""
+                data == 4 ? <Button variant="contained" color="success" style={{ borderRadius:'15px'}} onClick={handleOpen4}>Add Report</Button> : ""
             }
             <Modal
                 open={open}
