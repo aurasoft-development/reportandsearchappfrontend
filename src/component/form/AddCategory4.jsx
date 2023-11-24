@@ -165,7 +165,7 @@ const AddCategory4 = () => {
             navigate('/category_details')
 
         } catch (error) {
-            toast.error("Error fetching the chat")
+            toast.error(error?.response?.data?.message)
         }
     };
     const onSubmit1 = async () => {
@@ -195,7 +195,7 @@ const AddCategory4 = () => {
             navigate('/category_details')
 
         } catch (error) {
-            toast.error("Error fetching the chat")
+            toast.error(error?.response?.data?.message)
         }
     };
 
