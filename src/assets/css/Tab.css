@@ -8,9 +8,9 @@
     background-size: cover;
     background-position: center;
     object-fit: cover;
-    opacity: 0.8;
+    opacity: 1;
     width: 100%;
-    height: 500px;
+    height: 650px;
     /* height:79Vh; */
 }
 
@@ -26,7 +26,7 @@
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
     color: white !important;
-    border-radius: 5px;
+    border-radius: 15px;
     background-color: green;
 
     /* font-family: "Roboto", "Helvetica", "Arial", sans-serif !important; */
@@ -44,11 +44,11 @@
     justify-content: space-between;
     flex-wrap: wrap !important;
     /* background-color: rgba(0,0,0,0.3); */
-    border-radius: 8px;
+    border-radius: 15px;
 }
 
 .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
-    border-radius: 18px !important;
+    border-radius: 15px !important;
 }
 
 .tab_div_main {
@@ -58,6 +58,7 @@
 .report-details {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     padding: 20px 0;
     gap: 10px;
@@ -71,12 +72,17 @@
 
 .search-input {
     display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 .search-input label {
-  color: white !important;
+    color: white !important;
+    text-align: center;
+}
+
+.search-input input {
+    color: white !important;
 }
 
 .search-input .css-ke5b6m-MuiButtonBase-root-MuiButton-root {
