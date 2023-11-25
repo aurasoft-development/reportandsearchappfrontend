@@ -203,7 +203,7 @@ const AddCategory3 = () => {
             <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" className='m-2'>
-                        {step == 2 ? <h4 className="headerStyle">Please verify your mobile number.</h4> : <h2 className="headerStyle">Add Category 3 Report</h2>}
+                        {step == 2 ? <h5 className="headerStyle">Please verify your mobile number</h5> : <h4 className="headerStyle">Add Category 3 Report</h4>}
                         <span className='addcategory_icon' onClick={() => setOpen3(false)}><CloseIcon /></span>
                     </Grid>
                     <div className="container" style={{ padding: "5% 20%" }}>

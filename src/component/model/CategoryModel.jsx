@@ -23,6 +23,7 @@ const style = {
     scrollbarWidth: 'thin', // For Firefox
   '&::-webkit-scrollbar': {
     width: '6px',
+    height: '6px'
   },
   '&::-webkit-scrollbar-thumb': {
     backgroundColor: "var(--headingColor)",
