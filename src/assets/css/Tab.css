@@ -11,7 +11,6 @@
     opacity: 1;
     width: 100%;
     height: 650px;
-    /* height:79Vh; */
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
@@ -100,6 +99,11 @@
     outline: none;
 }
 
+.SearchTextfield {
+    width: 250px;
+    color: white !important
+}
+
 .search-input label {
     color: white !important;
     text-align: center;
@@ -113,3 +117,96 @@
     width: 100px !important;
     color: white !important;
 }
+
+
+/* Media query start here for 1441   */
+
+@media screen and (max-width: 1441px) {
+
+    .TabParent {
+        height: 1032px;
+    }
+
+}
+
+/* Media query end here for 1441   */
+
+
+/* Media query start here for 1025   */
+
+@media screen and (max-width: 1025px) {
+
+    .TabParent {
+        height: 805px;
+    }
+
+}
+
+/* Media query end here for 1025   */
+
+
+/* Media query start here for 769   */
+
+@media screen and (max-width: 769px) {
+
+    .TabParent {
+        height: 575px;
+    }
+
+}
+
+/* Media query end here for 769   */
+
+
+
+
+
+
+/* Media query start here for 425   */
+
+@media screen and (max-width: 426px) {
+
+    .TabParent {
+        height: 582px;
+    }
+
+    .mainParentSeachBox .search-input {
+        display: block;
+        margin-top: 10px !important;
+    }
+
+    .mainParentSeachBox .searchButton {
+        margin-top: 20px !important;
+    }
+
+}
+
+/* Media query end here for 425   */
+
+/* Media query start here for 375   */
+
+@media screen and (max-width: 376px) {
+    .TabParent {
+        height: 581px;
+    }
+
+    .mainParentSeachBox .search-input {
+        display: block;
+        margin-top: 10px !important;
+    }
+
+    .mainParentSeachBox .searchButton {
+        margin-top: 20px !important;
+    }
+
+    .mainParentSeachBox .SearchTextfield {
+        width: 200px;
+    }
+
+    .mainParentSeachBox .search-input label {
+        font-size: 14px;
+    }
+
+}
+
+/* Media query end here for 375   */

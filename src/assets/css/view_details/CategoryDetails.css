@@ -55,3 +55,7 @@
     font-weight: 600;
     text-align: center;
 }
+
+.borderColor{
+    border-bottom: 1.5px solid var(--headingColor);
+}

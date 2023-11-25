@@ -136,20 +136,20 @@ export default function BasicTabs() {
                                 </Tabs>
                             </Box>
                             <div className='tab_div_main'>
-                                <div className='report-details'>
+                                <div className='report-details mainParentSeachBox'>
                                     <span><CategoryModel data={1} /></span>
                                     <div className="search-input">
                                         <TextField
                                             type="search"
                                             autoComplete="off"
-                                            style={{ width: '250px'}}
                                             id="search"
                                             placeholder="Enter UID"
+                                            className='SearchTextfield'
                                             color="success"
                                             label="Select category and search"
                                             onChange={(e) => setSearhData(e.target.value)}
                                         />
-                                        <Button variant="contained" className='mx-2 mainButton' onClick={() => handleSearch(searchData)}>Search</Button>
+                                        <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch(searchData)}>Search</Button>
                                     </div>
                                 </div>
                                 <div className="user-details">
@@ -201,20 +201,20 @@ export default function BasicTabs() {
                                 </Tabs>
                             </Box>
                             <div className='tab_div_main'>
-                                <div className='report-details'>
+                                <div className='report-details mainParentSeachBox'>
                                     <span><CategoryModel data={2} /></span>
                                     <div className="search-input">
                                         <TextField
                                             type="search"
                                             autoComplete="off"
-                                            style={{ width: '250px' }}
+                                            className='SearchTextfield'
                                             id="search"
                                             color="success"
                                             placeholder="Enter UID"
                                             label="Select category and search"
                                             onChange={(e) => setSearhData2(e.target.value)}
                                         />
-                                        <Button variant="contained" className='mx-2 mainButton' onClick={() => handleSearch2(searchData2)}>Search</Button>
+                                        <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch2(searchData2)}>Search</Button>
                                     </div>
                                 </div>
                                 <div className="user-details">
@@ -265,20 +265,19 @@ export default function BasicTabs() {
                                 </Tabs>
                             </Box>
                             <div className='tab_div_main'>
-                                <div className='report-details'>
+                                <div className='report-details mainParentSeachBox'>
                                     <span><CategoryModel data={3} /></span>
                                     <div className="search-input">
                                         <TextField
                                             type="search"
                                             autoComplete="off"
-                                            style={{ width: '250px' }}
                                             id="search"
                                             placeholder="Enter UID"
-                                            color="success"
+                                            className='SearchTextfield'
                                             label="Select category and search"
                                             onChange={(e) => setSearhDat3(e.target.value)}
                                         />
-                                        <Button variant="contained"  className='mx-2 mainButton' onClick={() => handleSearch3(searchData3)}>Search</Button>
+                                        <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch3(searchData3)}>Search</Button>
                                     </div>
                                 </div>
                                 <div className="user-details">
@@ -329,20 +328,20 @@ export default function BasicTabs() {
                                 </Tabs>
                             </Box>
                             <div className='tab_div_main'>
-                                <div className='report-details'>
+                                <div className='report-details mainParentSeachBox'>
                                     <span><CategoryModel data={4} /></span>
                                     <div className="search-input">
                                         <TextField
                                             type="search"
                                             autoComplete="off"
-                                            style={{ width: '250px'}}
                                             id="search"
                                             color="success"
                                             placeholder="Enter UID"
+                                            className='SearchTextfield'
                                             label="Select category and search"
                                             onChange={(e) => setSearhData4(e.target.value)}
                                         />
-                                        <Button variant="contained" className='mx-2 mainButton' onClick={() => handleSearch4(searchData4)}>Search</Button>
+                                        <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch4(searchData4)}>Search</Button>
                                     </div>
                                 </div>
                                 <div className="user-details">

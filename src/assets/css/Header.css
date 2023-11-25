@@ -1,0 +1,28 @@
+@import './Variable.css';
+
+.headerText{
+    font-family: var(--font-family) !important;
+    color: var( --navbar-text-color) !important;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+}
+
+.headerChild{
+    background-color: var(--navbar-background-color) !important;
+}
+
+
+/* Media query start here  */
+
+@media screen and (max-width: 768px) {
+    .css-cjctlb-MuiButtonBase-root-MuiTab-root{
+        padding: 6px 10px !important;
+    }
+  }
+
+  .css-11b3ww9-MuiPaper-root-MuiAppBar-root {
+    /* background-color: var(--navbar-background-color) !important; */
+    background-color: red !important;
+  }

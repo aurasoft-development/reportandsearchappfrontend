@@ -1,9 +1,9 @@
-.home_container {
+/* .home_container {
     color: black;
     font-size: 12px;
     font-weight: 600;
-    font-family: var(--font_family)
-}
+    font-family: var(--font-family) !important;
+} */
 
 .home_logo {
     display: flex;
@@ -14,13 +14,12 @@
 .paperStyle {
     margin: 0 auto;
     position: relative;
-    padding: 5% 20%;
 }
 
 .addcategory_icon {
     position: absolute;
-    right: 5%;
-    top: 7%;
+    right: 2%;
+    top: 0%;
     cursor: pointer;
 }
 
