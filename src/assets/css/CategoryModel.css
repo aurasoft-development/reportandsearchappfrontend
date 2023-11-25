@@ -4,6 +4,8 @@
 
 .css-1woxyl6-MuiPaper-root {
     min-width: 315px !important;
+    box-shadow: none !important;
+    
 }
 
 .css-mhc70k-MuiGrid-root {

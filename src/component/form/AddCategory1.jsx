@@ -191,11 +191,11 @@ const AddCategory1 = () => {
         <>
             <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
-                    <Grid align="center" >
-                        {step == 2 ? <h4 className="headerStyle">Please verify your mobile number</h4> : <h2 className="headerStyle">Add Category 1 Report</h2>}
+                    <Grid align="center" className='m-2' >
+                        {step == 2 ? <h4 className="headerStyle">Please verify your mobile number</h4> : <h4 className="headerStyle">Add Category 1 Report</h4>}
                         <span className='addcategory_icon' onClick={() => setOpen(false)}><CloseIcon /></span>
                     </Grid>
-                    <div className="container">
+                    <div className="container" style={{ padding: "5% 20%" }}>
                         <Grid container spacing={2}>
                             {step == 1 &&
                                 <>
@@ -467,14 +467,13 @@ const AddCategory1 = () => {
 
                                                 <div className=" my-2">
                                                     {isLoading2 ? (
-                                                        <div className=" d-flex justify-content-center align-items-center ">
+                                                        <div className="d-flex justify-content-center align-items-center ">
                                                             <Loader />
                                                         </div>
                                                     ) : (
-                                                        <span type='button mainButton' onClick={() => setShowWebcam(true)}
-                                                            style={{ fontSize: '14px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white', border: '1px solid', marginTop: '6px' }}
+                                                        <Button type='button' className='mainButton' onClick={() => setShowWebcam(true)}
                                                         >Capture Your Selfie
-                                                        </span>
+                                                        </Button>
                                                     )}
                                                 </div>
 
@@ -485,11 +484,9 @@ const AddCategory1 = () => {
                                                             audio={false}
                                                             ref={webcamRef}
                                                         />
-
-                                                        <span type='button mainButton' onClick={captureSelfie}
-                                                            style={{ fontSize: '14px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white', border: '1px solid' }}>
-                                                            Capture Selfie
-                                                        </span>
+                                                        <Button type='button' className='mainButton' onClick={captureSelfie}
+                                                        >Capture Selfie
+                                                        </Button>
                                                     </div>
                                                 )}
                                             </Grid>
