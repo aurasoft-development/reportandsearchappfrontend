@@ -202,11 +202,11 @@ const AddCategory2 = () => {
         <>
             <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
-                    <Grid align="center" >
-                        {step == 2 ? <h4 className="headerStyle">Please verify your mobile number.</h4> : <h2 className="headerStyle">Add Category 2 Report</h2>}
+                    <Grid align="center" className='m-2'>
+                        {step == 2 ? <h5 className="headerStyle">Please verify your mobile number</h5> : <h4 className="headerStyle">Add Category 2 Report</h4>}
                         <span className='addcategory_icon' onClick={() => setOpen2(false)}><CloseIcon /></span>
                     </Grid>
-                    <div className="container">
+                    <div className="container" style={{ padding: "5% 20%" }}>
                         <Grid container spacing={2}>
                             {step == 1 &&
                                 <>
@@ -480,10 +480,9 @@ const AddCategory2 = () => {
                                                             <Loader />
                                                         </div>
                                                     ) : (
-                                                        <button type='button' className='mainButton' onClick={() => setShowWebcam(true)}
-                                                            style={{ fontSize: '14px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white', border: '1px solid', marginTop: '6px' }}
-                                                        >Capture your selfie
-                                                        </button>
+                                                        <Button type='button' className='mainButton' onClick={() => setShowWebcam(true)}
+                                                        >Capture Your Selfie
+                                                        </Button>
                                                     )}
                                                 </div>
 

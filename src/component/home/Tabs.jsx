@@ -149,7 +149,7 @@ export default function BasicTabs() {
                                             label="Select category and search"
                                             onChange={(e) => setSearhData(e.target.value)}
                                         />
-                                        <Button variant="contained" color="success" className='searchButton mx-2' onClick={() => handleSearch(searchData)}>Search</Button>
+                                        <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch(searchData)}>Search</Button>
                                     </div>
                                 </div>
                                 <div className="user-details">
@@ -213,7 +213,7 @@ export default function BasicTabs() {
                                             label="Select category and search"
                                             onChange={(e) => setSearhData2(e.target.value)}
                                         />
-                                        <Button variant="contained" color="success" className='searchButton mx-2' onClick={() => handleSearch2(searchData2)}>Search</Button>
+                                        <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch2(searchData2)}>Search</Button>
                                     </div>
                                 </div>
                                 <div className="user-details">
@@ -275,7 +275,7 @@ export default function BasicTabs() {
                                             label="Select category and search"
                                             onChange={(e) => setSearhDat3(e.target.value)}
                                         />
-                                        <Button variant="contained" color="success" className='searchButton mx-2' onClick={() => handleSearch3(searchData3)}>Search</Button>
+                                        <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch3(searchData3)}>Search</Button>
                                     </div>
                                 </div>
                                 <div className="user-details">
@@ -338,7 +338,7 @@ export default function BasicTabs() {
                                             label="Select category and search"
                                             onChange={(e) => setSearhData4(e.target.value)}
                                         />
-                                        <Button variant="contained" color="success" className='searchButton mainButton mx-2' onClick={() => handleSearch4(searchData4)}>Search</Button>
+                                        <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch4(searchData4)}>Search</Button>
                                     </div>
                                 </div>
                                 <div className="user-details">

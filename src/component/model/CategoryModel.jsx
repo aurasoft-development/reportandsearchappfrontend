@@ -14,11 +14,24 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
+    borderRadius: '10px',
+
     bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    // height: "80%",
-    // overflowY: "scroll"
+    maxHeight: '80%',
+    maxWidth: '70%',
+    overflowY: 'auto',
+    scrollbarWidth: 'thin', // For Firefox
+  '&::-webkit-scrollbar': {
+    width: '6px',
+    height: '6px'
+  },
+  '&::-webkit-scrollbar-thumb': {
+    backgroundColor: "var(--headingColor)",
+    borderRadius: '10px',
+  },
+  '&::-webkit-scrollbar-track': {
+    borderRadius: '10px',
+  },
 };
 
 export default function CategoryModel({ data }) {
