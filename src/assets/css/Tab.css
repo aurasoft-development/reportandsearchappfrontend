@@ -124,7 +124,7 @@
 @media screen and (max-width: 1441px) {
 
     .TabParent {
-        height: 1032px;
+        height: 740px;
     }
 
 }
@@ -137,7 +137,7 @@
 @media screen and (max-width: 1025px) {
 
     .TabParent {
-        height: 800px;
+        height: 630px;
     }
 
 }
@@ -150,7 +150,7 @@
 @media screen and (max-width: 769px) {
 
     .TabParent {
-        height: 570px;
+        height: 630px;
     }
 
 }
@@ -207,7 +207,7 @@
 @media screen and (max-width: 560px) {
 
     .TabParent {
-        height: 750px;
+        height: 770px;
     }
 
     .mainParentSeachBox .search-input {
@@ -230,7 +230,7 @@
 @media screen and (max-width: 426px) {
 
     .TabParent {
-        height: 765px;
+        height: 790px;
     }
 
     .mainParentSeachBox .search-input {
@@ -250,7 +250,7 @@
 
 @media screen and (max-width: 376px) {
     .TabParent {
-        height: 755px;
+        height: 800px;
     }
 
     .mainParentSeachBox .search-input {
