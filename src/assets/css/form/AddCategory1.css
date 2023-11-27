@@ -11,6 +11,7 @@
     align-items: center;
 }
 
+
 .paperStyle {
     margin: 0 auto;
     position: relative;
@@ -39,9 +40,11 @@
     justify-content: center !important;
     align-items: center !important;
 }
-.css-mhc70k-MuiGrid-root{
+
+.css-mhc70k-MuiGrid-root {
     margin-left: -12px !important;
 }
-.mt{
+
+.mt {
     margin-top: 20px !important;
 }
