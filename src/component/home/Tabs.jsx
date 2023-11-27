@@ -183,7 +183,6 @@ export default function BasicTabs() {
                                                     </tbody>
                                                 </table>
                                                 <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
-
                                             </div>
                                         </div>
                                     </>
@@ -247,7 +246,6 @@ export default function BasicTabs() {
                                                     </tbody>
                                                 </table>
                                                 <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
-
                                             </div>
                                         </div>
                                     </>
@@ -310,7 +308,6 @@ export default function BasicTabs() {
                                                     </tbody>
                                                 </table>
                                                 <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
-
                                             </div>
                                         </div>
                                     </>
@@ -374,7 +371,6 @@ export default function BasicTabs() {
                                                     </tbody>
                                                 </table>
                                                 <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
-
                                             </div>
                                         </div>
                                     </>
