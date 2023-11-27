@@ -158,7 +158,7 @@ export default function BasicTabs() {
                                     ) : (searchResult?.categories1 == null) ? (
                                         <p style={{ color: 'white' }}>The details are not found. Please check into other categories.</p>
                                     ) : <>
-                                        <div className="card mt-3  m-3 p-1">
+                                        <div className="card mt-3   p-1">
                                             <hr className="border-light m-0" />
                                             <div className="card-body">
                                                 {/* <div>red</div> */}
@@ -183,7 +183,6 @@ export default function BasicTabs() {
                                                     </tbody>
                                                 </table>
                                                 <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
-
                                             </div>
                                         </div>
                                     </>
@@ -247,7 +246,6 @@ export default function BasicTabs() {
                                                     </tbody>
                                                 </table>
                                                 <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
-
                                             </div>
                                         </div>
                                     </>
@@ -310,7 +308,6 @@ export default function BasicTabs() {
                                                     </tbody>
                                                 </table>
                                                 <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
-
                                             </div>
                                         </div>
                                     </>
@@ -374,7 +371,6 @@ export default function BasicTabs() {
                                                     </tbody>
                                                 </table>
                                                 <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
-
                                             </div>
                                         </div>
                                     </>
