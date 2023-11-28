@@ -1,3 +1,4 @@
+// Importing necessary dependencies and components from Material-UI, React, and other libraries
 import { Button, FormControl, Grid, IconButton, Input, InputAdornment, Paper, TextField } from '@mui/material';
 import React, { useState, useRef } from 'react';
 import '../../assets/css/form/AddCategory1.css'
@@ -6,14 +7,16 @@ import Webcam from 'react-webcam';
 import CloseIcon from '@mui/icons-material/Close';
 import { FindState } from '../../context/FindContext';
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import Loader from '../common/Loader';
 import OtpVarifacation from '../home/OtpVarifacation';
 import commonApiRequest from '../../api/commonApi';
+import { dataURItoBlob, uploadImages } from '../../utils/UploadImage';
 
+// Functional component for adding Category3 report
 const AddCategory3 = () => {
     const webcamRef = useRef(null);
+    // State variables for webcam, captured image, form data, loading states, and navigation
     const [showWebcam, setShowWebcam] = useState(false);
     const [captureImage, setCaptureImage] = useState("")
     const { open, setOpen3, step, setStep } = FindState()
@@ -39,6 +42,7 @@ const AddCategory3 = () => {
         field12: {}
     });
 
+    // Validation functions for form fields
     const validUID = (uid) => {
         return uid.trim() !== ''
     }
@@ -54,56 +58,34 @@ const AddCategory3 = () => {
         return address.trim() !== ''
     }
 
-    // Function to convert data URI to Blob
-    const dataURItoBlob = (dataURI) => {
-        const byteString = atob(dataURI.split(',')[1]);
-        const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-        const arrayBuffer = new ArrayBuffer(byteString.length);
-        const uint8Array = new Uint8Array(arrayBuffer);
-
-        for (let i = 0; i < byteString.length; i++) {
-            uint8Array[i] = byteString.charCodeAt(i);
-        }
-        return new Blob([arrayBuffer], { type: mimeString });
-    };
-
-    const captureSelfie = () => {
+    // Function to capture selfie using webcam
+    const captureSelfie = async () => {
         if (webcamRef.current) {
             setIsLoading2(true);
             const imageSrc = webcamRef.current.getScreenshot();
-
-            const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
-
-            const formData = new FormData();
-            formData.append('files', dataURItoBlob(imageSrc));
-
-            axios.post(apiUrl, formData)
-                .then(response => {
-                    setFormData((oldValue) => {
-                        return {
-                            ...oldValue,
-                            field12: response.data
-                        }
-                    })
-                    toast.success("File uploaded successfully.")
-                    setIsLoading2(false);
+            const response = await uploadImages(dataURItoBlob(imageSrc))
+            if (response) {
+                setFormData((oldValue) => {
+                    return {
+                        ...oldValue,
+                        field12: response.data
+                    }
                 })
-                .catch(error => {
-                    console.error('Error uploading image:', error);
-                    setIsLoading2(false);
-                });
+                toast.success("File uploaded successfully")
+                setIsLoading2(false);
+            }
         }
         setShowWebcam(false);
     };
 
-    const uploadImages = () => {
-        setIsLoading(true);
-        const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
-        const formData = new FormData();
-        formData.append('files', captureImage);
-
-        axios.post(apiUrl, formData)
-            .then(response => {
+    // Function to upload captured images
+    const upload = async () => {
+        if (!captureImage) {
+            toast.warn("Please Choose File.")
+        } else {
+            setIsLoading(true);
+            const response = await uploadImages(captureImage)
+            if (response) {
                 setFormData((oldValue) => {
                     return {
                         ...oldValue,
@@ -112,13 +94,10 @@ const AddCategory3 = () => {
                 })
                 toast.success("File uploaded successfully")
                 setIsLoading(false);
-            })
-            .catch(error => {
-                console.error('Error uploading image:', error);
-                setIsLoading(false);
-            })
+            }
+        }
     }
-
+    // Event handler for form input changes
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({
@@ -127,6 +106,7 @@ const AddCategory3 = () => {
         });
     };
 
+    // Validation function for form fields
     const validationFunction = () => {
         try {
             if (!validUID(formData.uid)) {
@@ -148,27 +128,15 @@ const AddCategory3 = () => {
         }
     }
 
-    const onSubmit = async () => {
+    // Function to submit the form data
+    const onSubmit = async (value) => {
         try {
-            const info = {
+            const info = value == 1 ? {
                 uid: formData?.uid,
                 name: formData?.name,
                 number: formData?.number,
                 address: formData?.address,
-            }
-
-            await commonApiRequest('post', '/api/cat3/add_categories', info);
-            toast.success('Report added Successfully.')
-            localStorage.setItem("category1", JSON.stringify(formData));
-            navigate('/category_details')
-
-        } catch (error) {
-            toast.error(error?.response?.data?.message)
-        }
-    };
-    const onSubmit1 = async () => {
-        try {
-            const info = {
+            } : {
                 uid: formData?.uid,
                 name: formData?.name,
                 number: formData?.number,
@@ -196,8 +164,8 @@ const AddCategory3 = () => {
             toast.error(error?.response?.data?.message)
         }
     };
-
-
+   
+    // Rendering the component
     return (
         <>
             <Grid className="p-3">
@@ -208,6 +176,7 @@ const AddCategory3 = () => {
                     </Grid>
                     <div className="container" style={{ padding: "5% 20%" }}>
                         <Grid container spacing={2}>
+                            {/* Conditionally rendering form fields based on step */}
                             {step == 1 &&
                                 <>
                                     <Grid item xs={12}>
@@ -273,7 +242,9 @@ const AddCategory3 = () => {
                                         />
                                     </Grid>
                                     <div className="text-center my-2 mt-4">
-                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => validationFunction()} >
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() =>
+                                            validationFunction()
+                                        } >
                                             Save
                                         </Button>
                                     </div>
@@ -386,7 +357,7 @@ const AddCategory3 = () => {
                                                                 </div>
                                                             ) : (
                                                                 <InputAdornment position="end">
-                                                                    <IconButton className='mainButton' onClick={() => uploadImages()} style={{ fontSize: '15px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white' }}>
+                                                                    <IconButton className='mainButton' onClick={() => upload()} style={{ fontSize: '15px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white' }}>
                                                                         upload
                                                                     </IconButton>
                                                                 </InputAdornment>
@@ -507,10 +478,10 @@ const AddCategory3 = () => {
                                         </Grid>
                                     </Grid>
                                     <div className="d-flex justify-content-around w-100 mt">
-                                        <Button variant="contained" onClick={() => { onSubmit(); setOpen3(false); setStep(1) }} className="m-2 mainButton" >
+                                        <Button variant="contained" onClick={() => { onSubmit(1); setOpen3(false); setStep(1) }} className="m-2 mainButton" >
                                             Skip
                                         </Button>
-                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => { onSubmit1(); setOpen3(false); setStep(1) }} >
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => { onSubmit(2); setOpen3(false); setStep(1) }} >
                                             Submit
                                         </Button>
                                     </div>
@@ -524,4 +495,5 @@ const AddCategory3 = () => {
     );
 };
 
+// Exporting the component
 export default AddCategory3;

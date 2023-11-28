@@ -1,13 +1,18 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
+
+// Functional component for the Payment page
 const Payment = () => {
+    // Using the useNavigate hook to handle navigation
     const navigate = useNavigate();
 
+    // Function to navigate to the "/alldetails" route
     const FutherForward = () => {
         navigate("/alldetails")
     }
 
+    // Rendering the Payment page component
     return (
         <>
             <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>
@@ -21,15 +26,6 @@ const Payment = () => {
                                     <div>
                                         <div className="card bg-primary text-white rounded-3">
                                             <div className="card-body">
-                                                {/* <div className="d-flex justify-content-between align-items-center mb-4">
-                                                    <h5 className="mb-0">Card details</h5>
-                                                    <img
-                                                        src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                                                        className="img-fluid rounded-3"
-                                                        style={{ width: 45 }}
-                                                        alt="Avatar"
-                                                    />
-                                                </div> */}
                                                 <p className="small mb-2">Card type</p>
                                                 <a href="#!" type="submit" className="text-white">
                                                     <i className="fab fa-cc-mastercard fa-2x me-2" />
@@ -106,25 +102,12 @@ const Payment = () => {
                                                     </div>
                                                 </form>
                                                 <hr className="my-4" />
-                                                {/* <div className="d-flex justify-content-between">
-                                                    <p className="mb-2">Subtotal</p>
-                                                    <p className="mb-2">$4798.00</p>
-                                                </div> */}
-                                                {/* <div className="d-flex justify-content-between">
-                                                    <p className="mb-2">Shipping</p>
-                                                    <p className="mb-2">$20.00</p>
-                                                </div> */}
-                                                {/* <div className="d-flex justify-content-between mb-4">
-                                                    <p className="mb-2">Total(Incl. taxes)</p>
-                                                    <p className="mb-2">$4818.00</p>
-                                                </div> */}
                                                 <button
                                                     type="button"
                                                     className="btn btn-info btn-block btn-lg mainButton"
                                                     onClick={FutherForward}
                                                 >
                                                     <div className="d-flex justify-content-between">
-                                                        {/* <span>$4818.00</span> */}
                                                         <span>
                                                             Checkout
                                                             <i className="fas fa-long-arrow-alt-right ms-2" />
@@ -145,4 +128,5 @@ const Payment = () => {
     )
 }
 
+// Exporting the component
 export default Payment;

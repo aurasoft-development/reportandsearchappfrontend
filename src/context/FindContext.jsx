@@ -28,7 +28,7 @@ const FindProvider = ({ children }) => {
     const [cat, setCat] = useState("")
     const [step, setStep] = useState(1);
     const [searchResult, setSearchResult] = useState("screen")
-
+    
 
     // Function to fetch data for category1
     const getCategory1 = async () => {

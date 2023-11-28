@@ -1,3 +1,4 @@
+// Importing React and MUI components and icons
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -9,12 +10,18 @@ import { Tab, Tabs, Typography, useMediaQuery, useTheme } from '@mui/material';
 import '../../assets/css/Header.css'
 import DrawerCo from './DrawerCo';
 
+
+// Header component
 const Header = () => {
+
+    // Accessing the MUI theme and media query hooks
     const theme = useTheme()
     const isMatch = useMediaQuery(theme.breakpoints.down('md'))
 
     return (
         <>
+
+            {/* Parent container for the header */}
             <div className='hedaerParent' >
                 <Box sx={{ flexGrow: 1 }} >
                     <AppBar position="static" className='headerChild'>
@@ -27,11 +34,13 @@ const Header = () => {
                             >
                                 <QueryStatsIcon style={{ fontSize: '1em', color: 'white' }} />
                             </IconButton>
+
+                            {/* Conditional rendering based on media query */}
                             {
                                 isMatch ? (
                                     <>
-                                  <Tab label="Search And Report Engine" className='headerText' />
-                                    <DrawerCo />
+                                        <Tab label="Search And Report Engine" className='headerText' />
+                                        <DrawerCo />
                                     </>
                                 ) :
                                     <>
@@ -54,4 +63,5 @@ const Header = () => {
     )
 }
 
+// Exporting the Header component
 export default Header
