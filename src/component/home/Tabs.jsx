@@ -10,7 +10,6 @@ import { FindState } from '../../context/FindContext';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import CategoryModel from '../model/CategoryModel';
-import commonApiRequest from '../../api/commonApi';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 

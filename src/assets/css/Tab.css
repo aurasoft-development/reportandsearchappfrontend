@@ -24,30 +24,27 @@
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
-    color:  var(--textColor) !important;
+    color: var(--textColor) !important;
     border-radius: 15px;
     /* border: 2px solid rgba(211, 117, 6, 1); */
     background-color: var(--bgButton)
-
-
-    /* font-family: "Roboto", "Helvetica", "Arial", sans-serif !important; */
-    /* font-weight: 400 !important; */
-    /* font-size: 1rem !important; */
-    /* line-height: 1.5; */
-    /* letter-spacing: 0.00938em; */
+        /* font-family: "Roboto", "Helvetica", "Arial", sans-serif !important; */
+        /* font-weight: 400 !important; */
+        /* font-size: 1rem !important; */
+        /* line-height: 1.5; */
+        /* letter-spacing: 0.00938em; */
 }
+
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected:hover {
-    color:  white !important;
+    color: white !important;
     border-radius: 15px;
     /* border: 2px solid transparent; */
     background-color: var(--bgButton)
-
-
-    /* font-family: "Roboto", "Helvetica", "Arial", sans-serif !important; */
-    /* font-weight: 400 !important; */
-    /* font-size: 1rem !important; */
-    /* line-height: 1.5; */
-    /* letter-spacing: 0.00938em; */
+        /* font-family: "Roboto", "Helvetica", "Arial", sans-serif !important; */
+        /* font-weight: 400 !important; */
+        /* font-size: 1rem !important; */
+        /* line-height: 1.5; */
+        /* letter-spacing: 0.00938em; */
 }
 
 .css-1aquho2-MuiTabs-indicator {
@@ -89,12 +86,14 @@
     justify-content: center;
     align-items: center;
 }
-.search-input fieldset{
+
+.search-input fieldset {
     border-radius: 15px;
     height: auto;
     border-color: white;
 }
-.search-input fieldset:hover{
+
+.search-input fieldset:hover {
     border-color: white;
     outline: none;
 }
@@ -269,6 +268,9 @@
     .mainParentSeachBox .search-input label {
         font-size: 14px;
     }
+    /* .css-1g395jg{
+        width: 100%;
+    } */
 
 }
 
