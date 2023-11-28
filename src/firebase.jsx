@@ -4,13 +4,13 @@ import { getAuth } from "firebase/auth";
 
 // Firebase configuration containing API keys and project details
 const firebaseConfig = {
-  apiKey: "AIzaSyAfivjqBE2vhu7_jKUNHtpZjh6jEzevUIE",
-  authDomain: "search-and-find-application.firebaseapp.com",
-  projectId: "search-and-find-application",
-  storageBucket: "search-and-find-application.appspot.com",
-  messagingSenderId: "531178609897",
-  appId: "1:531178609897:web:74a878d3b5515761b72478",
-  measurementId: "G-EHP2N4P6BQ"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_API_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_API_PROJECTID,
+  storageBucket: import.meta.env.VITE_API_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_API_MESSAGESENDINGID,
+  appId: import.meta.env.VITE_API_APPID,
+  measurementId: import.meta.env.VITE_API_MEASUREMENTID
 };
 
 // Initialize Firebase app with the provided configuration
