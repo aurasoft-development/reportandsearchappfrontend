@@ -5,3 +5,14 @@
 .footerend{
     padding: 13px !important;
 }
+
+
+/* Media query start here details component   */
+
+@media screen and (max-width: 376px) {
+    .reportParent{
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+    }
+  }
+

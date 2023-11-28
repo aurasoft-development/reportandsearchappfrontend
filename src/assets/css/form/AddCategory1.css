@@ -1,20 +1,16 @@
-/* .home_container {
-    color: black;
-    font-size: 12px;
-    font-weight: 600;
-    font-family: var(--font-family) !important;
-} */
-
 .home_logo {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-
 .paperStyle {
     margin: 0 auto;
     position: relative;
+}
+
+.FormParent{
+    padding: 5% 20% !important;    
 }
 
 .addcategory_icon {
@@ -46,4 +42,78 @@
 
 .mt {
     margin-top: 20px !important;
+}
+
+@media screen and (max-width: 1920px) {
+
+    .otp_wrapper {
+        width: 90% !important;
+    }
+}
+
+
+@media screen and (max-width: 1440px) {
+
+    .otp_wrapper {
+        width: 90% !important;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .otp_wrapper {
+        width: 90% !important;
+    }
+    .FormParent{
+        padding: 5% 5% !important;    
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .otp_wrapper {
+        width: 90% !important;
+    }
+    .FormParent{
+        padding: 1% 5% !important;    
+    }
+}
+
+@media screen and (max-width: 470px) {
+
+    .css-1g395jg {
+        max-width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 426px) {
+
+    .css-1g395jg {
+        max-width: 100% !important;
+    }
+    .otp_wrapper {
+        width: 90% !important;
+    }
+    .FormParent{
+        padding: 1% 5% !important;    
+    }
+}
+
+@media screen and (max-width: 376px) {
+
+    .css-1g395jg {
+        max-width: 100% !important;
+    }
+
+    .otp_wrapper {
+        width: 90% !important;
+    }
+
+    .FormParent{
+        padding: 1% 5% !important;    
+    }
+    .css-mhc70k-MuiGrid-root>.MuiGrid-item{
+        padding-top: 0px !important;
+    }
+   
 }

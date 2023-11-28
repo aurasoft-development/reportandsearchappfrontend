@@ -2,6 +2,7 @@ import React from 'react'
 import { FindState } from '../../context/FindContext';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom'
+import '../../assets/css/Common.css'
 
 const AllDetails = () => {
     const { searchResult } = FindState();
@@ -9,7 +10,7 @@ const AllDetails = () => {
     return (
         <>
             <h2 className='text-center mt-2 headerStyle'>Here is {searchResult?.categories1?.uid} detailed report.</h2>
-            <div className='row'>
+            <div className='row reportParent'>
                 <div className='col-lg-6 col-12'>
                     <div className="card mt-3  m-3 p-1">
                         <hr className="border-light m-0" />

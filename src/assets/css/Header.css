@@ -1,4 +1,4 @@
-@import './Variable.css';
+@import './App.css';
 
 .headerText{
     font-family: var(--font-family) !important;
