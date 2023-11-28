@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import { Link } from "react-router-dom";
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
-import { Tab, Tabs, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Tab, Tabs, useMediaQuery, useTheme } from '@mui/material';
 import '../../assets/css/Header.css'
 import DrawerCo from './DrawerCo';
 
@@ -30,8 +30,8 @@ const Header = () => {
                             {
                                 isMatch ? (
                                     <>
-                                  <Tab label="Search And Report Engine" className='headerText' />
-                                    <DrawerCo />
+                                        <Tab label="Search And Report Engine" className='headerText' />
+                                        <DrawerCo />
                                     </>
                                 ) :
                                     <>

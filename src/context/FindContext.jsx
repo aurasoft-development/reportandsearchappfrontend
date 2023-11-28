@@ -13,7 +13,6 @@ const FindProvider = ({ children }) => {
     const [category2, setCategory2] = useState("")
     const [category3, setCategory3] = useState("")
     const [category4, setCategory4] = useState("")
-    // const [number, setNumber] = useState()
     const [open, setOpen] = useState(false);
     const [open2, setOpen2] = useState(false);
     const [open3, setOpen3] = useState(false);

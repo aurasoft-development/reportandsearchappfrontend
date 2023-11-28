@@ -17,19 +17,9 @@ const Payment = () => {
                         <div className="col">
                             <div className="card">
                                 <div className="card-body p-4">
-
                                     <div>
                                         <div className="card bg-primary text-white rounded-3">
                                             <div className="card-body">
-                                                {/* <div className="d-flex justify-content-between align-items-center mb-4">
-                                                    <h5 className="mb-0">Card details</h5>
-                                                    <img
-                                                        src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                                                        className="img-fluid rounded-3"
-                                                        style={{ width: 45 }}
-                                                        alt="Avatar"
-                                                    />
-                                                </div> */}
                                                 <p className="small mb-2">Card type</p>
                                                 <a href="#!" type="submit" className="text-white">
                                                     <i className="fab fa-cc-mastercard fa-2x me-2" />
@@ -124,7 +114,6 @@ const Payment = () => {
                                                     onClick={FutherForward}
                                                 >
                                                     <div className="d-flex justify-content-between">
-                                                        {/* <span>$4818.00</span> */}
                                                         <span>
                                                             Checkout
                                                             <i className="fas fa-long-arrow-alt-right ms-2" />
@@ -140,7 +129,6 @@ const Payment = () => {
                     </div>
                 </div>
             </section>
-
         </>
     )
 }

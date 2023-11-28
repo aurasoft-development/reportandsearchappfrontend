@@ -4,8 +4,6 @@
     font-size: 15px;
     font-weight: 600;
     font-family: var(--font_family);
-    /* background-image: url('https://cdn.wallpapersafari.com/82/17/maoFMA.jpg'); */
-    
 }
 
 .home_logo {
@@ -13,7 +11,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 24px;
-
 }
 
 .home_logo>span {

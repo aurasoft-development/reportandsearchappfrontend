@@ -21,17 +21,17 @@ const style = {
     maxWidth: '70%',
     overflowY: 'auto',
     scrollbarWidth: 'thin', // For Firefox
-  '&::-webkit-scrollbar': {
-    width: '6px',
-    height: '6px'
-  },
-  '&::-webkit-scrollbar-thumb': {
-    backgroundColor: "var(--headingColor)",
-    borderRadius: '10px',
-  },
-  '&::-webkit-scrollbar-track': {
-    borderRadius: '10px',
-  },
+    '&::-webkit-scrollbar': {
+        width: '6px',
+        height: '6px'
+    },
+    '&::-webkit-scrollbar-thumb': {
+        backgroundColor: "var(--headingColor)",
+        borderRadius: '10px',
+    },
+    '&::-webkit-scrollbar-track': {
+        borderRadius: '10px',
+    },
 };
 
 export default function CategoryModel({ data }) {

@@ -14,7 +14,7 @@ const CategoryDetails = () => {
     }, [])
     return (
         <div className='view_details_main'>
-                <h3 className="text-center headerStyle">Thanks for submitting details!</h3> 
+            <h3 className="text-center headerStyle">Thanks for submitting details!</h3>
             <div className='row'>
                 <div className='col-6'>
                     <div className="card mt-3 border-0  m-3 p-1">
@@ -76,7 +76,7 @@ const CategoryDetails = () => {
                 </div>
                 <div className='col-6'>
                     <div className="card mt-3 border-0  m-3 p-1">
-                        <hr className="border-light m-0"/>
+                        <hr className="border-light m-0" />
                         <div className="card-body">
                             <table className="table user-view-table m-0">
                                 <tbody>

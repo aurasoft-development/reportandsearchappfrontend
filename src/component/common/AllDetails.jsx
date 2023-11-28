@@ -52,7 +52,6 @@ const AllDetails = () => {
                                         <td><img width={"100px"} height={"100px"} src={searchResult?.categories1?.field11?.url} alt="user" /></td>
                                     </tr>
 
-
                                 </tbody>
                             </table>
 
@@ -65,7 +64,6 @@ const AllDetails = () => {
                         <div className="card-body">
                             <table className="table user-view-table m-0">
                                 <tbody>
-
                                     <tr>
                                         <td>Number:</td>
                                         <td>{searchResult?.categories1?.number}</td>

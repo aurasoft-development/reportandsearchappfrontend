@@ -160,7 +160,6 @@ export default function BasicTabs() {
                                         <div className="card mt-3   p-1">
                                             <hr className="border-light m-0" />
                                             <div className="card-body">
-                                                {/* <div>red</div> */}
                                                 <table className="table user-view-table m-0">
                                                     <tbody>
                                                         <tr>
