@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import '../../assets/css/Common.css'
 
 const Payment = () => {
     const navigate = useNavigate();
@@ -10,10 +11,10 @@ const Payment = () => {
 
     return (
         <>
-            <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>
+            <section className="h-custom PaymentParent">
                 <h2 className='text-center mt-2'>Please pay ₹ ₹ ₹  for detailed report.</h2>
-                <div className="container py-5 h-100">
-                    <div className="row d-flex justify-content-center align-items-center h-100">
+                <div className="container PaymentChild py-3">
+                    <div className="row d-flex justify-content-center align-items-center">
                         <div className="col">
                             <div className="card">
                                 <div className="card-body p-4">
@@ -96,18 +97,6 @@ const Payment = () => {
                                                     </div>
                                                 </form>
                                                 <hr className="my-4" />
-                                                {/* <div className="d-flex justify-content-between">
-                                                    <p className="mb-2">Subtotal</p>
-                                                    <p className="mb-2">$4798.00</p>
-                                                </div> */}
-                                                {/* <div className="d-flex justify-content-between">
-                                                    <p className="mb-2">Shipping</p>
-                                                    <p className="mb-2">$20.00</p>
-                                                </div> */}
-                                                {/* <div className="d-flex justify-content-between mb-4">
-                                                    <p className="mb-2">Total(Incl. taxes)</p>
-                                                    <p className="mb-2">$4818.00</p>
-                                                </div> */}
                                                 <button
                                                     type="button"
                                                     className="btn btn-info btn-block btn-lg mainButton"
