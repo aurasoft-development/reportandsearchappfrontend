@@ -7,12 +7,67 @@
 }
 
 
+/* Payment css start here  */
+
+.DetailsParent{
+    background-color: #eee;
+    height: 84.8vh;
+}
+
+.PaymentParent{
+    background-color: #eee;
+    height: 83.8vh;
+}
+.ParentGrid{
+    padding: 20px;
+}
+/* Payment css start here  */
+
 /* Media query start here details component   */
 
+@media screen and (max-width: 1025px) {
+    .PaymentParent{
+        height: 85.5vh;
+    }
+    .DetailsParent{
+        height: 775px;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .PaymentParent{
+        height: 85.5vh;
+    }
+    .DetailsParent{
+        height: 775px;
+    }
+}
+
+@media screen and (max-width: 601px) {
+    .DetailsParent{
+        height: 1100px;
+    }
+}
+
+
+
+@media screen and (max-width: 426px) {
+    .PaymentParent{
+        height: 86.8vh;
+    }
+    .DetailsParent{
+        height: 1070px;
+    }
+}
+
 @media screen and (max-width: 376px) {
-    .reportParent{
-        margin-right: 0px !important;
-        margin-left: 0px !important;
+
+    .PaymentParent{
+        /* height: 86.8vh; */
+        height: 735px;
+    }
+
+    .DetailsParent{
+        height: 1065px;
     }
   }
-

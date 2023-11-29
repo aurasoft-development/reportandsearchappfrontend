@@ -3,15 +3,6 @@
 :root {
     --navbar-background-color : rgba(90, 16, 11, 0.8);
     --navbar-text-color : #fff ; 
-    --navbar-icon-color : #5A5A5A ; 
-    --font-size: 14px;
-    --text-color: white;
-    --text-color : black;
-    --font-family: "Roboto","Helvetica","Arial",sans-serif;
-
-    --white: #ffffff !important;
-    --black: #090b0d !important;
-    --red: #ff0000;
     --font_family: 'Poppins', sans-serif !important;
     --bgButton: rgba(251, 196, 144, 1);
     --textColor: green;

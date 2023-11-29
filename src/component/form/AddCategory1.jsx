@@ -161,7 +161,7 @@ const AddCategory1 = () => {
     // Rendering the component
     return (
         <>
-            <Grid className="p-3">
+            <Grid className="">
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" className='m-2' >
                         {step == 2 ? <h5 className="headerStyle">Please verify your mobile number</h5> : <h4 className="headerStyle">Add Category 1 Report</h4>}
@@ -236,9 +236,7 @@ const AddCategory1 = () => {
                                         />
                                     </Grid>
                                     <div className="text-center my-2 mt-4">
-                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() =>
-                                            validationFunction()
-                                        } >
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => validationFunction()} >
                                             Save
                                         </Button>
                                     </div>
