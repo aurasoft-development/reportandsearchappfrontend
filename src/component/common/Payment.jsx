@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import '../../assets/css/Common.css'
 
 
 // Functional component for the Payment page
@@ -15,14 +16,13 @@ const Payment = () => {
     // Rendering the Payment page component
     return (
         <>
-            <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>
+            <section className="h-custom PaymentParent">
                 <h2 className='text-center mt-2'>Please pay ₹ ₹ ₹  for detailed report.</h2>
-                <div className="container py-5 h-100">
-                    <div className="row d-flex justify-content-center align-items-center h-100">
+                <div className="container PaymentChild py-3">
+                    <div className="row d-flex justify-content-center align-items-center">
                         <div className="col">
                             <div className="card">
                                 <div className="card-body p-4">
-
                                     <div>
                                         <div className="card bg-primary text-white rounded-3">
                                             <div className="card-body">
@@ -123,7 +123,6 @@ const Payment = () => {
                     </div>
                 </div>
             </section>
-
         </>
     )
 }

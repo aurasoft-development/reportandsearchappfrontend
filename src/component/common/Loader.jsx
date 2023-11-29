@@ -7,7 +7,7 @@ import { CircularProgress, TableCell, TableRow } from '@mui/material'
 // - size: Size of the circular progress indicator (default is 35)
 const Loader = ({size }) => <TableRow >
     <TableCell colSpan={12} align='center'>
-        <CircularProgress size={ size || 35} />
+        <CircularProgress size={size || 35} />
     </TableCell>
 </TableRow>
 

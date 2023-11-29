@@ -9,8 +9,8 @@
     position: relative;
 }
 
-.FormParent{
-    padding: 5% 20% !important;    
+.FormParent {
+    padding: 5% 20% !important;
 }
 
 .addcategory_icon {
@@ -21,8 +21,6 @@
 }
 
 .css-7klmyb {
-    /* height: auto !important;
-    overflow-y:unset !important; */
     min-width: 320px !important;
 }
 
@@ -45,7 +43,6 @@
 }
 
 @media screen and (max-width: 1920px) {
-
     .otp_wrapper {
         width: 90% !important;
     }
@@ -53,29 +50,28 @@
 
 
 @media screen and (max-width: 1440px) {
-
     .otp_wrapper {
         width: 90% !important;
     }
 }
 
 @media screen and (max-width: 1024px) {
-
     .otp_wrapper {
         width: 90% !important;
     }
-    .FormParent{
-        padding: 5% 5% !important;    
+
+    .FormParent {
+        padding: 5% 5% !important;
     }
 }
 
 @media screen and (max-width: 768px) {
-
     .otp_wrapper {
         width: 90% !important;
     }
-    .FormParent{
-        padding: 1% 5% !important;    
+
+    .FormParent {
+        padding: 1% 5% !important;
     }
 }
 
@@ -87,20 +83,24 @@
 }
 
 @media screen and (max-width: 426px) {
-
     .css-1g395jg {
         max-width: 100% !important;
     }
+
     .otp_wrapper {
         width: 90% !important;
     }
-    .FormParent{
-        padding: 1% 5% !important;    
+
+    .FormParent {
+        padding: 1% 5% !important;
+    }
+
+    .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+        letter-spacing: 0px !important;
     }
 }
 
 @media screen and (max-width: 376px) {
-
     .css-1g395jg {
         max-width: 100% !important;
     }
@@ -109,11 +109,15 @@
         width: 90% !important;
     }
 
-    .FormParent{
-        padding: 1% 5% !important;    
+    .FormParent {
+        padding: 1% 5% !important;
     }
-    .css-mhc70k-MuiGrid-root>.MuiGrid-item{
+
+    .css-mhc70k-MuiGrid-root>.MuiGrid-item {
         padding-top: 0px !important;
     }
-   
+
+    .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+        letter-spacing: 0px !important;
+    }
 }
