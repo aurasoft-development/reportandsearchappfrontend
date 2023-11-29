@@ -164,7 +164,7 @@ const AddCategory3 = () => {
             toast.error(error?.response?.data?.message)
         }
     };
-   
+
     // Rendering the component
     return (
         <>
@@ -172,7 +172,7 @@ const AddCategory3 = () => {
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" className='m-2'>
                         {step == 2 ? <h5 className="headerStyle">Please verify your mobile number</h5> : <h4 className="headerStyle">Add Category 3 Report</h4>}
-                        <span className='addcategory_icon' onClick={() => setOpen3(false)}><CloseIcon /></span>
+                        <span className='addcategory_icon' onClick={() => setOpen3(false)}>{step == 1 ? <CloseIcon /> : ""}</span>
                     </Grid>
                     <div className="container" style={{ padding: "5% 20%" }}>
                         <Grid container spacing={2}>

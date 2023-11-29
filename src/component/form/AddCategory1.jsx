@@ -165,7 +165,7 @@ const AddCategory1 = () => {
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" className='m-2' >
                         {step == 2 ? <h5 className="headerStyle">Please verify your mobile number</h5> : <h4 className="headerStyle">Add Category 1 Report</h4>}
-                        <span className='addcategory_icon' onClick={() => setOpen(false)}><CloseIcon /></span>
+                        <span className='addcategory_icon' onClick={() => setOpen(false)}>{step == 1 ? <CloseIcon /> : ""}</span>
                     </Grid>
                     <div className="container FormParent">
                         <Grid container spacing={2}>
