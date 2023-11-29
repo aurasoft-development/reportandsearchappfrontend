@@ -1,3 +1,4 @@
+// Importing necessary dependencies and components from React and Material-UI
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
@@ -13,6 +14,8 @@ import CategoryModel from '../model/CategoryModel';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 
+
+// Custom Tab Panel component
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
     return (
@@ -38,6 +41,7 @@ CustomTabPanel.propTypes = {
     value: PropTypes.number.isRequired,
 };
 
+// Function to generate accessibility props for tabs
 function a11yProps(index) {
     return {
         id: `simple-tab-${index}`,
@@ -45,19 +49,27 @@ function a11yProps(index) {
     };
 }
 
+// Main component for handling tabs and search functionality
 export default function BasicTabs() {
     const navigate = useNavigate();
 
+    // State for controlling the active tab and search inputs
     const [value, setValue] = React.useState(0);
     const [searchData, setSearhData] = React.useState("");
     const [searchData2, setSearhData2] = React.useState("");
     const [searchData3, setSearhDat3] = React.useState("");
     const [searchData4, setSearhData4] = React.useState("");
+
+    // Destructuring state and functions from context
     const { search, setSearch, searchResult, setSearchResult, setStep } = FindState();
+
+    // Handler for changing tabs
     const handleChange = (event, newValue) => {
         setValue(newValue);
         setStep(1)
     };
+
+    // Function for searching in Category1
     const handleSearch = async (uid) => {
         if (!uid) {
             toast.warn('Please Enter UID.')
@@ -72,6 +84,7 @@ export default function BasicTabs() {
         }
     }
 
+    // Function for searching in Category2
     const handleSearch2 = async (uid) => {
         if (!uid) {
             toast.warn('Please Enter UID.')
@@ -86,6 +99,7 @@ export default function BasicTabs() {
         }
     }
 
+    // Function for searching in Category3
     const handleSearch3 = async (uid) => {
         if (!uid) {
             toast.warn('Please Enter UID.')
@@ -100,6 +114,7 @@ export default function BasicTabs() {
         }
     }
 
+    // Function for searching in Category4
     const handleSearch4 = async (uid) => {
         if (!uid) {
             toast.warn('Please Enter UID.')
@@ -114,17 +129,24 @@ export default function BasicTabs() {
         }
     }
 
+    // Function to navigate to the payment page
     const payMent = () => {
         navigate('/payment')
     }
+
+    // useEffect to trigger actions when the active tab changes
     useEffect(() => {
         setSearchResult("screen")
     }, [value])
+
+    // Render the main component structure with tabs and search functionality
     return (
         <div className='MainParent'>
             <div className='TabParent'>
                 <Box sx={{ width: '70%', margin: 'auto', paddingTop: "60px" }}>
                     <div className='tab_sec_container'>
+
+                        {/* Tab Panel for Category1 */}
                         <CustomTabPanel value={value} index={0} className="completeBox">
                             <Box >
                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
@@ -134,6 +156,8 @@ export default function BasicTabs() {
                                     <Tab style={{ color: 'white' }} label='Category 4' {...a11yProps(3)} />
                                 </Tabs>
                             </Box>
+
+                            {/* Search and display for Category 1 */}
                             <div className='tab_div_main'>
                                 <div className='report-details mainParentSeachBox'>
                                     <span><CategoryModel data={1} /></span>
@@ -188,6 +212,8 @@ export default function BasicTabs() {
                                 </div>
                             </div>
                         </CustomTabPanel>
+
+                        {/* Tab Panel for Category2 */}
                         <CustomTabPanel value={value} index={1} className="completeBox">
                             <Box >
                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
@@ -197,6 +223,8 @@ export default function BasicTabs() {
                                     <Tab style={{ color: 'white' }} label='Category 4' {...a11yProps(3)} />
                                 </Tabs>
                             </Box>
+
+                            {/* Search and display for Category2 */}
                             <div className='tab_div_main'>
                                 <div className='report-details mainParentSeachBox'>
                                     <span><CategoryModel data={2} /></span>
@@ -251,6 +279,8 @@ export default function BasicTabs() {
                                 </div>
                             </div>
                         </CustomTabPanel>
+
+                        {/* Tab Panel for Category3 */}
                         <CustomTabPanel value={value} index={2} className="completeBox">
                             <Box >
                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
@@ -260,6 +290,8 @@ export default function BasicTabs() {
                                     <Tab style={{ color: 'white' }} label='Category 4' {...a11yProps(3)} />
                                 </Tabs>
                             </Box>
+
+                            {/* Search and display for Category3 */}
                             <div className='tab_div_main'>
                                 <div className='report-details mainParentSeachBox'>
                                     <span><CategoryModel data={3} /></span>
@@ -313,6 +345,8 @@ export default function BasicTabs() {
                                 </div>
                             </div>
                         </CustomTabPanel>
+
+                        {/* Tab Panel for Category4 */}
                         <CustomTabPanel value={value} index={3} className="completeBox">
                             <Box >
                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
@@ -322,6 +356,8 @@ export default function BasicTabs() {
                                     <Tab style={{ color: 'white' }} label='Category 4' {...a11yProps(3)} />
                                 </Tabs>
                             </Box>
+
+                            {/* Search and display for Category4 */}
                             <div className='tab_div_main'>
                                 <div className='report-details mainParentSeachBox'>
                                     <span><CategoryModel data={4} /></span>

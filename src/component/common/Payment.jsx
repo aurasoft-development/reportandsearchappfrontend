@@ -2,13 +2,18 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../../assets/css/Common.css'
 
+
+// Functional component for the Payment page
 const Payment = () => {
+    // Using the useNavigate hook to handle navigation
     const navigate = useNavigate();
 
+    // Function to navigate to the "/alldetails" route
     const FutherForward = () => {
         navigate("/alldetails")
     }
 
+    // Rendering the Payment page component
     return (
         <>
             <section className="h-custom PaymentParent">
@@ -122,4 +127,5 @@ const Payment = () => {
     )
 }
 
+// Exporting the component
 export default Payment;

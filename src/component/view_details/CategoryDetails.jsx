@@ -1,3 +1,4 @@
+// Import necessary React modules and dependencies
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
@@ -5,13 +6,22 @@ import '../../assets/css/view_details/CategoryDetails.css'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@mui/material'
 
+// Component for displaying details of a submitted category
 const CategoryDetails = () => {
+
+    // State variable to store data retrieved from localStorage
     const [data, setData] = useState()
+
+    // React Router's useNavigate hook for programmatic navigation
     const navigate = useNavigate()
+
+    // useEffect to retrieve and set data from localStorage when the component mounts
     useEffect(() => {
         const Info = JSON.parse(localStorage.getItem('category1'))
         setData(Info)
     }, [])
+
+    // JSX to render the component
     return (
         <div className='view_details_main'>
             <h3 className="text-center headerStyle">Thanks for submitting details!</h3>
@@ -140,4 +150,5 @@ const CategoryDetails = () => {
     )
 }
 
+// Export the CategoryDetails component as the default export
 export default CategoryDetails

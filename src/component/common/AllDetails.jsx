@@ -1,14 +1,15 @@
+// Importing React and necessary components
 import React from 'react'
 import { FindState } from '../../context/FindContext';
-import { Button, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Button, Grid  } from '@mui/material';
 import { useNavigate } from 'react-router-dom'
 import '../../assets/css/Common.css'
-
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 
 const AllDetails = () => {
+
+    // Accessing searchResult and navigate from FindState and useNavigate
     const { searchResult } = FindState();
     const navigate = useNavigate()
     return (
@@ -17,8 +18,11 @@ const AllDetails = () => {
                 <h2 className='text-center  headerStyle'>Here is {searchResult?.categories1?.uid} detailed report.</h2>
                 <Grid container spacing={3} className='ParentGrid '>
                     <Grid item xs={12} sm={6}>
+                                                {/* First-column layout for report details */}
                         <Card>
                             <CardContent>
+                                                                {/* Table for displaying user details */}
+
                                 <table className="table user-view-table">
                                     <tbody>
                                         <tr>
@@ -61,8 +65,10 @@ const AllDetails = () => {
                     </Grid>
 
                     <Grid item xs={12} sm={6}>
+                        {/* Second-column layout for report details */}
                         <Card>
                             <CardContent>
+                                {/* Table for displaying user details */}
                                 <table className="table user-view-table m-0">
                                     <tbody>
                                         <tr>
@@ -109,4 +115,5 @@ const AllDetails = () => {
     )
 }
 
+// Exporting the AllDetails component
 export default AllDetails
