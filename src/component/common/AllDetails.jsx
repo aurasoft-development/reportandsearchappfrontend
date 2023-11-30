@@ -109,7 +109,7 @@ const AllDetails = () => {
                         </Card>
                     </Grid>
                 </Grid>
-                <div style={{ cursor: 'pointer', marginLeft: '15px' }} className='text-center my-2 '><Button variant="contained" className='mainButton' onClick={() => navigate('/')}>Back To Home</Button></div>
+                <div style={{ cursor: 'pointer' }} className='text-center my-2 '><Button variant="contained" className='mainButton' onClick={() => navigate('/')}>Back To Home</Button></div>
             </div>
         </>
     )

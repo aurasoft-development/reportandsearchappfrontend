@@ -236,7 +236,10 @@ const AddCategory1 = () => {
                                         />
                                     </Grid>
                                     <div className="text-center my-2 mt-4">
-                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => validationFunction()} >
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => 
+                                            // validationFunction()
+                                            setStep(3)
+                                            } >
                                             Save
                                         </Button>
                                     </div>

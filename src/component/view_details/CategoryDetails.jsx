@@ -147,6 +147,8 @@ const CategoryDetails = () => {
                 <Button className='mainButton' onClick={() => { navigate('/'); localStorage.removeItem("category1") }}>Back To Search</Button>
             </div>
         </div>
+
+        
     )
 }
 

@@ -11,12 +11,12 @@
 
 .DetailsParent{
     background-color: #eee;
-    height: 84.8vh;
+    min-height: 84.8vh;
 }
 
 .PaymentParent{
     background-color: #eee;
-    height: 83.8vh;
+    min-height: 83.8vh;
 }
 .ParentGrid{
     padding: 20px;

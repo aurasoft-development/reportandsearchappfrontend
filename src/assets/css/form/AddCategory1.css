@@ -78,6 +78,12 @@
     }
 }
 
+@media screen and (max-width: 650px) {
+    .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+        letter-spacing: 0px !important;
+    }
+}
+
 @media screen and (max-width: 470px) {
 
     .css-1g395jg {
