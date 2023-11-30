@@ -103,7 +103,9 @@
     width: 100px !important;
     color: white !important;
 }
-
+.css-heg063-MuiTabs-flexContainer{
+    padding: 0 24px;
+}
 
 /* Media query start here for 1441   */
 
