@@ -1,7 +1,7 @@
 // Importing React and necessary components
 import React from 'react'
 import { FindState } from '../../context/FindContext';
-import { Button, Grid  } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom'
 import '../../assets/css/Common.css'
 import Card from '@mui/material/Card';
@@ -18,11 +18,10 @@ const AllDetails = () => {
                 <h2 className='text-center  headerStyle'>Here is {searchResult?.categories1?.uid} detailed report.</h2>
                 <Grid container spacing={3} className='ParentGrid '>
                     <Grid item xs={12} sm={6}>
-                                                {/* First-column layout for report details */}
+                        {/* First-column layout for report details */}
                         <Card>
                             <CardContent>
-                                                                {/* Table for displaying user details */}
-
+                                {/* Table for displaying user details */}
                                 <table className="table user-view-table">
                                     <tbody>
                                         <tr>
@@ -64,14 +63,15 @@ const AllDetails = () => {
                         </Card>
                     </Grid>
 
+
                     <Grid item xs={12} sm={6}>
-                        {/* Second-column layout for report details */}
+                        {/* First-column layout for report details */}
                         <Card>
                             <CardContent>
                                 {/* Table for displaying user details */}
-                                <table className="table user-view-table m-0">
+                                <table className="table user-view-table">
                                     <tbody>
-                                        <tr>
+                                    <tr>
                                             <td>Number:</td>
                                             <td>{searchResult?.categories1?.number}</td>
                                         </tr>

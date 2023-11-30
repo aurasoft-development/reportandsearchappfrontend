@@ -46,6 +46,9 @@
     .otp_wrapper {
         width: 90% !important;
     }
+    .FormParent{
+        width: 600px;
+    }
 }
 
 
