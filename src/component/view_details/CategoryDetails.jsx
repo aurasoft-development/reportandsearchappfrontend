@@ -5,9 +5,13 @@ import { useState } from 'react'
 import '../../assets/css/view_details/CategoryDetails.css'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@mui/material'
+import { Link, useParams } from 'react-router-dom';
 
 // Component for displaying details of a submitted category
 const CategoryDetails = () => {
+
+
+
 
     // State variable to store data retrieved from localStorage
     const [data, setData] = useState()
@@ -147,6 +151,8 @@ const CategoryDetails = () => {
                 <Button className='mainButton' onClick={() => { navigate('/'); localStorage.removeItem("category1") }}>Back To Search</Button>
             </div>
         </div>
+
+        
     )
 }
 

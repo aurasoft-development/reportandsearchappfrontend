@@ -17,7 +17,6 @@
     text-transform: capitalize !important;
 }
 
-
 .completeBox {
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 5px;
@@ -103,7 +102,8 @@
     width: 100px !important;
     color: white !important;
 }
-.css-heg063-MuiTabs-flexContainer{
+
+.css-heg063-MuiTabs-flexContainer {
     padding: 0 24px;
 }
 
@@ -117,7 +117,6 @@
 
 /* Media query end here for 1441   */
 
-
 /* Media query start here for 1025   */
 
 @media screen and (max-width: 1025px) {
@@ -128,7 +127,6 @@
 
 /* Media query end here for 1025   */
 
-
 /* Media query start here for 769   */
 
 @media screen and (max-width: 769px) {
@@ -138,7 +136,6 @@
 }
 
 /* Media query end here for 769   */
-
 
 /* Media query start here for 730   */
 
@@ -159,7 +156,6 @@
 
 /* Media query end here for 730   */
 
-
 /* Media query start here for 650   */
 
 @media screen and (max-width: 650px) {
@@ -179,7 +175,6 @@
 
 /* Media query start here for 650   */
 
-
 /* Media query start here for 500   */
 
 
@@ -198,9 +193,7 @@
     }
 }
 
-
 /* Media query end here for 500   */
-
 
 /* Media query start here for 425   */
 
@@ -220,7 +213,6 @@
 }
 
 /* Media query end here for 425   */
-
 
 /* Media query start here for 375   */
 

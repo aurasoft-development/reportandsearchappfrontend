@@ -6,17 +6,16 @@
     padding: 13px !important;
 }
 
-
 /* Payment css start here  */
 
 .DetailsParent{
     background-color: #eee;
-    height: 84.8vh;
+    min-height: 84.8vh;
 }
 
 .PaymentParent{
     background-color: #eee;
-    height: 83.8vh;
+    min-height: 83.8vh;
 }
 .ParentGrid{
     padding: 20px;
@@ -48,8 +47,6 @@
         height: 1100px;
     }
 }
-
-
 
 @media screen and (max-width: 426px) {
     .PaymentParent{

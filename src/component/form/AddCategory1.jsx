@@ -151,7 +151,7 @@ const AddCategory1 = () => {
             await commonApiRequest('post', '/api/add_categories', info);
             toast.success('Report added Successfully.')
             localStorage.setItem("category1", JSON.stringify(formData));
-            navigate('/category_details')
+            navigate('/alldetails')
 
         } catch (error) {
             toast.error(error?.response?.data?.message)
@@ -236,7 +236,10 @@ const AddCategory1 = () => {
                                         />
                                     </Grid>
                                     <div className="text-center my-2 mt-4">
-                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => validationFunction()} >
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => 
+                                            // validationFunction()
+                                            setStep(3)
+                                            } >
                                             Save
                                         </Button>
                                     </div>
