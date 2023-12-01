@@ -18,6 +18,10 @@ const Header = () => {
     const theme = useTheme()
     const isMatch = useMediaQuery(theme.breakpoints.down('md'))
 
+    const deleteLocalData = () => {
+        localStorage.removeItem("category1")
+    }
+
     return (
         <>
 
@@ -45,7 +49,7 @@ const Header = () => {
                                 ) :
                                     <>
                                         <Tabs textColor='inherit' indicatorColor='secondary' value={false} >
-                                            <Tab label="Home" component={Link} to="/" className='headerText' />
+                                            <Tab label="Home" onClick={() => deleteLocalData()} component={Link} to="/" className='headerText' />
                                             <Tab label="Categories" component={Link} to="/" className='headerText' />
                                             <Tab label="Register" component={Link} to="/" className='headerText' />
                                             <Tab label="Help" component={Link} to="/" className='headerText' />

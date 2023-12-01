@@ -6,6 +6,9 @@
     padding: 13px !important;
 }
 
+.subitPreview{
+    min-height: 84.8vh;
+}
 
 /* Payment css start here  */
 

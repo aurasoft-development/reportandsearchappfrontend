@@ -14,12 +14,12 @@ const AllRoutes = () => {
     return (
         <div>
             <Routes>
-                
+            
                 {/* route redirect to a page */}
                 <Route path="/" element={< Home />} />
                 <Route path="/addcategory1" element={< AddCategory1 />} />
                 <Route path="/payment" element={< Payment />} />
-                <Route path="/alldetails" element={< AllDetails />} />
+                <Route path="/alldetails/" element={< AllDetails />} />
                 <Route path="/otpverification" element={<OtpVarifacation />} />
                 <Route path="/category_details" element={<CategoryDetails />} />
                 <Route path='/footer' element={<Footer />} />
