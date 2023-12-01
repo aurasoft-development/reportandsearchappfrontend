@@ -6,10 +6,6 @@
     padding: 13px !important;
 }
 
-.subitPreview{
-    min-height: 84.8vh;
-}
-
 /* Payment css start here  */
 
 .DetailsParent{
@@ -51,8 +47,6 @@
         height: 1100px;
     }
 }
-
-
 
 @media screen and (max-width: 426px) {
     .PaymentParent{

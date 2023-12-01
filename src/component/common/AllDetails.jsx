@@ -12,11 +12,8 @@ const AllDetails = () => {
     // Accessing searchResult and navigate from FindState and useNavigate
     const { searchResult } = FindState();
 
-    console.log('searchResult', searchResult);
-
     // State variable to store data retrieved from localStorage
     const [data, setData] = useState()
-    console.log('Dataaa', data);
     const navigate = useNavigate()
 
     // useEffect to retrieve and set data from localStorage when the component mounts
@@ -25,11 +22,8 @@ const AllDetails = () => {
         setData(Info)
     }, [])
 
-    // navigate('/'); localStorage.removeItem("category1") 
-
     const CleaderLocalData = () => {
         localStorage.removeItem("category1")
-        localStorage.removeItem("category4")
         navigate('/')
     }
 
