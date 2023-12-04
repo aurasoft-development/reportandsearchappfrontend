@@ -34,6 +34,18 @@
     background-color: var(--bgButton)
 }
 
+.css-1q2h7u5.Mui-selected {
+    color: var(--textColor) !important;
+    border-radius: 15px;
+    background-color: var(--bgButton)
+}
+
+.css-1q2h7u5.Mui-selected:hover {
+    color: white !important;
+    border-radius: 15px;
+    background-color: var(--bgButton)
+}
+
 .css-1aquho2-MuiTabs-indicator {
     background-color: transparent !important;
 }
