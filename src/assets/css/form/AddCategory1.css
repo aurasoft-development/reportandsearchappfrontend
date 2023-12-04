@@ -17,10 +17,6 @@
     display: block !important;
 }
 
-.otpBakcButton{
-    display: flex;
-    justify-content: center;
-}
 
 .addcategory_icon {
     position: absolute;
@@ -41,7 +37,6 @@
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    background-color: pink !important;
 }
 
 .css-mhc70k-MuiGrid-root {
