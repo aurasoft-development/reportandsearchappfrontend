@@ -46,6 +46,11 @@
     background-color: var(--bgButton)
 }
 
+.css-1q2h7u5{
+    min-height: unset !important;
+    text-transform: capitalize;
+}
+
 .css-ttwr4n {
     background-color: unset !important
 }
@@ -58,6 +63,15 @@
     justify-content: space-between;
     flex-wrap: wrap !important;
     border-radius: 15px;
+    padding: 0 24px;
+}
+
+.css-k008qs {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap !important;
+    border-radius: 15px;
+    padding: 0 24px;
 }
 
 .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
@@ -119,9 +133,6 @@
     color: white !important;
 }
 
-.css-heg063-MuiTabs-flexContainer {
-    padding: 0 24px;
-}
 
 /* Media query start here for 1441   */
 
