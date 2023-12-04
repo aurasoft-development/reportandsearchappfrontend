@@ -1,11 +1,9 @@
 .home_container {
     background-color: rgb(255 255 255);
-    height: 100vh;
     color: black;
     font-size: 15px;
     font-weight: 600;
-    font-family: var(--font_family)
-    
+    font-family: var(--font_family);
 }
 
 .home_logo {
@@ -13,7 +11,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 24px;
-
 }
 
 .home_logo>span {

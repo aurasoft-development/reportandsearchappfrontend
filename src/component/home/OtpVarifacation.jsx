@@ -1,3 +1,4 @@
+// Importing necessary dependencies and components from React, Material-UI, and external libraries
 import React, { useEffect, useState } from 'react'
 import '../../assets/css/OtpVarifacation.css'
 import PhoneInput from 'react-phone-number-input'
@@ -5,148 +6,35 @@ import 'react-phone-number-input/style.css'
 import { Alert, Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { FindState } from '../../context/FindContext'
-import axios from 'axios'
-import { toast } from 'react-toastify'
-import commonApiRequest from '../../api/commonApi'
-import CircularProgress from '@mui/material/CircularProgress';
 
+// Functional component for OTP verification
 const OtpVarifacation = () => {
+
+    // State variables to manage phone number, OTP input, flags, error messages, and confirmation object
     const [number, setNumber] = useState()
     const [otp, setOtp] = useState("")
     const [flag, setFlag] = useState(false);
     const [error, setError] = useState("");
     const [confirmObj, setConfirmObj] = useState("");
     const [data, setData] = useState()
-    const { setUpRecaptcha, cat } = FindState();
-    const [loading, setLoading] = useState(false);
+
+    // Accessing state and functions from context and navigation hook
+    const { setUpRecaptcha, step, setStep } = FindState();
     const navigate = useNavigate()
 
-
+    // useEffect to retrieve category1 data from local storage on component mount
     useEffect(() => {
         const Info = JSON.parse(localStorage.getItem('category1'))
         setData(Info)
     }, [])
-    const postCategory = async () => {
-        try {
-            const info = {
-                uid: data?.uid,
-                name: data?.name,
-                number: data?.number,
-                address: data?.address,
-                field1: data?.field1,
-                field2: data?.field2,
-                field3: data?.field3,
-                field4: data?.field4,
-                field5: data?.field5,
-                field6: data?.field6,
-                field7: data?.field7,
-                field8: data?.field8,
-                field9: data?.field9,
-                field10: data?.field10,
-                field11: data?.field11,
-                field12: data?.field12
-            }
 
-            await commonApiRequest('post', '/api/add_categories', info);
-            toast.success('Report added Successfully.')
-
-        } catch (error) {
-            toast.error("Error fetching the chat")
-        }
-    }
-    const postCategory2 = async () => {
-        try {
-            const info = {
-                uid: data?.uid,
-                name: data?.name,
-                number: data?.number,
-                address: data?.address,
-                field1: data?.field1,
-                field2: data?.field2,
-                field3: data?.field3,
-                field4: data?.field4,
-                field5: data?.field5,
-                field6: data?.field6,
-                field7: data?.field7,
-                field8: data?.field8,
-                field9: data?.field9,
-                field10: data?.field10,
-                field11: data?.field11,
-                field12: data?.field12
-            }
-            // await axios.post(`${import.meta.env.VITE_API_URL}/api/cat2/add_categories`, info);
-            await commonApiRequest('post', '/api/cat2/add_categories', info);
-            toast.success('Report added Successfully.')
-
-        } catch (error) {
-            toast.error("Error fetching the chat")
-        }
-    }
-    const postCategory3 = async () => {
-        try {
-            const info = {
-                uid: data?.uid,
-                name: data?.name,
-                number: data?.number,
-                address: data?.address,
-                field1: data?.field1,
-                field2: data?.field2,
-                field3: data?.field3,
-                field4: data?.field4,
-                field5: data?.field5,
-                field6: data?.field6,
-                field7: data?.field7,
-                field8: data?.field8,
-                field9: data?.field9,
-                field10: data?.field10,
-                field11: data?.field11,
-                field12: data?.field12
-            }
-            // await axios.post(`${import.meta.env.VITE_API_URL}/api/cat3/add_categories`, info);
-            await commonApiRequest('post', '/api/cat3/add_categories', info);
-            toast.success('Report added Successfully.')
-
-        } catch (error) {
-            toast.error("Error fetching the chat")
-        }
-    }
-    const postCategory4 = async () => {
-        try {
-            const info = {
-                uid: data?.uid,
-                name: data?.name,
-                number: data?.number,
-                address: data?.address,
-                field1: data?.field1,
-                field2: data?.field2,
-                field3: data?.field3,
-                field4: data?.field4,
-                field5: data?.field5,
-                field6: data?.field6,
-                field7: data?.field7,
-                field8: data?.field8,
-                field9: data?.field9,
-                field10: data?.field10,
-                field11: data?.field11,
-                field12: data?.field12
-            }
-            // await axios.post(`${import.meta.env.VITE_API_URL}/api/cat4/add_categories`, info);
-            await commonApiRequest('post', '/api/cat4/add_categories', info);
-            toast.success('Report added Successfully.')
-
-        } catch (error) {
-            toast.error("Error fetching the chat")
-        }
-    }
-
+    // Function to request OTP with the provided phone number
     const getOtp = async (number) => {
         setError("");
         if (number === "" || number === undefined)
-            return setError("please enter a valid Phone Number")
+            return setError("Please enter a valid phone number.")
         try {
-            setLoading(true)
             const response = await setUpRecaptcha(number);
-            setLoading(false)
             setConfirmObj(response)
             setFlag(true)
 
@@ -154,34 +42,28 @@ const OtpVarifacation = () => {
             setError(err.message)
         }
     }
+
+    // Function to verify the entered OTP
     const verifyOtp = async () => {
         if (otp === "" || otp === null) return;
         try {
             setError("")
             await confirmObj.confirm(otp)
-            if (cat == 1) {
-                postCategory()
-                navigate('/category_details')
-            } else if (cat == 2) {
-                postCategory2()
-                navigate('/category_details')
-            } else if (cat == 3) {
-                postCategory3()
-                navigate('/category_details')
-            }
-            else if (cat == 4) {
-                postCategory4()
-                navigate('/category_details')
-            }
+            setStep(step + 1)
         } catch (err) {
             setError(err.message)
         }
     }
 
+    // Render the OTP verification component
     return (
         <div className='opt_container'>
             <div className='otp_wrapper'>
+
+                {/* Display error message if present */}
                 {error && <Alert variant="danger">{error}</Alert>}
+
+                {/* Display section for sending OTP */}
                 <div style={{ display: !flag ? "block" : "none" }} >
                     <div className='send_otp'>
                         <PhoneInput
@@ -191,12 +73,15 @@ const OtpVarifacation = () => {
                             onChange={setNumber}
                         />
                         <div className='btn-div'>
-                            {loading == true ? <CircularProgress /> : ""}
-                            <Button variant="contained" color="success" onClick={() => getOtp(number)}>Send Otp</Button>
+                            <Button variant="contained" className='mainButton' onClick={() => getOtp(number)}>Send Otp</Button>
                         </div>
+
+                        {/* Container for reCAPTCHA */}
                         <div id='recaptcha-container'></div>
                     </div>
                 </div>
+
+                {/* Display section for verifying OTP */}
                 <div className='verify_otp'
                     style={{ display: flag ? "block" : "none" }}
                 >
@@ -205,7 +90,7 @@ const OtpVarifacation = () => {
                             placeholder="Enter otp"
                             onChange={(e) => setOtp(e.target.value)}
                         />
-                        <div className='verify-otp-btn'> <Button variant="contained" color="secondary" onClick={() => verifyOtp()}>verify otp</Button></div>
+                        <div className='verify-otp-btn'> <Button className='mainButton' variant="contained" onClick={() => verifyOtp()}>verify otp</Button></div>
                     </div>
                 </div>
             </div>
@@ -214,4 +99,5 @@ const OtpVarifacation = () => {
     )
 }
 
+// Exporting the OTP verification component
 export default OtpVarifacation

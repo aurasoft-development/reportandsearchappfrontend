@@ -1,3 +1,4 @@
+// Importing necessary dependencies and components from React and Material-UI
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
@@ -10,10 +11,11 @@ import { FindState } from '../../context/FindContext';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import CategoryModel from '../model/CategoryModel';
-import commonApiRequest from '../../api/commonApi';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 
+
+// Custom Tab Panel component
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
     return (
@@ -39,6 +41,7 @@ CustomTabPanel.propTypes = {
     value: PropTypes.number.isRequired,
 };
 
+// Function to generate accessibility props for tabs
 function a11yProps(index) {
     return {
         id: `simple-tab-${index}`,
@@ -46,21 +49,30 @@ function a11yProps(index) {
     };
 }
 
+// Main component for handling tabs and search functionality
 export default function BasicTabs() {
     const navigate = useNavigate();
 
+    // State for controlling the active tab and search inputs
     const [value, setValue] = React.useState(0);
     const [searchData, setSearhData] = React.useState("");
     const [searchData2, setSearhData2] = React.useState("");
     const [searchData3, setSearhDat3] = React.useState("");
     const [searchData4, setSearhData4] = React.useState("");
-    const { search, setSearch, searchResult, setSearchResult } = FindState();
+
+    // Destructuring state and functions from context
+    const { search, setSearch, searchResult, setSearchResult, setStep } = FindState();
+
+    // Handler for changing tabs
     const handleChange = (event, newValue) => {
         setValue(newValue);
+        setStep(1)
     };
+
+    // Function for searching in Category1
     const handleSearch = async (uid) => {
         if (!uid) {
-            toast.warn('Please Enter UID')
+            toast.warn('Please Enter UID.')
         } else {
             try {
                 const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/get_categories/by_uid?uid=${uid}`)
@@ -72,9 +84,10 @@ export default function BasicTabs() {
         }
     }
 
+    // Function for searching in Category2
     const handleSearch2 = async (uid) => {
         if (!uid) {
-            toast.warn('Please Enter UID')
+            toast.warn('Please Enter UID.')
         } else {
             try {
                 const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat2/get_categories/by_uid?uid=${uid}`)
@@ -86,9 +99,10 @@ export default function BasicTabs() {
         }
     }
 
+    // Function for searching in Category3
     const handleSearch3 = async (uid) => {
         if (!uid) {
-            toast.warn('Please Enter UID')
+            toast.warn('Please Enter UID.')
         } else {
             try {
                 const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat3/get_categories/by_uid?uid=${uid}`)
@@ -100,9 +114,10 @@ export default function BasicTabs() {
         }
     }
 
+    // Function for searching in Category4
     const handleSearch4 = async (uid) => {
         if (!uid) {
-            toast.warn('Please Enter UID')
+            toast.warn('Please Enter UID.')
         } else {
             try {
                 const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cat4/get_categories/by_uid?uid=${uid}`)
@@ -114,269 +129,281 @@ export default function BasicTabs() {
         }
     }
 
+    // Function to navigate to the payment page
     const payMent = () => {
         navigate('/payment')
     }
+
+    // useEffect to trigger actions when the active tab changes
     useEffect(() => {
         setSearchResult("screen")
     }, [value])
+
+    // Render the main component structure with tabs and search functionality
     return (
-        <Box sx={{ width: '100%' }}>
-            <div className='tab_sec_container '>
-                <CustomTabPanel value={value} index={0} >
-                    <Box >
-                        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab label='Category1' {...a11yProps(0)} />
-                            <Tab label='Category2' {...a11yProps(1)} />
-                            <Tab label='Category3' {...a11yProps(2)} />
-                            <Tab label='Category4' {...a11yProps(3)} />
-                        </Tabs>
-                    </Box>
-                    <div className='tab_div_main'>
-                        <div className='report-details'>
-                            <span><CategoryModel data={1} /></span>
-                            <div className="search-input">
-                                <TextField
-                                    type="search"
-                                    autoComplete="off"
-                                    style={{ width: '250px' }}
-                                    id="search"
-                                    placeholder="Enter UID"
-                                    label="Search"
-                                    onChange={(e) => setSearhData(e.target.value)}
-                                />
-                                <Button variant="contained" color="success" onClick={() => handleSearch(searchData)}>Search</Button>
-                            </div>
-                        </div>
-                        <div className="user-details">
-                            {searchResult === "screen" ? (
-                                <div></div>
-                            ) : (searchResult?.categories1 == null) ? (
-                                <p>The details are not found. Please check into other categories.</p>
-                            ) : <>
-                                <div className="card mt-3  m-3 p-1">
-                                    <hr className="border-light m-0" />
-                                    <div className="card-body">
-                                        {/* <div>red</div> */}
-                                        <table className="table user-view-table m-0">
-                                            <tbody>
-                                                <tr>
-                                                    <td>UID:</td>
-                                                    <td>{searchResult?.categories1?.uid}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Name:</td>
-                                                    <td>{searchResult?.categories1?.name}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Number:</td>
-                                                    <td>{searchResult?.categories1?.number}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Address:</td>
-                                                    <td>{searchResult?.categories1?.address}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>  
-                                        <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
+        <div className='MainParent'>
+            <div className='TabParent'>
+                <Box sx={{ width: '70%', margin: 'auto', paddingTop: "60px" }}>
+                    <div className='tab_sec_container completeBox'>
 
+                        <Box >
+                            {/* Tab Panel for Category1 */}
+                            <CustomTabPanel value={value} index={0} >
+                                <span className="completeBox"></span>
+                            </CustomTabPanel>
+
+                            {/* Tab Panel for Category2 */}
+                            <CustomTabPanel value={value} index={1} >
+                                <span className="completeBox"></span>
+                            </CustomTabPanel>
+
+                            {/* Tab Panel for Category3 */}
+                            <CustomTabPanel value={value} index={2} >
+                                <span className="completeBox"></span>
+                            </CustomTabPanel>
+
+                            {/* Tab Panel for Category4 */}
+                            <CustomTabPanel value={value} index={3} >
+                                <span className="completeBox"></span>
+                            </CustomTabPanel>
+                            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                                <Tab style={{ color: 'white' }} label='Category 1' {...a11yProps(0)} />
+                                <Tab style={{ color: 'white' }} label='Category 2' {...a11yProps(1)} />
+                                <Tab style={{ color: 'white' }} label='Category 3' {...a11yProps(2)} />
+                                <Tab style={{ color: 'white' }} label='Category 4' {...a11yProps(3)} />
+                            </Tabs>
+                        </Box>
+                        <Box>
+                            {/* Search and display for Category 1 */}
+                            <CustomTabPanel value={value} index={0}>
+                                <div className='tab_div_main'>
+                                    <div className='report-details mainParentSeachBox'>
+                                        <span><CategoryModel data={1} /></span>
+                                        <div className="search-input">
+                                            <TextField
+                                                type="search"
+                                                autoComplete="off"
+                                                id="search"
+                                                placeholder="Enter UID"
+                                                className='SearchTextfield'
+                                                color="success"
+                                                label="Select category and search"
+                                                onChange={(e) => setSearhData(e.target.value)}
+                                            />
+                                            <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch(searchData)}>Search</Button>
+                                        </div>
+                                    </div>
+                                    <div className="user-details">
+                                        {searchResult === "screen" ? (
+                                            <div></div>
+                                        ) : (searchResult?.categories1 == null) ? (
+                                            <p style={{ color: 'white' }}>The details are not found. Please check into other categories.</p>
+                                        ) : <>
+                                            <div className="card mt-3   p-1">
+                                                <hr className="border-light m-0" />
+                                                <div className="card-body">
+                                                    <table className="table user-view-table m-0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>UID:</td>
+                                                                <td>{searchResult?.categories1?.uid}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Name:</td>
+                                                                <td>{searchResult?.categories1?.name}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Number:</td>
+                                                                <td>{searchResult?.categories1?.number}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Address:</td>
+                                                                <td>{searchResult?.categories1?.address}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
+                                                </div>
+                                            </div>
+                                        </>
+                                        }
                                     </div>
                                 </div>
-                            </>
-                            }
-                        </div>
-                    </div>
-                </CustomTabPanel>
-                <CustomTabPanel value={value} index={1}>
-                    <Box >
-                        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab label='Category1' {...a11yProps(0)} />
-                            <Tab label='Category2' {...a11yProps(1)} />
-                            <Tab label='Category3' {...a11yProps(2)} />
-                            <Tab label='Category4' {...a11yProps(3)} />
-                        </Tabs>
-                    </Box>
-                    <div className='tab_div_main'>
-                        <div className='report-details'>
-                            <span><CategoryModel data={2} /></span>
-                            <div className="search-input">
-                                <TextField
-                                    type="search"
-                                    autoComplete="off"
-                                    style={{ width: '250px' }}
-                                    id="search"
-                                    placeholder="Enter UID"
-                                    label="Search"
-                                    onChange={(e) => setSearhData2(e.target.value)}
-                                />
-                                <Button variant="contained" color="success" onClick={() => handleSearch2(searchData2)}>Search</Button>
-                            </div>
-                        </div>
-                        <div className="user-details">
-                            {searchResult === "screen" ? (
-                                <div></div>
-                            ) : (searchResult?.categories1 == null) ? (
-                                <p>The details are not found. Please check into other categories.</p>
-                            ) : <>
-                                <div className="card mt-3  m-3 p-1">
-                                    <hr className="border-light m-0" />
-                                    <div className="card-body">
-                                        <table className="table user-view-table m-0">
-                                            <tbody>
-                                                <tr>
-                                                    <td>UID:</td>
-                                                    <td>{searchResult?.categories1?.uid}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Name:</td>
-                                                    <td>{searchResult?.categories1?.name}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Number:</td>
-                                                    <td>{searchResult?.categories1?.number}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Address:</td>
-                                                    <td>{searchResult?.categories1?.address}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
+                            </CustomTabPanel>
 
+                            {/* Search and display for Category2 */}
+                            <CustomTabPanel value={value} index={1}>
+                                <div className='tab_div_main'>
+                                    <div className='report-details mainParentSeachBox'>
+                                        <span><CategoryModel data={2} /></span>
+                                        <div className="search-input">
+                                            <TextField
+                                                type="search"
+                                                autoComplete="off"
+                                                className='SearchTextfield'
+                                                id="search"
+                                                color="success"
+                                                placeholder="Enter UID"
+                                                label="Select category and search"
+                                                onChange={(e) => setSearhData2(e.target.value)}
+                                            />
+                                            <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch2(searchData2)}>Search</Button>
+                                        </div>
+                                    </div>
+                                    <div className="user-details">
+                                        {searchResult === "screen" ? (
+                                            <div></div>
+                                        ) : (searchResult?.categories1 == null) ? (
+                                            <p style={{ color: 'white' }}>The details are not found. Please check into other categories.</p>
+                                        ) : <>
+                                            <div className="card mt-3  m-3 p-1">
+                                                <hr className="border-light m-0" />
+                                                <div className="card-body">
+                                                    <table className="table user-view-table m-0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>UID:</td>
+                                                                <td>{searchResult?.categories1?.uid}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Name:</td>
+                                                                <td>{searchResult?.categories1?.name}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Number:</td>
+                                                                <td>{searchResult?.categories1?.number}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Address:</td>
+                                                                <td>{searchResult?.categories1?.address}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
+                                                </div>
+                                            </div>
+                                        </>
+                                        }
                                     </div>
                                 </div>
-                            </>
-                            }
-                        </div>
-                    </div>
-                </CustomTabPanel>
-                <CustomTabPanel value={value} index={2}>
-                    <Box >
-                        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab label='Category1' {...a11yProps(0)} />
-                            <Tab label='Category2' {...a11yProps(1)} />
-                            <Tab label='Category3' {...a11yProps(2)} />
-                            <Tab label='Category4' {...a11yProps(3)} />
-                        </Tabs>
-                    </Box>
-                    <div className='tab_div_main'>
-                        <div className='report-details'>
-                            <span><CategoryModel data={3} /></span>
-                            <div className="search-input">
-                                <TextField
-                                    type="search"
-                                    autoComplete="off"
-                                    style={{ width: '250px' }}
-                                    id="search"
-                                    placeholder="Enter UID"
-                                    label="Search"
-                                    onChange={(e) => setSearhDat3(e.target.value)}
-                                />
-                                <Button variant="contained" color="success" onClick={() => handleSearch3(searchData3)}>Search</Button>
-                            </div>
-                        </div>
-                        <div className="user-details">
-                            {searchResult === "screen" ? (
-                                <div></div>
-                            ) : (searchResult?.categories1 == null) ? (
-                                <p>The details are not found. Please check into other categories.</p>
-                            ) : <>
-                                <div className="card mt-3  m-3 p-1">
-                                    <hr className="border-light m-0" />
-                                    <div className="card-body">
-                                        <table className="table user-view-table m-0">
-                                            <tbody>
-                                                <tr>
-                                                    <td>UID:</td>
-                                                    <td>{searchResult?.categories1?.uid}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Name:</td>
-                                                    <td>{searchResult?.categories1?.name}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Number:</td>
-                                                    <td>{searchResult?.categories1?.number}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Address:</td>
-                                                    <td>{searchResult?.categories1?.address}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
+                            </CustomTabPanel>
 
+                            {/* Search and display for Category3 */}
+                            <CustomTabPanel value={value} index={2}>
+                                <div className='tab_div_main'>
+                                    <div className='report-details mainParentSeachBox'>
+                                        <span><CategoryModel data={3} /></span>
+                                        <div className="search-input">
+                                            <TextField
+                                                type="search"
+                                                autoComplete="off"
+                                                id="search"
+                                                placeholder="Enter UID"
+                                                className='SearchTextfield'
+                                                label="Select category and search"
+                                                onChange={(e) => setSearhDat3(e.target.value)}
+                                            />
+                                            <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch3(searchData3)}>Search</Button>
+                                        </div>
+                                    </div>
+                                    <div className="user-details">
+                                        {searchResult === "screen" ? (
+                                            <div></div>
+                                        ) : (searchResult?.categories1 == null) ? (
+                                            <p style={{ color: 'white' }}>The details are not found. Please check into other categories.</p>
+                                        ) : <>
+                                            <div className="card mt-3  m-3 p-1">
+                                                <hr className="border-light m-0" />
+                                                <div className="card-body">
+                                                    <table className="table user-view-table m-0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>UID:</td>
+                                                                <td>{searchResult?.categories1?.uid}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Name:</td>
+                                                                <td>{searchResult?.categories1?.name}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Number:</td>
+                                                                <td>{searchResult?.categories1?.number}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Address:</td>
+                                                                <td>{searchResult?.categories1?.address}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
+                                                </div>
+                                            </div>
+                                        </>
+                                        }
                                     </div>
                                 </div>
-                            </>
-                            }
-                        </div>
-                    </div>
-                </CustomTabPanel>
-                <CustomTabPanel value={value} index={3}>
-                    <Box >
-                        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab label='Category1' {...a11yProps(0)} />
-                            <Tab label='Category2' {...a11yProps(1)} />
-                            <Tab label='Category3' {...a11yProps(2)} />
-                            <Tab label='Category4' {...a11yProps(3)} />
-                        </Tabs>
-                    </Box>
-                    <div className='tab_div_main'>
-                        <div className='report-details'>
-                            <span><CategoryModel data={4} /></span>
-                            <div className="search-input">
-                                <TextField
-                                    type="search"
-                                    autoComplete="off"
-                                    style={{ width: '250px' }}
-                                    id="search"
-                                    placeholder="Enter UID"
-                                    label="Search"
-                                    onChange={(e) => setSearhData4(e.target.value)}
-                                />
-                                <Button variant="contained" color="success" onClick={() => handleSearch4(searchData4)}>Search</Button>
-                            </div>
-                        </div>
-                        <div className="user-details">
-                            {searchResult === "screen" ? (
-                                <div></div>
-                            ) : (searchResult?.categories1 == null) ? (
-                                <p>The details are not found. Please check into other categories.</p>
-                            ) : <>
-                                <div className="card mt-3  m-3 p-1">
-                                    <hr className="border-light m-0" />
-                                    <div className="card-body">
-                                        <table className="table user-view-table m-0">
-                                            <tbody>
-                                                <tr>
-                                                    <td>UID:</td>
-                                                    <td>{searchResult?.categories1?.uid}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Name:</td>
-                                                    <td>{searchResult?.categories1?.name}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Number:</td>
-                                                    <td>{searchResult?.categories1?.number}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Address:</td>
-                                                    <td>{searchResult?.categories1?.address}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <Button className='m-2' variant="contained" onClick={payMent}>Click here for full report </Button>
+                            </CustomTabPanel>
 
+                            {/* Search and display for Category4 */}
+                            <CustomTabPanel value={value} index={3}>
+                                <div className='tab_div_main'>
+                                    <div className='report-details mainParentSeachBox'>
+                                        <span><CategoryModel data={4} /></span>
+                                        <div className="search-input">
+                                            <TextField
+                                                type="search"
+                                                autoComplete="off"
+                                                id="search"
+                                                color="success"
+                                                placeholder="Enter UID"
+                                                className='SearchTextfield'
+                                                label="Select category and search"
+                                                onChange={(e) => setSearhData4(e.target.value)}
+                                            />
+                                            <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch4(searchData4)}>Search</Button>
+                                        </div>
+                                    </div>
+                                    <div className="user-details">
+                                        {searchResult === "screen" ? (
+                                            <div></div>
+                                        ) : (searchResult?.categories1 == null) ? (
+                                            <p style={{ color: 'white' }}>The details are not found. Please check into other categories.</p>
+                                        ) : <>
+                                            <div className="card mt-3  m-3 p-1">
+                                                <hr className="border-light m-0" />
+                                                <div className="card-body">
+                                                    <table className="table user-view-table m-0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>UID:</td>
+                                                                <td>{searchResult?.categories1?.uid}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Name:</td>
+                                                                <td>{searchResult?.categories1?.name}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Number:</td>
+                                                                <td>{searchResult?.categories1?.number}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Address:</td>
+                                                                <td>{searchResult?.categories1?.address}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report </Button>
+                                                </div>
+                                            </div>
+                                        </>
+                                        }
                                     </div>
                                 </div>
-                            </>
-                            }
-                        </div>
+                            </CustomTabPanel>
+                        </Box>
                     </div>
-                </CustomTabPanel>
+                </Box>
             </div>
-        </Box>
+        </div>
     );
 }

@@ -27,6 +27,7 @@
 .view_detail_heading {
     font-size: 25px;
     font-weight: 600;
+    color: green;
     /* border-bottom: 1px solid black; */
     text-align: center;
 }
@@ -46,11 +47,15 @@
 .view_other_category {
     border: 1px solid;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 15px;
     cursor: pointer;
     background-color: #2e7d32;
     ;
     color: white;
     font-weight: 600;
     text-align: center;
+}
+
+.borderColor{
+    border-bottom: 1.5px solid var(--headingColor);
 }

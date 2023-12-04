@@ -1,3 +1,4 @@
+// Importing necessary dependencies and components from Material-UI, React, and other libraries
 import { Button, FormControl, Grid, IconButton, Input, InputAdornment, Paper, TextField } from '@mui/material';
 import React, { useState, useRef } from 'react';
 import '../../assets/css/form/AddCategory1.css'
@@ -6,102 +7,76 @@ import Webcam from 'react-webcam';
 import CloseIcon from '@mui/icons-material/Close';
 import { FindState } from '../../context/FindContext';
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import Loader from '../common/Loader';
+import OtpVarifacation from '../home/OtpVarifacation';
+import commonApiRequest from '../../api/commonApi';
+import { dataURItoBlob, uploadImages } from '../../utils/UploadImage';
 
+
+
+// Functional component for adding Category 1 report
 const AddCategory1 = () => {
     const webcamRef = useRef(null);
+
+    // State variables for webcam, captured image, form data, loading states, and navigation
     const [showWebcam, setShowWebcam] = useState(false);
     const [captureImage, setCaptureImage] = useState("")
-    const { open, setOpen, setCat } = FindState()
-    const navigate = useNavigate();
+    const { open, setOpen, step, setStep } = FindState()
     const [isLoading, setIsLoading] = useState(false);
     const [isLoading2, setIsLoading2] = useState(false);
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         uid: '',
         name: '',
         address: '',
         number: '',
-        field1: '',
-        field2: '',
-        field3: '',
-        field4: '',
-        field5: '',
-        field6: '',
-        field7: '',
-        field8: '',
-        field9: '',
-        field10: '',
-        field11: {},
-        field12: {}
     });
 
-    const validUID = (uid) =>{
+
+    // Validation functions for form fields
+    const validUID = (uid) => {
         return uid.trim() !== ''
     }
 
-    const validName = (name) =>{
-         return name.trim() !== ''
+    const validName = (name) => {
+        return name.trim() !== ''
     }
 
-    const validNumber = (number) =>{
-    return number.trim !== ''
+    const validNumber = (number) => {
+        return number.trim !== ''
     }
-    const validAddress = (address)=>{
+    const validAddress = (address) => {
         return address.trim() !== ''
     }
-
-    // Function to convert data URI to Blob
-    const dataURItoBlob = (dataURI) => {
-        const byteString = atob(dataURI.split(',')[1]);
-        const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-        const arrayBuffer = new ArrayBuffer(byteString.length);
-        const uint8Array = new Uint8Array(arrayBuffer);
-
-        for (let i = 0; i < byteString.length; i++) {
-            uint8Array[i] = byteString.charCodeAt(i);
-        }
-        return new Blob([arrayBuffer], { type: mimeString });
-    };
-
-    const captureSelfie = () => {
+    // Function to capture selfie using webcam
+    const captureSelfie = async () => {
         if (webcamRef.current) {
             setIsLoading2(true);
             const imageSrc = webcamRef.current.getScreenshot();
-
-            const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
-
-            const formData = new FormData();
-            formData.append('files', dataURItoBlob(imageSrc));
-
-            axios.post(apiUrl, formData)
-                .then(response => {
-                    setFormData((oldValue) => {
-                        return {
-                            ...oldValue,
-                            field12: response.data
-                        }
-                    })
-                    toast.success("File uploaded successfully.")
-                    setIsLoading2(false);
+            const response = await uploadImages(dataURItoBlob(imageSrc))
+            if (response) {
+                setFormData((oldValue) => {
+                    return {
+                        ...oldValue,
+                        field12: response.data
+                    }
                 })
-                .catch(error => {
-                    console.error('Error uploading image:', error);
-                    setIsLoading2(false);
-                });
+                toast.success("File uploaded successfully")
+                setIsLoading2(false);
+            }
         }
         setShowWebcam(false);
     };
 
-    const uploadImages = () => {
-        setIsLoading(true);
-        const apiUrl = `${import.meta.env.VITE_API_URL}/api/user/upload_image`;
-        const formData = new FormData();
-        formData.append('files', captureImage);
-
-        axios.post(apiUrl, formData)
-            .then(response => {
+    // Function to upload captured images
+    const upload = async () => {
+        if (!captureImage) {
+            toast.warn("Please Choose File.")
+        } else {
+            setIsLoading(true);
+            const response = await uploadImages(captureImage)
+            if (response) {
                 setFormData((oldValue) => {
                     return {
                         ...oldValue,
@@ -110,13 +85,11 @@ const AddCategory1 = () => {
                 })
                 toast.success("File uploaded successfully")
                 setIsLoading(false);
-            })
-            .catch(error => {
-                console.error('Error uploading image:', error);
-                setIsLoading(false);
-            })
+            }
+        }
     }
 
+    // Event handler for form input changes
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({
@@ -125,52 +98,86 @@ const AddCategory1 = () => {
         });
     };
 
-    const onSubmit = (event) => {
-        event.preventDefault();
+    // Validation function for form fields
+    const validationFunction = () => {
         try {
-            if(!validUID(formData.uid)){
-                toast.error("enter a valid uid");
+            if (!validUID(formData.uid)) {
+                return toast.error("Enter valid UID.");
             }
-            if(!validName(formData.name)){
-                toast.error("enter a valid name");
+            if (!validName(formData.name)) {
+                return toast.error("Enter valid name.");
             }
-            if(!validNumber(formData.number)){
-                toast.error('enter a valid number')
+            if (!validNumber(formData.number)) {
+                return toast.error('Enter valid number.')
             }
-            if(!validAddress(formData.address)){
-                toast.error("enter a valid address")
+            if (!validAddress(formData.address)) {
+                return toast.error("Enter valid address.")
             }
-
-           else{
-            localStorage.setItem("category1", JSON.stringify(formData));
-            setOpen(false)
-            setCat(1)
-            navigate('/otpverification')
-           }
-            
+            setStep(step + 1)
         } catch (error) {
             console.log('error');
-            
+
+
+        }
+    }
+
+    // Function to submit the form data
+    const onSubmit = async (value) => {
+        try {
+            const info = value == 1 ? {
+                uid: formData?.uid,
+                name: formData?.name,
+                number: formData?.number,
+                address: formData?.address,
+            } : {
+                uid: formData?.uid,
+                name: formData?.name,
+                number: formData?.number,
+                address: formData?.address,
+                field1: formData?.field1,
+                field2: formData?.field2,
+                field3: formData?.field3,
+                field4: formData?.field4,
+                field5: formData?.field5,
+                field6: formData?.field6,
+                field7: formData?.field7,
+                field8: formData?.field8,
+                field9: formData?.field9,
+                field10: formData?.field10,
+                field11: formData?.field11,
+                field12: formData?.field12
+            }
+
+            await commonApiRequest('post', '/api/add_categories', info);
+            toast.success('Report added Successfully.')
+            localStorage.setItem("category1", JSON.stringify(formData));
+            navigate('/alldetails')
+
+        } catch (error) {
+            toast.error(error?.response?.data?.message)
         }
     };
 
-    
+    // Rendering the component
     return (
         <>
-            <Grid className="p-3">
+            <Grid className="">
                 <Paper elevation={20} className="paperStyle">
-                    <Grid align="center" >
-                        <h2 className="headerStyle">Add Category1 Report</h2>
-                        <span className='addcategory_icon' onClick={() => setOpen(false)}><CloseIcon /></span>
+                    <Grid align="center" className='m-2' >
+                        {step == 2 ? <h5 className="headerStyle">Please verify your mobile number</h5> : <h4 className="headerStyle">Add Category 1 Report</h4>}
+                        <span className='addcategory_icon' onClick={() => setOpen(false)}>{step == 1 ? <CloseIcon /> : ""}</span>
                     </Grid>
-                    <div className="container">
-                        <form className="row mb-3" onSubmit={onSubmit}>
-                            <Grid container spacing={2}>
-                                <Grid item xs={6}>
-                                    <Grid>
+                    <div className="container FormParent">
+                        <Grid container spacing={2}>
+
+                            {/* Conditionally rendering form fields based on step */}
+                            {step == 1 &&
+                                <>
+                                    <Grid item xs={12}>
                                         <TextField
-                                            label="UID "
+                                            label="UID"
                                             variant="standard"
+                                            color='success'
                                             value={formData.uid}
                                             fullWidth
                                             type="text"
@@ -181,8 +188,7 @@ const AddCategory1 = () => {
                                             required
                                         />
                                     </Grid>
-
-                                    <Grid>
+                                    <Grid item xs={12}>
                                         <TextField
                                             label="Number "
                                             variant="standard"
@@ -193,107 +199,12 @@ const AddCategory1 = () => {
                                             autoComplete="off"
                                             className="my-2"
                                             onChange={handleInputChange}
+                                            color='success'
                                             required
                                         />
                                     </Grid>
 
-                                    <Grid>
-                                        <TextField
-                                            label="field1"
-                                            variant="standard"
-                                            value={formData.field1}
-                                            fullWidth
-                                            type="text"
-                                            name="field1"
-                                            autoComplete="off"
-                                            className="my-2"
-                                            onChange={handleInputChange}
-                                        />
-                                    </Grid>
-
-                                    <Grid>
-                                        <TextField
-                                            label="field3"
-                                            variant="standard"
-                                            value={formData.field3}
-                                            fullWidth
-                                            type="text"
-                                            name="field3"
-                                            autoComplete="off"
-                                            className="my-2"
-                                            onChange={handleInputChange}
-                                        />
-                                    </Grid>
-
-                                    <Grid>
-                                        <TextField
-                                            label="field5"
-                                            variant="standard"
-                                            value={formData.field5}
-                                            fullWidth
-                                            type="text"
-                                            name="field5"
-                                            autoComplete="off"
-                                            className="my-2"
-                                            onChange={handleInputChange}
-                                        />
-                                    </Grid>
-
-                                    <Grid>
-                                        <TextField
-                                            label="field7"
-                                            variant="standard"
-                                            value={formData.field7}
-                                            fullWidth
-                                            type="text"
-                                            name="field7"
-                                            autoComplete="off"
-                                            className="my-2"
-                                            onChange={handleInputChange}
-                                        />
-                                    </Grid>
-
-                                    <Grid>
-                                        <TextField
-                                            label="field9"
-                                            variant="standard"
-                                            value={formData.field9}
-                                            fullWidth
-                                            type="text"
-                                            name="field9"
-                                            autoComplete="off"
-                                            className="my-2"
-                                            onChange={handleInputChange}
-                                        />
-                                    </Grid>
-
-                                    <FormControl variant="standard" className="my-2">
-                                        <Input
-                                            className='form_input'
-                                            type={'file'}
-                                            name='password'
-                                            onChange={(e) => setCaptureImage(e.target.files[0])}
-                                            endAdornment={
-                                                <div className="text-center my-2 ">
-                                                    {isLoading ? (
-                                                        <div className=" d-flex justify-content-center align-items-center ">
-                                                            <Loader />
-                                                        </div>
-                                                    ) : (
-                                                        <InputAdornment position="end">
-                                                            <IconButton onClick={() => uploadImages()} style={{ fontSize: '15px', padding: '2px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white' }}>
-                                                                upload
-                                                            </IconButton>
-                                                        </InputAdornment>
-                                                    )}
-                                                </div>
-                                            }
-                                        />
-                                    </FormControl>
-
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <Grid>
+                                    <Grid item xs={12}>
                                         <TextField
                                             label="Name"
                                             variant="standard"
@@ -304,11 +215,12 @@ const AddCategory1 = () => {
                                             autoComplete="off"
                                             className="my-2"
                                             onChange={handleInputChange}
+                                            color='success'
                                             required
                                         />
                                     </Grid>
 
-                                    <Grid>
+                                    <Grid item xs={12}>
                                         <TextField
                                             label="Address"
                                             variant="standard"
@@ -319,120 +231,255 @@ const AddCategory1 = () => {
                                             autoComplete="off"
                                             className="my-2"
                                             onChange={handleInputChange}
+                                            color='success'
                                             required
                                         />
                                     </Grid>
+                                    <div className="text-center my-2 mt-4">
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => 
+                                            // validationFunction()
+                                            setStep(3)
+                                            } >
+                                            Save
+                                        </Button>
+                                    </div>
+                                </>
+                            }
+                            {
+                                step == 2 &&
+                                <div >
+                                    <div className='otp-verification'> <OtpVarifacation /></div>
 
-                                    <Grid>
-                                        <TextField
-                                            label="field2"
-                                            variant="standard"
-                                            value={formData.field2}
-                                            fullWidth
-                                            type="text"
-                                            name="field2"
-                                            autoComplete="off"
-                                            className="my-2"
-                                            onChange={handleInputChange}
-                                        />
-                                    </Grid>
+                                    <div style={{ display: 'flex', justifyContent: 'center' }} >
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => setStep(step - 1)} >
+                                            Back
+                                        </Button>
+                                    </div>
+                                </div>
 
-                                    <Grid>
-                                        <TextField
-                                            label="field4"
-                                            variant="standard"
-                                            value={formData.field4}
-                                            fullWidth
-                                            type="text"
-                                            name="field4"
-                                            autoComplete="off"
-                                            className="my-2"
-                                            onChange={handleInputChange}
-                                        />
-                                    </Grid>
-
-                                    <Grid>
-                                        <TextField
-                                            label="field6"
-                                            variant="standard"
-                                            value={formData.field6}
-                                            fullWidth
-                                            type="text"
-                                            name="field6"
-                                            autoComplete="off"
-                                            className="my-2"
-                                            onChange={handleInputChange}
-                                        />
-                                    </Grid>
-
-                                    <Grid>
-                                        <TextField
-                                            label="field8"
-                                            variant="standard"
-                                            value={formData.field8}
-                                            fullWidth
-                                            type="text"
-                                            name="field8"
-                                            autoComplete="off"
-                                            className="my-2"
-                                            onChange={handleInputChange}
-                                        />
-                                    </Grid>
-
-                                    <Grid>
-                                        <TextField
-                                            label="field10"
-                                            variant="standard"
-                                            value={formData.field10}
-                                            fullWidth
-                                            type="text"
-                                            name="field10"
-                                            autoComplete="off"
-                                            className="my-2"
-                                            onChange={handleInputChange}
-                                        />
-                                    </Grid>
-
-                                    <Grid className="my-2">
-
-                                        <div className="text-center my-2">
-                                            {isLoading2 ? (
-                                                <div className=" d-flex justify-content-center align-items-center ">
-                                                    <Loader />
-                                                </div>
-                                            ) : (
-                                                <button type='button' onClick={() => setShowWebcam(true)}
-                                                    style={{ fontSize: '14px', padding: '5px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white', border: '1px solid' }}
-                                                >Capture your selfie
-                                                </button>
-                                            )}
-                                        </div>
-
-
-                                        {showWebcam && (
-                                            <div>
-                                                <Webcam
-                                                    height={100}
-                                                    audio={false}
-                                                    ref={webcamRef}
+                            }
+                            {
+                                step == 3 &&
+                                <>
+                                    <Grid container spacing={2} className='d-flex flex-row gap-0 '>
+                                        <Grid item xs={6}>
+                                            <Grid>
+                                                <TextField
+                                                    label="Field1"
+                                                    variant="standard"
+                                                    value={formData.field1}
+                                                    fullWidth
+                                                    type="text"
+                                                    name="field1"
+                                                    autoComplete="off"
+                                                    className="my-2"
+                                                    onChange={handleInputChange}
+                                                    color='success'
                                                 />
+                                            </Grid>
 
-                                                <button type='button' onClick={captureSelfie}
-                                                    style={{ fontSize: '14px', padding: '5px 10px', backgroundColor: '#1976d2', borderRadius: '2px', color: 'white', border: '1px solid' }}>
-                                                    Capture Selfie
-                                                </button>
-                                            </div>
-                                        )}
+                                            <Grid>
+                                                <TextField
+                                                    label="Field3"
+                                                    variant="standard"
+                                                    value={formData.field3}
+                                                    fullWidth
+                                                    type="text"
+                                                    name="field3"
+                                                    autoComplete="off"
+                                                    className="my-2"
+                                                    onChange={handleInputChange}
+                                                    color='success'
+                                                />
+                                            </Grid>
+
+                                            <Grid>
+                                                <TextField
+                                                    label="Field5"
+                                                    variant="standard"
+                                                    value={formData.field5}
+                                                    fullWidth
+                                                    type="text"
+                                                    name="field5"
+                                                    autoComplete="off"
+                                                    className="my-2"
+                                                    onChange={handleInputChange}
+                                                    color='success'
+                                                />
+                                            </Grid>
+
+                                            <Grid>
+                                                <TextField
+                                                    label="Field7"
+                                                    variant="standard"
+                                                    value={formData.field7}
+                                                    fullWidth
+                                                    type="text"
+                                                    name="field7"
+                                                    autoComplete="off"
+                                                    className="my-2"
+                                                    onChange={handleInputChange}
+                                                    color='success'
+                                                />
+                                            </Grid>
+
+                                            <Grid>
+                                                <TextField
+                                                    label="Field9"
+                                                    variant="standard"
+                                                    value={formData.field9}
+                                                    fullWidth
+                                                    type="text"
+                                                    name="field9"
+                                                    autoComplete="off"
+                                                    className="my-2"
+                                                    onChange={handleInputChange}
+                                                    color='success'
+                                                />
+                                            </Grid>
+
+                                            <FormControl variant="standard" className="my-2">
+                                                <Input
+                                                    className='form_input'
+                                                    type={'file'}
+                                                    name='password'
+                                                    onChange={(e) => setCaptureImage(e.target.files[0])}
+                                                    endAdornment={
+                                                        <div className="text-center my-2 ">
+                                                            {isLoading ? (
+                                                                <div className=" d-flex justify-content-center align-items-center ">
+                                                                    <Loader />
+                                                                </div>
+                                                            ) : (
+                                                                <InputAdornment position="end">
+                                                                    <IconButton className='mainButton' onClick={() => upload()}
+                                                                        style={{ fontSize: '15px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white' }}
+                                                                    >
+                                                                        Upload
+                                                                    </IconButton>
+                                                                </InputAdornment>
+                                                            )}
+                                                        </div>
+                                                    }
+                                                />
+                                            </FormControl>
+                                        </Grid>
+                                        <Grid item xs={6}>
+                                            <Grid >
+                                                <TextField
+                                                    label="Field2"
+                                                    variant="standard"
+                                                    value={formData.field2}
+                                                    fullWidth
+                                                    type="text"
+                                                    name="field2"
+                                                    autoComplete="off"
+                                                    className="my-2"
+                                                    onChange={handleInputChange}
+                                                    color='success'
+                                                />
+                                            </Grid>
+
+                                            <Grid>
+                                                <TextField
+                                                    label="Field4"
+                                                    variant="standard"
+                                                    value={formData.field4}
+                                                    fullWidth
+                                                    type="text"
+                                                    name="field4"
+                                                    autoComplete="off"
+                                                    className="my-2"
+                                                    onChange={handleInputChange}
+                                                    color='success'
+                                                />
+                                            </Grid>
+
+                                            <Grid>
+                                                <TextField
+                                                    label="Field6"
+                                                    variant="standard"
+                                                    value={formData.field6}
+                                                    fullWidth
+                                                    type="text"
+                                                    name="field6"
+                                                    autoComplete="off"
+                                                    className="my-2"
+                                                    onChange={handleInputChange}
+                                                    color='success'
+                                                />
+                                            </Grid>
+
+                                            <Grid>
+                                                <TextField
+                                                    label="Field8"
+                                                    variant="standard"
+                                                    value={formData.field8}
+                                                    fullWidth
+                                                    type="text"
+                                                    name="field8"
+                                                    autoComplete="off"
+                                                    className="my-2"
+                                                    onChange={handleInputChange}
+                                                    color='success'
+                                                />
+                                            </Grid>
+
+                                            <Grid>
+                                                <TextField
+                                                    label="Field10"
+                                                    variant="standard"
+                                                    value={formData.field10}
+                                                    fullWidth
+                                                    type="text"
+                                                    name="field10"
+                                                    autoComplete="off"
+                                                    className="my-2"
+                                                    onChange={handleInputChange}
+                                                    color='success'
+                                                />
+                                            </Grid>
+
+                                            <Grid className="my-2">
+
+                                                <div className=" my-2">
+                                                    {isLoading2 ? (
+                                                        <div className="d-flex justify-content-center align-items-center ">
+                                                            <Loader />
+                                                        </div>
+                                                    ) : (
+                                                        <Button type='button' className='mainButton' onClick={() => setShowWebcam(true)}
+                                                        >Capture Your Selfie
+                                                        </Button>
+                                                    )}
+                                                </div>
+
+                                                {showWebcam && (
+                                                    <div>
+                                                        <Webcam
+                                                            height={100}
+                                                            audio={false}
+                                                            ref={webcamRef}
+                                                        />
+                                                        <Button type='button' className='mainButton' onClick={captureSelfie}
+                                                        >Capture Selfie
+                                                        </Button>
+                                                    </div>
+                                                )}
+                                            </Grid>
+                                        </Grid>
                                     </Grid>
-
-                                </Grid>
-                            </Grid>
-                            <div className="text-center my-2 mt-4">
-                                <Button variant="contained" type="submit" className="m-2" >
-                                    Save
-                                </Button>
-                            </div>
-                        </form>
+                                    <div className="d-flex justify-content-around w-100 mt">
+                                        <Button variant="contained" onClick={() => { onSubmit(1); setOpen(false); setStep(1) }} className="m-2 mainButton" >
+                                            Skip
+                                        </Button>
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => { onSubmit(2); setOpen(false); setStep(1) }} >
+                                            Submit
+                                        </Button>
+                                    </div>
+                                </>
+                            }
+                        </Grid>
                     </div>
                 </Paper>
             </Grid>
@@ -440,4 +487,5 @@ const AddCategory1 = () => {
     );
 };
 
+// Exporting the component
 export default AddCategory1;
