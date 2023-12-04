@@ -123,7 +123,6 @@ const AllDetails = () => {
 
                                     <tr className='borderColor'>
                                         <td>Field8 </td>
-                                        <td>{data?.field8}</td>
                                         {data ? <td>{data?.field8}</td> : <td>{searchResult?.categories1?.field8}</td>}
                                     </tr>
 
