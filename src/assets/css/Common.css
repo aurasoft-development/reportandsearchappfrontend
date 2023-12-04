@@ -1,6 +1,12 @@
-.Footerparent .css-heg063-MuiTabs-flexContainer{
+.Footerparent .FooterTabs{
     display: block !important;
 }
+
+.Demo{
+    background-color: red !important;
+    color: red !important;
+}
+
 
 .footerend{
     padding: 13px !important;
