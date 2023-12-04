@@ -46,8 +46,8 @@
     background-color: var(--bgButton)
 }
 
-.css-ttwr4n{
-    background-color: none !important;
+.css-ttwr4n {
+    background-color: unset !important
 }
 
 .css-1aquho2-MuiTabs-indicator {
