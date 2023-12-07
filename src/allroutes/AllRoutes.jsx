@@ -10,6 +10,7 @@ const AllRoutes = () => {
                 <Route path="/" element={< Home />} />
                 <Route path="/addcategory1" element={< AddCategory1 />} />
 
+
             </Routes>
 
         </div>
