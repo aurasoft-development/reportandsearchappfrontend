@@ -1,13 +1,58 @@
+.MainParent {
+    background-color: #0d0d0d;
+}
+
+.TabParent {
+    background-image: url('/final.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    opacity: 1;
+    width: 100%;
+    height: 667px;
+}
+
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
     text-transform: capitalize !important;
-    font-size: 20px !important;
-    font-weight: 600 !important;
+}
+
+.completeBox {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
-    color: rgb(236, 109, 12) !important;
-    font-size: 20px !important;
-    font-weight: 600 !important;
+    color: var(--textColor) !important;
+    border-radius: 15px;
+    background-color: var(--bgButton)
+}
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected:hover {
+    color: white !important;
+    border-radius: 15px;
+    background-color: var(--bgButton)
+}
+
+.css-1q2h7u5.Mui-selected {
+    color: var(--textColor) !important;
+    border-radius: 15px;
+    background-color: var(--bgButton)
+}
+
+.css-1q2h7u5.Mui-selected:hover {
+    color: white !important;
+    border-radius: 15px;
+    background-color: var(--bgButton)
+}
+
+.css-1q2h7u5{
+    min-height: unset !important;
+    text-transform: capitalize;
+}
+
+.css-ttwr4n {
+    background-color: unset !important
 }
 
 .css-1aquho2-MuiTabs-indicator {
@@ -17,17 +62,33 @@
 .css-heg063-MuiTabs-flexContainer {
     justify-content: space-between;
     flex-wrap: wrap !important;
+    border-radius: 15px;
+    padding: 0 24px;
+}
+
+.css-k008qs {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap !important;
+    border-radius: 15px;
+    padding: 0 24px;
+}
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+    border-radius: 15px !important;
 }
 
 .tab_div_main {
-    padding: 20px 16px;
+    padding: 20px 0%;
 }
 
 .report-details {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     padding: 20px 0;
+    gap: 10px;
 }
 
 .report-details>span {
@@ -36,10 +97,174 @@
 
 }
 
-.css-ke5b6m-MuiButtonBase-root-MuiButton-root {
-    padding: 15px !important;
-}
-.search-input{
+.search-input {
     display: flex;
-    gap: 5px;
+    justify-content: center;
+    align-items: center;
 }
+
+.search-input fieldset {
+    border-radius: 15px;
+    height: auto;
+    border-color: white;
+}
+
+.search-input fieldset:hover {
+    border-color: white;
+    outline: none;
+}
+
+.SearchTextfield {
+    width: 250px;
+    color: white !important
+}
+
+.search-input label {
+    color: white !important;
+    text-align: center;
+}
+
+.search-input input {
+    color: white !important;
+}
+
+.search-input .css-ke5b6m-MuiButtonBase-root-MuiButton-root {
+    width: 100px !important;
+    color: white !important;
+}
+
+
+/* Media query start here for 1441   */
+
+@media screen and (max-width: 1441px) {
+    .TabParent {
+        height: 775px;
+    }
+}
+
+/* Media query end here for 1441   */
+
+/* Media query start here for 1025   */
+
+@media screen and (max-width: 1025px) {
+    .TabParent {
+        height: 775px;
+    }
+}
+
+/* Media query end here for 1025   */
+
+/* Media query start here for 769   */
+
+@media screen and (max-width: 769px) {
+    .TabParent {
+        height: 775px;
+    }
+}
+
+/* Media query end here for 769   */
+
+/* Media query start here for 730   */
+
+@media screen and (max-width: 730px) {
+    .TabParent {
+        height: 660px;
+    }
+
+    .mainParentSeachBox .search-input {
+        display: block;
+        margin-top: 10px !important;
+    }
+
+    .mainParentSeachBox .searchButton {
+        margin-top: 20px !important;
+    }
+}
+
+/* Media query end here for 730   */
+
+/* Media query start here for 650   */
+
+@media screen and (max-width: 650px) {
+    .TabParent {
+        height: 786px;
+    }
+
+    .mainParentSeachBox .search-input {
+        display: block;
+        margin-top: 10px !important;
+    }
+
+    .mainParentSeachBox .searchButton {
+        margin-top: 20px !important;
+    }
+}
+
+/* Media query start here for 650   */
+
+/* Media query start here for 500   */
+
+
+@media screen and (max-width: 560px) {
+    .TabParent {
+        height: 785px;
+    }
+
+    .mainParentSeachBox .search-input {
+        display: block;
+        margin-top: 10px !important;
+    }
+
+    .mainParentSeachBox .searchButton {
+        margin-top: 20px !important;
+    }
+}
+
+/* Media query end here for 500   */
+
+/* Media query start here for 425   */
+
+@media screen and (max-width: 426px) {
+    .TabParent {
+        height: 785px;
+    }
+
+    .mainParentSeachBox .search-input {
+        display: block;
+        margin-top: 10px !important;
+    }
+
+    .mainParentSeachBox .searchButton {
+        margin-top: 20px !important;
+    }
+}
+
+/* Media query end here for 425   */
+
+/* Media query start here for 375   */
+
+@media screen and (max-width: 376px) {
+    .TabParent {
+        height: 785px;
+    }
+
+    .mainParentSeachBox .search-input {
+        display: block;
+        margin-top: 10px !important;
+    }
+
+    .mainParentSeachBox .searchButton {
+        margin-top: 20px !important;
+    }
+
+    .mainParentSeachBox .SearchTextfield {
+        width: 200px;
+    }
+
+    .mainParentSeachBox .search-input label {
+        font-size: 14px;
+    }
+
+}
+
+/* Media query end here for 375   */

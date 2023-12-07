@@ -13,26 +13,35 @@ import OtpVarifacation from '../home/OtpVarifacation';
 import commonApiRequest from '../../api/commonApi';
 import { dataURItoBlob, uploadImages } from '../../utils/UploadImage';
 
-
-
-// Functional component for adding Category 1 report
-const AddCategory1 = () => {
+// Functional component for adding Category2 report
+const AddCategory2 = () => {
     const webcamRef = useRef(null);
 
     // State variables for webcam, captured image, form data, loading states, and navigation
     const [showWebcam, setShowWebcam] = useState(false);
     const [captureImage, setCaptureImage] = useState("")
-    const { open, setOpen, step, setStep } = FindState()
+    const { open, setOpen2, step, setStep } = FindState()
+    const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [isLoading2, setIsLoading2] = useState(false);
-    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         uid: '',
         name: '',
         address: '',
         number: '',
+        field1: '',
+        field2: '',
+        field3: '',
+        field4: '',
+        field5: '',
+        field6: '',
+        field7: '',
+        field8: '',
+        field9: '',
+        field10: '',
+        field11: {},
+        field12: {}
     });
-
 
     // Validation functions for form fields
     const validUID = (uid) => {
@@ -49,6 +58,7 @@ const AddCategory1 = () => {
     const validAddress = (address) => {
         return address.trim() !== ''
     }
+
     // Function to capture selfie using webcam
     const captureSelfie = async () => {
         if (webcamRef.current) {
@@ -117,7 +127,6 @@ const AddCategory1 = () => {
         } catch (error) {
             console.log('error');
 
-
         }
     }
 
@@ -148,10 +157,10 @@ const AddCategory1 = () => {
                 field12: formData?.field12
             }
 
-            await commonApiRequest('post', '/api/add_categories', info);
+            await commonApiRequest('post', '/api/cat2/add_categories', info);
             toast.success('Report added Successfully.')
             localStorage.setItem("category1", JSON.stringify(formData));
-            navigate('/alldetails')
+            navigate('/category_details')
 
         } catch (error) {
             toast.error(error?.response?.data?.message)
@@ -161,15 +170,14 @@ const AddCategory1 = () => {
     // Rendering the component
     return (
         <>
-            <Grid className="">
+            <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
-                    <Grid align="center" className='m-2' >
-                        {step == 2 ? <h5 className="headerStyle">Please verify your mobile number</h5> : <h4 className="headerStyle">Add Category 1 Report</h4>}
-                        <span className='addcategory_icon' onClick={() => setOpen(false)}>{step == 1 ? <CloseIcon /> : ""}</span>
+                    <Grid align="center" className='m-2'>
+                        {step == 2 ? <h5 className="headerStyle">Please verify your mobile number</h5> : <h4 className="headerStyle">Add Category 2 Report</h4>}
+                        <span className='addcategory_icon' onClick={() => setOpen2(false)}>{step == 1 ? <CloseIcon /> : ""}</span>
                     </Grid>
-                    <div className="container FormParent">
+                    <div className="container" style={{ padding: "5% 20%" }}>
                         <Grid container spacing={2}>
-
                             {/* Conditionally rendering form fields based on step */}
                             {step == 1 &&
                                 <>
@@ -177,7 +185,6 @@ const AddCategory1 = () => {
                                         <TextField
                                             label="UID"
                                             variant="standard"
-                                            color='success'
                                             value={formData.uid}
                                             fullWidth
                                             type="text"
@@ -185,6 +192,7 @@ const AddCategory1 = () => {
                                             autoComplete="off"
                                             className="my-2"
                                             onChange={handleInputChange}
+                                            color='success'
                                             required
                                         />
                                     </Grid>
@@ -236,7 +244,9 @@ const AddCategory1 = () => {
                                         />
                                     </Grid>
                                     <div className="text-center my-2 mt-4">
-                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() =>validationFunction()}>
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() =>
+                                            validationFunction()
+                                        } >
                                             Save
                                         </Button>
                                     </div>
@@ -244,7 +254,7 @@ const AddCategory1 = () => {
                             }
                             {
                                 step == 2 &&
-                                <div >
+                                <div style={{ display: 'flex', flexDirection: 'column' }}>
                                     <div className='otp-verification'> <OtpVarifacation /></div>
 
                                     <div style={{ display: 'flex', justifyContent: 'center' }} >
@@ -258,7 +268,7 @@ const AddCategory1 = () => {
                             {
                                 step == 3 &&
                                 <>
-                                    <Grid container spacing={2} className='d-flex flex-row gap-0 '>
+                                    <Grid container spacing={2}>
                                         <Grid item xs={6}>
                                             <Grid>
                                                 <TextField
@@ -349,10 +359,8 @@ const AddCategory1 = () => {
                                                                 </div>
                                                             ) : (
                                                                 <InputAdornment position="end">
-                                                                    <IconButton className='mainButton' onClick={() => upload()}
-                                                                        style={{ fontSize: '15px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white' }}
-                                                                    >
-                                                                        Upload
+                                                                    <IconButton className='mainButton' onClick={() => upload()} style={{ fontSize: '15px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white' }}>
+                                                                        upload
                                                                     </IconButton>
                                                                 </InputAdornment>
                                                             )}
@@ -439,9 +447,9 @@ const AddCategory1 = () => {
 
                                             <Grid className="my-2">
 
-                                                <div className=" my-2">
+                                                <div className="text-center my-2">
                                                     {isLoading2 ? (
-                                                        <div className="d-flex justify-content-center align-items-center ">
+                                                        <div className=" d-flex justify-content-center align-items-center ">
                                                             <Loader />
                                                         </div>
                                                     ) : (
@@ -458,19 +466,21 @@ const AddCategory1 = () => {
                                                             audio={false}
                                                             ref={webcamRef}
                                                         />
-                                                        <Button type='button' className='mainButton' onClick={captureSelfie}
-                                                        >Capture Selfie
-                                                        </Button>
+
+                                                        <button type='button' className='mainButton' onClick={captureSelfie}
+                                                            style={{ fontSize: '14px', padding: '2px 10px', backgroundColor: '#2e7d32', borderRadius: '2px', color: 'white', border: '1px solid' }}>
+                                                            Capture Selfie
+                                                        </button>
                                                     </div>
                                                 )}
                                             </Grid>
                                         </Grid>
                                     </Grid>
                                     <div className="d-flex justify-content-around w-100 mt">
-                                        <Button variant="contained" onClick={() => { onSubmit(1); setOpen(false); setStep(1) }} className="m-2 mainButton" >
+                                        <Button variant="contained" onClick={() => { onSubmit(1); setOpen2(false); setStep(1) }} className="m-2 mainButton" >
                                             Skip
                                         </Button>
-                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => { onSubmit(2); setOpen(false); setStep(1) }} >
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => { onSubmit(2); setOpen2(false); setStep(1) }} >
                                             Submit
                                         </Button>
                                     </div>
@@ -485,4 +495,4 @@ const AddCategory1 = () => {
 };
 
 // Exporting the component
-export default AddCategory1;
+export default AddCategory2;

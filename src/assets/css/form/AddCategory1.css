@@ -1,12 +1,3 @@
-.home_container {
-    /* background-color: rgb(26, 23, 23); */
-    height: 100vh;
-    color: black;
-    font-size: 15px;
-    font-weight: 600;
-    font-family: system-ui;
-}
-
 .home_logo {
     display: flex;
     justify-content: space-around;
@@ -14,12 +5,133 @@
 }
 
 .paperStyle {
-    padding: 30px 20px;
-    width: 500px;
     margin: 0 auto;
     position: relative;
 }
 
+.FormParent {
+    padding: 5% 20% !important;
+}
+
+.css-isbt42{
+    display: block !important;
+}
+
+
+.addcategory_icon {
+    position: absolute;
+    right: 2%;
+    top: 0%;
+    cursor: pointer;
+}
+
+.css-7klmyb {
+    min-width: 320px !important;
+}
+
 .headerStyle {
-    margin: 8px;
+    color: var(--headingColor);
+}
+
+.otp-verification {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.css-mhc70k-MuiGrid-root {
+    margin-left: -12px !important;
+}
+
+.mt {
+    margin-top: 20px !important;
+}
+
+@media screen and (max-width: 1920px) {
+    .otp_wrapper {
+        width: 90% !important;
+    }
+    .FormParent{
+        width: 600px;
+    }
+}
+
+
+@media screen and (max-width: 1440px) {
+    .otp_wrapper {
+        width: 90% !important;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .otp_wrapper {
+        width: 90% !important;
+    }
+
+    .FormParent {
+        padding: 5% 5% !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .otp_wrapper {
+        width: 90% !important;
+    }
+
+    .FormParent {
+        padding: 1% 5% !important;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+        letter-spacing: 0px !important;
+    }
+}
+
+@media screen and (max-width: 470px) {
+
+    .css-1g395jg {
+        max-width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .css-1g395jg {
+        max-width: 100% !important;
+    }
+
+    .otp_wrapper {
+        width: 90% !important;
+    }
+
+    .FormParent {
+        padding: 1% 5% !important;
+    }
+
+    .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+        letter-spacing: 0px !important;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .css-1g395jg {
+        max-width: 100% !important;
+    }
+
+    .otp_wrapper {
+        width: 90% !important;
+    }
+
+    .FormParent {
+        padding: 1% 5% !important;
+    }
+
+    .css-mhc70k-MuiGrid-root>.MuiGrid-item {
+        padding-top: 0px !important;
+    }
+
+    .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+        letter-spacing: 0px !important;
+    }
 }

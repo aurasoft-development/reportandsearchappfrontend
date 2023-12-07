@@ -1,20 +1,24 @@
+// Import React for creating React components
 import React from 'react'
-import '../assets/css/Home.css'
-import BasicTabs from '../component/home/Tabs'
-// import OtpVarifacation from '../component/home/OtpVarifacation'
 
+// Import the CSS file for styling
+import '../assets/css/Home.css'
+
+// Import the BasicTabs component for the home page
+import BasicTabs from '../component/home/Tabs'
+
+// Functional component for the Home page
 const Home = () => {
     return (
+
+        // Main container for the home page with the 'home_container' class
         <div className='home_container'>
-            <div className='home_logo'>
-                <span>Logo</span>
-                <h1>Search and Find application</h1>
-            </div>
-            <div className='report-heading'>Report</div>
+
+            {/* Render the BasicTabs component for organizing content in tabs */}
             <BasicTabs />
-            {/* <OtpVarifacation /> */}
         </div>
     )
 }
 
+// Export the Home component as the default export
 export default Home

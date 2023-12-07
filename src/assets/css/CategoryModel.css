@@ -1,0 +1,48 @@
+.p-3 {
+    padding: 0% !important;
+}
+
+.css-1woxyl6-MuiPaper-root {
+    min-width: 315px !important;
+    box-shadow: none !important;
+
+}
+
+.css-1wkixwo {
+    min-width: 315px !important;
+    box-shadow: none !important;
+}
+
+.css-mhc70k-MuiGrid-root {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px !important;
+}
+
+@media screen and (max-width: 1025px) {
+
+    .css-mhc70k-MuiGrid-root {
+        margin-top: 5px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .css-mhc70k-MuiGrid-root {
+        margin-top: 5px !important;
+    }
+}
+
+@media screen and (max-width: 426px) {
+
+    .css-mhc70k-MuiGrid-root {
+        margin-top: 2px !important;
+    }
+}
+
+@media screen and (max-width: 376px) {
+
+    .css-mhc70k-MuiGrid-root {
+        margin-top: 2px !important;
+    }
+}
