@@ -57,16 +57,14 @@ const AllCategory = () => {
 
     return (
         <div>
-            <Box sx={{ width: '90%', margin: 'auto' }} className='p-2'>
+            <Box className='allcategoryParent p-2'>
                 <div className='tab_sec_container completeBox'>
                     <Box >
-                        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <div className='tabParent'>
+                        <Tabs  value={value} onChange={handleChange} aria-label="basic tabs example">
                                 <Tab label='Category 1' {...a11yProps(0)} className='mt-3 TabChild' />
                                 <Tab label='Category 2' {...a11yProps(1)} className='mt-3 TabChild' />
                                 <Tab label='Category 3' {...a11yProps(2)} className='mt-3 TabChild' />
                                 <Tab label='Category 4' {...a11yProps(3)} className='mt-3 TabChild' />
-                            </div>
                         </Tabs>
                         {/* Tab Panel for Category1 */}
                         <CustomTabPanel value={value} index={0} >

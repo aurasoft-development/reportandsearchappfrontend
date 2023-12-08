@@ -167,12 +167,10 @@ export default function BasicTabs() {
                         <span className="completeBox"></span>
                     </CustomTabPanel>
                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                        <div className='tabParent'>
                             <Tab style={{ color: 'white' }} label='Category 1' {...a11yProps(0)} />
                             <Tab style={{ color: 'white' }} label='Category 2' {...a11yProps(1)} />
                             <Tab style={{ color: 'white' }} label='Category 3' {...a11yProps(2)} />
                             <Tab style={{ color: 'white' }} label='Category 4' {...a11yProps(3)} />
-                        </div>
                     </Tabs>
                 </Box>
                 <Box>
@@ -231,12 +229,12 @@ export default function BasicTabs() {
 
                                             <Box sx={{ flexGrow: 1 }}>
                                                 <Grid container spacing={2}>
-                                                    <Grid xs={6} md={6}>
+                                                    <Grid xs={12} md={6}>
                                                         <div className='fullReportBtn'>
                                                             <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
                                                         </div>
                                                     </Grid>
-                                                    <Grid xs={6} md={6}>
+                                                    <Grid xs={12} md={6}>
                                                         <div className='BulbParent activity lead'>
                                                             <div class="blink"><EmojiObjectsIcon style={{fontSize:'70px'}} /></div>
                                                         </div>
