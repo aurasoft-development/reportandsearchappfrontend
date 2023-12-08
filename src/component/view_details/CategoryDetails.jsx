@@ -148,7 +148,7 @@ const CategoryDetails = () => {
                 </div>
             </div>
             <div className='view_detail_thanks'>
-                <Button className='mainButton' onClick={() => { navigate('/'); localStorage.removeItem("category1") }}>Back To Search</Button>
+                <Button className='mainButton' onClick={() => { navigate('/'); localStorage.removeItem("category1") }}>Back To Home</Button>
             </div>
         </div>
 

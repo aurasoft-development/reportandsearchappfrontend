@@ -4,19 +4,29 @@
     align-items: center;
 }
 
+.FormChild{
+    display: flex;
+    justify-content: center;
+}
+
+
 .paperStyle {
     margin: 0 auto;
     position: relative;
 }
 
 .FormParent {
-    padding: 5% 20% !important;
+    padding: 3% 10% !important;
 }
 
 .css-isbt42{
     display: block !important;
 }
 
+.otp-verification{
+    width: 100%;
+    margin: auto;
+}
 
 .addcategory_icon {
     position: absolute;
@@ -31,6 +41,7 @@
 
 .headerStyle {
     color: var(--headingColor);
+    padding: 10px !important;
 }
 
 .otp-verification {
@@ -48,9 +59,7 @@
 }
 
 @media screen and (max-width: 1920px) {
-    .otp_wrapper {
-        width: 90% !important;
-    }
+  
     .FormParent{
         width: 600px;
     }
@@ -58,26 +67,18 @@
 
 
 @media screen and (max-width: 1440px) {
-    .otp_wrapper {
-        width: 90% !important;
-    }
+   
 }
 
 @media screen and (max-width: 1024px) {
-    .otp_wrapper {
-        width: 90% !important;
-    }
-
+ 
     .FormParent {
         padding: 5% 5% !important;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .otp_wrapper {
-        width: 90% !important;
-    }
-
+ 
     .FormParent {
         padding: 1% 5% !important;
     }
@@ -100,9 +101,8 @@
     .css-1g395jg {
         max-width: 100% !important;
     }
-
-    .otp_wrapper {
-        width: 90% !important;
+    .otp-verification{
+        width: 65%;
     }
 
     .FormParent {
@@ -119,8 +119,12 @@
         max-width: 100% !important;
     }
 
+    .otp-verification{
+        width: 55%;
+    }
+
     .otp_wrapper {
-        width: 90% !important;
+        width: 100% !important;
     }
 
     .FormParent {

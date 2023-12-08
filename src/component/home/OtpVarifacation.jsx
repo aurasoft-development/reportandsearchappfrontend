@@ -57,9 +57,8 @@ const OtpVarifacation = () => {
 
     // Render the OTP verification component
     return (
-        <div className='opt_container'>
+        // <div className='opt_container'>
             <div className='otp_wrapper'>
-
                 {/* Display error message if present */}
                 {error && <Alert variant="danger">{error}</Alert>}
 
@@ -94,8 +93,8 @@ const OtpVarifacation = () => {
                     </div>
                 </div>
             </div>
+        // </div>
 
-        </div>
     )
 }
 

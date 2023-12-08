@@ -1,10 +1,10 @@
+
 // Importing necessary dependencies and components from Material-UI, React, and other libraries
 import { Button, FormControl, Grid, IconButton, Input, InputAdornment, Paper, TextField } from '@mui/material';
 import React, { useState, useRef } from 'react';
 import '../../assets/css/form/AddCategory1.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Webcam from 'react-webcam';
-import CloseIcon from '@mui/icons-material/Close';
 import { FindState } from '../../context/FindContext';
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
@@ -14,7 +14,7 @@ import commonApiRequest from '../../api/commonApi';
 import { dataURItoBlob, uploadImages } from '../../utils/UploadImage';
 
 // Functional component for adding Category3 report
-const AddCategory3 = () => {
+const ThirdForm  = () => {
     const webcamRef = useRef(null);
     // State variables for webcam, captured image, form data, loading states, and navigation
     const [showWebcam, setShowWebcam] = useState(false);
@@ -172,10 +172,10 @@ const AddCategory3 = () => {
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" className='m-2'>
                         {step == 2 ? <h5 className="headerStyle">Please verify your mobile number</h5> : <h4 className="headerStyle">Add Category 3 Report</h4>}
-                        <span className='addcategory_icon' onClick={() => setOpen3(false)}>{step == 1 ? <CloseIcon /> : ""}</span>
+                        <span className='addcategory_icon' onClick={() => setOpen3(false)}>{step == 1 }</span>
                     </Grid>
-                    <div className="container" style={{ padding: "5% 20%" }}>
-                        <Grid container spacing={2}>
+                    <div className="container FormParent">
+                        <Grid container spacing={2} className='FormChild'>
                             {/* Conditionally rendering form fields based on step */}
                             {step == 1 &&
                                 <>
@@ -496,4 +496,4 @@ const AddCategory3 = () => {
 };
 
 // Exporting the component
-export default AddCategory3;
+export default ThirdForm ;

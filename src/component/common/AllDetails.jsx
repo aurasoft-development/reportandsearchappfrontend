@@ -1,11 +1,13 @@
 // Importing React and necessary components
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FindState } from '../../context/FindContext';
 import { Button, Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom'
 import '../../assets/css/Common.css'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import { useReactToPrint } from "react-to-print"
+
 
 const AllDetails = () => {
 
@@ -15,6 +17,14 @@ const AllDetails = () => {
     // State variable to store data retrieved from localStorage
     const [data, setData] = useState()
     const navigate = useNavigate()
+
+    const ComponentPdf = useRef()
+
+    const GeneratePdf = useReactToPrint({
+        content: () => ComponentPdf.current,
+        documentTitle: "userDetails",
+        // onAfterPrint:alert("data dw+ownload successfully")
+    });
 
     // useEffect to retrieve and set data from localStorage when the component mounts
     useEffect(() => {
@@ -28,10 +38,11 @@ const AllDetails = () => {
     }
 
     return (
-        <div className='DetailsParent'>
+        <div className='DetailsParent' >
+
             {data ? <h3 className="text-center headerStyle p-2">Thanks for submitting details!</h3> : <h2 className='text-center  headerStyle p-2'>Here is {searchResult?.categories1?.uid} detailed report.</h2>}
 
-            <Grid container spacing={3} className='ParentGrid '>
+            <Grid container spacing={3} className='ParentGrid' ref={ComponentPdf}>
                 <Grid item xs={12} sm={6}>
                     {/* First-column layout for report details */}
                     <Card>
@@ -142,7 +153,8 @@ const AllDetails = () => {
                 </Grid>
             </Grid>
             <div style={{ cursor: 'pointer' }} className='text-center my-2 '>
-                <Button className='mainButton' onClick={() => { CleaderLocalData() }}>Back To Search</Button>
+                <Button className='mainButton mx-1' onClick={() => { CleaderLocalData() }}>Back To Home</Button>
+                <Button className='mainButton mx-1' onClick={() => { GeneratePdf() }}>Download</Button>
             </div>
         </div>
     )

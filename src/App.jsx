@@ -18,7 +18,10 @@ function App() {
       <Header />
 
       {/* AllRoutes component for managing application routes */}
+      <div className='AppParent'>
       <AllRoutes />
+
+      </div>
 
       {/* Footer component */}
       <Footer />
