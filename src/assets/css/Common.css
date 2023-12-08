@@ -16,7 +16,7 @@
 
 .PaymentParent{
     background-color: #eee;
-    min-height: 83.8vh;
+    /* min-height: 83.8vh; */
 }
 .ParentGrid{
     padding: 20px;
@@ -27,7 +27,7 @@
 
 @media screen and (max-width: 1025px) {
     .PaymentParent{
-        height: 85.5vh;
+        /* height: 85.5vh; */
     }
     .DetailsParent{
         height: 775px;
@@ -36,7 +36,7 @@
 
 @media screen and (max-width: 769px) {
     .PaymentParent{
-        height: 85.5vh;
+        /* height: 85.5vh; */
     }
     .DetailsParent{
         height: 775px;
@@ -51,7 +51,7 @@
 
 @media screen and (max-width: 426px) {
     .PaymentParent{
-        height: 86.8vh;
+        /* height: 86.8vh; */
     }
     .DetailsParent{
         height: 1070px;
@@ -62,7 +62,7 @@
 
     .PaymentParent{
         /* height: 86.8vh; */
-        height: 735px;
+        /* height: 735px; */
     }
 
     .DetailsParent{

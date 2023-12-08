@@ -12,8 +12,7 @@ const Home = () => {
     return (
 
         // Main container for the home page with the 'home_container' class
-        <div className='home_container'>
-
+        <div >
             {/* Render the BasicTabs component for organizing content in tabs */}
             <BasicTabs />
         </div>

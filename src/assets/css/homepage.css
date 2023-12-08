@@ -1,0 +1,27 @@
+.HomeMainParent {
+    padding-top: 8%;
+}
+
+.HomeChild {
+    background-color: hsla(0, 0%, 96%, .7);
+    width: 80%;
+    min-height: 100px;
+    margin: auto;
+    padding-top: 30px;
+    border-radius: 20px;
+}
+
+.secondChild {
+    border-radius: 5px;
+    height: 60px;
+    padding-top: 10px;
+    padding: 10px;
+}
+
+.AddButton{
+    color:white;
+    border-radius: 15px !important;
+    text-transform: capitalize !important;
+    background-color: var(--navbar-background-color) !important;
+}
+

@@ -4,8 +4,9 @@
     --navbar-background-color : rgba(90, 16, 11, 0.8);
     --navbar-text-color : #fff ; 
     --font_family: 'Poppins', sans-serif !important;
-    --bgButton: rgba(251, 196, 144, 1);
+    --bgButton: rgba(90, 16, 11, 0.8);
     --textColor: green;
+    --buttonTextColor: #fff;
     --headingColor: rgba(90, 16, 11, 0.8);
 }
 
@@ -25,7 +26,7 @@
 }
 
 .mainButton {
-    color: var(--textColor) !important;
+    color: var(--buttonTextColor) !important;
     border-radius: 15px !important;
     background-color: var(--bgButton) !important;
     text-transform: capitalize !important;
@@ -40,4 +41,9 @@
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
     min-height: auto !important;
+}
+
+.AppParent{
+    min-height: calc(100vh -  119px);
+    background-color: rgb(232 205 204 / 80%)
 }

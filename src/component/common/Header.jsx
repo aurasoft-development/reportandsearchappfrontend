@@ -24,12 +24,12 @@ const Header = () => {
 
     return (
         <>
-
             {/* Parent container for the header */}
             <div className='hedaerParent' >
                 <Box sx={{ flexGrow: 1 }} >
                     <AppBar position="static" className='headerChild'>
                         <Toolbar>
+                        <Link to="/" className='logo-link'>
                             <IconButton
                                 size="large"
                                 edge="start"
@@ -38,7 +38,7 @@ const Header = () => {
                             >
                                 <QueryStatsIcon style={{ fontSize: '1em', color: 'white' }} />
                             </IconButton>
-
+                            </Link>
                             {/* Conditional rendering based on media query */}
                             {
                                 isMatch ? (

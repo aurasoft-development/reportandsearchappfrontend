@@ -4,7 +4,6 @@ import React, { useState, useRef } from 'react';
 import '../../assets/css/form/AddCategory1.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Webcam from 'react-webcam';
-import CloseIcon from '@mui/icons-material/Close';
 import { FindState } from '../../context/FindContext';
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
@@ -13,14 +12,14 @@ import OtpVarifacation from '../home/OtpVarifacation';
 import commonApiRequest from '../../api/commonApi';
 import { dataURItoBlob, uploadImages } from '../../utils/UploadImage';
 
-// Functional component for adding Category2 report
-const AddCategory2 = () => {
+// Functional component for adding Category4 report
+const ForthForm  = () => {
     const webcamRef = useRef(null);
 
     // State variables for webcam, captured image, form data, loading states, and navigation
     const [showWebcam, setShowWebcam] = useState(false);
     const [captureImage, setCaptureImage] = useState("")
-    const { open, setOpen2, step, setStep } = FindState()
+    const { open, setOpen4, step, setStep } = FindState()
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [isLoading2, setIsLoading2] = useState(false);
@@ -157,7 +156,7 @@ const AddCategory2 = () => {
                 field12: formData?.field12
             }
 
-            await commonApiRequest('post', '/api/cat2/add_categories', info);
+            await commonApiRequest('post', '/api/cat4/add_categories', info);
             toast.success('Report added Successfully.')
             localStorage.setItem("category1", JSON.stringify(formData));
             navigate('/category_details')
@@ -173,11 +172,12 @@ const AddCategory2 = () => {
             <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" className='m-2'>
-                        {step == 2 ? <h5 className="headerStyle">Please verify your mobile number</h5> : <h4 className="headerStyle">Add Category 2 Report</h4>}
-                        <span className='addcategory_icon' onClick={() => setOpen2(false)}>{step == 1 ? <CloseIcon /> : ""}</span>
+                        {step == 2 ? <h5 className="headerStyle">Please verify your mobile number</h5> : <h4 className="headerStyle">Add Category 4 Report</h4>}
+                        <span className='addcategory_icon' onClick={() => setOpen4(false)}>{step == 1 }</span>
                     </Grid>
-                    <div className="container" style={{ padding: "5% 20%" }}>
-                        <Grid container spacing={2}>
+                    <div className="container FormParent" >
+                        <Grid container spacing={2} className='FormChild'>
+
                             {/* Conditionally rendering form fields based on step */}
                             {step == 1 &&
                                 <>
@@ -477,10 +477,10 @@ const AddCategory2 = () => {
                                         </Grid>
                                     </Grid>
                                     <div className="d-flex justify-content-around w-100 mt">
-                                        <Button variant="contained" onClick={() => { onSubmit(1); setOpen2(false); setStep(1) }} className="m-2 mainButton" >
+                                        <Button variant="contained" onClick={() => { onSubmit(1); setOpen4(false); setStep(1) }} className="m-2 mainButton" >
                                             Skip
                                         </Button>
-                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => { onSubmit(2); setOpen2(false); setStep(1) }} >
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => { onSubmit(2); setOpen4(false); setStep(1) }} >
                                             Submit
                                         </Button>
                                     </div>
@@ -495,4 +495,4 @@ const AddCategory2 = () => {
 };
 
 // Exporting the component
-export default AddCategory2;
+export default ForthForm ;

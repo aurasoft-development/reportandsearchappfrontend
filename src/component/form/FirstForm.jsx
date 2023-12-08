@@ -1,10 +1,8 @@
-// Importing necessary dependencies and components from Material-UI, React, and other libraries
 import { Button, FormControl, Grid, IconButton, Input, InputAdornment, Paper, TextField } from '@mui/material';
 import React, { useState, useRef } from 'react';
 import '../../assets/css/form/AddCategory1.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Webcam from 'react-webcam';
-import CloseIcon from '@mui/icons-material/Close';
 import { FindState } from '../../context/FindContext';
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
@@ -12,11 +10,7 @@ import Loader from '../common/Loader';
 import OtpVarifacation from '../home/OtpVarifacation';
 import commonApiRequest from '../../api/commonApi';
 import { dataURItoBlob, uploadImages } from '../../utils/UploadImage';
-
-
-
-// Functional component for adding Category 1 report
-const AddCategory1 = () => {
+const FirstForm = () => {
     const webcamRef = useRef(null);
 
     // State variables for webcam, captured image, form data, loading states, and navigation
@@ -158,17 +152,16 @@ const AddCategory1 = () => {
         }
     };
 
-    // Rendering the component
-    return (
-        <>
-            <Grid className="">
+  return (
+    <>
+         <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" className='m-2' >
                         {step == 2 ? <h5 className="headerStyle">Please verify your mobile number</h5> : <h4 className="headerStyle">Add Category 1 Report</h4>}
-                        <span className='addcategory_icon' onClick={() => setOpen(false)}>{step == 1 ? <CloseIcon /> : ""}</span>
+                        <span className='addcategory_icon' onClick={() => setOpen(false)}>{step == 1 }</span>
                     </Grid>
                     <div className="container FormParent">
-                        <Grid container spacing={2}>
+                        <Grid container spacing={2} className='FormChild'>
 
                             {/* Conditionally rendering form fields based on step */}
                             {step == 1 &&
@@ -244,7 +237,7 @@ const AddCategory1 = () => {
                             }
                             {
                                 step == 2 &&
-                                <div >
+                                <div className="OtpParent" >
                                     <div className='otp-verification'> <OtpVarifacation /></div>
 
                                     <div style={{ display: 'flex', justifyContent: 'center' }} >
@@ -480,9 +473,8 @@ const AddCategory1 = () => {
                     </div>
                 </Paper>
             </Grid>
-        </>
-    );
-};
+    </>
+  )
+}
 
-// Exporting the component
-export default AddCategory1;
+export default FirstForm
