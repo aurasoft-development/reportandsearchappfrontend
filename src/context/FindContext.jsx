@@ -81,11 +81,17 @@ const FindProvider = ({ children }) => {
     // Function to set up and render reCAPTCHA for phone number verification
     function setUpRecaptcha(number) {
         const recaptchaVerifier = new RecaptchaVerifier(
-            auth,
             "recaptcha-container",
-            {}
+            {
+              size: "invisible",
+              callback: (response) => {
+                onSignup();
+              },
+              "expired-callback": () => {},
+            },
+            auth
         );
-        recaptchaVerifier.render()
+        // recaptchaVerifier.render()
         return signInWithPhoneNumber(auth, number, recaptchaVerifier)
     }
 
