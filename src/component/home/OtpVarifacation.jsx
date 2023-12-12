@@ -11,9 +11,7 @@ import { auth } from "../../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import CircularProgress from "@mui/material/CircularProgress";
 
-// Functional component for OTP verification
 const OtpVarifacation = () => {
-
   // State variables to manage phone number, OTP input, flags, error messages, and confirmation object
   const [number, setNumber] = useState()
   const [otp, setOtp] = useState("")
