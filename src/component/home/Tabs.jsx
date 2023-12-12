@@ -184,7 +184,7 @@ export default function BasicTabs() {
                                         placeholder="Enter UID"
                                         className='SearchTextfield'
                                         color="success"
-                                        label="Select category and search"
+                                        label="Enter UID"
                                         onChange={(e) => setSearhData(e.target.value)}
                                     />
                                     <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch(searchData)}>Search</Button>
@@ -264,7 +264,7 @@ export default function BasicTabs() {
                                         id="search"
                                         color="success"
                                         placeholder="Enter UID"
-                                        label="Select category and search"
+                                        label="Enter UID"
                                         onChange={(e) => setSearhData2(e.target.value)}
                                     />
                                     <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch2(searchData2)}>Search</Button>
@@ -337,7 +337,7 @@ export default function BasicTabs() {
                                         id="search"
                                         placeholder="Enter UID"
                                         className='SearchTextfield'
-                                        label="Select category and search"
+                                        label="Enter UID"
                                         onChange={(e) => setSearhDat3(e.target.value)}
                                     />
                                     <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch3(searchData3)}>Search</Button>
@@ -411,7 +411,7 @@ export default function BasicTabs() {
                                         color="success"
                                         placeholder="Enter UID"
                                         className='SearchTextfield'
-                                        label="Select category and search"
+                                        label="Enter UID"
                                         onChange={(e) => setSearhData4(e.target.value)}
                                     />
                                     <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch4(searchData4)}>Search</Button>

@@ -1,3 +1,7 @@
+.Footerparent{
+    background-color: var(--navbar-background-color);
+}
+
 .Footerparent .FooterTabs{
     display: block !important;
 }
@@ -18,6 +22,11 @@
     background-color: #eee;
     /* min-height: 83.8vh; */
 }
+
+.PaymentBackColor{
+    background-color: var(--navbar-background-color) !important;
+}
+
 .ParentGrid{
     padding: 20px;
 }

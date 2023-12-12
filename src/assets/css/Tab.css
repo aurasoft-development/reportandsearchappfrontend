@@ -257,6 +257,10 @@
 
 @media screen and (max-width: 426px) {
 
+    .SearchParent {
+        width: 95%;
+        margin: auto;
+    }
 
     .mainParentSeachBox .search-input {
         display: block;
@@ -274,7 +278,11 @@
 
 @media screen and (max-width: 376px) {
 
-
+    .SearchParent {
+        width: 95%;
+        margin: auto;
+    }
+    
     .mainParentSeachBox .search-input {
         display: block;
         margin-top: 10px !important;

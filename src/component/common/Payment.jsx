@@ -24,7 +24,7 @@ const Payment = () => {
                             <div className="card">
                                 <div className="card-body p-4">
                                     <div>
-                                        <div className="card bg-primary text-white rounded-3">
+                                        <div className="card  text-white rounded-3 PaymentBackColor">
                                             <div className="card-body">
                                                 <p className="small mb-2">Card type</p>
                                                 <a href="#!" type="submit" className="text-white">
