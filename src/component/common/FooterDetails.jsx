@@ -8,7 +8,7 @@ import '../../assets/css/Common.css'
 const FooterDetails = () => {
   return (
     <>
-      <Box className='Footerparent text-center text-white' style={{ backgroundColor: 'rgba(90, 16, 11, 0.8)' }}>
+      <Box className='Footerparent text-center text-white' >
 
         {/* MUI Tabs component for navigation links */}
         <Tabs textColor='inherit' indicatorColor='secondary' value={false} style={{ display: 'block' }}  classes={{ flexContainer: 'FooterTabs' }}>
