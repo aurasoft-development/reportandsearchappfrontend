@@ -31,32 +31,6 @@ const OtpVarifacation = () => {
     setData(Info)
   }, [])
 
-  // // Function to request OTP with the provided phone number
-  // const getOtp = async (number) => {
-  //     setError("");
-  //     if (number === "" || number === undefined)
-  //         return setError("Please enter a valid phone number.")
-  //     try {
-  //         const response = await setUpRecaptcha(number);
-  //         setConfirmObj(response)
-  //         setFlag(true)
-
-  //     } catch (err) {
-  //         setError(err.message)
-  //     }
-  // }
-
-  // // Function to verify the entered OTP
-  // const verifyOtp = async () => {
-  //     if (otp === "" || otp === null) return;
-  //     try {
-  //         setError("")
-  //         await confirmObj.confirm(otp)
-  //         setStep(step + 1)
-  //     } catch (err) {
-  //         setError(err.message)
-  //     }
-  // }
 
   function onCaptchVerify() {
     if (!window.recaptchaVerifier) {
