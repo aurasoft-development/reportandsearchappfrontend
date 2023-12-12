@@ -165,10 +165,10 @@ export default function BasicTabs() {
                         <span className="completeBox"></span>
                     </CustomTabPanel>
                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab style={{ color: 'white' }} label='Category 1' {...a11yProps(0)} />
-                            <Tab style={{ color: 'white' }} label='Category 2' {...a11yProps(1)} />
-                            <Tab style={{ color: 'white' }} label='Category 3' {...a11yProps(2)} />
-                            <Tab style={{ color: 'white' }} label='Category 4' {...a11yProps(3)} />
+                        <Tab style={{ color: 'white' }} label='Category 1' {...a11yProps(0)} />
+                        <Tab style={{ color: 'white' }} label='Category 2' {...a11yProps(1)} />
+                        <Tab style={{ color: 'white' }} label='Category 3' {...a11yProps(2)} />
+                        <Tab style={{ color: 'white' }} label='Category 4' {...a11yProps(3)} />
                     </Tabs>
                 </Box>
                 <Box>
@@ -234,7 +234,7 @@ export default function BasicTabs() {
                                                     </Grid>
                                                     <Grid xs={12} md={6}>
                                                         <div className='activity lead'>
-                                                            <div class="blink"><EmojiObjectsIcon style={{fontSize:'70px'}} /></div>
+                                                            <div class="blink"><EmojiObjectsIcon style={{ fontSize: '70px' }} /></div>
                                                         </div>
                                                     </Grid>
                                                 </Grid>
@@ -312,8 +312,8 @@ export default function BasicTabs() {
                                                         </div>
                                                     </Grid>
                                                     <Grid xs={6} md={6}>
-                                                    <div className='activity lead'>
-                                                            <div class="blink"><EmojiObjectsIcon style={{fontSize:'70px'}} /></div>
+                                                        <div className='activity lead'>
+                                                            <div class="blink"><EmojiObjectsIcon style={{ fontSize: '70px' }} /></div>
                                                         </div>
                                                     </Grid>
                                                 </Grid>
@@ -380,13 +380,13 @@ export default function BasicTabs() {
                                             <Box sx={{ flexGrow: 1 }}>
                                                 <Grid container spacing={2}>
                                                     <Grid xs={6} md={6}>
-                                                    <div className='BulbParent activity lead'>
-                                                            <div class="blink"><EmojiObjectsIcon style={{fontSize:'70px'}} /></div>
+                                                        <div className='fullReportBtn'>
+                                                            <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
                                                         </div>
                                                     </Grid>
                                                     <Grid xs={6} md={6}>
-                                                        <div className='BulbParent'>
-                                                            <img src="https://images.pexels.com/photos/577514/pexels-photo-577514.jpeg" alt="img" />
+                                                        <div className='activity lead'>
+                                                            <div class="blink"><EmojiObjectsIcon style={{ fontSize: '70px' }} /></div>
                                                         </div>
                                                     </Grid>
                                                 </Grid>
@@ -459,8 +459,8 @@ export default function BasicTabs() {
                                                         </div>
                                                     </Grid>
                                                     <Grid xs={6} md={6}>
-                                                    <div className='activity lead'>
-                                                            <div class="blink"><EmojiObjectsIcon style={{fontSize:'70px'}} /></div>
+                                                        <div className='activity lead'>
+                                                            <div class="blink"><EmojiObjectsIcon style={{ fontSize: '70px' }} /></div>
                                                         </div>
                                                     </Grid>
                                                 </Grid>
