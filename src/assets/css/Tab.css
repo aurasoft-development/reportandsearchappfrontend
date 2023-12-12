@@ -26,10 +26,7 @@
     display: flex;
 }
 
-.BulbParent {
-    height: 150px;
-    width: 150px;
-}
+
 
 .activity {
     display: flex;
@@ -64,7 +61,7 @@
 
 .fullReportBtn {
     text-align: center;
-    padding-top: 50px;
+    padding-top: 10px;
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {

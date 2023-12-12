@@ -15,8 +15,6 @@ import { useEffect } from 'react';
 import Grid from '@mui/system/Unstable_Grid';
 import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
 
-
-
 // Custom Tab Panel component
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -227,15 +225,15 @@ export default function BasicTabs() {
                                                 </tbody>
                                             </table>
 
-                                            <Box sx={{ flexGrow: 1 }}>
-                                                <Grid container spacing={2}>
+                                            <Box >
+                                                <Grid container>
                                                     <Grid xs={12} md={6}>
                                                         <div className='fullReportBtn'>
                                                             <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
                                                         </div>
                                                     </Grid>
                                                     <Grid xs={12} md={6}>
-                                                        <div className='BulbParent activity lead'>
+                                                        <div className='activity lead'>
                                                             <div class="blink"><EmojiObjectsIcon style={{fontSize:'70px'}} /></div>
                                                         </div>
                                                     </Grid>
@@ -314,8 +312,8 @@ export default function BasicTabs() {
                                                         </div>
                                                     </Grid>
                                                     <Grid xs={6} md={6}>
-                                                        <div className='BulbParent'>
-                                                            <img src="https://images.pexels.com/photos/577514/pexels-photo-577514.jpeg" alt="img" />
+                                                    <div className='activity lead'>
+                                                            <div class="blink"><EmojiObjectsIcon style={{fontSize:'70px'}} /></div>
                                                         </div>
                                                     </Grid>
                                                 </Grid>
@@ -382,8 +380,8 @@ export default function BasicTabs() {
                                             <Box sx={{ flexGrow: 1 }}>
                                                 <Grid container spacing={2}>
                                                     <Grid xs={6} md={6}>
-                                                        <div className='fullReportBtn'>
-                                                            <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
+                                                    <div className='BulbParent activity lead'>
+                                                            <div class="blink"><EmojiObjectsIcon style={{fontSize:'70px'}} /></div>
                                                         </div>
                                                     </Grid>
                                                     <Grid xs={6} md={6}>
@@ -461,8 +459,8 @@ export default function BasicTabs() {
                                                         </div>
                                                     </Grid>
                                                     <Grid xs={6} md={6}>
-                                                        <div className='BulbParent'>
-                                                            <img src="https://images.pexels.com/photos/577514/pexels-photo-577514.jpeg" alt="img" />
+                                                    <div className='activity lead'>
+                                                            <div class="blink"><EmojiObjectsIcon style={{fontSize:'70px'}} /></div>
                                                         </div>
                                                     </Grid>
                                                 </Grid>
