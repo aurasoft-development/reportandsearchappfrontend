@@ -266,7 +266,7 @@ const ThirdForm  = () => {
                             {
                                 step == 3 &&
                                 <>
-                                    <Grid container spacing={2}>
+                                    <Grid container spacing={2} className='d-flex flex-row gap-0 '>
                                         <Grid item xs={6}>
                                             <Grid>
                                                 <TextField
