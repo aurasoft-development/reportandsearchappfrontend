@@ -304,14 +304,14 @@ export default function BasicTabs() {
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <Box sx={{ flexGrow: 1 }}>
-                                                <Grid container spacing={2}>
-                                                    <Grid xs={6} md={6}>
+                                            <Box >
+                                                <Grid container>
+                                                    <Grid xs={12} md={6}>
                                                         <div className='fullReportBtn'>
                                                             <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
                                                         </div>
                                                     </Grid>
-                                                    <Grid xs={6} md={6}>
+                                                    <Grid xs={12} md={6}>
                                                         <div className='activity lead'>
                                                             <div class="blink"><EmojiObjectsIcon style={{ fontSize: '70px' }} /></div>
                                                         </div>
@@ -377,14 +377,14 @@ export default function BasicTabs() {
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <Box sx={{ flexGrow: 1 }}>
-                                                <Grid container spacing={2}>
-                                                    <Grid xs={6} md={6}>
+                                            <Box >
+                                                <Grid container>
+                                                    <Grid xs={12} md={6}>
                                                         <div className='fullReportBtn'>
                                                             <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
                                                         </div>
                                                     </Grid>
-                                                    <Grid xs={6} md={6}>
+                                                    <Grid xs={12} md={6}>
                                                         <div className='activity lead'>
                                                             <div class="blink"><EmojiObjectsIcon style={{ fontSize: '70px' }} /></div>
                                                         </div>
@@ -451,14 +451,14 @@ export default function BasicTabs() {
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <Box sx={{ flexGrow: 1 }}>
-                                                <Grid container spacing={2}>
-                                                    <Grid xs={6} md={6}>
+                                            <Box >
+                                                <Grid container>
+                                                    <Grid xs={12} md={6}>
                                                         <div className='fullReportBtn'>
                                                             <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
                                                         </div>
                                                     </Grid>
-                                                    <Grid xs={6} md={6}>
+                                                    <Grid xs={12} md={6}>
                                                         <div className='activity lead'>
                                                             <div class="blink"><EmojiObjectsIcon style={{ fontSize: '70px' }} /></div>
                                                         </div>
