@@ -93,13 +93,13 @@
     }
 
     .otp-verification{
-        width: 65%;
+        width: 100%;
     }
 }
 
 @media screen and (max-width: 580px) {
     .otp-verification{
-        width: 65%;
+        width: 100%;
     }
 }
 
@@ -109,7 +109,7 @@
         max-width: 100% !important;
     }
     .otp-verification{
-        width: 65%;
+        width: 100%;
     }
 }
 
@@ -118,7 +118,7 @@
         max-width: 100% !important;
     }
     .otp-verification{
-        width: 65%;
+        width: 100%;
     }
 
     .FormParent {
@@ -136,7 +136,7 @@
     }
 
     .otp-verification{
-        width: 55%;
+        width: 100%;
     }
 
     .otp_wrapper {
