@@ -12,8 +12,6 @@
 
 .paperStyle {
     margin: 0 auto;
-    /* position: relative; */
-    /* width: 50%; */
     padding: 20px;
     border-radius: 20px !important;
 }
@@ -55,6 +53,8 @@
 
 .css-mhc70k-MuiGrid-root {
     margin-left: -12px !important;
+    display: block !important;
+    
 }
 
 .mt {
@@ -147,9 +147,9 @@
         padding: 1% 5% !important;
     }
 
-    .css-mhc70k-MuiGrid-root>.MuiGrid-item {
+    /* .css-mhc70k-MuiGrid-root>.MuiGrid-item {
         padding-top: 0px !important;
-    }
+    } */
 
     .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
         letter-spacing: 0px !important;
