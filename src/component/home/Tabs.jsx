@@ -229,7 +229,7 @@ export default function BasicTabs() {
                                                 <Grid container>
                                                     <Grid xs={12} md={6}>
                                                         <div className='fullReportBtn'>
-                                                            <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
+                                                            <Button className=' mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
                                                         </div>
                                                     </Grid>
                                                     <Grid xs={12} md={6}>
@@ -307,7 +307,7 @@ export default function BasicTabs() {
                                                 <Grid container>
                                                     <Grid xs={12} md={6}>
                                                         <div className='fullReportBtn'>
-                                                            <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
+                                                            <Button className='mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
                                                         </div>
                                                     </Grid>
                                                     <Grid xs={12} md={6}>
@@ -380,7 +380,7 @@ export default function BasicTabs() {
                                                 <Grid container>
                                                     <Grid xs={12} md={6}>
                                                         <div className='fullReportBtn'>
-                                                            <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
+                                                            <Button className=' mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
                                                         </div>
                                                     </Grid>
                                                     <Grid xs={12} md={6}>
@@ -454,7 +454,7 @@ export default function BasicTabs() {
                                                 <Grid container>
                                                     <Grid xs={12} md={6}>
                                                         <div className='fullReportBtn'>
-                                                            <Button className='m-2 mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
+                                                            <Button className='mainButton' variant="contained" onClick={payMent}>Click here for full report</Button>
                                                         </div>
                                                     </Grid>
                                                     <Grid xs={12} md={6}>
