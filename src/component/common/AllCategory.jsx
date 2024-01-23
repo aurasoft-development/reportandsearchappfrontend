@@ -10,6 +10,7 @@ import SecondForm from '../form/SecondForm';
 import FirstForm from '../form/FirstForm';
 import ThirdForm from '../form/ThirdForm';
 import ForthForm from '../form/ForthForm';
+import CategoryIcon from '@mui/icons-material/Category';
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -60,11 +61,23 @@ const AllCategory = () => {
             <Box className='allcategoryParent p-2'>
                 <div className='tab_sec_container completeBox'>
                     <Box >
-                        <Tabs  value={value} onChange={handleChange} aria-label="basic tabs example">
-                                <Tab label='Category 1' {...a11yProps(0)} className='mt-3 TabChild' />
-                                <Tab label='Category 2' {...a11yProps(1)} className='mt-3 TabChild' />
-                                <Tab label='Category 3' {...a11yProps(2)} className='mt-3 TabChild' />
-                                <Tab label='Category 4' {...a11yProps(3)} className='mt-3 TabChild' />
+                        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                            <Tab label={<Box display="flex" alignItems="center"> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 1</span> </Box>}
+                                {...a11yProps(0)}
+                                className='mt-3 TabChild'
+                            />
+                            <Tab label={<Box display="flex" alignItems="center"> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 2</span> </Box>}
+                                {...a11yProps(1)}
+                                className='mt-3 TabChild'
+                            />
+                            <Tab label={<Box display="flex" alignItems="center"> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 3 </span> </Box>}
+                                {...a11yProps(2)}
+                                className='mt-3 TabChild'
+                            />
+                            <Tab label={<Box display="flex" alignItems="center"> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 4</span> </Box>}
+                                {...a11yProps(3)}
+                                className='mt-3 TabChild'
+                            />
                         </Tabs>
                         {/* Tab Panel for Category1 */}
                         <CustomTabPanel value={value} index={0} >

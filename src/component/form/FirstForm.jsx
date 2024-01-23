@@ -10,6 +10,18 @@ import Loader from '../common/Loader';
 import OtpVarifacation from '../home/OtpVarifacation';
 import commonApiRequest from '../../api/commonApi';
 import { dataURItoBlob, uploadImages } from '../../utils/UploadImage';
+
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormLabel from '@mui/material/FormLabel';
+
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+
+
 const FirstForm = () => {
     const webcamRef = useRef(null);
 
@@ -19,29 +31,34 @@ const FirstForm = () => {
     const { open, setOpen, step, setStep } = FindState()
     const [isLoading, setIsLoading] = useState(false);
     const [isLoading2, setIsLoading2] = useState(false);
+    const [complainRegistered, setComplainRegistered] = useState('');
+    const [selectedDate , setSelectedDate] = useState("")
+
+
+
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        uid: '',
-        name: '',
-        address: '',
-        number: '',
+        iMEINo: '',
+        make: '',
+        colour: '',
+        model: '',
     });
 
 
     // Validation functions for form fields
-    const validUID = (uid) => {
-        return uid.trim() !== ''
+    const validiMEINo = (iMEINo) => {
+        return iMEINo.trim() !== ''
     }
 
-    const validName = (name) => {
-        return name.trim() !== ''
+    const validName = (make) => {
+        return make.trim() !== ''
     }
 
-    const validNumber = (number) => {
-        return number.trim !== ''
+    const validmodel = (model) => {
+        return model.trim !== ''
     }
-    const validAddress = (address) => {
-        return address.trim() !== ''
+    const validcolour = (colour) => {
+        return colour.trim() !== ''
     }
     // Function to capture selfie using webcam
     const captureSelfie = async () => {
@@ -92,22 +109,35 @@ const FirstForm = () => {
         });
     };
 
+    // function to get selected value of complain registered
+    const handleRadioChange = (event) => {
+        setComplainRegistered(event.target.value);
+    };
+
+    //function to get selected date 
+    const handleDateChange = (date) => {
+        console.log(date);
+        setSelectedDate(date)
+    }
+
+    console.log("fd", selectedDate);
+
     // Validation function for form fields
     const validationFunction = () => {
         try {
-            if (!validUID(formData.uid)) {
-                return toast.error("Enter valid UID.");
+            if (!validiMEINo(formData.iMEINo)) {
+                return toast.error("Enter valid iMEINo.");
             }
-            if (!validName(formData.name)) {
-                return toast.error("Enter valid name.");
+            if (!validName(formData.make)) {
+                return toast.error("Enter valid make.");
             }
-            if (!validNumber(formData.number)) {
-                return toast.error('Enter valid number.')
+            if (!validmodel(formData.model)) {
+                return toast.error('Enter valid model.')
             }
-            if (!validAddress(formData.address)) {
-                return toast.error("Enter valid address.")
+            if (!validcolour(formData.colour)) {
+                return toast.error("Enter valid colour.")
             }
-            setStep(step + 1)
+            setStep(step + 2)
         } catch (error) {
             console.log('error');
 
@@ -119,24 +149,24 @@ const FirstForm = () => {
     const onSubmit = async (value) => {
         try {
             const info = value == 1 ? {
-                uid: formData?.uid,
-                name: formData?.name,
-                number: formData?.number,
-                address: formData?.address,
+                iMEINo: formData?.iMEINo,
+                make: formData?.make,
+                model: formData?.model,
+                colour: formData?.colour,
             } : {
-                uid: formData?.uid,
-                name: formData?.name,
-                number: formData?.number,
-                address: formData?.address,
-                field1: formData?.field1,
-                field2: formData?.field2,
-                field3: formData?.field3,
-                field4: formData?.field4,
-                field5: formData?.field5,
-                field6: formData?.field6,
-                field7: formData?.field7,
-                field8: formData?.field8,
-                field9: formData?.field9,
+                iMEINo: formData?.iMEINo,
+                make: formData?.make,
+                model: formData?.model,
+                colour: formData?.colour,
+                complainNumber: formData?.complainNumber,
+                complainDetails: formData?.complainDetails,
+                city: formData?.city,
+                country: formData?.country,
+                ownerName: formData?.ownerName,
+                ownerNumber: formData?.ownerNumber,
+                selectedDate: selectedDate,
+                purchaseBillNumber: formData?.purchaseBillNumber,
+                purchaseCost: formData?.purchaseCost,
                 field10: formData?.field10,
                 field11: formData?.field11,
                 field12: formData?.field12
@@ -152,13 +182,13 @@ const FirstForm = () => {
         }
     };
 
-  return (
-    <>
-         <Grid className="p-3">
+    return (
+        <>
+            <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" className='m-2' >
-                        {step == 2 ? <h5 className="headerStyle">Please verify your mobile number</h5> : <h4 className="headerStyle">Add Category 1 Report</h4>}
-                        <span className='addcategory_icon' onClick={() => setOpen(false)}>{step == 1 }</span>
+                        {step == 2 ? <h5 className="headerStyle">Please verify your mobile model</h5> : <h4 className="headerStyle">Add Category 1 Report</h4>}
+                        <span className='addcategory_icon' onClick={() => setOpen(false)}>{step == 1}</span>
                     </Grid>
                     <div className="container FormParent">
                         <Grid container spacing={2} className='FormChild'>
@@ -168,13 +198,13 @@ const FirstForm = () => {
                                 <>
                                     <Grid item xs={12}>
                                         <TextField
-                                            label="UID"
+                                            label="IMEI No"
                                             variant="standard"
                                             color='success'
-                                            value={formData.uid}
+                                            value={formData.iMEINo}
                                             fullWidth
                                             type="text"
-                                            name="uid"
+                                            name="iMEINo"
                                             autoComplete="off"
                                             className="my-2"
                                             onChange={handleInputChange}
@@ -183,28 +213,12 @@ const FirstForm = () => {
                                     </Grid>
                                     <Grid item xs={12}>
                                         <TextField
-                                            label="Number "
+                                            label="model "
                                             variant="standard"
-                                            type='number'
-                                            value={formData.number}
+                                            type='text'
+                                            value={formData.model}
                                             fullWidth
-                                            name="number"
-                                            autoComplete="off"
-                                            className="my-2"
-                                            onChange={handleInputChange}
-                                            color='success'
-                                            required
-                                        />
-                                    </Grid>
-
-                                    <Grid item xs={12}>
-                                        <TextField
-                                            label="Name"
-                                            variant="standard"
-                                            value={formData.name}
-                                            fullWidth
-                                            type="text"
-                                            name="name"
+                                            name="model"
                                             autoComplete="off"
                                             className="my-2"
                                             onChange={handleInputChange}
@@ -215,12 +229,28 @@ const FirstForm = () => {
 
                                     <Grid item xs={12}>
                                         <TextField
-                                            label="Address"
+                                            label="Make"
                                             variant="standard"
-                                            value={formData.address}
+                                            value={formData.make}
                                             fullWidth
                                             type="text"
-                                            name="address"
+                                            name="make"
+                                            autoComplete="off"
+                                            className="my-2"
+                                            onChange={handleInputChange}
+                                            color='success'
+                                            required
+                                        />
+                                    </Grid>
+
+                                    <Grid item xs={12}>
+                                        <TextField
+                                            label="Colour"
+                                            variant="standard"
+                                            value={formData.colour}
+                                            fullWidth
+                                            type="text"
+                                            name="colour"
                                             autoComplete="off"
                                             className="my-2"
                                             onChange={handleInputChange}
@@ -229,7 +259,7 @@ const FirstForm = () => {
                                         />
                                     </Grid>
                                     <div className="text-center my-2 mt-4">
-                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() =>validationFunction()}>
+                                        <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => validationFunction()}>
                                             Save
                                         </Button>
                                     </div>
@@ -253,14 +283,50 @@ const FirstForm = () => {
                                 <>
                                     <Grid container spacing={2} className='d-flex flex-row gap-0 '>
                                         <Grid item xs={6}>
+
+                                            <Grid>
+                                                <FormControl>
+                                                    <FormLabel id="demo-radio-buttons-group-label">Complain Registered</FormLabel>
+                                                    <RadioGroup
+                                                        row
+                                                        aria-labelledby="demo-radio-buttons-group-label"
+                                                        onChange={handleRadioChange}
+                                                        value={complainRegistered}
+                                                        name="radio-buttons-group"
+                                                    >
+                                                        <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
+                                                        <FormControlLabel value="No" control={<Radio />} label="No" />
+                                                    </RadioGroup>
+                                                </FormControl>
+                                            </Grid>
+
+
+                                            {complainRegistered === 'Yes' && (
+                                                <Grid item xs={12}>
+                                                    <TextField
+                                                        label="Complain Number"
+                                                        variant="standard"
+                                                        value={formData.complainNumber}
+                                                        fullWidth
+                                                        type="text"
+                                                        name="complainNumber"
+                                                        autoComplete="off"
+                                                        className="my-2"
+                                                        onChange={handleInputChange}
+                                                        color='success'
+                                                    />
+                                                </Grid>
+                                            )}
+
+
                                             <Grid>
                                                 <TextField
-                                                    label="Field1"
+                                                    label="City"
                                                     variant="standard"
-                                                    value={formData.field1}
+                                                    value={formData.city}
                                                     fullWidth
                                                     type="text"
-                                                    name="field1"
+                                                    name="city"
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
@@ -270,12 +336,12 @@ const FirstForm = () => {
 
                                             <Grid>
                                                 <TextField
-                                                    label="Field3"
+                                                    label="Owner Name"
                                                     variant="standard"
-                                                    value={formData.field3}
+                                                    value={formData.ownerName}
                                                     fullWidth
                                                     type="text"
-                                                    name="field3"
+                                                    name="ownerName"
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
@@ -284,43 +350,23 @@ const FirstForm = () => {
                                             </Grid>
 
                                             <Grid>
-                                                <TextField
-                                                    label="Field5"
-                                                    variant="standard"
-                                                    value={formData.field5}
-                                                    fullWidth
-                                                    type="text"
-                                                    name="field5"
-                                                    autoComplete="off"
-                                                    className="my-2"
-                                                    onChange={handleInputChange}
-                                                    color='success'
-                                                />
+                                                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                                    <DemoContainer components={['DatePicker']}>
+                                                        <DatePicker label="Purchase Bill Date" onChange={handleDateChange}
+                                                            renderInput={(params) => <Typography {...params} variant="standard" />}
+                                                        />
+                                                    </DemoContainer>
+                                                </LocalizationProvider>
                                             </Grid>
 
                                             <Grid>
                                                 <TextField
-                                                    label="Field7"
+                                                    label="purchaseCost"
                                                     variant="standard"
-                                                    value={formData.field7}
+                                                    value={formData.purchaseCost}
                                                     fullWidth
                                                     type="text"
-                                                    name="field7"
-                                                    autoComplete="off"
-                                                    className="my-2"
-                                                    onChange={handleInputChange}
-                                                    color='success'
-                                                />
-                                            </Grid>
-
-                                            <Grid>
-                                                <TextField
-                                                    label="Field9"
-                                                    variant="standard"
-                                                    value={formData.field9}
-                                                    fullWidth
-                                                    type="text"
-                                                    name="field9"
+                                                    name="purchaseCost"
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
@@ -355,14 +401,33 @@ const FirstForm = () => {
                                             </FormControl>
                                         </Grid>
                                         <Grid item xs={6}>
-                                            <Grid >
+
+                                            {complainRegistered === 'Yes' && (
+                                                <Grid >
+                                                    <TextField
+                                                        label="Complain Details"
+                                                        variant="standard"
+                                                        value={formData.complainDetails}
+                                                        fullWidth
+                                                        type="text"
+                                                        name="complainDetails"
+                                                        autoComplete="off"
+                                                        className="my-2"
+                                                        onChange={handleInputChange}
+                                                        color='success'
+                                                    />
+                                                </Grid>
+                                            )}
+
+
+                                            <Grid>
                                                 <TextField
-                                                    label="Field2"
+                                                    label="Country"
                                                     variant="standard"
-                                                    value={formData.field2}
+                                                    value={formData.country}
                                                     fullWidth
                                                     type="text"
-                                                    name="field2"
+                                                    name="country"
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
@@ -372,12 +437,12 @@ const FirstForm = () => {
 
                                             <Grid>
                                                 <TextField
-                                                    label="Field4"
+                                                    label="Owner Number"
                                                     variant="standard"
-                                                    value={formData.field4}
+                                                    value={formData.ownerNumber}
                                                     fullWidth
                                                     type="text"
-                                                    name="field4"
+                                                    name="ownerNumber"
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
@@ -387,27 +452,12 @@ const FirstForm = () => {
 
                                             <Grid>
                                                 <TextField
-                                                    label="Field6"
+                                                    label="Purchase Bill Number"
                                                     variant="standard"
-                                                    value={formData.field6}
+                                                    value={formData.purchaseBillNumber}
                                                     fullWidth
                                                     type="text"
-                                                    name="field6"
-                                                    autoComplete="off"
-                                                    className="my-2"
-                                                    onChange={handleInputChange}
-                                                    color='success'
-                                                />
-                                            </Grid>
-
-                                            <Grid>
-                                                <TextField
-                                                    label="Field8"
-                                                    variant="standard"
-                                                    value={formData.field8}
-                                                    fullWidth
-                                                    type="text"
-                                                    name="field8"
+                                                    name="purchaseBillNumber"
                                                     autoComplete="off"
                                                     className="my-2"
                                                     onChange={handleInputChange}
@@ -439,7 +489,7 @@ const FirstForm = () => {
                                                         </div>
                                                     ) : (
                                                         <Button type='button' className='mainButton' onClick={() => setShowWebcam(true)}
-                                                        >Capture Your Selfie
+                                                        >Capture Image
                                                         </Button>
                                                     )}
                                                 </div>
@@ -472,9 +522,9 @@ const FirstForm = () => {
                         </Grid>
                     </div>
                 </Paper>
-            </Grid>
-    </>
-  )
+            </Grid >
+        </>
+    )
 }
 
 export default FirstForm

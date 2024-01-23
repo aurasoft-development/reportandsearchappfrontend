@@ -454,7 +454,7 @@ const ForthForm  = () => {
                                                         </div>
                                                     ) : (
                                                         <Button type='button' className='mainButton' onClick={() => setShowWebcam(true)}
-                                                        >Capture Your Selfie
+                                                        >Capture Image
                                                         </Button>
                                                     )}
                                                 </div>

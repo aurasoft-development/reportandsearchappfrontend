@@ -40,7 +40,7 @@ const AllDetails = () => {
     return (
         <div className='DetailsParent' >
 
-            {data ? <h3 className="text-center headerStyle p-2">Thanks for submitting details!</h3> : <h2 className='text-center  headerStyle p-2'>Here is {searchResult?.categories1?.uid} detailed report.</h2>}
+            {data ? <h3 className="text-center headerStyle p-2">Thanks for submitting details!</h3> : <h2 className='text-center  headerStyle p-2'>Here is {searchResult?.categories1?.iMEINo} detailed report.</h2>}
 
             <Grid container spacing={3} className='ParentGrid' ref={ComponentPdf}>
                 <Grid item xs={12} sm={6}>
@@ -52,38 +52,38 @@ const AllDetails = () => {
                             <table className="table user-view-table m-0">
                                 <tbody>
                                     <tr className='borderColor'>
-                                        <td>UID:</td>
-                                        {data ? <td>{data?.uid}</td> : <td>{searchResult?.categories1?.uid}</td>}
+                                        <td>IMEINo:</td>
+                                        {data ? <td>{data?.iMEINo}</td> : <td>{searchResult?.categories1?.iMEINo}</td>}
                                     </tr>
 
                                     <tr className='borderColor'>
-                                        <td>Name:</td>
-                                        {data ? <td>{data?.name}</td> : <td>{searchResult?.categories1?.name}</td>}
+                                        <td>Make:</td>
+                                        {data ? <td>{data?.make}</td> : <td>{searchResult?.categories1?.make}</td>}
                                     </tr>
 
                                     <tr className='borderColor'>
-                                        <td>Field1 </td>
-                                        {data ? <td>{data?.field1}</td> : <td>{searchResult?.categories1?.field1}</td>}
+                                        <td>Complain Number </td>
+                                        {data ? <td>{data?.complainNumber}</td> : <td>{searchResult?.categories1?.complainNumber}</td>}
                                     </tr>
 
                                     <tr className='borderColor'>
-                                        <td>Field3 </td>
-                                        {data ? <td>{data?.field3}</td> : <td>{searchResult?.categories1?.field3}</td>}
+                                        <td>City </td>
+                                        {data ? <td>{data?.city}</td> : <td>{searchResult?.categories1?.city}</td>}
                                     </tr>
 
                                     <tr className='borderColor'>
-                                        <td>Field5 </td>
-                                        {data ? <td>{data?.field5}</td> : <td>{searchResult?.categories1?.field5}</td>}
+                                        <td>Owner Name </td>
+                                        {data ? <td>{data?.ownerName}</td> : <td>{searchResult?.categories1?.ownerName}</td>}
                                     </tr>
 
                                     <tr className='borderColor'>
-                                        <td>Field7 </td>
-                                        {data ? <td>{data?.field7}</td> : <td>{searchResult?.categories1?.field7}</td>}
+                                        <td>Purchase Bill Date </td>
+                                        {data ? <td>{data?.selectedDate}</td> : <td>{searchResult?.categories1?.selectedDate}</td>}
                                     </tr>
 
                                     <tr className='borderColor'>
-                                        <td>Field9 </td>
-                                        {data ? <td>{data?.field9}</td> : <td>{searchResult?.categories1?.field9}</td>}
+                                        <td>Purchase Cost </td>
+                                        {data ? <td>{data?.purchaseCost}</td> : <td>{searchResult?.categories1?.purchaseCost}</td>}
                                     </tr>
 
                                     <tr className='borderColor'>
@@ -107,34 +107,34 @@ const AllDetails = () => {
                                 <tbody>
 
                                     <tr className='borderColor'>
-                                        <td>Number:</td>
+                                        <td>Model:</td>
 
-                                        {data ? <td>{data?.number}</td> : <td>{searchResult?.categories1?.number}</td>}
+                                        {data ? <td>{data?.model}</td> : <td>{searchResult?.categories1?.model}</td>}
                                     </tr>
 
                                     <tr className='borderColor'>
-                                        <td>Address:</td>
-                                        {data ? <td>{data?.address}</td> : <td>{searchResult?.categories1?.address}</td>}
+                                        <td>Colour:</td>
+                                        {data ? <td>{data?.colour}</td> : <td>{searchResult?.categories1?.colour}</td>}
                                     </tr>
 
                                     <tr className='borderColor'>
-                                        <td>Field2 </td>
-                                        {data ? <td>{data?.field2}</td> : <td>{searchResult?.categories1?.field2}</td>}
+                                        <td>Complain Details </td>
+                                        {data ? <td>{data?.complainDetails}</td> : <td>{searchResult?.categories1?.complainDetails}</td>}
                                     </tr>
 
                                     <tr className='borderColor'>
-                                        <td>Field4 </td>
-                                        {data ? <td>{data?.field4}</td> : <td>{searchResult?.categories1?.field4}</td>}
+                                        <td>Country </td>
+                                        {data ? <td>{data?.country}</td> : <td>{searchResult?.categories1?.country}</td>}
                                     </tr>
 
                                     <tr className='borderColor'>
-                                        <td>Field6 </td>
-                                        {data ? <td>{data?.field6}</td> : <td>{searchResult?.categories1?.field6}</td>}
+                                        <td>Owner Number </td>
+                                        {data ? <td>{data?.ownerNumber}</td> : <td>{searchResult?.categories1?.ownerNumber}</td>}
                                     </tr>
 
                                     <tr className='borderColor'>
-                                        <td>Field8 </td>
-                                        {data ? <td>{data?.field8}</td> : <td>{searchResult?.categories1?.field8}</td>}
+                                        <td>Purchase Bill Number </td>
+                                        {data ? <td>{data?.purchaseBillNumber}</td> : <td>{searchResult?.categories1?.purchaseBillNumber}</td>}
                                     </tr>
 
                                     <tr className='borderColor'>
