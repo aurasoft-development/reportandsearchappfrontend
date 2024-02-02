@@ -70,12 +70,14 @@ export default function BasicTabs() {
     };
 
     // Function for searching in Category1
-    const handleSearch = async (uid) => {
-        if (!uid) {
-            toast.warn('Please Enter UID.')
+    const handleSearch = async (iMEINo) => {
+        if (!iMEINo) {
+            toast.warn('Please Enter iMEINo.')
         } else {
             try {
-                const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/get_categories/by_uid?uid=${uid}`)
+                console.log("iMEINo", iMEINo);
+                const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/get_categories/by_iemiNo?iMEINo=${iMEINo}`)
+                console.log("data", data);
                 setSearchResult(data)
 
             } catch (error) {
@@ -207,20 +209,20 @@ export default function BasicTabs() {
                                             <table className="table user-view-table m-0">
                                                 <tbody>
                                                     <tr>
-                                                        <td>UID:</td>
-                                                        <td>{searchResult?.categories1?.uid}</td>
+                                                        <td>IMEINo:</td>
+                                                        <td>{searchResult?.categories1?.iMEINo}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Name:</td>
-                                                        <td>{searchResult?.categories1?.name}</td>
+                                                        <td>Make:</td>
+                                                        <td>{searchResult?.categories1?.make}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Number:</td>
-                                                        <td>{searchResult?.categories1?.number}</td>
+                                                        <td>Model:</td>
+                                                        <td>{searchResult?.categories1?.model}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Address:</td>
-                                                        <td>{searchResult?.categories1?.address}</td>
+                                                        <td>Colour:</td>
+                                                        <td>{searchResult?.categories1?.colour}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>

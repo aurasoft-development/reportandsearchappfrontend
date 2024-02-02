@@ -16,10 +16,10 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+// import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 
 const FirstForm = () => {
@@ -32,7 +32,7 @@ const FirstForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isLoading2, setIsLoading2] = useState(false);
     const [complainRegistered, setComplainRegistered] = useState('');
-    const [selectedDate , setSelectedDate] = useState("")
+    const [selectedDate, setSelectedDate] = useState("")
 
 
 
@@ -281,6 +281,7 @@ const FirstForm = () => {
                             {
                                 step == 3 &&
                                 <>
+                                <h4>Optional Information</h4>
                                     <Grid container spacing={2} className='d-flex flex-row gap-0 '>
                                         <Grid item xs={6}>
 
@@ -299,6 +300,7 @@ const FirstForm = () => {
                                                     </RadioGroup>
                                                 </FormControl>
                                             </Grid>
+
 
 
                                             {complainRegistered === 'Yes' && (
@@ -349,6 +351,8 @@ const FirstForm = () => {
                                                 />
                                             </Grid>
 
+                                            {/*  
+
                                             <Grid>
                                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                                     <DemoContainer components={['DatePicker']}>
@@ -358,6 +362,8 @@ const FirstForm = () => {
                                                     </DemoContainer>
                                                 </LocalizationProvider>
                                             </Grid>
+
+                                            */}
 
                                             <Grid>
                                                 <TextField
