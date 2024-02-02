@@ -29,6 +29,7 @@ const AllDetails = () => {
     // useEffect to retrieve and set data from localStorage when the component mounts
     useEffect(() => {
         const Info = JSON.parse(localStorage.getItem('category1'))
+        console.log("dfdf", Info);
         setData(Info)
     }, [])
 

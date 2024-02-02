@@ -16,10 +16,10 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 
-// import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 
 const FirstForm = () => {
@@ -116,7 +116,6 @@ const FirstForm = () => {
 
     //function to get selected date 
     const handleDateChange = (date) => {
-        console.log(date);
         setSelectedDate(date)
     }
 
@@ -351,7 +350,6 @@ const FirstForm = () => {
                                                 />
                                             </Grid>
 
-                                            {/*  
 
                                             <Grid>
                                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -363,7 +361,6 @@ const FirstForm = () => {
                                                 </LocalizationProvider>
                                             </Grid>
 
-                                            */}
 
                                             <Grid>
                                                 <TextField
