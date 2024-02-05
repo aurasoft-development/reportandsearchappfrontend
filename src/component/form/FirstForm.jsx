@@ -6,20 +6,14 @@ import Webcam from 'react-webcam';
 import { FindState } from '../../context/FindContext';
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
-import Loader from '../common/Loader';
 import OtpVarifacation from '../home/OtpVarifacation';
 import commonApiRequest from '../../api/commonApi';
 import { dataURItoBlob, uploadImages } from '../../utils/UploadImage';
-
+import CircularProgress from '@mui/material/CircularProgress';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
-
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 
 const FirstForm = () => {
@@ -30,11 +24,10 @@ const FirstForm = () => {
     const [captureImage, setCaptureImage] = useState("")
     const { open, setOpen, step, setStep } = FindState()
     const [isLoading, setIsLoading] = useState(false);
-    const [isLoading2, setIsLoading2] = useState(false);
+    const [isLoading2, setIsLoading2] = useState(false)
     const [complainRegistered, setComplainRegistered] = useState('');
-    const [selectedDate, setSelectedDate] = useState("")
-
-
+    // const [selectedDate, setSelectedDate] = useState("")
+    const [imeiNoError, setImeiNoError] = useState("")
 
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -42,13 +35,9 @@ const FirstForm = () => {
         make: '',
         colour: '',
         model: '',
+        selectedDate: [],
     });
 
-
-    // Validation functions for form fields
-    const validiMEINo = (iMEINo) => {
-        return iMEINo.trim() !== ''
-    }
 
     const validName = (make) => {
         return make.trim() !== ''
@@ -103,38 +92,40 @@ const FirstForm = () => {
     // Event handler for form input changes
     const handleInputChange = (event) => {
         const { name, value } = event.target;
+        setFormData((prevData) => ({ ...prevData, [name]: value }));
+    };
+
+    const handleValidation = (e) => {
+        let { name, value } = e.target;
         setFormData({
             ...formData,
             [name]: value,
-        });
+        })
+        if (/^\d{15}$/.test(value)) {
+            setImeiNoError('')
+        } else {
+            return setImeiNoError('Invalid IMEI Number')
+        }
     };
-
     // function to get selected value of complain registered
     const handleRadioChange = (event) => {
         setComplainRegistered(event.target.value);
     };
 
-    //function to get selected date 
-    const handleDateChange = (date) => {
-        setSelectedDate(date)
-    }
-
-    console.log("fd", selectedDate);
-
     // Validation function for form fields
     const validationFunction = () => {
         try {
-            if (!validiMEINo(formData.iMEINo)) {
-                return toast.error("Enter valid iMEINo.");
+            if (imeiNoError) {
+                return toast.error("Invalid IMEI Number.");
             }
             if (!validName(formData.make)) {
-                return toast.error("Enter valid make.");
+                return toast.error("field is required.");
             }
             if (!validmodel(formData.model)) {
-                return toast.error('Enter valid model.')
+                return toast.error('field is required.')
             }
             if (!validcolour(formData.colour)) {
-                return toast.error("Enter valid colour.")
+                return toast.error("field is required.")
             }
             setStep(step + 2)
         } catch (error) {
@@ -163,10 +154,9 @@ const FirstForm = () => {
                 country: formData?.country,
                 ownerName: formData?.ownerName,
                 ownerNumber: formData?.ownerNumber,
-                selectedDate: selectedDate,
+                selectedDate: formData?.selectedDate,
                 purchaseBillNumber: formData?.purchaseBillNumber,
                 purchaseCost: formData?.purchaseCost,
-                field10: formData?.field10,
                 field11: formData?.field11,
                 field12: formData?.field12
             }
@@ -206,9 +196,12 @@ const FirstForm = () => {
                                             name="iMEINo"
                                             autoComplete="off"
                                             className="my-2"
-                                            onChange={handleInputChange}
+                                            onChange={handleValidation}
+                                            error={!!imeiNoError}
+                                            helperText={imeiNoError}
                                             required
                                         />
+                                        {/* {imeiNoError !== '' && <p style={{ color: 'red' }}>{imeiNoError}</p>} */}
                                     </Grid>
                                     <Grid item xs={12}>
                                         <TextField
@@ -280,28 +273,25 @@ const FirstForm = () => {
                             {
                                 step == 3 &&
                                 <>
-                                <h4>Optional Information</h4>
+                                    <h4>Optional Information</h4>
+                                    <Grid>
+                                        <FormControl>
+                                            <FormLabel id="demo-radio-buttons-group-label">Complain Registered</FormLabel>
+                                            <RadioGroup
+                                                row
+                                                aria-labelledby="demo-radio-buttons-group-label"
+                                                onChange={handleRadioChange}
+                                                value={complainRegistered}
+                                                name="radio-buttons-group"
+                                            >
+                                                <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
+                                                <FormControlLabel value="No" control={<Radio />} label="No" />
+                                            </RadioGroup>
+                                        </FormControl>
+                                    </Grid>
                                     <Grid container spacing={2} className='d-flex flex-row gap-0 '>
+
                                         <Grid item xs={6}>
-
-                                            <Grid>
-                                                <FormControl>
-                                                    <FormLabel id="demo-radio-buttons-group-label">Complain Registered</FormLabel>
-                                                    <RadioGroup
-                                                        row
-                                                        aria-labelledby="demo-radio-buttons-group-label"
-                                                        onChange={handleRadioChange}
-                                                        value={complainRegistered}
-                                                        name="radio-buttons-group"
-                                                    >
-                                                        <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                                                        <FormControlLabel value="No" control={<Radio />} label="No" />
-                                                    </RadioGroup>
-                                                </FormControl>
-                                            </Grid>
-
-
-
                                             {complainRegistered === 'Yes' && (
                                                 <Grid item xs={12}>
                                                     <TextField
@@ -349,22 +339,24 @@ const FirstForm = () => {
                                                     color='success'
                                                 />
                                             </Grid>
-
-
-                                            <Grid>
-                                                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                                    <DemoContainer components={['DatePicker']}>
-                                                        <DatePicker label="Purchase Bill Date" onChange={handleDateChange}
-                                                            renderInput={(params) => <Typography {...params} variant="standard" />}
-                                                        />
-                                                    </DemoContainer>
-                                                </LocalizationProvider>
+                                            <Grid className='date'>
+                                                <TextField
+                                                    label="Purchase Bill Date"
+                                                    variant="standard"
+                                                    onChange={handleInputChange}
+                                                    value={formData.selectedDate}
+                                                    name='selectedDate'
+                                                    fullWidth
+                                                    type='date'
+                                                    autoComplete="off"
+                                                    className="my-2"
+                                                    color='success'
+                                                />
                                             </Grid>
-
 
                                             <Grid>
                                                 <TextField
-                                                    label="purchaseCost"
+                                                    label="Purchase Cost"
                                                     variant="standard"
                                                     value={formData.purchaseCost}
                                                     fullWidth
@@ -387,7 +379,7 @@ const FirstForm = () => {
                                                         <div className="text-center my-2 ">
                                                             {isLoading ? (
                                                                 <div className=" d-flex justify-content-center align-items-center ">
-                                                                    <Loader />
+                                                                    <CircularProgress size="2rem" />
                                                                 </div>
                                                             ) : (
                                                                 <InputAdornment position="end">
@@ -467,46 +459,37 @@ const FirstForm = () => {
                                                     color='success'
                                                 />
                                             </Grid>
-
-                                            <Grid>
-                                                <TextField
-                                                    label="Field10"
-                                                    variant="standard"
-                                                    value={formData.field10}
-                                                    fullWidth
-                                                    type="text"
-                                                    name="field10"
-                                                    autoComplete="off"
-                                                    className="my-2"
-                                                    onChange={handleInputChange}
-                                                    color='success'
-                                                />
-                                            </Grid>
-
                                             <Grid className="my-2">
 
                                                 <div className=" my-2">
-                                                    {isLoading2 ? (
-                                                        <div className="d-flex justify-content-center align-items-center ">
-                                                            <Loader />
-                                                        </div>
-                                                    ) : (
-                                                        <Button type='button' className='mainButton' onClick={() => setShowWebcam(true)}
-                                                        >Capture Image
+                                                    {
+                                                        showWebcam === true ? "" : < Button type='button' className='mainButton' onClick={() => setShowWebcam(true)}>
+                                                            Capture Image
                                                         </Button>
-                                                    )}
+                                                    }
                                                 </div>
 
                                                 {showWebcam && (
-                                                    <div>
+                                                    <div className='webcam-div'>
                                                         <Webcam
                                                             height={100}
                                                             audio={false}
                                                             ref={webcamRef}
                                                         />
-                                                        <Button type='button' className='mainButton' onClick={captureSelfie}
-                                                        >Capture Selfie
-                                                        </Button>
+                                                        <div style={{ width: '25%' }}>
+                                                            {
+                                                                isLoading2
+                                                                    ?
+                                                                    <div className="d-flex justify-content-center">
+                                                                        <CircularProgress size="2rem" />
+                                                                    </div>
+                                                                    :
+                                                                    <Button type='button' className='mainButton1' onClick={captureSelfie}>
+                                                                        Capture Selfie
+                                                                    </Button>
+                                                            }
+                                                        </div>
+
                                                     </div>
                                                 )}
                                             </Grid>
