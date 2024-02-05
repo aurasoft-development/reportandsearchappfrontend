@@ -127,7 +127,7 @@ const FirstForm = () => {
             if (!validcolour(formData.colour)) {
                 return toast.error("field is required.")
             }
-            setStep(step + 2)
+            setStep(step + 1)
         } catch (error) {
             console.log('error');
 
