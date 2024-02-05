@@ -10,9 +10,6 @@ import { Link, useParams } from 'react-router-dom';
 // Component for displaying details of a submitted category
 const CategoryDetails = () => {
 
-
-
-
     // State variable to store data retrieved from localStorage
     const [data, setData] = useState()
 
@@ -126,12 +123,6 @@ const CategoryDetails = () => {
                                         data?.field8 ? <tr className='borderColor'>
                                             <td>Field8 </td>
                                             <td>{data?.field8}</td>
-                                        </tr> : ""
-                                    }
-                                    {
-                                        data?.field10 ? <tr className='borderColor'>
-                                            <td>Field10 </td>
-                                            <td>{data?.field10}</td>
                                         </tr> : ""
                                     }
                                     {

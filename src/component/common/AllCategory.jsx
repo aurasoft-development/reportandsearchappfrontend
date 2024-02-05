@@ -62,19 +62,19 @@ const AllCategory = () => {
                 <div className='tab_sec_container completeBox'>
                     <Box >
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab label={<Box display="flex" alignItems="center"> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 1</span> </Box>}
+                            <Tab label={<Box className='box-category'> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 1</span> </Box>}
                                 {...a11yProps(0)}
                                 className='mt-3 TabChild'
                             />
-                            <Tab label={<Box display="flex" alignItems="center"> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 2</span> </Box>}
+                            <Tab label={<Box className='box-category'> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 2</span> </Box>}
                                 {...a11yProps(1)}
                                 className='mt-3 TabChild'
                             />
-                            <Tab label={<Box display="flex" alignItems="center"> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 3 </span> </Box>}
+                            <Tab label={<Box className='box-category'> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 3 </span> </Box>}
                                 {...a11yProps(2)}
                                 className='mt-3 TabChild'
                             />
-                            <Tab label={<Box display="flex" alignItems="center"> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 4</span> </Box>}
+                            <Tab label={<Box className='box-category'> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 4</span> </Box>}
                                 {...a11yProps(3)}
                                 className='mt-3 TabChild'
                             />

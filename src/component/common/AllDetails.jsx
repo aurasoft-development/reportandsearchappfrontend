@@ -137,12 +137,6 @@ const AllDetails = () => {
                                         <td>Purchase Bill Number </td>
                                         {data ? <td>{data?.purchaseBillNumber}</td> : <td>{searchResult?.categories1?.purchaseBillNumber}</td>}
                                     </tr>
-
-                                    <tr className='borderColor'>
-                                        <td>Field10 </td>
-                                        {data ? <td>{data?.field10}</td> : <td>{searchResult?.categories1?.field10}</td>}
-                                    </tr>
-
                                     <tr className='borderColor'>
                                         <td>User Selfie</td>
                                         {data ? <td><img width={"100px"} height={"100px"} src={data?.field12?.url} alt="" /></td> : <td><img width={"100px"} height={"100px"} src={searchResult?.categories1?.field12?.url} alt="selfie" /></td>}

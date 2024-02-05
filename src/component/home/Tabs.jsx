@@ -14,6 +14,7 @@ import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 import Grid from '@mui/system/Unstable_Grid';
 import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
+import CategoryIcon from '@mui/icons-material/Category';
 
 // Custom Tab Panel component
 function CustomTabPanel(props) {
@@ -167,10 +168,23 @@ export default function BasicTabs() {
                         <span className="completeBox"></span>
                     </CustomTabPanel>
                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                        <Tab style={{ color: 'white' }} label='Category 1' {...a11yProps(0)} />
-                        <Tab style={{ color: 'white' }} label='Category 2' {...a11yProps(1)} />
-                        <Tab style={{ color: 'white' }} label='Category 3' {...a11yProps(2)} />
-                        <Tab style={{ color: 'white' }} label='Category 4' {...a11yProps(3)} />
+                        {/* <Tab style={{ color: 'white' }} label='Category 1' {...a11yProps(0)} /> */}
+                        <Tab label={<Box className='box-category'>  <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 1</span> </Box>}
+                            {...a11yProps(0)}
+                            className='mt-3 TabChild'
+                        />
+                        <Tab label={<Box className='box-category'> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 2</span> </Box>}
+                            {...a11yProps(1)}
+                            className='mt-3 TabChild'
+                        />
+                        <Tab label={<Box className='box-category'> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 2</span> </Box>}
+                            {...a11yProps(2)}
+                            className='mt-3 TabChild'
+                        />
+                        <Tab label={<Box className='box-category'> <CategoryIcon /> <span variant="body1" sx={{ marginLeft: '4px' }}>Category 4</span> </Box>}
+                            {...a11yProps(4)}
+                            className='mt-3 TabChild'
+                        />
                     </Tabs>
                 </Box>
                 <Box>
@@ -183,10 +197,10 @@ export default function BasicTabs() {
                                         type="search"
                                         autoComplete="off"
                                         id="search"
-                                        placeholder="Enter UID"
+                                        placeholder="Search"
                                         className='SearchTextfield'
                                         color="success"
-                                        label="Enter UID"
+                                        label="Search"
                                         onChange={(e) => setSearhData(e.target.value)}
                                     />
                                     <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch(searchData)}>Search</Button>
