@@ -7,6 +7,7 @@ import '../../assets/css/Common.css'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { useReactToPrint } from "react-to-print"
+import { ConvertDate } from '../../utils/convetDate';
 
 
 const AllDetails = () => {
@@ -79,7 +80,7 @@ const AllDetails = () => {
 
                                     <tr className='borderColor'>
                                         <td>Purchase Bill Date </td>
-                                        {data ? <td>{data?.selectedDate}</td> : <td>{searchResult?.categories1?.selectedDate}</td>}
+                                        {data ? <td>{data?.selectedDate?.length > 0 ? ConvertDate(data?.selectedDate) : ""}</td> : <td> {searchResult?.categories1?.selectedDate ? ConvertDate(searchResult?.categories1?.selectedDate) : ''}</td>}
                                     </tr>
 
                                     <tr className='borderColor'>
