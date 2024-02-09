@@ -119,18 +119,18 @@ const FirstForm = () => {
                 return toast.error("Invalid IMEI Number.");
             }
             if (!validName(formData.make)) {
-                return toast.error("field is required.");
+                return toast.error("Please fill all required fields.");
             }
             if (!validmodel(formData.model)) {
-                return toast.error('field is required.')
+                return toast.error('Please fill all required fields.')
             }
             if (!validcolour(formData.colour)) {
-                return toast.error("field is required.")
+                return toast.error("Please fill all required fields.")
             }
             if (!complainRegistered) {
-                return toast.error("Plaese select Yes or No .")
+                return toast.error("Please fill all required fields.")
             }
-            setStep(step + 2)
+            setStep(step + 1)
         } catch (error) {
             console.log('error');
 
@@ -328,8 +328,8 @@ const FirstForm = () => {
                                 step == 3 &&
                                 <>
 
+                                    <h4>Optional Information</h4>
                                     <Grid container spacing={2} className='d-flex flex-row gap-0 '>
-                                        <h4 style={{ paddingLeft: '15px' }}>Optional Information</h4>
                                         <Grid item xs={6}>
                                             <Grid>
                                                 <TextField

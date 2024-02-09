@@ -199,7 +199,7 @@ export default function BasicTabs() {
                                         placeholder="Search"
                                         className='SearchTextfield'
                                         color="success"
-                                        label="Enter your IMEI No."
+                                        label="Enter Your IMEI No."
                                         onChange={(e) => setSearhData(e.target.value)}
                                     />
                                     <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch(searchData)}>Search</Button>
