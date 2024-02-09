@@ -119,13 +119,16 @@ const FirstForm = () => {
                 return toast.error("Invalid IMEI Number.");
             }
             if (!validName(formData.make)) {
-                return toast.error("field is required.");
+                return toast.error("Please fill all required fields.");
             }
             if (!validmodel(formData.model)) {
-                return toast.error('field is required.')
+                return toast.error('Please fill all required fields.')
             }
             if (!validcolour(formData.colour)) {
-                return toast.error("field is required.")
+                return toast.error("Please fill all required fields.")
+            }
+            if (!complainRegistered) {
+                return toast.error("Please fill all required fields.")
             }
             setStep(step + 1)
         } catch (error) {
@@ -143,6 +146,8 @@ const FirstForm = () => {
                 make: formData?.make,
                 model: formData?.model,
                 colour: formData?.colour,
+                complainNumber: formData?.complainNumber,
+                complainDetails: formData?.complainDetails,
             } : {
                 iMEINo: formData?.iMEINo,
                 make: formData?.make,
@@ -205,7 +210,7 @@ const FirstForm = () => {
                                     </Grid>
                                     <Grid item xs={12}>
                                         <TextField
-                                            label="model "
+                                            label="Model "
                                             variant="standard"
                                             type='text'
                                             value={formData.model}
@@ -250,6 +255,55 @@ const FirstForm = () => {
                                             required
                                         />
                                     </Grid>
+                                    <Grid item xs={12}>
+                                        <FormControl>
+                                            <FormLabel id="demo-radio-buttons-group-label">Complain Registered</FormLabel>
+                                            <RadioGroup
+                                                row
+                                                aria-labelledby="demo-radio-buttons-group-label"
+                                                onChange={handleRadioChange}
+                                                value={complainRegistered}
+                                                name="radio-buttons-group"
+                                            >
+                                                <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
+                                                <FormControlLabel value="No" control={<Radio />} label="No" />
+                                            </RadioGroup>
+                                        </FormControl>
+                                    </Grid>
+                                    {complainRegistered === 'Yes' && (
+                                        <Grid item xs={12}>
+                                            <TextField
+                                                label="Complain Details"
+                                                variant="standard"
+                                                value={formData.complainDetails}
+                                                fullWidth
+                                                type="text"
+                                                name="complainDetails"
+                                                autoComplete="off"
+                                                className="my-2"
+                                                onChange={handleInputChange}
+                                                color='success'
+                                            />
+                                        </Grid>
+                                    )}
+                                    {complainRegistered === 'Yes' && (
+                                        <Grid item xs={12}>
+                                            <TextField
+                                                label="Complain Number"
+                                                variant="standard"
+                                                value={formData.complainNumber}
+                                                fullWidth
+                                                type="text"
+                                                name="complainNumber"
+                                                autoComplete="off"
+                                                className="my-2"
+                                                onChange={handleInputChange}
+                                                color='success'
+                                            />
+                                        </Grid>
+                                    )}
+
+
                                     <div className="text-center my-2 mt-4">
                                         <Button variant="contained" type="submit" className="m-2 mainButton" onClick={() => validationFunction()}>
                                             Save
@@ -273,43 +327,10 @@ const FirstForm = () => {
                             {
                                 step == 3 &&
                                 <>
+
                                     <h4>Optional Information</h4>
-                                    <Grid>
-                                        <FormControl>
-                                            <FormLabel id="demo-radio-buttons-group-label">Complain Registered</FormLabel>
-                                            <RadioGroup
-                                                row
-                                                aria-labelledby="demo-radio-buttons-group-label"
-                                                onChange={handleRadioChange}
-                                                value={complainRegistered}
-                                                name="radio-buttons-group"
-                                            >
-                                                <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                                                <FormControlLabel value="No" control={<Radio />} label="No" />
-                                            </RadioGroup>
-                                        </FormControl>
-                                    </Grid>
                                     <Grid container spacing={2} className='d-flex flex-row gap-0 '>
-
                                         <Grid item xs={6}>
-                                            {complainRegistered === 'Yes' && (
-                                                <Grid item xs={12}>
-                                                    <TextField
-                                                        label="Complain Number"
-                                                        variant="standard"
-                                                        value={formData.complainNumber}
-                                                        fullWidth
-                                                        type="text"
-                                                        name="complainNumber"
-                                                        autoComplete="off"
-                                                        className="my-2"
-                                                        onChange={handleInputChange}
-                                                        color='success'
-                                                    />
-                                                </Grid>
-                                            )}
-
-
                                             <Grid>
                                                 <TextField
                                                     label="City"
@@ -396,25 +417,6 @@ const FirstForm = () => {
                                             </FormControl>
                                         </Grid>
                                         <Grid item xs={6}>
-
-                                            {complainRegistered === 'Yes' && (
-                                                <Grid >
-                                                    <TextField
-                                                        label="Complain Details"
-                                                        variant="standard"
-                                                        value={formData.complainDetails}
-                                                        fullWidth
-                                                        type="text"
-                                                        name="complainDetails"
-                                                        autoComplete="off"
-                                                        className="my-2"
-                                                        onChange={handleInputChange}
-                                                        color='success'
-                                                    />
-                                                </Grid>
-                                            )}
-
-
                                             <Grid>
                                                 <TextField
                                                     label="Country"

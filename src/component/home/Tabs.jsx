@@ -76,7 +76,6 @@ export default function BasicTabs() {
             toast.warn('Please Enter iMEINo.')
         } else {
             try {
-                console.log("iMEINo", iMEINo);
                 const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/get_categories/by_iemiNo?iMEINo=${iMEINo}`)
                 console.log("data", data);
                 setSearchResult(data)
@@ -200,7 +199,7 @@ export default function BasicTabs() {
                                         placeholder="Search"
                                         className='SearchTextfield'
                                         color="success"
-                                        label="Search"
+                                        label="Enter Your IMEI No."
                                         onChange={(e) => setSearhData(e.target.value)}
                                     />
                                     <Button variant="contained" className='searchButton mainButton mx-2' onClick={() => handleSearch(searchData)}>Search</Button>
