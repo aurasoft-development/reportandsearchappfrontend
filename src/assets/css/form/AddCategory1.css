@@ -63,6 +63,17 @@
     left: 100px !important;
 }
 
+.addFirst {
+    overflow: auto;
+    height: 400px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.addFirst::-webkit-scrollbar {
+    display: none;
+}
+
 .mt {
     margin-top: 20px !important;
 }
@@ -116,7 +127,12 @@
     .otp-verification {
         width: 100%;
     }
+
+    .d-flex {
+        display: block !important;
+    }
 }
+
 
 @media screen and (max-width: 426px) {
     .css-1g395jg {

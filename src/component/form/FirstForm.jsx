@@ -130,7 +130,7 @@ const FirstForm = () => {
             if (!complainRegistered) {
                 return toast.error("Please fill all required fields.")
             }
-            setStep(step + 1)
+            setStep(step + 2)
         } catch (error) {
             console.log('error');
 
@@ -181,7 +181,7 @@ const FirstForm = () => {
             <Grid className="p-3">
                 <Paper elevation={20} className="paperStyle">
                     <Grid align="center" className='m-2' >
-                        {step == 2 ? <h5 className="headerStyle">Please verify your mobile model</h5> : <h4 className="headerStyle">Add Category 1 Report</h4>}
+                        {step == 2 ? <h5 className="headerStyle">Please verify your mobile number</h5> : <h4 className="headerStyle">Add Category 1 Report</h4>}
                         <span className='addcategory_icon' onClick={() => setOpen(false)}>{step == 1}</span>
                     </Grid>
                     <div className="container FormParent">
@@ -327,10 +327,9 @@ const FirstForm = () => {
                             {
                                 step == 3 &&
                                 <>
-
-                                    <h4>Optional Information</h4>
-                                    <Grid container spacing={2} className='d-flex flex-row gap-0 '>
-                                        <Grid item xs={6}>
+                                    <div style={{ marginBottom: '20px', fontSize: '20px' }}>Optional Information</div>
+                                    <Grid container spacing={2} className='d-flex flex-row gap-0 addFirst'>
+                                        <Grid item xs={12} md={6}>
                                             <Grid>
                                                 <TextField
                                                     label="City"
@@ -416,7 +415,7 @@ const FirstForm = () => {
                                                 />
                                             </FormControl>
                                         </Grid>
-                                        <Grid item xs={6}>
+                                        <Grid item xs={12} md={6}>
                                             <Grid>
                                                 <TextField
                                                     label="Country"
