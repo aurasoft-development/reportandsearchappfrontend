@@ -130,7 +130,7 @@ const FirstForm = () => {
             if (!complainRegistered) {
                 return toast.error("Please fill all required fields.")
             }
-            setStep(step + 2)
+            setStep(step + 1)
         } catch (error) {
             console.log('error');
 
