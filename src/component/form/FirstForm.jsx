@@ -62,7 +62,7 @@ const FirstForm = () => {
                         field12: response.data
                     }
                 })
-                toast.success("File uploaded successfully")
+                toast.success("Image uploaded successfully")
                 setIsLoading2(false);
             }
         }
@@ -83,7 +83,7 @@ const FirstForm = () => {
                         field11: response.data
                     }
                 })
-                toast.success("File uploaded successfully")
+                toast.success("Image uploaded successfully")
                 setIsLoading(false);
             }
         }
@@ -192,7 +192,7 @@ const FirstForm = () => {
                                 <>
                                     <Grid item xs={12}>
                                         <TextField
-                                            label="IMEI No"
+                                            label="Enter IMEI e.g. 123456789012345"
                                             variant="standard"
                                             color='success'
                                             value={formData.iMEINo}

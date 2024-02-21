@@ -60,7 +60,7 @@ const OtpVarifacation = () => {
       .then((confirmationResult) => {
         window.confirmationResult = confirmationResult;
         setLoading(false)
-        toast.success("OTP sended successfully!");
+        toast.success("OTP sent successfully!");
         setFlag(true)
       })
       .catch((error) => {
@@ -102,7 +102,7 @@ const OtpVarifacation = () => {
           />
           <div className='btn-div'>
             {loading == true ? <CircularProgress /> : ""}
-            <Button variant="contained" className='mainButton' onClick={() => onSignup()}>Send Otp</Button>
+            <Button variant="contained" className='mainButton' onClick={() => onSignup()}>Send OTP</Button>
           </div>
 
           {/* Container for reCAPTCHA */}
@@ -121,7 +121,7 @@ const OtpVarifacation = () => {
           />
           <div className='verify-otp-btn'>
             {loading == true ? <CircularProgress /> : ""}
-            <Button className='mainButton' variant="contained" onClick={() => onOTPVerify()}>verify otp</Button>
+            <Button className='mainButton' variant="contained" onClick={() => onOTPVerify()}>Verify OTP</Button>
           </div>
         </div>
       </div>
