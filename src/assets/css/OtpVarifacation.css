@@ -6,7 +6,8 @@
 }
 
 .otp_wrapper {
-    /* width: 100%; */
+    width: 100%;
+    max-width: 400px;
     padding: 20px;
     border: 1px solid rgb(52, 50, 50);
     border-radius: 8px;
@@ -54,40 +55,41 @@
     margin: 0 0 10px 40px !important;
 }
 
-@media(max-width:1920px){
+@media(max-width:1920px) {
     #recaptcha-container {
         width: 350px !important;
     }
 }
 
-@media(max-width:1440px){
+@media(max-width:1440px) {
     #recaptcha-container {
         width: 350px !important;
     }
 }
 
-@media(max-width:1024px){
+@media(max-width:1024px) {
     #recaptcha-container {
         width: 340px !important;
     }
 }
 
-@media(max-width:768px){
+@media(max-width:768px) {
     .otp_wrapper {
         width: 100%;
     }
+
     #recaptcha-container {
         width: 335px !important;
     }
 }
 
-@media(max-width:500px){
+@media(max-width:500px) {
     .otp_wrapper {
         width: 100%;
     }
 }
 
-@media(max-width:376px){
+@media(max-width:376px) {
     #recaptcha-container {
         width: 320px !important;
     }

@@ -59,8 +59,12 @@
 
 .date .css-llg55a-MuiFormLabel-root-MuiInputLabel-root {
     position: absolute !important;
-    top: 0px !important;
-    left: 100px !important;
+    top: -25px !important;
+}
+
+.date .css-18kpda5 {
+    position: absolute !important;
+    top: -25px !important;
 }
 
 .addFirst {
